@@ -171,33 +171,14 @@ class SymbolicRange(SymbolicObject):
         # Compare ranges symbolically
         # For symbolic execution, we create a symbolic expression
         # comparing start, stop, and step values
-        if isinstance(other, SymbolicRange):
-            # Compare all three components
-            start_eq = self.start == other.start
-            stop_eq = self.stop == other.stop  
-            step_eq = self.step == other.step
-            # Range equality requires all three components to be equal
-            return self._do_sexpr([self, other],
-                                 lambda x, y: x.range_obj == y.range_obj,
-                                 "range.eq", SymbolicInteger.wrap)
-        elif isinstance(other, range):
-            # Compare with concrete range
-            start_eq = self.start == other.start
-            stop_eq = self.stop == other.stop
-            step_eq = self.step == other.step
-            return self._do_sexpr([self, other],
-                                 lambda x, y: x.range_obj == y,
-                                 "range.eq", SymbolicInteger.wrap)
-        else:
-            # Not comparable
-            return self._do_sexpr([self, other],
-                                 lambda x, y: False,
-                                 "range.eq", SymbolicInteger.wrap)
+        return self._do_sexpr([self, other],
+                             lambda x, y: x == y,
+                             "range.eq", SymbolicInteger.wrap)
     
     def __ne__(self, other):
         # Range inequality
         return self._do_sexpr([self, other],
-                             lambda x, y: x.range_obj != y.range_obj if isinstance(y, SymbolicRange) else x.range_obj != y,
+                             lambda x, y: x != y,
                              "range.ne", SymbolicInteger.wrap)
     
     def __lt__(self, other):

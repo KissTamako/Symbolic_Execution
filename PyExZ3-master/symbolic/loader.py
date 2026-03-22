@@ -4,8 +4,10 @@ import inspect
 import re
 import os
 import sys
+import types
 from .invocation import FunctionInvocation
 from .symbolic_types import SymbolicInteger, getSymbolic
+from .ast_upcaster import transform_source_code
 
 # The built-in definition of len wraps the return value in an int() constructor, destroying any symbolic types.
 # By redefining len here we can preserve symbolic integer types.
@@ -94,10 +96,57 @@ class Loader:
 		try:
 			if (not firstpass and self._fileName in sys.modules):
 				del(sys.modules[self._fileName])
-			self.app =__import__(self._fileName)
+			
+			# 获取文件完整路径
+			# 首先尝试从sys.path中查找文件
+			file_path = None
+			for path_dir in sys.path:
+				possible_path = os.path.join(path_dir, f"{self._fileName}.py")
+				if os.path.exists(possible_path):
+					file_path = possible_path
+					break
+			
+			# 如果没找到，使用当前工作目录
+			if file_path is None:
+				file_path = os.path.join(os.getcwd(), f"{self._fileName}.py")
+			
+			# 读取源文件内容（处理编码问题）
+			# 先尝试UTF-8，如果失败则尝试系统默认编码
+			source_code = None
+			encodings_to_try = ['utf-8', 'utf-8-sig', 'gbk', 'cp936', 'latin-1']
+			
+			for encoding in encodings_to_try:
+				try:
+					with open(file_path, 'r', encoding=encoding) as f:
+						source_code = f.read()
+					break
+				except UnicodeDecodeError:
+					continue
+			
+			if source_code is None:
+				# 如果所有编码都失败，使用二进制读取
+				with open(file_path, 'rb') as f:
+					binary_content = f.read()
+				# 尝试UTF-8解码，忽略错误
+				source_code = binary_content.decode('utf-8', errors='ignore')
+			
+			# AST转换（常量提升）- 默认启用
+			transformed_source, code_obj = transform_source_code(source_code, enable_upcasting=True)
+			
+			# 创建模块对象
+			module = types.ModuleType(self._fileName)
+			
+			# 执行转换后的代码
+			exec(code_obj, module.__dict__)
+			
+			# 注册模块
+			sys.modules[self._fileName] = module
+			self.app = module
+			
 			if not self._entryPoint in self.app.__dict__ or not callable(self.app.__dict__[self._entryPoint]):
 				print("File " +  self._fileName + ".py doesn't contain a function named " + self._entryPoint)
 				raise ImportError()
+				
 		except Exception as arg:
 			print("Couldn't import " + self._fileName)
 			print(arg)

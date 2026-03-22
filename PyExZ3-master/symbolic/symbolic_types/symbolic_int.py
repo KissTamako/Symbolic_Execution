@@ -174,3 +174,60 @@ def __rdivmod__(self, other):
 SymbolicInteger.__divmod__ = __divmod__
 SymbolicInteger.__rdivmod__ = __rdivmod__
 
+# 内置构造函数符号化支持
+@classmethod
+def from_symbolic(cls, value, base=None):
+    """
+    符号版本的int()构造函数
+    
+    根据PyCT论文：int(x) → SymbolicInteger("int", x, ["int", x.expr])
+    
+    参数：
+    value: 要转换的值，可以是具体值或符号对象
+    base: 进制基数（可选）
+    
+    返回：
+    SymbolicInteger对象
+    """
+    # 处理进制基数（目前简化处理，不支持符号基数）
+    if base is not None:
+        # 如果有base参数，先转换为具体值处理
+        # 注意：这里简化处理，实际应该支持符号base
+        if hasattr(value, 'getConcrValue'):
+            concrete_value = value.getConcrValue()
+        else:
+            concrete_value = value
+        
+        # 使用指定进制转换
+        try:
+            if isinstance(concrete_value, str):
+                concrete_result = int(concrete_value, base)
+            else:
+                # 如果不是字符串，先转换为字符串再转换
+                concrete_result = int(str(concrete_value), base)
+        except ValueError as e:
+            # 转换失败，返回具体异常（未来可以支持符号异常）
+            raise e
+        
+        # 创建符号整数（暂时没有符号表达式）
+        return cls(f"int_base{base}", concrete_result, None)
+    
+    # 无base参数的情况
+    if hasattr(value, 'getConcrValue'):
+        # 如果value已经是符号类型，保持符号信息
+        concrete_value = value.getConcrValue()
+        
+        # 创建符号表达式：["int", value.expr] 或 ["int", value]如果value是变量
+        if value.isVariable():
+            symbolic_expr = ["int", value]
+        else:
+            symbolic_expr = ["int", value.expr]
+        
+        # 创建新的SymbolicInteger对象
+        return cls("int", int(concrete_value), symbolic_expr)
+    else:
+        # 如果value是具体值，创建普通符号对象
+        return cls("int", int(value), ["int", value])
+
+SymbolicInteger.from_symbolic = from_symbolic
+

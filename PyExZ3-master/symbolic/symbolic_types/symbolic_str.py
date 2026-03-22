@@ -474,3 +474,35 @@ for (name,op) in ops:
     rmethod  = "__r%s__" % name
     make_method(rmethod,op,"[other,self]")
 
+# 内置构造函数符号化支持
+@classmethod
+def from_symbolic(cls, value):
+    """
+    符号版本的str()构造函数
+    
+    根据PyCT论文：str(x) → SymbolicStr("str", x, ["str", x.expr])
+    
+    参数：
+    value: 要转换的值，可以是具体值或符号对象
+    
+    返回：
+    SymbolicStr对象
+    """
+    if hasattr(value, 'getConcrValue'):
+        # 如果value已经是符号类型，保持符号信息
+        concrete_value = value.getConcrValue()
+        
+        # 创建符号表达式：["str", value.expr] 或 ["str", value]如果value是变量
+        if value.isVariable():
+            symbolic_expr = ["str", value]
+        else:
+            symbolic_expr = ["str", value.expr]
+        
+        # 创建新的SymbolicStr对象
+        return cls("str", str(concrete_value), symbolic_expr)
+    else:
+        # 如果value是具体值，创建普通符号对象
+        return cls("str", str(value), ["str", value])
+
+SymbolicStr.from_symbolic = from_symbolic
+

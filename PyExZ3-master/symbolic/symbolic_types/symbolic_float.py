@@ -155,3 +155,35 @@ for (name, op) in float_ops:
     make_float_method(method, op, "[self, other]")
     rmethod = "__r%s__" % name
     make_float_method(rmethod, op, "[other, self]")
+
+# 内置构造函数符号化支持
+@classmethod
+def from_symbolic(cls, value):
+    """
+    符号版本的float()构造函数
+    
+    根据PyCT论文：float(x) → SymbolicFloat("float", x, ["float", x.expr])
+    
+    参数：
+    value: 要转换的值，可以是具体值或符号对象
+    
+    返回：
+    SymbolicFloat对象
+    """
+    if hasattr(value, 'getConcrValue'):
+        # 如果value已经是符号类型，保持符号信息
+        concrete_value = value.getConcrValue()
+        
+        # 创建符号表达式：["float", value.expr] 或 ["float", value]如果value是变量
+        if value.isVariable():
+            symbolic_expr = ["float", value]
+        else:
+            symbolic_expr = ["float", value.expr]
+        
+        # 创建新的SymbolicFloat对象
+        return cls("float", float(concrete_value), symbolic_expr)
+    else:
+        # 如果value是具体值，创建普通符号对象
+        return cls("float", float(value), ["float", value])
+
+SymbolicFloat.from_symbolic = from_symbolic

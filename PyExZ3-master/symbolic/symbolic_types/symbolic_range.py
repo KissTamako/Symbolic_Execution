@@ -250,3 +250,59 @@ class SymbolicRange(SymbolicObject):
                                -self.step)
         return SymbolicRange("reversed", reversed_range,
                             ["range.reversed", self.start, self.stop, self.step])
+    
+    # 内置构造函数符号化支持
+    @classmethod
+    def from_symbolic(cls, start, stop=None, step=1):
+        """
+        符号版本的range()构造函数
+        
+        根据PyCT论文：range(x) → SymbolicRange("range", x, ["range", x.expr])
+        
+        参数：
+        start: 起始值，可以是具体值或符号对象
+        stop: 结束值（可选），可以是具体值或符号对象
+        step: 步长（可选，默认1），可以是具体值或符号对象
+        
+        返回：
+        SymbolicRange对象
+        """
+        # 处理不同的参数组合：range(stop) 或 range(start, stop[, step])
+        if stop is None:
+            # range(stop) 形式
+            stop = start
+            start = 0
+        
+        # 获取具体值
+        def get_concrete_value(val):
+            if hasattr(val, 'getConcrValue'):
+                return val.getConcrValue()
+            return val
+        
+        concrete_start = get_concrete_value(start)
+        concrete_stop = get_concrete_value(stop)
+        concrete_step = get_concrete_value(step)
+        
+        # 创建range对象
+        range_obj = range(concrete_start, concrete_stop, concrete_step)
+        
+        # 创建符号表达式
+        # 如果是变量，直接使用变量；否则使用表达式
+        def create_symbolic_component(val, name):
+            if hasattr(val, 'isVariable'):
+                if val.isVariable():
+                    return val
+                else:
+                    return val.expr
+            else:
+                # 具体值
+                return val
+        
+        start_expr = create_symbolic_component(start, "start")
+        stop_expr = create_symbolic_component(stop, "stop")
+        step_expr = create_symbolic_component(step, "step")
+        
+        symbolic_expr = ["range", start_expr, stop_expr, step_expr]
+        
+        # 创建新的SymbolicRange对象
+        return cls("range", range_obj, symbolic_expr)

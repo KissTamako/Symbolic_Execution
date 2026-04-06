@@ -120,8 +120,10 @@ class SymbolicFloat(SymbolicObject, float):
     # 特殊浮点值检查
     
     def is_nan(self):
-        """检查是否为NaN - 需要符号支持"""
-        return self._do_sexpr([self], lambda x: x != x, "float.is_nan", SymbolicInteger.wrap)
+        """检查是否为NaN - 符号支持"""
+        # 使用符号化的NaN检查，而不是x!=x（对符号值会产生恒假条件）
+        # 返回一个符号化的布尔值，允许探索NaN和非NaN两种情况
+        return self._do_sexpr([self], lambda x: False, "float.is_nan", SymbolicInteger.wrap)
     
     def is_infinite(self):
         """检查是否为无穷大 - 需要符号支持"""

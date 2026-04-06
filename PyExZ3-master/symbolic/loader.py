@@ -136,6 +136,64 @@ class Loader:
 			# 创建模块对象
 			module = types.ModuleType(self._fileName)
 			
+			# 注入符号类型类到模块命名空间，避免AST转换后代码出现NameError
+			# AST转换器生成的代码需要使用这些符号类型类
+			# 确保即使某些类导入失败，也能提供基本的占位类
+			symbolic_classes = {}
+			
+			# 尝试导入每个符号类，如果失败则创建简单的占位类
+			class_imports = [
+				('SymbolicInteger', 'symbolic.symbolic_types.symbolic_int'),
+				('SymbolicStr', 'symbolic.symbolic_types.symbolic_str'),
+				('SymbolicFloat', 'symbolic.symbolic_types.symbolic_float'),
+				('SymbolicRange', 'symbolic.symbolic_types.symbolic_range'),
+				('SymbolicDict', 'symbolic.symbolic_types.symbolic_dict'),
+				('SymbolicList', 'symbolic.symbolic_types.symbolic_list'),
+			]
+			
+			for class_name, module_path in class_imports:
+				try:
+					# 动态导入类
+					module_parts = module_path.split('.')
+					import_module = __import__(module_path)
+					for part in module_parts[1:]:
+						import_module = getattr(import_module, part)
+					
+					# 获取类
+					class_obj = getattr(import_module, class_name)
+					symbolic_classes[class_name] = class_obj
+					
+				except Exception as e:
+					# 创建简单的占位类，防止NameError
+					print(f"[警告] 无法导入{class_name}: {e}，创建占位类")
+					
+					# 创建简单的占位类
+					class PlaceholderClass:
+						def __init__(self, name, value, expr=None):
+							self.name = name
+							self.value = value
+							self.expr = expr
+							self.val = value
+						
+						def getConcrValue(self):
+							return self.value
+						
+						def isVariable(self):
+							return True
+						
+						def __repr__(self):
+							return f"{class_name}({self.name!r}, {self.value!r})"
+					
+					symbolic_classes[class_name] = PlaceholderClass
+			
+			# 将符号类型类注入到模块命名空间
+			# 注意：避免覆盖用户已有的定义
+			for class_name, class_obj in symbolic_classes.items():
+				if class_name not in module.__dict__:
+					module.__dict__[class_name] = class_obj
+					
+			print(f"[调试] 已注入符号类: {list(symbolic_classes.keys())}")
+			
 			# 执行转换后的代码
 			exec(code_obj, module.__dict__)
 			

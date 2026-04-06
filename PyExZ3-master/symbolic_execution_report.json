@@ -1,0 +1,47 @@
+{
+  "summary": {
+    "total_tests": 3,
+    "successful_tests": 0,
+    "failed_tests": 3,
+    "timeout_tests": 0,
+    "success_rate": 0.0,
+    "total_execution_time": 0.6135773658752441,
+    "average_execution_time": 0.2045257886250814,
+    "total_paths_explored": 0,
+    "average_paths_per_test": 0.0
+  },
+  "detailed_results": [
+    {
+      "index": 1,
+      "file": "test/simple.py",
+      "success": false,
+      "test_passed": false,
+      "execution_time": 0.20163321495056152,
+      "paths_explored": 0,
+      "timeout": false,
+      "error": "执行异常: argument of type 'NoneType' is not iterable"
+    },
+    {
+      "index": 2,
+      "file": "simple_correct_test.py",
+      "success": false,
+      "test_passed": false,
+      "execution_time": 0.2025456428527832,
+      "paths_explored": 0,
+      "timeout": false,
+      "error": "执行异常: argument of type 'NoneType' is not iterable"
+    },
+    {
+      "index": 3,
+      "file": "generated_adapter_example.py",
+      "success": false,
+      "test_passed": false,
+      "execution_time": 0.20939850807189941,
+      "paths_explored": 0,
+      "timeout": false,
+      "error": "执行异常: argument of type 'NoneType' is not iterable"
+    }
+  ],
+  "timestamp": "2026-04-05 18:55:06",
+  "pyexz3_version": "PyExZ3 (Python Exploration with Z3)"
+}

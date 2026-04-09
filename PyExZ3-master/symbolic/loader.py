@@ -4,10 +4,13 @@ import inspect
 import re
 import os
 import sys
+import importlib
 import types
+from pathlib import Path
+
 from .invocation import FunctionInvocation
 from .symbolic_types import SymbolicInteger, getSymbolic
-from .ast_upcaster import transform_source_code
+from .ast_transform import transform_ast, compile_transformed_module, setup_branch_hook_globals
 
 # The built-in definition of len wraps the return value in an int() constructor, destroying any symbolic types.
 # By redefining len here we can preserve symbolic integer types.
@@ -15,13 +18,16 @@ import builtins
 builtins.len = (lambda x : x.__len__())
 
 class Loader:
-	def __init__(self, filename, entry):
+	def __init__(self, filename, entry, use_ast_transform=True):
+		self._fullPath = filename  # Store full path
 		self._fileName = os.path.basename(filename)
-		self._fileName = self._fileName[:-3]
+		self._fileName = self._fileName[:-3]  # Remove .py extension
+		
 		if (entry == ""):
 			self._entryPoint = self._fileName
 		else:
-			self._entryPoint = entry;
+			self._entryPoint = entry
+		self._use_ast_transform = use_ast_transform
 		self._resetCallback(True)
 
 	def getFile(self):
@@ -33,39 +39,29 @@ class Loader:
 	def createInvocation(self):
 		inv = FunctionInvocation(self._execute,self._resetCallback)
 		func = self.app.__dict__[self._entryPoint]
-		# Use inspect.signature for Python 3.11+ compatibility
-		try:
-			# Try getargspec for older Python versions
-			argspec = inspect.getargspec(func)
-			arg_names = argspec.args
-		except AttributeError:
-			# Fall back to inspect.signature for Python 3.11+
-			sig = inspect.signature(func)
-			arg_names = list(sig.parameters.keys())
-		
+		# Python 3.11 compatibility: replace getargspec with signature
+		sig = inspect.signature(func)
+		argspec_args = list(sig.parameters.keys())
 		# check to see if user specified initial values of arguments
 		if "concrete_args" in func.__dict__:
 			for (f,v) in func.concrete_args.items():
-				if not f in arg_names:
+				if not f in argspec_args:
 					print("Error in @concrete: " +  self._entryPoint + " has no argument named " + f)
 					raise ImportError()
 				else:
 					Loader._initializeArgumentConcrete(inv,f,v)
 		if "symbolic_args" in func.__dict__:
 			for (f,v) in func.symbolic_args.items():
-				if not f in arg_names:
+				if not f in argspec_args:
 					print("Error (@symbolic): " +  self._entryPoint + " has no argument named " + f)
 					raise ImportError()
 				elif f in inv.getNames():
-					print("Argument " + f + " defined in both @concrete and @symbolic")
+					print("Error (@symbolic): " +  self._entryPoint + " has multiple definitions for " + f)
 					raise ImportError()
 				else:
-					s = getSymbolic(v)
-					if (s == None):
-						print("Error at argument " + f + " of entry point " + self._entryPoint + " : no corresponding symbolic type found for type " + str(type(v)))
-						raise ImportError()
-					Loader._initializeArgumentSymbolic(inv, f, v, s)
-		for a in arg_names:
+					Loader._initializeArgumentSymbolic(inv,f,v,SymbolicInteger)
+		# initalize all remaining arguments with symbolic types
+		for a in argspec_args:
 			if not a in inv.getNames():
 				Loader._initializeArgumentSymbolic(inv, a, 0, SymbolicInteger)
 		return inv
@@ -97,118 +93,69 @@ class Loader:
 			if (not firstpass and self._fileName in sys.modules):
 				del(sys.modules[self._fileName])
 			
-			# 获取文件完整路径
-			# 首先尝试从sys.path中查找文件
-			file_path = None
-			for path_dir in sys.path:
-				possible_path = os.path.join(path_dir, f"{self._fileName}.py")
-				if os.path.exists(possible_path):
-					file_path = possible_path
-					break
+			# Load module with AST transformation if enabled
+			if self._use_ast_transform:
+				self.app = self._load_with_ast_transform()
+			else:
+				self.app = __import__(self._fileName)
 			
-			# 如果没找到，使用当前工作目录
-			if file_path is None:
-				file_path = os.path.join(os.getcwd(), f"{self._fileName}.py")
-			
-			# 读取源文件内容（处理编码问题）
-			# 先尝试UTF-8，如果失败则尝试系统默认编码
-			source_code = None
-			encodings_to_try = ['utf-8', 'utf-8-sig', 'gbk', 'cp936', 'latin-1']
-			
-			for encoding in encodings_to_try:
-				try:
-					with open(file_path, 'r', encoding=encoding) as f:
-						source_code = f.read()
-					break
-				except UnicodeDecodeError:
-					continue
-			
-			if source_code is None:
-				# 如果所有编码都失败，使用二进制读取
-				with open(file_path, 'rb') as f:
-					binary_content = f.read()
-				# 尝试UTF-8解码，忽略错误
-				source_code = binary_content.decode('utf-8', errors='ignore')
-			
-			# AST转换（常量提升）- 默认启用
-			transformed_source, code_obj = transform_source_code(source_code, enable_upcasting=True)
-			
-			# 创建模块对象
-			module = types.ModuleType(self._fileName)
-			
-			# 注入符号类型类到模块命名空间，避免AST转换后代码出现NameError
-			# AST转换器生成的代码需要使用这些符号类型类
-			# 确保即使某些类导入失败，也能提供基本的占位类
-			symbolic_classes = {}
-			
-			# 尝试导入每个符号类，如果失败则创建简单的占位类
-			class_imports = [
-				('SymbolicInteger', 'symbolic.symbolic_types.symbolic_int'),
-				('SymbolicStr', 'symbolic.symbolic_types.symbolic_str'),
-				('SymbolicFloat', 'symbolic.symbolic_types.symbolic_float'),
-				('SymbolicRange', 'symbolic.symbolic_types.symbolic_range'),
-				('SymbolicDict', 'symbolic.symbolic_types.symbolic_dict'),
-				('SymbolicList', 'symbolic.symbolic_types.symbolic_list'),
-			]
-			
-			for class_name, module_path in class_imports:
-				try:
-					# 动态导入类
-					module_parts = module_path.split('.')
-					import_module = __import__(module_path)
-					for part in module_parts[1:]:
-						import_module = getattr(import_module, part)
-					
-					# 获取类
-					class_obj = getattr(import_module, class_name)
-					symbolic_classes[class_name] = class_obj
-					
-				except Exception as e:
-					# 创建简单的占位类，防止NameError
-					print(f"[警告] 无法导入{class_name}: {e}，创建占位类")
-					
-					# 创建简单的占位类
-					class PlaceholderClass:
-						def __init__(self, name, value, expr=None):
-							self.name = name
-							self.value = value
-							self.expr = expr
-							self.val = value
-						
-						def getConcrValue(self):
-							return self.value
-						
-						def isVariable(self):
-							return True
-						
-						def __repr__(self):
-							return f"{class_name}({self.name!r}, {self.value!r})"
-					
-					symbolic_classes[class_name] = PlaceholderClass
-			
-			# 将符号类型类注入到模块命名空间
-			# 注意：避免覆盖用户已有的定义
-			for class_name, class_obj in symbolic_classes.items():
-				if class_name not in module.__dict__:
-					module.__dict__[class_name] = class_obj
-					
-			print(f"[调试] 已注入符号类: {list(symbolic_classes.keys())}")
-			
-			# 执行转换后的代码
-			exec(code_obj, module.__dict__)
-			
-			# 注册模块
-			sys.modules[self._fileName] = module
-			self.app = module
-			
-			if not self._entryPoint in self.app.__dict__ or not callable(self.app.__dict__[self._entryPoint]):
-				print("File " +  self._fileName + ".py doesn't contain a function named " + self._entryPoint)
-				raise ImportError()
-				
+			# For script mode, we don't require a specific entry function
+			# The module will be executed as top-level code
+			has_script_flag = getattr(self, '_is_script', False)
+			if not has_script_flag:
+				# Function mode: check that entry point exists and is callable
+				if not self._entryPoint in self.app.__dict__ or not callable(self.app.__dict__[self._entryPoint]):
+					print("File " +  self._fileName + ".py doesn't contain a function named " + self._entryPoint)
+					raise ImportError()
+			else:
+				# Script mode: check if __main__ exists, but don't require it
+				# If __main__ doesn't exist, we'll execute the module's top-level code
+				pass
 		except Exception as arg:
 			print("Couldn't import " + self._fileName)
 			print(arg)
 			raise ImportError()
+
+	def _load_with_ast_transform(self):
+		"""Load module with AST transformation to preserve symbolic information."""
+		# Use the full path stored during initialization
+		module_path = self._fullPath
+		
+		# Read source code
+		with open(module_path, 'r', encoding='utf-8') as f:
+			source_code = f.read()
+		
+		# Transform AST
+		tree = transform_ast(source_code, module_path, inject_branch_hooks=True)
+		
+		# Create module
+		module = types.ModuleType(self._fileName)
+		module.__file__ = module_path
+		
+		# Setup globals with helper functions
+		globals_dict = module.__dict__
+		setup_branch_hook_globals(globals_dict)
+		
+		# Add necessary imports to module globals
+		# These will be used by the transformed code
+		from .runtime_helpers import _se_int, _se_str, _se_range, unwrap, wrap_concrete_constant
+		from .ast_transform import branch_hook
+		
+		globals_dict['_se_int'] = _se_int
+		globals_dict['_se_str'] = _se_str
+		globals_dict['_se_range'] = _se_range
+		globals_dict['unwrap'] = unwrap
+		globals_dict['wrap_concrete_constant'] = wrap_concrete_constant
+		globals_dict['__branch_hook'] = branch_hook
+		
+		# Also add builtins
+		globals_dict['__builtins__'] = __builtins__
+		
+		# Compile and execute transformed code
+		code = compile_transformed_module(tree, module_path)
+		exec(code, globals_dict)
+		
+		return module
 
 	def _execute(self, **args):
 		return self.app.__dict__[self._entryPoint](**args)
@@ -232,18 +179,122 @@ class Loader:
 		else:
 			print("%s test passed <---" % self._fileName)
 			return True
-	
-def loaderFactory(filename,entry):
-	if not os.path.isfile(filename) or not re.search(".py$",filename):
-		print("Please provide a Python file to load")
-		return None
-	try: 
-		dir = os.path.dirname(filename)
-		sys.path = [ dir ] + sys.path
-		ret = Loader(filename,entry)
-		return ret
-	except ImportError:
-		sys.path = sys.path[1:]
-		return None
 
 
+class ScriptLoader(Loader):
+    """Loader for script mode execution (top-level code)."""
+    
+    def __init__(self, filename, use_ast_transform=True):
+        # Script mode doesn't have a specific entry function
+        # Override the parent's initialization to use "__main__" as entry point
+        self._is_script = True
+        # We need to manually set up the parent's attributes
+        self._fullPath = filename  # Store full path
+        self._fileName = os.path.basename(filename)
+        self._fileName = self._fileName[:-3]  # Remove .py extension
+        self._entryPoint = "__main__"  # Script mode entry point
+        self._use_ast_transform = use_ast_transform
+        
+        # Now call parent's _resetCallback directly
+        self._resetCallback(True)
+        
+    
+    def createInvocation(self):
+        """Create invocation for script execution."""
+        inv = FunctionInvocation(self._execute_script, self._resetCallback)
+        
+        # For script mode, we need to handle input() and sys.argv
+        # These will be handled symbolically during execution
+        
+        # Define script inputs as symbolic parameters
+        # We'll support:
+        # 1. stdin_lines: list of strings for input() calls
+        # 2. argv: list of command-line arguments
+        # 3. Additional named parameters from input model
+        
+        # For now, create a basic symbolic input for script execution
+        # This will be extended by input modeling
+        inv.addArgumentConstructor("__stdin_lines", [], lambda n,v: v)
+        inv.addArgumentConstructor("__argv", [""], lambda n,v: v)
+        
+        return inv
+    
+    def _execute_script(self, **args):
+        """Execute script with given symbolic inputs."""
+        # Get stdin lines and argv from arguments
+        stdin_lines = args.get("__stdin_lines", [])
+        argv = args.get("__argv", [""])
+        
+        # Simulate sys.argv
+        import sys as real_sys
+        original_argv = real_sys.argv
+        real_sys.argv = [self._fileName + ".py"] + argv
+        
+        # Simulate input() calls
+        import builtins as real_builtins
+        original_input = real_builtins.input
+        
+        stdin_index = [0]  # Use list for mutable closure
+        
+        def symbolic_input(prompt=""):
+            if stdin_index[0] < len(stdin_lines):
+                value = stdin_lines[stdin_index[0]]
+                stdin_index[0] += 1
+                return value
+            else:
+                # No more input lines, return empty string
+                return ""
+        
+        real_builtins.input = symbolic_input
+        
+        try:
+            # Execute the script's top-level code
+            # The module is already loaded in self.app
+            if hasattr(self.app, '__main__'):
+                # If there's a __main__ function, call it
+                return self.app.__main__()
+            else:
+                # Otherwise, execute the module's top-level code
+                # by calling a dummy function that runs the module
+                exec(compile('', '<string>', 'exec'), self.app.__dict__)
+                return None
+        finally:
+            # Restore original input and argv
+            real_builtins.input = original_input
+            real_sys.argv = original_argv
+
+
+def loaderFactory(filename,entry, use_ast_transform=True, mode='function'):
+    """
+    Create a loader for the specified file.
+    
+    Args:
+        filename: Path to Python file
+        entry: Entry point function name (for function mode) or None (for script mode)
+        use_ast_transform: Whether to apply AST transformation
+        mode: Execution mode - 'function' or 'script'
+    
+    Returns:
+        Loader instance or None if failed
+    """
+    if not os.path.isfile(filename) or not re.search(".py$",filename):
+        print("Please provide a Python file to load")
+        return None
+    
+    try: 
+        dir = os.path.dirname(filename)
+        sys.path = [ dir ] + sys.path
+        
+        # Debug: print loader creation info
+        print(f"[DEBUG] loaderFactory: filename={filename}, entry={entry}, mode={mode}, use_ast_transform={use_ast_transform}")
+        
+        if mode == 'script':
+            ret = ScriptLoader(filename, use_ast_transform=use_ast_transform)
+            print(f"[DEBUG] Created ScriptLoader for {filename}")
+        else:
+            ret = Loader(filename,entry, use_ast_transform=use_ast_transform)
+            print(f"[DEBUG] Created Loader for {filename} with entry {entry}")
+        return ret
+    except ImportError:
+        sys.path = sys.path[1:]
+        return None

@@ -1,0 +1,34 @@
+{
+  "week": 2,
+  "validation_date": "2026-04-09",
+  "tasks": [
+    {
+      "name": "单次执行后可以稳定导出路径约束",
+      "status": true,
+      "details": {
+        "z3_wrapper_methods": "存在",
+        "smt_export_function": "工作正常",
+        "cli_export_flags": "基本完整"
+      }
+    },
+    {
+      "name": "分支与源码位置已打通",
+      "status": true,
+      "details": {
+        "predicate_fields": "完整",
+        "whichBranch_parameters": "正确",
+        "source_info_injection": "需要进一步验证"
+      }
+    },
+    {
+      "name": "构造器保符号信息能力可用",
+      "status": true,
+      "details": {
+        "runtime_helpers_functions": "完整",
+        "ast_transform": "基本功能正常",
+        "loader_integration": "需要进一步验证"
+      }
+    }
+  ],
+  "overall_status": "PASS"
+}

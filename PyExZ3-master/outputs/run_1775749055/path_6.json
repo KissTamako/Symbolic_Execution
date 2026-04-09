@@ -1,0 +1,72 @@
+{
+  "export_time": "2026-04-09T23:37:35.890984",
+  "iteration_id": 6,
+  "path_info": {
+    "total_branches": 3,
+    "path_id": "path_6",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== (+ (- (* (* const#2, a#1), a#1), (* const#5, a#1)), const#3), const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "const",
+          "const",
+          "a",
+          "const",
+          "a",
+          "a",
+          "const"
+        ]
+      },
+      {
+        "expr": "(== (+ (- (* (* const#2, b#1), b#1), (* const#5, b#1)), const#3), const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "const",
+          "const",
+          "b",
+          "const",
+          "b",
+          "b",
+          "const"
+        ]
+      },
+      {
+        "expr": "(!= a#1, b#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b",
+          "a"
+        ]
+      }
+    ],
+    "variables": [
+      "a",
+      "b",
+      "const"
+    ]
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  }
+}

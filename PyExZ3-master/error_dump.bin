@@ -1,0 +1,22 @@
+=== STDOUT ===
+PyExZ3 (Python Exploration with Z3) - Enhanced Symbolic Execution Tool
+Exploring simple.simple in function mode
+Output directory: outputs\run_1775701060
+AST transformation: enabled
+[('x', 0)]
+43
+
+=== STDERR ===
+Traceback (most recent call last):
+  File "e:\重庆大学\毕业设计\PyExZ3-master\PyExZ3-master\pyexz3.py", line 90, in <module>
+    generatedInputs, returnVals, path = engine.explore(args.max_iters)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\重庆大学\毕业设计\PyExZ3-master\PyExZ3-master\symbolic\explore.py", line 69, in explore
+    self._updateSymbolicParameter(name,model[name])
+  File "e:\重庆大学\毕业设计\PyExZ3-master\PyExZ3-master\symbolic\explore.py", line 85, in _updateSymbolicParameter
+    self.symbolic_inputs[name] = self.invocation.createArgumentValue(name,val)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e:\重庆大学\毕业设计\PyExZ3-master\PyExZ3-master\symbolic\invocation.py", line 24, in createArgumentValue
+    return self.arg_constructor[name](name,val)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'const'

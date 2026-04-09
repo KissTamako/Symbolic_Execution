@@ -134,6 +134,12 @@ class ExprBuilder(object):
                     variable = self._getVariable(expr)
                     return variable
                 else:
+                    # Handle 'const' variable specially - it's not a real variable
+                    if expr.name == 'const':
+                        # 'const' is a placeholder for concrete constants
+                        # Return concrete value
+                        concrete_val = expr.getConcrValue() if hasattr(expr, 'getConcrValue') else expr
+                        return concrete_val
                     return env[expr.name]
             else:
                 return self._astToCVCExpr(expr.expr, env)

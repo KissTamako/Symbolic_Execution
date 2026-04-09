@@ -28,111 +28,20 @@ class SymbolicInteger(SymbolicObject,int):
 
 	def _op_worker(self,args,fun,op):
 		return self._do_sexpr(args, fun, op, SymbolicInteger.wrap)
-	
-	# New unary operations added for PyCT compatibility
-	def __abs__(self):
-		return self._op_worker([self], lambda x: abs(x), "abs")
-	
-	def __neg__(self):
-		return self._op_worker([self], lambda x: -x, "neg")
-	
-	def __pos__(self):
-		return self._op_worker([self], lambda x: +x, "pos")
-	
-	def __round__(self, ndigits=None):
-		if ndigits is None:
-			return self._op_worker([self], lambda x: round(x), "round")
-		else:
-			return self._op_worker([self, ndigits], lambda x, n: round(x, n), "round_ndigits")
-	
-	def __trunc__(self):
-		# trunc returns integer part, same as int() for integers
-		return self._op_worker([self], lambda x: int(x), "trunc")
-	
-	def __floor__(self):
-		# For integers, floor is the same as the value itself
-		return self._op_worker([self], lambda x: int(x), "floor")
-	
-	def __ceil__(self):
-		# For integers, ceil is the same as the value itself
-		return self._op_worker([self], lambda x: int(x), "ceil")
-	
-	# Missing methods from Python int type
-	def __format__(self, format_spec=""):
-		"""Format the integer according to format_spec."""
-		# __format__ must return a str, not a SymbolicInteger
-		# So we format the concrete value
-		return format(self.val, format_spec)
-	
-	def __index__(self):
-		"""Return the integer as an index."""
-		# __index__ should return an int, not a SymbolicInteger
-		return self.val
-	
-	def as_integer_ratio(self):
-		"""Return integer ratio (self, 1)."""
-		# Returns a tuple (numerator, denominator)
-		# For integers, denominator is always 1
-		# Note: Python's int.as_integer_ratio() returns (numerator, denominator) as ints
-		# We return a tuple of SymbolicInteger objects
-		return (self, SymbolicInteger("const", 1, 1))
-	
-	def bit_length(self):
-		"""Number of bits necessary to represent self in binary."""
-		return self._op_worker([self], lambda x: x.bit_length(), "bit_length")
-	
-	def to_bytes(self, length, byteorder='big', *, signed=False):
-		"""Convert integer to bytes."""
-		# This is complex for symbolic execution, so we return concrete bytes
-		# For now, convert the concrete value
-		# Note: The * in parameters makes 'signed' keyword-only as in Python's int.to_bytes
-		concrete_bytes = self.val.to_bytes(length, byteorder, signed=signed)
-		# Return as bytes (could be wrapped in SymbolicBytes if we had that type)
-		return concrete_bytes
-	
-	# Complex number attributes (for compatibility)
-	@property
-	def conjugate(self):
-		# For real integers, conjugate is self
-		return self
-	
-	@property
-	def denominator(self):
-		# For integers, denominator is 1
-		return SymbolicInteger("const", 1, 1)
-	
-	@property
-	def imag(self):
-		# For real integers, imaginary part is 0
-		return SymbolicInteger("const", 0, 0)
-	
-	@property
-	def numerator(self):
-		# For integers, numerator is the integer itself
-		return self
-	
-	@property
-	def real(self):
-		# For real integers, real part is self
-		return self
-	
-	# Bool conversion is handled by SymbolicObject.__bool__
-	# which returns concrete bool and records path constraint
 
 # now update the SymbolicInteger class for operations we
 # will build symbolic terms for
 
 ops =  [("add",    "+"  ),\
 	("sub",    "-"  ),\
+	("mul",    "*"  ),\
 	("mod",    "%"  ),\
 	("floordiv", "//" ),\
-	("truediv", "/"  ),\
 	("and",    "&"  ),\
 	("or",     "|"  ),\
 	("xor",    "^"  ),\
 	("lshift", "<<" ),\
-	("rshift", ">>" ),\
-	("pow",    "**" ) ]
+	("rshift", ">>" ) ]
 
 def make_method(method,op,a):
 	code  = "def %s(self,other):\n" % method
@@ -146,88 +55,4 @@ for (name,op) in ops:
 	make_method(method,op,"[self,other]")
 	rmethod  = "__r%s__" % name
 	make_method(rmethod,op,"[other,self]")
-
-# Special methods that need custom implementation
-def __invert__(self):
-	"""Bitwise invert operator (~)."""
-	return self._op_worker([self], lambda x: ~x, "invert")
-
-SymbolicInteger.__invert__ = __invert__
-
-# Note: __rinvert__ doesn't exist for invert (unary operator)
-
-def __divmod__(self, other):
-	"""Return (self // other, self % other)."""
-	# divmod returns a tuple of two values
-	# We need to create a tuple of SymbolicIntegers
-	# For now, return a concrete tuple
-	quotient = self.__floordiv__(other)
-	remainder = self.__mod__(other)
-	return (quotient, remainder)
-
-def __rdivmod__(self, other):
-	"""Return (other // self, other % self)."""
-	quotient = other.__floordiv__(self) if hasattr(other, '__floordiv__') else other // self
-	remainder = other.__mod__(self) if hasattr(other, '__mod__') else other % self
-	return (quotient, remainder)
-
-SymbolicInteger.__divmod__ = __divmod__
-SymbolicInteger.__rdivmod__ = __rdivmod__
-
-# 内置构造函数符号化支持
-@classmethod
-def from_symbolic(cls, value, base=None):
-    """
-    符号版本的int()构造函数
-    
-    根据PyCT论文：int(x) → SymbolicInteger("int", x, ["int", x.expr])
-    
-    参数：
-    value: 要转换的值，可以是具体值或符号对象
-    base: 进制基数（可选）
-    
-    返回：
-    SymbolicInteger对象
-    """
-    # 处理进制基数（目前简化处理，不支持符号基数）
-    if base is not None:
-        # 如果有base参数，先转换为具体值处理
-        # 注意：这里简化处理，实际应该支持符号base
-        if hasattr(value, 'getConcrValue'):
-            concrete_value = value.getConcrValue()
-        else:
-            concrete_value = value
-        
-        # 使用指定进制转换
-        try:
-            if isinstance(concrete_value, str):
-                concrete_result = int(concrete_value, base)
-            else:
-                # 如果不是字符串，先转换为字符串再转换
-                concrete_result = int(str(concrete_value), base)
-        except ValueError as e:
-            # 转换失败，返回具体异常（未来可以支持符号异常）
-            raise e
-        
-        # 创建符号整数（暂时没有符号表达式）
-        return cls(f"int_base{base}", concrete_result, None)
-    
-    # 无base参数的情况
-    if hasattr(value, 'getConcrValue'):
-        # 如果value已经是符号类型，保持符号信息
-        concrete_value = value.getConcrValue()
-        
-        # 创建符号表达式：["int", value.expr] 或 ["int", value]如果value是变量
-        if value.isVariable():
-            symbolic_expr = ["int", value]
-        else:
-            symbolic_expr = ["int", value.expr]
-        
-        # 创建新的SymbolicInteger对象
-        return cls("int", int(concrete_value), symbolic_expr)
-    else:
-        # 如果value是具体值，创建普通符号对象
-        return cls("int", int(value), ["int", value])
-
-SymbolicInteger.from_symbolic = from_symbolic
 

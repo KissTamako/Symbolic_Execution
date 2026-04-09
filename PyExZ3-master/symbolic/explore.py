@@ -8,7 +8,8 @@ from .z3_wrap import Z3Wrapper
 from .path_to_constraint import PathToConstraint
 from .invocation import FunctionInvocation
 from .symbolic_types import symbolic_type, SymbolicType
-import sys
+from .trace import record_execution, get_trace_recorder
+from .input_model import get_input_model
 
 log = logging.getLogger("se.conc")
 
@@ -31,14 +32,8 @@ class ExplorationEngine:
 		if solver == "z3":
 			self.solver = Z3Wrapper()
 		elif solver == "cvc":
-			try:
-				from .cvc_wrap import CVCWrapper
-				self.solver = CVCWrapper()
-			except ImportError as e:
-				print("ERROR: CVC4 solver is not available. CVC4 module cannot be imported.")
-				print("Please install CVC4 with Python bindings or use the default Z3 solver.")
-				print("Original error: %s" % e)
-				sys.exit(1)
+			from .cvc_wrap import CVCWrapper
+			self.solver = CVCWrapper()
 		else:
 			raise Exception("Unknown solver %s" % solver)
 
@@ -121,7 +116,23 @@ class ExplorationEngine:
 	def _oneExecution(self,expected_path=None):
 		self._recordInputs()
 		self.path.reset(expected_path)
+		
+		# Record execution trace
+		concrete_inputs = {k: self._getConcrValue(v) for k, v in self.symbolic_inputs.items()}
+		
 		ret = self.invocation.callFunction(self.symbolic_inputs)
 		print(ret)
 		self.execution_return_values.append(ret)
+		
+		# Record execution trace
+		try:
+			record_execution(
+				concrete_inputs=concrete_inputs,
+				return_value=ret,
+				exception=None,
+				branch_trace=[],  # TODO: Week 3 - collect actual branch trace
+				path_id=f"path_{len(self.execution_return_values)-1}"
+			)
+		except Exception as e:
+			log.warning(f"Failed to record execution trace: {e}")
 

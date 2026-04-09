@@ -1,0 +1,55 @@
+{
+  "export_time": "2026-04-09T23:37:47.795730",
+  "iteration_id": 1,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_1",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "x",
+      -16
+    ]
+  ],
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(<= const#0, x#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x",
+          "const"
+        ]
+      },
+      {
+        "expr": "(< x#0, const#10)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "const",
+          "x"
+        ]
+      }
+    ],
+    "variables": [
+      "const",
+      "x"
+    ]
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  }
+}

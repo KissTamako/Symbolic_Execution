@@ -1,0 +1,16 @@
+{
+  "mode": "function",
+  "function": "logical_op.logical_op",
+  "iterations": 2,
+  "run_id": "run_1775749061",
+  "timestamp": 1775749062.009145,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": false,
+    "smt": false,
+    "path": true,
+    "frontier": true,
+    "trace": true
+  }
+}

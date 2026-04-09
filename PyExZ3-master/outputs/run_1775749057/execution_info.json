@@ -1,0 +1,16 @@
+{
+  "mode": "function",
+  "function": "decorator.decorator",
+  "iterations": 3,
+  "run_id": "run_1775749057",
+  "timestamp": 1775749057.7706342,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": false,
+    "smt": false,
+    "path": true,
+    "frontier": true,
+    "trace": true
+  }
+}

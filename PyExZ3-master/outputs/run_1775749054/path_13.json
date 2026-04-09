@@ -1,0 +1,153 @@
+{
+  "export_time": "2026-04-09T23:37:34.658577",
+  "iteration_id": 13,
+  "path_info": {
+    "total_branches": 11,
+    "path_id": "path_13",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "k",
+      119678
+    ]
+  ],
+  "execution_result": {
+    "return_value": "NOT_FOUND",
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(< const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(== const#4, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(< const#4, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(== const#0, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(< const#0, k#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "const"
+        ]
+      },
+      {
+        "expr": "(== const#0, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(== const#4, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(== const#6, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      },
+      {
+        "expr": "(== const#95, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k",
+          "const"
+        ]
+      }
+    ],
+    "variables": [
+      "const",
+      "k"
+    ]
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  }
+}

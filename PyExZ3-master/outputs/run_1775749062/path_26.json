@@ -1,0 +1,74 @@
+{
+  "export_time": "2026-04-09T23:37:42.844070",
+  "iteration_id": 26,
+  "path_info": {
+    "total_branches": 4,
+    "path_id": "path_26",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(< a#0, b#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "expr": "(< c#0, d#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "d",
+          "c"
+        ]
+      },
+      {
+        "expr": "(< b#2, c#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "c",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< b#2, a#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ]
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  }
+}

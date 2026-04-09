@@ -1,0 +1,36 @@
+{
+  "program_id": "simple_script",
+  "model_type": "script",
+  "fields": [
+    {
+      "name": "__stdin_lines",
+      "type": "stdin_lines",
+      "description": "Input for input() calls",
+      "default": []
+    },
+    {
+      "name": "__argv",
+      "type": "argv",
+      "description": "Command line arguments",
+      "default": [""]
+    },
+    {
+      "name": "x",
+      "type": "int",
+      "description": "Test integer input",
+      "min_value": 0,
+      "max_value": 100
+    },
+    {
+      "name": "message",
+      "type": "str",
+      "description": "Test string input",
+      "max_length": 50
+    }
+  ],
+  "metadata": {
+    "description": "Test input model for simple_script.py",
+    "version": "1.0",
+    "created": "2026-04-09"
+  }
+}

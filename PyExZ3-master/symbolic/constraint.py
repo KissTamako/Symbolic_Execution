@@ -64,3 +64,38 @@ class Constraint:
 		self.children.append(c)
 		return c
 
+	def get_path_predicates(self):
+		"""Return all predicates in this constraint path."""
+		predicates = []
+		current = self
+		while current is not None and current.predicate is not None:
+			if hasattr(current.predicate, 'get_path_predicates'):
+				predicates.extend(current.predicate.get_path_predicates())
+			else:
+				# Fallback for old predicate format
+				predicates.append({
+					'expr': str(current.predicate.symtype) if hasattr(current.predicate, 'symtype') else str(current.predicate),
+					'result': current.predicate.result,
+					'source_file': None,
+					'source_line': None,
+					'branch_id': None,
+					'vars': current.predicate.getVars() if hasattr(current.predicate, 'getVars') else []
+				})
+			current = current.parent
+		# Reverse to get from root to leaf
+		return list(reversed(predicates))
+
+	def to_dict(self):
+		"""Convert constraint to dictionary representation."""
+		return {
+			'id': self.id,
+			'predicate': self.predicate.to_dict() if hasattr(self.predicate, 'to_dict') else {
+				'expr': str(self.predicate.symtype) if hasattr(self.predicate, 'symtype') else str(self.predicate),
+				'result': self.predicate.result
+			},
+			'processed': self.processed,
+			'path_length': self.getLength(),
+			'path_predicates': self.get_path_predicates(),
+			'children_ids': [c.id for c in self.children]
+		}
+

@@ -50,16 +50,19 @@ class SymbolicType(object):
 	# creating the expression tree
 	def _do_sexpr(self,args,fun,op,wrap):
 		unwrapped = [ (a.unwrap() if isinstance(a,SymbolicType) else (a,a)) for a in args ]
-		# Use inspect.signature for Python 3.11+ compatibility
-		try:
-			# Try getargspec for older Python versions
-			arg_names = inspect.getargspec(fun).args
-		except AttributeError:
-			# Fall back to inspect.signature for Python 3.11+
-			sig = inspect.signature(fun)
-			arg_names = list(sig.parameters.keys())
-		args = zip(arg_names, [ c for (c,s) in unwrapped ])
-		concrete = fun(**dict([a for a in args]))
+		# Python 3.11 compatibility: replace getargspec with signature
+		import inspect
+		sig = inspect.signature(fun)
+		param_names = list(sig.parameters.keys())
+		# Only take as many concrete values as we have parameters
+		concrete_vals = [c for (c,s) in unwrapped]
+		# Ensure we have matching lengths (for binary ops this should be 2 params)
+		if len(param_names) != len(concrete_vals):
+			# For simple operations, we might have mismatch, use positional args
+			args_dict = {param_names[i]: concrete_vals[i] for i in range(min(len(param_names), len(concrete_vals)))}
+		else:
+			args_dict = dict(zip(param_names, concrete_vals))
+		concrete = fun(**args_dict)
 		symbolic = [ op ] + [ s for c,s in unwrapped ]
 		return wrap(concrete,symbolic)
 

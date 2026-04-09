@@ -36,9 +36,19 @@ class Z3Wrapper(object):
 	# this is very inefficient
 	def _coneOfInfluence(self,asserts,query):
 		cone = []
-		cone_vars = set(query.getVars())
+		cone_vars = set()
+		
+		# If query is None, start with empty variable set
+		if query is not None and hasattr(query, 'getVars'):
+			cone_vars = set(query.getVars())
+		
 		ws = [ a for a in asserts if len(set(a.getVars()) & cone_vars) > 0 ]
 		remaining = [ a for a in asserts if a not in ws ]
+		
+		# If cone_vars is empty, all assertions are relevant
+		if len(cone_vars) == 0:
+			return asserts
+			
 		while len(ws) > 0:
 			a = ws.pop()
 			a_vars = set(a.getVars())
@@ -125,6 +135,9 @@ class Z3Wrapper(object):
 		res = {}
 		model = self.solver.model()
 		for name in self.z3_expr.z3_vars.keys():
+			# Skip internal 'const' variable
+			if name == 'const':
+				continue
 			try:
 				ce = model.eval(self.z3_expr.z3_vars[name])
 				res[name] = ce.as_signed_long()
@@ -136,4 +149,88 @@ class Z3Wrapper(object):
 		bval = BitVecVal(val,self.N,self.solver.ctx)
 		bval_neg = BitVecVal(-val-1,self.N,self.solver.ctx)
 		return And([ v <= bval for v in vars]+[ bval_neg <= v for v in vars])
+	
+	def build_solver(self, asserts, query, negate_query=True):
+		"""
+		Build a Z3 solver with given assertions and query.
+		
+		Args:
+			asserts: List of assertions
+			query: Query predicate
+			negate_query: Whether to negate the query (default: True for counterexample finding)
+		
+		Returns:
+			Z3 solver object
+		"""
+		self.solver = Solver()
+		self.query = query
+		self.asserts = self._coneOfInfluence(asserts, query)
+		
+		# Add assertions to solver
+		self.z3_expr = Z3Integer() if self.use_lia else Z3BitVector()
+		self.z3_expr.toZ3(self.solver, self.asserts, None)  # Add assertions only
+		
+		# Add query (negated if requested)
+		if query is not None:
+			if negate_query:
+				# For counterexample finding, we want to find models where query is false
+				negated_query = self.z3_expr.predToZ3(query, self.solver)
+				if negated_query is not None:
+					self.solver.add(Not(negated_query))
+			else:
+				# For validation, add query as assertion
+				query_expr = self.z3_expr.predToZ3(query, self.solver)
+				if query_expr is not None:
+					self.solver.add(query_expr)
+		
+		return self.solver
+	
+	def export_current_query_to_smt2(self, output_path, solver_logic="QF_LIA"):
+		"""
+		Export current solver state to SMTLIB2 format.
+		
+		Args:
+			output_path: Path to save SMT2 file
+			solver_logic: SMT solver logic to use
+		
+		Returns:
+			Path to saved SMT2 file, or None if export failed
+		"""
+		if self.solver is None:
+			log.warning("No solver initialized. Call build_solver() first.")
+			return None
+		
+		try:
+			# Get solver assertions as SMTLIB2 string
+			smt2_str = self.solver.to_smt2()
+			
+			# Write to file
+			with open(output_path, 'w') as f:
+				f.write(smt2_str)
+			
+			log.debug(f"Exported solver state to {output_path}")
+			return output_path
+		except Exception as e:
+			log.error(f"Failed to export SMT2: {e}")
+			return None
+	
+	def export_constraints_to_smt2(self, asserts, query, output_path, negate_query=True, solver_logic="QF_LIA"):
+		"""
+		Export constraints to SMTLIB2 format.
+		
+		Args:
+			asserts: List of assertions
+			query: Query predicate
+			output_path: Path to save SMT2 file
+			negate_query: Whether to negate the query
+			solver_logic: SMT solver logic
+		
+		Returns:
+			Path to saved SMT2 file, or None if export failed
+		"""
+		# Build solver with constraints
+		self.build_solver(asserts, query, negate_query)
+		
+		# Export to SMT2
+		return self.export_current_query_to_smt2(output_path, solver_logic)
 

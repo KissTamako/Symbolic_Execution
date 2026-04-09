@@ -26,12 +26,12 @@ class PathToConstraint:
 				self.expected_path.append(tmp.predicate)
 				tmp = tmp.parent
 
-	def whichBranch(self, branch, symbolic_type):
+	def whichBranch(self, branch, symbolic_type, source_file=None, source_line=None, branch_id=None):
 		""" This function acts as instrumentation.
 		Branch can be either True or False."""
 
 		# add both possible predicate outcomes to constraint (tree)
-		p = Predicate(symbolic_type, branch)
+		p = Predicate(symbolic_type, branch, source_file, source_line, branch_id)
 		p.negate()
 		cneg = self.current_constraint.findChild(p)
 		p.negate()
@@ -83,3 +83,23 @@ class PathToConstraint:
 		edges = [ "C" + str(c.id) + " -> " + "C" + str(child.id) + ";\n" for child in c.children ]
 		return node + "".join(edges) + "".join([ self._toDot(child) for child in c.children ])
 		
+	def getConstraints(self):
+		"""
+		Get all processed constraints (leaf nodes) from the constraint tree.
+		Returns a list of Constraint objects.
+		"""
+		constraints = []
+		
+		def collect_constraints(node):
+			# If node has no children, it's a leaf (end of a path)
+			if not node.children or node.processed:
+				constraints.append(node)
+			# Recursively traverse children
+			for child in node.children:
+				collect_constraints(child)
+		
+		# Start from root's children (skip the root itself)
+		for child in self.root_constraint.children:
+			collect_constraints(child)
+		
+		return constraints

@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "expand.expand",
+  "iterations": 2,
+  "run_id": "run_1775996643759",
+  "timestamp": 1775996643.8175523,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

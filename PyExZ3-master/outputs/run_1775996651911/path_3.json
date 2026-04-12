@@ -1,0 +1,111 @@
+{
+  "export_time": "2026-04-12T20:24:11.968085",
+  "iteration_id": 3,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_3",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\swap.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {}
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\swap.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {},
+    "raw_predicates": [
+      "(> in1#2, in2#0)",
+      "(> in1#2, in2#0)"
+    ],
+    "normalized_predicates": [
+      "(> ARG0#2, ARG1#0)",
+      "(> ARG0#2, ARG1#0)"
+    ],
+    "normalized_id": "8e6ec311"
+  }
+}

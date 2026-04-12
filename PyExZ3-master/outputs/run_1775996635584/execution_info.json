@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "binary_search.binary_search",
+  "iterations": 15,
+  "run_id": "run_1775996635584",
+  "timestamp": 1775996636.2174907,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

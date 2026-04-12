@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "complex.complex",
+  "iterations": 6,
+  "run_id": "run_1775996636586",
+  "timestamp": 1775996636.7101731,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

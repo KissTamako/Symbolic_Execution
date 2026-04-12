@@ -13,7 +13,7 @@ from pathlib import Path
 
 from .invocation import FunctionInvocation
 from .loader import Loader
-from .input_model import InputModel
+from .input_model import InputModel, ModelType
 
 
 class ScriptRunner:
@@ -48,8 +48,8 @@ class ScriptRunner:
     def set_input_model(self, model: InputModel):
         """Set input model for script execution."""
         self.input_model = model
-        if model and model.model_type == "script":
-            self.symbolic_inputs = model.get_symbolic_inputs()
+        if model and model.model_type == ModelType.SCRIPT:
+            self.symbolic_inputs = model.generate_symbolic_inputs()
     
     def create_script_invocation(self) -> Optional[FunctionInvocation]:
         """

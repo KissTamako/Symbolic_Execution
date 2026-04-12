@@ -13,6 +13,13 @@ from enum import Enum
 from pathlib import Path
 
 
+class ModelType(Enum):
+    """Type of execution model."""
+    FUNCTION = "function"
+    SCRIPT = "script"
+    MODULE = "module"
+
+
 class InputType(Enum):
     """Supported input types."""
     INTEGER = "int"
@@ -20,10 +27,9 @@ class InputType(Enum):
     STDIN_LINES = "stdin_lines"
     ARGV = "argv"
     BOOLEAN = "bool"
-    # Future types
-    # FLOAT = "float"
-    # LIST = "list"
-    # DICT = "dict"
+    LIST = "list"
+    FLOAT = "float"
+    DICT = "dict"
 
 
 @dataclass
@@ -88,8 +94,22 @@ class InputField:
 class InputModel:
     """Complete input model for a program."""
     program_id: str
+    model_type: ModelType = field(default=ModelType.FUNCTION)
     fields: List[InputField] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
+    
+    def __post_init__(self):
+        """Handle backward compatibility."""
+        # Convert string model_type to enum if needed
+        if isinstance(self.model_type, str):
+            try:
+                self.model_type = ModelType(self.model_type)
+            except ValueError:
+                # Default to FUNCTION if unknown type
+                self.model_type = ModelType.FUNCTION
+        # Ensure model_type is ModelType enum
+        elif not isinstance(self.model_type, ModelType):
+            self.model_type = ModelType.FUNCTION
     
     def add_field(self, field: InputField) -> None:
         """Add an input field to the model."""
@@ -191,6 +211,7 @@ class InputModel:
         """Convert to dictionary representation."""
         return {
             "program_id": self.program_id,
+            "model_type": self.model_type.value,
             "fields": [field.to_dict() for field in self.fields],
             "metadata": self.metadata
         }
@@ -200,8 +221,12 @@ class InputModel:
         """Create from dictionary representation."""
         fields = [InputField.from_dict(field_data) for field_data in data.get('fields', [])]
         
+        # Handle backward compatibility: old files may not have model_type
+        model_type = data.get('model_type', ModelType.FUNCTION.value)
+        
         return cls(
             program_id=data['program_id'],
+            model_type=model_type,
             fields=fields,
             metadata=data.get('metadata', {})
         )

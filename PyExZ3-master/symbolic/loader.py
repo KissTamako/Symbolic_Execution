@@ -11,6 +11,7 @@ from pathlib import Path
 from .invocation import FunctionInvocation
 from .symbolic_types import SymbolicInteger, getSymbolic
 from .ast_transform import transform_ast, compile_transformed_module, setup_branch_hook_globals
+from .path_utils import ensure_paths_for_file, diagnose_import_error
 
 # The built-in definition of len wraps the return value in an int() constructor, destroying any symbolic types.
 # By redefining len here we can preserve symbolic integer types.
@@ -97,7 +98,25 @@ class Loader:
 			if self._use_ast_transform:
 				self.app = self._load_with_ast_transform()
 			else:
-				self.app = __import__(self._fileName)
+				# Use improved import method with path_utils integration
+				# Ensure the file's directory is in sys.path
+				module_name = ensure_paths_for_file(self._fullPath)
+				
+				# Use importlib for more reliable import
+				try:
+					spec = importlib.util.spec_from_file_location(module_name, self._fullPath)
+					if spec is None:
+						raise ImportError(f"Could not create spec for {self._fullPath}")
+					
+					self.app = importlib.util.module_from_spec(spec)
+					spec.loader.exec_module(self.app)
+					
+					# Also add to sys.modules for consistency
+					sys.modules[module_name] = self.app
+				except Exception as e:
+					# Fall back to traditional import
+					print(f"[WARN] importlib import failed, falling back to __import__: {e}")
+					self.app = __import__(module_name)
 			
 			# For script mode, we don't require a specific entry function
 			# The module will be executed as top-level code
@@ -114,6 +133,14 @@ class Loader:
 		except Exception as arg:
 			print("Couldn't import " + self._fileName)
 			print(arg)
+			
+			# Provide diagnostic information
+			suggestions = diagnose_import_error(self._fileName, arg)
+			if suggestions:
+				print("Import error diagnosis:")
+				for suggestion in suggestions:
+					print(f"  - {suggestion}")
+			
 			raise ImportError()
 
 	def _load_with_ast_transform(self):

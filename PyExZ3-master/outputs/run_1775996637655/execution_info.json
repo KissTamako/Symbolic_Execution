@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "cseppento3.cseppento3",
+  "iterations": 25,
+  "run_id": "run_1775996637655",
+  "timestamp": 1775996642.155574,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

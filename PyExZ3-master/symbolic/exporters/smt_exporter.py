@@ -9,6 +9,15 @@ import os
 from pathlib import Path
 from typing import List, Dict, Any, Optional
 
+# Import the new SMT converter
+try:
+    from ..smt_converter import SMTConverter, convert_to_smt, python_expr_to_smt
+except ImportError:
+    # Fallback for older versions or testing
+    SMTConverter = None
+    convert_to_smt = None
+    python_expr_to_smt = None
+
 
 class SMTExporter:
     """
@@ -149,7 +158,7 @@ class SMTExporter:
         lines.append(f"(set-logic {solver_logic})")
         lines.append("")
         
-        # Extract and declare variables
+        # Extract and declare variables (filter out constants)
         variables = self._extract_variables_from_predicates(predicates)
         for var_name in variables:
             # We assume integer variables - adjust as needed for your representation
@@ -161,16 +170,26 @@ class SMTExporter:
             if isinstance(predicate, dict) and 'expr' in predicate:
                 expr = predicate['expr']
                 result = predicate.get('result', True)
+                constants = predicate.get('constants', {})
+                expr_tree = predicate.get('expr_tree')
                 
-                # Convert Python expression to SMT expression
-                smt_expr = self._python_expr_to_smt(expr)
+                # Convert Python expression to SMT expression with constants and tree
+                smt_expr = self._python_expr_to_smt(expr, constants, expr_tree)
                 
                 # Negate if result is False
                 if not result:
                     smt_expr = f"(not {smt_expr})"
                 
                 lines.append(f"(assert {smt_expr})")
-                lines.append(f"; Predicate {i}: {expr} (result: {result})")
+                
+                # Create cleaned expression for comment
+                cleaned_expr = self._clean_expression_for_comment(expr, constants)
+                lines.append(f"; Predicate {i}: {cleaned_expr} (result: {result})")
+                
+                # Add tree structure information in comment
+                if expr_tree:
+                    lines.append(f"; Tree: {expr_tree}")
+                
                 lines.append("")
         
         # Check satisfiability
@@ -247,19 +266,37 @@ class SMTExporter:
                     variables.add(predicate['vars'])
         return sorted(list(variables))
     
-    def _python_expr_to_smt(self, python_expr: str) -> str:
+    def _python_expr_to_smt(self, python_expr: str, constants: Dict[str, Any] = None, expr_tree: Optional[List] = None) -> str:
         """
         Convert Python expression to SMT expression.
         
-        Note: This is a simplified conversion. A complete implementation
-        would need to parse the Python expression and map operators to SMT.
+        Uses the new SMTConverter if available, falls back to old implementation.
         
         Args:
             python_expr: Python expression string
+            constants: Dictionary of constant values to substitute
+            expr_tree: Optional tree structure representation
         
         Returns:
             SMT expression string
         """
+        if constants is None:
+            constants = {}
+        
+        # First, try to use the new SMTConverter if available
+        if SMTConverter is not None:
+            try:
+                if expr_tree:
+                    # Use the tree structure if available
+                    return SMTConverter.get_formula_deep(expr_tree, constants)
+                else:
+                    # Fallback to string conversion
+                    return python_expr_to_smt(python_expr, constants, expr_tree)
+            except Exception as e:
+                # If conversion fails, fall back to old implementation
+                print(f"Warning: SMTConverter failed, falling back: {e}")
+        
+        # Fallback to original implementation
         # Simple operator mapping
         operator_map = {
             '==': '=',
@@ -273,9 +310,141 @@ class SMTExporter:
             'not': 'not'
         }
         
-        # Simple conversion - just return as-is for now
-        # In a real implementation, you'd parse the expression properly
-        return f"(= {python_expr} 0)"  # Placeholder
+        # If tree structure is provided, use it for conversion
+        if expr_tree and isinstance(expr_tree, list):
+            return self._tree_to_smt(expr_tree, operator_map)
+        
+        # Fallback to string parsing if no tree structure
+        # First, substitute constants in the expression
+        expr = python_expr
+        for const_name, const_value in constants.items():
+            # Replace const#0 with the actual value
+            const_pattern = f"{const_name}#"
+            if const_pattern in expr:
+                # Simple substitution: replace "const#0" with "0"
+                # This assumes format like "const#0"
+                expr = expr.replace(f"{const_name}#0", str(const_value))
+        
+        # Remove symbol IDs from variable names (e.g., "a#0" -> "a")
+        # This is a simplified approach - in reality we need better parsing
+        import re
+        
+        # Remove # followed by numbers from variable names
+        expr = re.sub(r'([a-zA-Z_][a-zA-Z0-9_]*)#\d+', r'\1', expr)
+        
+        # Parse the expression
+        # For now, we'll do a simple pattern matching for common expressions
+        # For example: "(< a#0, const#0)" -> "(< a 0)"
+        
+        # Check if this is a simple comparison expression
+        if expr.startswith('(') and expr.endswith(')'):
+            # Remove outer parentheses
+            inner = expr[1:-1]
+            
+            # Split by comma (this is simplified)
+            parts = inner.split(', ')
+            if len(parts) == 2:
+                # It's a binary operation
+                # Extract operator
+                op_match = re.match(r'([<>=!]=?|and|or|not)', parts[0])
+                if op_match:
+                    op = op_match.group(1)
+                    left = parts[0][len(op):].strip()
+                    right = parts[1].strip()
+                    
+                    # Map operator to SMT
+                    smt_op = operator_map.get(op, op)
+                    
+                    return f"({smt_op} {left} {right})"
+        
+        # Fallback: if we can't parse it, try to clean it up
+        # Remove remaining # patterns
+        expr = re.sub(r'#\d+', '', expr)
+        
+        # For now, just return a simple equality if we can't parse it
+        return f"(= {expr} 0)"  # Placeholder fallback
+    
+    def _tree_to_smt(self, expr_tree: List, operator_map: Dict[str, str]) -> str:
+        """
+        Convert expression tree to SMT expression.
+        
+        Args:
+            expr_tree: Expression tree (e.g., ["<", "a", 0])
+            operator_map: Operator mapping dictionary
+        
+        Returns:
+            SMT expression string
+        """
+        if not isinstance(expr_tree, list) or len(expr_tree) == 0:
+            return "(= ? 0)"  # Fallback for invalid tree
+        
+        # Handle raw string fallback
+        if expr_tree[0] == "raw" and len(expr_tree) > 1:
+            # Try to parse the raw string
+            import re
+            expr = expr_tree[1]
+            
+            # Clean up the expression
+            expr = re.sub(r'#\d+', '', expr)
+            return f"(= {expr} 0)"
+        
+        # Extract operator and operands
+        op = expr_tree[0]
+        operands = expr_tree[1:]
+        
+        # Map operator to SMT
+        smt_op = operator_map.get(op, op)
+        
+        # Process operands
+        smt_operands = []
+        for operand in operands:
+            if isinstance(operand, list):
+                # Recursive processing for nested expressions
+                smt_operands.append(self._tree_to_smt(operand, operator_map))
+            elif isinstance(operand, (int, float)):
+                # Numeric literal
+                smt_operands.append(str(operand))
+            else:
+                # Variable or string literal
+                smt_operands.append(str(operand))
+        
+        # Build SMT expression
+        if len(smt_operands) == 0:
+            return f"({smt_op})"  # Unary operator like "not"
+        else:
+            return f"({smt_op} {' '.join(smt_operands)})"
+    
+    def _clean_expression_for_comment(self, expr: str, constants: Dict[str, Any] = None) -> str:
+        """
+        Clean expression for comment display.
+        
+        Args:
+            expr: Original expression string
+            constants: Dictionary of constant values
+        
+        Returns:
+            Cleaned expression string
+        """
+        if constants is None:
+            constants = {}
+        
+        import re
+        
+        # First, substitute constants
+        cleaned_expr = expr
+        for const_name, const_value in constants.items():
+            # Replace const#0 with the actual value
+            const_pattern = f"{const_name}#"
+            if const_pattern in cleaned_expr:
+                cleaned_expr = cleaned_expr.replace(f"{const_name}#0", str(const_value))
+        
+        # Remove # followed by numbers from variable names
+        cleaned_expr = re.sub(r'([a-zA-Z_][a-zA-Z0-9_]*)#\d+', r'\1', cleaned_expr)
+        
+        # Remove any remaining # patterns
+        cleaned_expr = re.sub(r'#\d+', '', cleaned_expr)
+        
+        return cleaned_expr
 
 
 def export_path_to_smt2(output_dir: Path,

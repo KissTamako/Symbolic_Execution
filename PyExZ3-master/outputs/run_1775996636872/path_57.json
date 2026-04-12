@@ -1,0 +1,123 @@
+{
+  "export_time": "2026-04-12T20:23:57.192275",
+  "iteration_id": 57,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_57",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(> x#2, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          ">",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(> y#2, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\cseppento1.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          ">",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "x",
+      "y"
+    ],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(> x#2, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          ">",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(> y#2, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\cseppento1.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          ">",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "x",
+      "y"
+    ],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "(> x#2, const#0)",
+      "(> y#2, const#0)"
+    ],
+    "normalized_predicates": [
+      "(> ARG0#2, ARG1#0)",
+      "(> ARG0#2, ARG1#0)"
+    ],
+    "normalized_id": "8e6ec311"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "export_time": "2026-04-12T20:24:07.674971",
+  "iteration_id": 3,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_3",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== (& in1#1, in2#1), const#1)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\logical_op.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (& in1#1, in2#1), const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== (& in1#1, in2#1), const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (& in1#1, in2#1), const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {
+      "const": 1
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== (& in1#1, in2#1), const#1)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\logical_op.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (& in1#1, in2#1), const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== (& in1#1, in2#1), const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (& in1#1, in2#1), const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {
+      "const": 1
+    },
+    "raw_predicates": [
+      "(== (& in1#1, in2#1), const#1)",
+      "(== (& in1#1, in2#1), const#1)"
+    ],
+    "normalized_predicates": [
+      "(== (& ARG0#1, ARG1#1), ARG2#1)",
+      "(== (& ARG0#1, ARG1#1), ARG2#1)"
+    ],
+    "normalized_id": "7166224d"
+  }
+}

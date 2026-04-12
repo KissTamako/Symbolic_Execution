@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "diamond.diamond",
+  "iterations": 8,
+  "run_id": "run_1775996642673",
+  "timestamp": 1775996642.811714,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

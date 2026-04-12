@@ -3,6 +3,7 @@
 JSON exporter for symbolic execution results.
 
 Week 2: JSON export implementation
+Week 4: Added constraint normalization support
 """
 
 import json
@@ -10,6 +11,15 @@ import os
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 from datetime import datetime
+
+# Import normalizer for constraint normalization
+try:
+    from ..normalizer import normalize_path_constraint, global_normalizer
+except ImportError:
+    # Fallback for testing or backward compatibility
+    def normalize_path_constraint(constraint):
+        return constraint
+    global_normalizer = None
 
 
 class JSONExporter:
@@ -34,7 +44,7 @@ class JSONExporter:
                               exception: Optional[Exception] = None,
                               iteration_id: int = 0) -> Path:
         """
-        Export path constraint to JSON.
+        Export path constraint to JSON with normalization support.
         
         Args:
             constraint: Path constraint object
@@ -72,7 +82,8 @@ class JSONExporter:
             },
             "path_constraint": {
                 "predicates": path_predicates,
-                "variables": self._extract_variables(path_predicates)
+                "variables": self._extract_variables(path_predicates),
+                "constants": self._extract_constants(path_predicates)
             },
             "metadata": {
                 "tool": "PyExZ3",
@@ -80,6 +91,18 @@ class JSONExporter:
                 "export_format": "path_constraint"
             }
         }
+        
+        # Add normalized constraint (Week 4 feature)
+        if global_normalizer is not None:
+            try:
+                normalized_constraint = normalize_path_constraint(
+                    path_data["path_constraint"].copy()
+                )
+                path_data["normalized_constraint"] = normalized_constraint
+            except Exception as e:
+                # If normalization fails, log but continue
+                print(f"[WARN] Failed to normalize constraint: {e}")
+                path_data["normalization_error"] = str(e)
         
         # Save to file
         filename = f"path_{iteration_id}.json"
@@ -129,6 +152,17 @@ class JSONExporter:
                     "export_format": "frontier_constraint"
                 }
             }
+            
+            # Add normalized frontier constraint (Week 4 feature)
+            if global_normalizer is not None:
+                try:
+                    normalized_frontier = normalize_path_constraint(
+                        frontier_data["frontier_constraint"].copy()
+                    )
+                    frontier_data["normalized_constraint"] = normalized_frontier
+                except Exception as e:
+                    # If normalization fails, log but continue
+                    frontier_data["normalization_error"] = str(e)
             
             # Save to file
             filename = f"frontier_{iteration_id}_{i}.json"
@@ -234,6 +268,23 @@ class JSONExporter:
                     variables.add(predicate['vars'])
         return sorted(list(variables))
 
+    def _extract_constants(self, predicates: List[Dict]) -> Dict[str, Any]:
+        """
+        Extract constants from predicates.
+        
+        Args:
+            predicates: List of predicate dictionaries
+        
+        Returns:
+            Dictionary of constant names to values
+        """
+        constants = {}
+        for predicate in predicates:
+            if isinstance(predicate, dict) and 'constants' in predicate:
+                if isinstance(predicate['constants'], dict):
+                    for const_name, const_value in predicate['constants'].items():
+                        constants[const_name] = const_value
+        return constants
 
 def export_single_path(output_dir: Path,
                       constraint,

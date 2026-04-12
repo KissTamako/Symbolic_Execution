@@ -1,0 +1,353 @@
+{
+  "export_time": "2026-04-12T20:24:08.694784",
+  "iteration_id": 58,
+  "path_info": {
+    "total_branches": 9,
+    "path_id": "path_58",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(< a#0, b#2)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\maxtest.py",
+        "source_line": 5,
+        "branch_id": "branch_0",
+        "vars": [
+          "b",
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< a#0, b#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b",
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< c#0, d#2)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\maxtest.py",
+        "source_line": 5,
+        "branch_id": "branch_0",
+        "vars": [
+          "d",
+          "c"
+        ],
+        "expr_tree": [
+          "<",
+          "c",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< c#0, d#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "d",
+          "c"
+        ],
+        "expr_tree": [
+          "<",
+          "c",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< b#2, d#2)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\maxtest.py",
+        "source_line": 5,
+        "branch_id": "branch_0",
+        "vars": [
+          "d",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< b#2, d#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "d",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< b#2, a#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "a"
+        ]
+      },
+      {
+        "expr": "(< b#2, b#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< b#2, c#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "c",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "c"
+        ]
+      }
+    ],
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "constants": {}
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(< a#0, b#2)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\maxtest.py",
+        "source_line": 5,
+        "branch_id": "branch_0",
+        "vars": [
+          "b",
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< a#0, b#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b",
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< c#0, d#2)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\maxtest.py",
+        "source_line": 5,
+        "branch_id": "branch_0",
+        "vars": [
+          "d",
+          "c"
+        ],
+        "expr_tree": [
+          "<",
+          "c",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< c#0, d#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "d",
+          "c"
+        ],
+        "expr_tree": [
+          "<",
+          "c",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< b#2, d#2)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\maxtest.py",
+        "source_line": 5,
+        "branch_id": "branch_0",
+        "vars": [
+          "d",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< b#2, d#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "d",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "d"
+        ]
+      },
+      {
+        "expr": "(< b#2, a#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "a"
+        ]
+      },
+      {
+        "expr": "(< b#2, b#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< b#2, c#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "c",
+          "b"
+        ],
+        "expr_tree": [
+          "<",
+          "b",
+          "c"
+        ]
+      }
+    ],
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "constants": {},
+    "raw_predicates": [
+      "(< a#0, b#2)",
+      "(< a#0, b#2)",
+      "(< c#0, d#2)",
+      "(< c#0, d#2)",
+      "(< b#2, d#2)",
+      "(< b#2, d#2)",
+      "(< b#2, a#0)",
+      "(< b#2, b#2)",
+      "(< b#2, c#0)"
+    ],
+    "normalized_predicates": [
+      "(< ARG0#0, ARG1#2)",
+      "(< ARG0#0, ARG1#2)",
+      "(< ARG0#0, ARG1#2)",
+      "(< ARG0#0, ARG1#2)",
+      "(< ARG0#2, ARG1#2)",
+      "(< ARG0#2, ARG1#2)",
+      "(< ARG0#2, ARG1#0)",
+      "(< ARG0#2, ARG0#2)",
+      "(< ARG0#2, ARG1#0)"
+    ],
+    "normalized_id": "70ecc877"
+  }
+}

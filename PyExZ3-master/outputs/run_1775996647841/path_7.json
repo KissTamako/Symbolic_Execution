@@ -1,0 +1,229 @@
+{
+  "export_time": "2026-04-12T20:24:07.899292",
+  "iteration_id": 7,
+  "path_info": {
+    "total_branches": 5,
+    "path_id": "path_7",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\loop.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "expr": "(< const#0, in1#-14)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "in1#-14"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< const#0, in1#-14)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\loop.py",
+        "source_line": 4,
+        "branch_id": "branch_1",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "in1#-14"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< const#0, in1#-14)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "in1#-14"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\loop.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "expr": "(> in1#2, in2#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2",
+          "in1"
+        ],
+        "expr_tree": [
+          ">",
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "expr": "(< const#0, in1#-14)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "in1#-14"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< const#0, in1#-14)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\loop.py",
+        "source_line": 4,
+        "branch_id": "branch_1",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "in1#-14"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< const#0, in1#-14)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "in1#-14"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "(> in1#2, in2#0)",
+      "(> in1#2, in2#0)",
+      "(< const#0, in1#-14)",
+      "(< const#0, in1#-14)",
+      "(< const#0, in1#-14)"
+    ],
+    "normalized_predicates": [
+      "(> ARG0#2, ARG1#0)",
+      "(> ARG0#2, ARG1#0)",
+      "(< ARG0#0, ARG1#-14)",
+      "(< ARG0#0, ARG1#-14)",
+      "(< ARG0#0, ARG1#-14)"
+    ],
+    "normalized_id": "975c3c76"
+  }
+}

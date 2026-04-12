@@ -1,0 +1,132 @@
+{
+  "export_time": "2026-04-12T20:24:07.461515",
+  "iteration_id": 2,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_2",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "a",
+      1
+    ],
+    [
+      "b",
+      2
+    ]
+  ],
+  "execution_result": {
+    "return_value": 1,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== a#1, const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          1
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== b#0, const#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b"
+        ],
+        "expr_tree": [
+          "==",
+          "b",
+          2
+        ],
+        "constants": {
+          "const": 2
+        }
+      }
+    ],
+    "variables": [
+      "a",
+      "b"
+    ],
+    "constants": {
+      "const": 2
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== a#1, const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          1
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== b#0, const#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "b"
+        ],
+        "expr_tree": [
+          "==",
+          "b",
+          2
+        ],
+        "constants": {
+          "const": 2
+        }
+      }
+    ],
+    "variables": [
+      "a",
+      "b"
+    ],
+    "constants": {
+      "const": 2
+    },
+    "raw_predicates": [
+      "(== a#1, const#1)",
+      "(== b#0, const#2)"
+    ],
+    "normalized_predicates": [
+      "(== ARG0#1, ARG1#1)",
+      "(== ARG0#0, ARG1#2)"
+    ],
+    "normalized_id": "a88c41e8"
+  }
+}

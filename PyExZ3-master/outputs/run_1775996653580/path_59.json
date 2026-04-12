@@ -1,0 +1,159 @@
+{
+  "export_time": "2026-04-12T20:24:14.062594",
+  "iteration_id": 59,
+  "path_info": {
+    "total_branches": 3,
+    "path_id": "path_59",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(<= const#0, x#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "<=",
+          0,
+          "x"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< x#10, const#10)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "<",
+          "x",
+          10
+        ],
+        "constants": {
+          "const": 10
+        }
+      },
+      {
+        "expr": "(< x#10, const#10)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\whileloop.py",
+        "source_line": 3,
+        "branch_id": "branch_0",
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "<",
+          "x",
+          10
+        ],
+        "constants": {
+          "const": 10
+        }
+      }
+    ],
+    "variables": [
+      "x"
+    ],
+    "constants": {
+      "const": 10
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(<= const#0, x#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "<=",
+          0,
+          "x"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< x#10, const#10)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "<",
+          "x",
+          10
+        ],
+        "constants": {
+          "const": 10
+        }
+      },
+      {
+        "expr": "(< x#10, const#10)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\whileloop.py",
+        "source_line": 3,
+        "branch_id": "branch_0",
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "<",
+          "x",
+          10
+        ],
+        "constants": {
+          "const": 10
+        }
+      }
+    ],
+    "variables": [
+      "x"
+    ],
+    "constants": {
+      "const": 10
+    },
+    "raw_predicates": [
+      "(<= const#0, x#0)",
+      "(< x#10, const#10)",
+      "(< x#10, const#10)"
+    ],
+    "normalized_predicates": [
+      "(<= ARG0#0, ARG1#0)",
+      "(< ARG0#10, ARG1#10)",
+      "(< ARG0#10, ARG1#10)"
+    ],
+    "normalized_id": "f3bdacc6"
+  }
+}

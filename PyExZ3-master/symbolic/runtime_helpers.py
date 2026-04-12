@@ -22,37 +22,19 @@ def _se_int(x):
     from .symbolic_types.symbolic_int import SymbolicInteger
     from .symbolic_types.symbolic_type import SymbolicObject
     
-    if isinstance(x, SymbolicInteger):
-        # Already symbolic, preserve symbolic expression
-        # Use PyCT approach: call the original int.__int__ method if available
-        if hasattr(x, '__int__'):
-            try:
-                # Try to get concrete value through original int method
-                concrete = int.__int__(x)
-            except:
-                concrete = int(x)
-        else:
-            concrete = int(x)
-            
-        # Check if we should preserve expression
-        expr = None
-        if hasattr(x, 'expr'):
-            expr = x.expr
-        elif hasattr(x, '_expr'):
-            expr = x._expr
-            
-        return SymbolicInteger("se", concrete, expr or x)
+    # PyCT approach: if x is Concolic and has __int2__, call __int2__()
+    if isinstance(x, SymbolicInteger) and hasattr(x, '__int2__'):
+        # Already symbolic, preserve symbolic expression by returning self
+        return x.__int2__()
     elif isinstance(x, SymbolicObject):
         # Other symbolic type, extract concrete value and create new symbolic integer
-        # Try PyCT approach first: use original type methods
-        if hasattr(x, '__int__'):
-            try:
-                concrete = int.__int__(x)
-            except:
-                concrete = x.getConcrValue() if hasattr(x, 'getConcrValue') else int(x)
+        # Try to get concrete value
+        if hasattr(x, 'getConcrValue'):
+            concrete = x.getConcrValue()
         else:
-            concrete = x.getConcrValue() if hasattr(x, 'getConcrValue') else int(x)
-            
+            concrete = int(x)
+        
+        # Create new symbolic integer with reference to the original symbolic object
         return SymbolicInteger("se", int(concrete), x)
     else:
         # Concrete value, create new symbolic integer

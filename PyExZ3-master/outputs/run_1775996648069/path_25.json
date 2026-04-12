@@ -1,0 +1,275 @@
+{
+  "export_time": "2026-04-12T20:24:08.213700",
+  "iteration_id": 25,
+  "path_info": {
+    "total_branches": 6,
+    "path_id": "path_25",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== in1#2, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\many_branches.py",
+        "source_line": 6,
+        "branch_id": "branch_0",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== in1#2, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== in1#1, const#1)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\many_branches.py",
+        "source_line": 18,
+        "branch_id": "branch_4",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          1
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== in1#1, const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          1
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== in2#0, const#7)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\many_branches.py",
+        "source_line": 19,
+        "branch_id": "branch_5",
+        "vars": [
+          "in2"
+        ],
+        "expr_tree": [
+          "==",
+          "in2",
+          7
+        ],
+        "constants": {
+          "const": 7
+        }
+      },
+      {
+        "expr": "(== in2#0, const#7)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2"
+        ],
+        "expr_tree": [
+          "==",
+          "in2",
+          7
+        ],
+        "constants": {
+          "const": 7
+        }
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {
+      "const": 7
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== in1#2, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\many_branches.py",
+        "source_line": 6,
+        "branch_id": "branch_0",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== in1#2, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== in1#1, const#1)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\many_branches.py",
+        "source_line": 18,
+        "branch_id": "branch_4",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          1
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== in1#1, const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "==",
+          "in1",
+          1
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== in2#0, const#7)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\many_branches.py",
+        "source_line": 19,
+        "branch_id": "branch_5",
+        "vars": [
+          "in2"
+        ],
+        "expr_tree": [
+          "==",
+          "in2",
+          7
+        ],
+        "constants": {
+          "const": 7
+        }
+      },
+      {
+        "expr": "(== in2#0, const#7)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in2"
+        ],
+        "expr_tree": [
+          "==",
+          "in2",
+          7
+        ],
+        "constants": {
+          "const": 7
+        }
+      }
+    ],
+    "variables": [
+      "in1",
+      "in2"
+    ],
+    "constants": {
+      "const": 7
+    },
+    "raw_predicates": [
+      "(== in1#2, const#0)",
+      "(== in1#2, const#0)",
+      "(== in1#1, const#1)",
+      "(== in1#1, const#1)",
+      "(== in2#0, const#7)",
+      "(== in2#0, const#7)"
+    ],
+    "normalized_predicates": [
+      "(== ARG0#2, ARG1#0)",
+      "(== ARG0#2, ARG1#0)",
+      "(== ARG0#1, ARG1#1)",
+      "(== ARG0#1, ARG1#1)",
+      "(== ARG0#0, ARG1#7)",
+      "(== ARG0#0, ARG1#7)"
+    ],
+    "normalized_id": "abd02cde"
+  }
+}

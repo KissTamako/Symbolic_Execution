@@ -1,0 +1,78 @@
+{
+  "export_time": "2026-04-12T20:23:56.395238",
+  "iteration_id": 0,
+  "path_info": {
+    "total_branches": 1,
+    "path_id": "path_0",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "a",
+      0
+    ]
+  ],
+  "execution_result": {
+    "return_value": 1,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(< (+ a#0, const#1), a#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bitwidth.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "a",
+          "a"
+        ],
+        "expr_tree": [
+          "raw",
+          "(< (+ a#0, const#1), a#0)"
+        ]
+      }
+    ],
+    "variables": [
+      "a"
+    ],
+    "constants": {}
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(< (+ a#0, const#1), a#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bitwidth.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "a",
+          "a"
+        ],
+        "expr_tree": [
+          "raw",
+          "(< (+ a#0, const#1), a#0)"
+        ]
+      }
+    ],
+    "variables": [
+      "a"
+    ],
+    "constants": {},
+    "raw_predicates": [
+      "(< (+ a#0, const#1), a#0)"
+    ],
+    "normalized_predicates": [
+      "(< (+ ARG0#0, ARG1#1), ARG0#0)"
+    ],
+    "normalized_id": "c2068073"
+  }
+}

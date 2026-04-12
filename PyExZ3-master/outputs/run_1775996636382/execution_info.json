@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "bitwidth.bitwidth",
+  "iterations": 1,
+  "run_id": "run_1775996636382",
+  "timestamp": 1775996636.4123583,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

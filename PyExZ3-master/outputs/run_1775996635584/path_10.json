@@ -1,0 +1,312 @@
+{
+  "export_time": "2026-04-12T20:23:55.872635",
+  "iteration_id": 10,
+  "path_info": {
+    "total_branches": 7,
+    "path_id": "path_10",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "k",
+      14
+    ]
+  ],
+  "execution_result": {
+    "return_value": "NOT_FOUND",
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(< const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(== const#4, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          4,
+          "k"
+        ],
+        "constants": {
+          "const": 4
+        }
+      },
+      {
+        "expr": "(< const#4, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          4,
+          "k"
+        ],
+        "constants": {
+          "const": 4
+        }
+      },
+      {
+        "expr": "(== const#0, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          0,
+          "k"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< const#0, k#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "k"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\binary_search.py",
+        "source_line": 7,
+        "branch_id": "branch_0",
+        "vars": [],
+        "expr_tree": [
+          "<=",
+          0,
+          "-1"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "k"
+    ],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(< const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(== const#4, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          4,
+          "k"
+        ],
+        "constants": {
+          "const": 4
+        }
+      },
+      {
+        "expr": "(< const#4, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          4,
+          "k"
+        ],
+        "constants": {
+          "const": 4
+        }
+      },
+      {
+        "expr": "(== const#0, k#2)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          0,
+          "k"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< const#0, k#2)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          0,
+          "k"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\binary_search.py",
+        "source_line": 7,
+        "branch_id": "branch_0",
+        "vars": [],
+        "expr_tree": [
+          "<=",
+          0,
+          "-1"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "k"
+    ],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "(== const#95, k#0)",
+      "(< const#95, k#0)",
+      "(== const#4, k#0)",
+      "(< const#4, k#0)",
+      "(== const#0, k#2)",
+      "(< const#0, k#2)",
+      "(<= const#0, -1)"
+    ],
+    "normalized_predicates": [
+      "(== ARG0#95, ARG1#0)",
+      "(< ARG0#95, ARG1#0)",
+      "(== ARG0#4, ARG1#0)",
+      "(< ARG0#4, ARG1#0)",
+      "(== ARG0#0, ARG1#2)",
+      "(< ARG0#0, ARG1#2)",
+      "(<= ARG0#0, -1)"
+    ],
+    "normalized_id": "d076a1f0"
+  }
+}

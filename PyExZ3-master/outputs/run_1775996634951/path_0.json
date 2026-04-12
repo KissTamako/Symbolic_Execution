@@ -1,0 +1,78 @@
+{
+  "export_time": "2026-04-12T20:23:54.992325",
+  "iteration_id": 0,
+  "path_info": {
+    "total_branches": 1,
+    "path_id": "path_0",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "i",
+      0
+    ]
+  ],
+  "execution_result": {
+    "return_value": "OTHER",
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "const#0",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "raw",
+          "const#0"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "const#0",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "raw",
+          "const#0"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "const#0"
+    ],
+    "normalized_predicates": [
+      "ARG0#0"
+    ],
+    "normalized_id": "b8c7b758"
+  }
+}

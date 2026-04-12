@@ -121,6 +121,32 @@ class SymbolicObject(SymbolicType,object):
 	def __bool__(self):
 		ret = bool(self.getConcrValue())
 		if SymbolicObject.SI != None:
+			# Check if branch_hook is currently active
+			# If it is, skip the whichBranch call to avoid duplicate recording
+			try:
+				# Try to import the branch hook context from ast_transform
+				# Use absolute import path to avoid relative import issues
+				import sys
+				import os
+				# Get the directory containing this file
+				current_dir = os.path.dirname(os.path.abspath(__file__))
+				# Get the symbolic directory (parent of current_dir)
+				symbolic_dir = os.path.dirname(current_dir)
+				# Add to sys.path if not already there
+				if symbolic_dir not in sys.path:
+					sys.path.insert(0, symbolic_dir)
+				
+				# Now try to import
+				from ast_transform import _branch_hook_context
+				if hasattr(_branch_hook_context, 'active') and _branch_hook_context.active:
+					# branch_hook is already handling this branch, skip duplicate call
+					return ret
+			except Exception:
+				# If import fails for any reason, proceed with normal behavior
+				# This is expected when ast_transform is not available or not imported
+				pass
+			
+			# Call whichBranch only if branch_hook is not active
 			SymbolicObject.SI.whichBranch(ret,self)
 		return ret
 

@@ -1,0 +1,379 @@
+{
+  "export_time": "2026-04-12T20:23:56.100053",
+  "iteration_id": 92,
+  "path_info": {
+    "total_branches": 9,
+    "path_id": "path_92",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(< const#95, k#96)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(== const#4944, k#96)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          4944,
+          "k"
+        ],
+        "constants": {
+          "const": 4944
+        }
+      },
+      {
+        "expr": "(< const#4944, k#4978)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          4944,
+          "k"
+        ],
+        "constants": {
+          "const": 4944
+        }
+      },
+      {
+        "expr": "(== const#119101, k#4978)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          119101,
+          "k"
+        ],
+        "constants": {
+          "const": 119101
+        }
+      },
+      {
+        "expr": "(< const#119101, k#4978)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          119101,
+          "k"
+        ],
+        "constants": {
+          "const": 119101
+        }
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\binary_search.py",
+        "source_line": 7,
+        "branch_id": "branch_0",
+        "vars": [],
+        "expr_tree": [
+          "<=",
+          0,
+          "-1"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "<=",
+          0,
+          "-1"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== const#0, k#4978)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          0,
+          "k"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "k"
+    ],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== const#95, k#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(< const#95, k#96)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          95,
+          "k"
+        ],
+        "constants": {
+          "const": 95
+        }
+      },
+      {
+        "expr": "(== const#4944, k#96)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          4944,
+          "k"
+        ],
+        "constants": {
+          "const": 4944
+        }
+      },
+      {
+        "expr": "(< const#4944, k#4978)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          4944,
+          "k"
+        ],
+        "constants": {
+          "const": 4944
+        }
+      },
+      {
+        "expr": "(== const#119101, k#4978)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          119101,
+          "k"
+        ],
+        "constants": {
+          "const": 119101
+        }
+      },
+      {
+        "expr": "(< const#119101, k#4978)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "<",
+          119101,
+          "k"
+        ],
+        "constants": {
+          "const": 119101
+        }
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\binary_search.py",
+        "source_line": 7,
+        "branch_id": "branch_0",
+        "vars": [],
+        "expr_tree": [
+          "<=",
+          0,
+          "-1"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(<= const#0, -1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "<=",
+          0,
+          "-1"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== const#0, k#4978)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "k"
+        ],
+        "expr_tree": [
+          "==",
+          0,
+          "k"
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "k"
+    ],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "(== const#95, k#0)",
+      "(< const#95, k#96)",
+      "(== const#4944, k#96)",
+      "(< const#4944, k#4978)",
+      "(== const#119101, k#4978)",
+      "(< const#119101, k#4978)",
+      "(<= const#0, -1)",
+      "(<= const#0, -1)",
+      "(== const#0, k#4978)"
+    ],
+    "normalized_predicates": [
+      "(== ARG0#95, ARG1#0)",
+      "(< ARG0#95, ARG1#96)",
+      "(== ARG0#4944, ARG1#96)",
+      "(< ARG0#4944, ARG1#4978)",
+      "(== ARG0#119101, ARG1#4978)",
+      "(< ARG0#119101, ARG1#4978)",
+      "(<= ARG0#0, -1)",
+      "(<= ARG0#0, -1)",
+      "(== ARG0#0, ARG1#4978)"
+    ],
+    "normalized_id": "f077f37c"
+  }
+}

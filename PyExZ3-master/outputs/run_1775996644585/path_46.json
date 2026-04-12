@@ -1,0 +1,737 @@
+{
+  "export_time": "2026-04-12T20:24:05.932252",
+  "iteration_id": 46,
+  "path_info": {
+    "total_branches": 19,
+    "path_id": "path_46",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(>= x#0, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          ">=",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(>= y#0, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 65,
+        "branch_id": "branch_15",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          ">=",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(>= y#0, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          ">=",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== x#14, y#1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "expr": "(== x#14, y#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "expr": "(== x#14, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 5,
+        "branch_id": "branch_1",
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== x#14, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 8,
+        "branch_id": "branch_2",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(& x#14, const#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& x#14, const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(& y#1, const#1)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 12,
+        "branch_id": "branch_4",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& y#1, const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(& y#1, const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& y#1, const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== (>> x#14, const#1), y#1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), y#1)"
+        ]
+      },
+      {
+        "expr": "(== (>> x#14, const#1), y#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), y#1)"
+        ]
+      },
+      {
+        "expr": "(== (>> x#14, const#1), const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 5,
+        "branch_id": "branch_1",
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), const#0)"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== (>> x#14, const#1), const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), const#0)"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 8,
+        "branch_id": "branch_2",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(& (>> x#14, const#1), const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& (>> x#14, const#1), const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      }
+    ],
+    "variables": [
+      "x",
+      "y"
+    ],
+    "constants": {
+      "const": 1
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(>= x#0, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          ">=",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(>= y#0, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 65,
+        "branch_id": "branch_15",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          ">=",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(>= y#0, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          ">=",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== x#14, y#1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "expr": "(== x#14, y#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "expr": "(== x#14, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 5,
+        "branch_id": "branch_1",
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== x#14, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "==",
+          "x",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 8,
+        "branch_id": "branch_2",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(& x#14, const#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& x#14, const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(& y#1, const#1)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 12,
+        "branch_id": "branch_4",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& y#1, const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(& y#1, const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& y#1, const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      },
+      {
+        "expr": "(== (>> x#14, const#1), y#1)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), y#1)"
+        ]
+      },
+      {
+        "expr": "(== (>> x#14, const#1), y#1)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y",
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), y#1)"
+        ]
+      },
+      {
+        "expr": "(== (>> x#14, const#1), const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 5,
+        "branch_id": "branch_1",
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), const#0)"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== (>> x#14, const#1), const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (>> x#14, const#1), const#0)"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 8,
+        "branch_id": "branch_2",
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== y#1, const#0)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "y"
+        ],
+        "expr_tree": [
+          "==",
+          "y",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(& (>> x#14, const#1), const#1)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "x"
+        ],
+        "expr_tree": [
+          "raw",
+          "(& (>> x#14, const#1), const#1)"
+        ],
+        "constants": {
+          "const": 1
+        }
+      }
+    ],
+    "variables": [
+      "x",
+      "y"
+    ],
+    "constants": {
+      "const": 1
+    },
+    "raw_predicates": [
+      "(>= x#0, const#0)",
+      "(>= y#0, const#0)",
+      "(>= y#0, const#0)",
+      "(== x#14, y#1)",
+      "(== x#14, y#1)",
+      "(== x#14, const#0)",
+      "(== x#14, const#0)",
+      "(== y#1, const#0)",
+      "(== y#1, const#0)",
+      "(& x#14, const#1)",
+      "(& y#1, const#1)",
+      "(& y#1, const#1)",
+      "(== (>> x#14, const#1), y#1)",
+      "(== (>> x#14, const#1), y#1)",
+      "(== (>> x#14, const#1), const#0)",
+      "(== (>> x#14, const#1), const#0)",
+      "(== y#1, const#0)",
+      "(== y#1, const#0)",
+      "(& (>> x#14, const#1), const#1)"
+    ],
+    "normalized_predicates": [
+      "(>= ARG0#0, ARG1#0)",
+      "(>= ARG0#0, ARG1#0)",
+      "(>= ARG0#0, ARG1#0)",
+      "(== ARG0#14, ARG1#1)",
+      "(== ARG0#14, ARG1#1)",
+      "(== ARG0#14, ARG1#0)",
+      "(== ARG0#14, ARG1#0)",
+      "(== ARG0#1, ARG1#0)",
+      "(== ARG0#1, ARG1#0)",
+      "(& ARG0#14, ARG1#1)",
+      "(& ARG0#1, ARG1#1)",
+      "(& ARG0#1, ARG1#1)",
+      "(== (>> ARG0#14, ARG1#1), ARG2#1)",
+      "(== (>> ARG0#14, ARG1#1), ARG2#1)",
+      "(== (>> ARG0#14, ARG1#1), ARG1#0)",
+      "(== (>> ARG0#14, ARG1#1), ARG1#0)",
+      "(== ARG0#1, ARG1#0)",
+      "(== ARG0#1, ARG1#0)",
+      "(& (>> ARG0#14, ARG1#1), ARG1#1)"
+    ],
+    "normalized_id": "03ec131c"
+  }
+}

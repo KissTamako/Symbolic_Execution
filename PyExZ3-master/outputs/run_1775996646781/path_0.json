@@ -1,0 +1,84 @@
+{
+  "export_time": "2026-04-12T20:24:07.055651",
+  "iteration_id": 0,
+  "path_info": {
+    "total_branches": 1,
+    "path_id": "path_0",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "key",
+      0
+    ]
+  ],
+  "execution_result": {
+    "return_value": 1,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== (^ (+ key#0, (<< key#0, const#10)), (>> (+ key#0, (<< key#0, const#10)), const#6)), (+ key#0, const#1))",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\hashval.py",
+        "source_line": 11,
+        "branch_id": "branch_0",
+        "vars": [
+          "key",
+          "key",
+          "key",
+          "key",
+          "key"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (^ (+ key#0, (<< key#0, const#10)), (>> (+ key#0, (<< key#0, const#10)), const#6)), (+ key#0, const#1))"
+        ]
+      }
+    ],
+    "variables": [
+      "key"
+    ],
+    "constants": {}
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== (^ (+ key#0, (<< key#0, const#10)), (>> (+ key#0, (<< key#0, const#10)), const#6)), (+ key#0, const#1))",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\hashval.py",
+        "source_line": 11,
+        "branch_id": "branch_0",
+        "vars": [
+          "key",
+          "key",
+          "key",
+          "key",
+          "key"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== (^ (+ key#0, (<< key#0, const#10)), (>> (+ key#0, (<< key#0, const#10)), const#6)), (+ key#0, const#1))"
+        ]
+      }
+    ],
+    "variables": [
+      "key"
+    ],
+    "constants": {},
+    "raw_predicates": [
+      "(== (^ (+ key#0, (<< key#0, const#10)), (>> (+ key#0, (<< key#0, const#10)), const#6)), (+ key#0, const#1))"
+    ],
+    "normalized_predicates": [
+      "(== (^ (+ ARG0#0, (<< ARG0#0, ARG1#10)), (>> (+ ARG0#0, (<< ARG0#0, ARG1#10)), ARG1#6)), (+ ARG0#0, ARG1#1))"
+    ],
+    "normalized_id": "63b5ad9a"
+  }
+}

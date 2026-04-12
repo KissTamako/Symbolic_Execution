@@ -29,6 +29,10 @@ class SymbolicInteger(SymbolicObject,int):
 	def _op_worker(self,args,fun,op):
 		return self._do_sexpr(args, fun, op, SymbolicInteger.wrap)
 
+	def __int2__(self):
+		"""PyCT-compatible method for preserving symbolic information in int() calls."""
+		# Return self to preserve symbolic expression
+		return self
 # now update the SymbolicInteger class for operations we
 # will build symbolic terms for
 

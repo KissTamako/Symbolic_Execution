@@ -1,0 +1,165 @@
+{
+  "export_time": "2026-04-12T20:23:55.421615",
+  "iteration_id": 3,
+  "path_info": {
+    "total_branches": 4,
+    "path_id": "path_3",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== a#0, 9223372036854775807)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bignum.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          9223372036854775807
+        ]
+      },
+      {
+        "expr": "(== a#0, 9223372036854775807)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          9223372036854775807
+        ]
+      },
+      {
+        "expr": "(== a#0, (+ 9223372036854775807, const#1))",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bignum.py",
+        "source_line": 6,
+        "branch_id": "branch_1",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== a#0, (+ 9223372036854775807, const#1))"
+        ]
+      },
+      {
+        "expr": "(== a#0, (+ 9223372036854775807, const#1))",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== a#0, (+ 9223372036854775807, const#1))"
+        ]
+      }
+    ],
+    "variables": [
+      "a"
+    ],
+    "constants": {}
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== a#0, 9223372036854775807)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bignum.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          9223372036854775807
+        ]
+      },
+      {
+        "expr": "(== a#0, 9223372036854775807)",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          9223372036854775807
+        ]
+      },
+      {
+        "expr": "(== a#0, (+ 9223372036854775807, const#1))",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bignum.py",
+        "source_line": 6,
+        "branch_id": "branch_1",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== a#0, (+ 9223372036854775807, const#1))"
+        ]
+      },
+      {
+        "expr": "(== a#0, (+ 9223372036854775807, const#1))",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "raw",
+          "(== a#0, (+ 9223372036854775807, const#1))"
+        ]
+      }
+    ],
+    "variables": [
+      "a"
+    ],
+    "constants": {},
+    "raw_predicates": [
+      "(== a#0, 9223372036854775807)",
+      "(== a#0, 9223372036854775807)",
+      "(== a#0, (+ 9223372036854775807, const#1))",
+      "(== a#0, (+ 9223372036854775807, const#1))"
+    ],
+    "normalized_predicates": [
+      "(== ARG0#0, 9223372036854775807)",
+      "(== ARG0#0, 9223372036854775807)",
+      "(== ARG0#0, (+ 9223372036854775807, ARG1#1))",
+      "(== ARG0#0, (+ 9223372036854775807, ARG1#1))"
+    ],
+    "normalized_id": "18182a63"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "export_time": "2026-04-12T20:23:55.422620",
+  "iteration_id": 4,
+  "path_info": {
+    "total_branches": 1,
+    "path_id": "path_4",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(== a#9223372036854775807, 9223372036854775807)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bignum.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          9223372036854775807
+        ]
+      }
+    ],
+    "variables": [
+      "a"
+    ],
+    "constants": {}
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(== a#9223372036854775807, 9223372036854775807)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\bignum.py",
+        "source_line": 4,
+        "branch_id": "branch_0",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "==",
+          "a",
+          9223372036854775807
+        ]
+      }
+    ],
+    "variables": [
+      "a"
+    ],
+    "constants": {},
+    "raw_predicates": [
+      "(== a#9223372036854775807, 9223372036854775807)"
+    ],
+    "normalized_predicates": [
+      "(== ARG0#9223372036854775807, 9223372036854775807)"
+    ],
+    "normalized_id": "9bf470ba"
+  }
+}

@@ -11,6 +11,7 @@ import importlib
 import inspect
 import sys
 import types
+import threading
 from pathlib import Path
 
 # Import symbolic types for wrapping
@@ -18,6 +19,10 @@ from .symbolic_types.symbolic_int import SymbolicInteger
 from .symbolic_types.symbolic_str import SymbolicStr
 from .symbolic_types.symbolic_type import SymbolicObject
 from .runtime_helpers import _se_int, _se_str, _se_range, unwrap, wrap_concrete_constant
+
+# Thread-local storage for branch hook context
+_branch_hook_context = threading.local()
+_branch_hook_context.active = False
 
 
 class SEConstantWrapper(ast.NodeTransformer):
@@ -224,12 +229,37 @@ def branch_hook(filename: str, line: int, branch_id: int, condition) -> bool:
     Returns:
         The condition value (passed through)
     """
-    # This hook will be called by injected code
-    # Actual branch recording happens in SymbolicObject.__bool__
-    # This just provides metadata
-    from .trace import record_branch
-    record_branch(filename, line, branch_id, condition)
-    return bool(condition)
+    # Set thread-local flag to indicate branch_hook is active
+    # This prevents SymbolicObject.__bool__ from making duplicate calls
+    _branch_hook_context.active = True
+    
+    try:
+        # Record branch information for trace
+        from .trace import record_branch
+        record_branch(filename, line, branch_id, condition)
+        
+        # If condition is a SymbolicObject, we need to call whichBranch with source location
+        # Try to import SymbolicObject to check if condition is symbolic
+        try:
+            from .symbolic_types.symbolic_type import SymbolicObject
+            
+            if isinstance(condition, SymbolicObject) and SymbolicObject.SI is not None:
+                # Call whichBranch with source location information
+                SymbolicObject.SI.whichBranch(
+                    bool(condition.getConcrValue()), 
+                    condition,
+                    source_file=filename,
+                    source_line=line,
+                    branch_id=f"branch_{branch_id}"
+                )
+        except ImportError:
+            # If import fails, just continue
+            pass
+        
+        return bool(condition)
+    finally:
+        # Always clear the flag, even if an exception occurs
+        _branch_hook_context.active = False
 
 
 def setup_branch_hook_globals(globals_dict: dict):

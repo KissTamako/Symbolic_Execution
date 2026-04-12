@@ -2,6 +2,9 @@
 
 import os
 import sys
+# 首先设置sys.path，确保后续导入能正常工作
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import logging
 import traceback
 import argparse
@@ -12,8 +15,6 @@ from symbolic.loader import *
 from symbolic.explore import ExplorationEngine
 
 print("PyExZ3 (Python Exploration with Z3) - Enhanced Symbolic Execution Tool")
-
-sys.path = [os.path.abspath(os.path.join(os.path.dirname(__file__)))] + sys.path
 
 # Parse command line arguments
 parser = argparse.ArgumentParser(description='Enhanced symbolic execution for student code analysis')
@@ -52,6 +53,8 @@ parser.add_argument('--export-frontier', action='store_true',
                     help='Export frontier constraints (implies --export-json and/or --export-smt)')
 parser.add_argument('--export-trace', action='store_true',
                     help='Export execution trace (implies --export-json)')
+parser.add_argument('--export-corpus', action='store_true',
+                    help='Export clustering-ready corpus in JSONL format (Week 4 feature)')
 parser.add_argument('--ast-transform', action='store_true', default=True,
                     help='Enable AST transformation to preserve symbolic information (default: True)')
 parser.add_argument('--no-ast-transform', dest='ast_transform', action='store_false',
@@ -59,8 +62,20 @@ parser.add_argument('--no-ast-transform', dest='ast_transform', action='store_fa
 
 args = parser.parse_args()
 
+# Week 4: Enable default exports if no export arguments are provided
+# Check if any export arguments were provided
+any_export_args = (args.export_json or args.export_smt or args.export_path or 
+                   args.export_frontier or args.export_trace or args.export_corpus)
+
+if not any_export_args:
+    # Enable default exports: path constraints, frontier, trace, and corpus (Week 4 feature)
+    args.export_path = True
+    args.export_frontier = True
+    args.export_trace = True
+    args.export_corpus = True
+
 # Set up output directory structure
-run_id = f"run_{int(time.time())}"
+run_id = f"run_{int(time.time() * 1000)}"
 output_dir = Path(args.output_dir) / run_id
 output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -146,9 +161,12 @@ try:
     if args.dump_semantics:
         print(f"[INFO] Semantic tags dumping not yet implemented (Week 1)")
     
-    # Week 2: Export functionality
+    # Week 2 & Week 4: Export functionality
     export_performed = False
-    if args.export_json or args.export_smt or args.export_path or args.export_frontier or args.export_trace:
+    export_json = False
+    export_smt = False
+    export_corpus = args.export_corpus
+    if args.export_json or args.export_smt or args.export_path or args.export_frontier or args.export_trace or export_corpus:
         # Import exporters
         from symbolic.exporters.json_exporter import JSONExporter
         from symbolic.exporters.smt_exporter import SMTExporter
@@ -156,8 +174,17 @@ try:
         global_trace_recorder = get_trace_recorder()
         
         # Determine what to export
-        export_json = args.export_json or args.export_path or args.export_frontier or args.export_trace
+        export_json = args.export_json or args.export_path or args.export_frontier or args.export_trace or export_corpus
         export_smt = args.export_smt or args.export_path or args.export_frontier
+        
+        # Week 4: Import corpus exporter if needed
+        if export_corpus:
+            try:
+                from symbolic.exporters.corpus_exporter import CorpusExporter
+            except ImportError as e:
+                print(f"[WARNING] Failed to import corpus exporter: {e}")
+                print(f"[WARNING] Corpus export will be disabled")
+                export_corpus = False
         
         if export_json:
             json_exporter = JSONExporter(output_dir)
@@ -180,6 +207,27 @@ try:
                             constraint, inputs, retval, None, i
                         )
                         print(f"[INFO] Exported path constraint {i} to JSON: {json_file}")
+                        
+                        # Week 4: Export to corpus format if requested
+                        if export_corpus:
+                            try:
+                                # Read the JSON data back for corpus export
+                                import json as json_module
+                                with open(json_file, 'r', encoding='utf-8') as f:
+                                    path_data = json_module.load(f)
+                                
+                                # Create corpus exporter and export
+                                corpus_exporter = CorpusExporter(output_dir)
+                                program_id = f"{app.getFile()}_{app.getEntry()}"
+                                submission_id = f"{program_id}_submission"
+                                corpus_exporter.set_program_info(program_id, submission_id)
+                                
+                                corpus_file = corpus_exporter.export_corpus_record(
+                                    path_data, i
+                                )
+                                print(f"[INFO] Exported path constraint {i} to corpus: {corpus_file}")
+                            except Exception as corpus_e:
+                                print(f"[WARNING] Failed to export path constraint {i} to corpus: {corpus_e}")
                     except Exception as e:
                         print(f"[WARNING] Failed to export path constraint {i} to JSON: {e}")
                 
@@ -251,11 +299,12 @@ try:
         "ast_transform_enabled": args.ast_transform,
         "export_performed": export_performed,
         "export_options": {
-            "json": args.export_json,
-            "smt": args.export_smt,
+            "json": export_json,
+            "smt": export_smt,
             "path": args.export_path,
             "frontier": args.export_frontier,
-            "trace": args.export_trace
+            "trace": args.export_trace,
+            "corpus": export_corpus
         }
     }
     

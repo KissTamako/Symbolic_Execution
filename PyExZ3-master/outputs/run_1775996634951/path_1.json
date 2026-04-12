@@ -1,0 +1,110 @@
+{
+  "export_time": "2026-04-12T20:23:55.000523",
+  "iteration_id": 1,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_1",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "i",
+      1
+    ]
+  ],
+  "execution_result": {
+    "return_value": 1,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "const#0",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "raw",
+          "const#0"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "const#1",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "raw",
+          "const#1"
+        ],
+        "constants": {
+          "const": 1
+        }
+      }
+    ],
+    "variables": [],
+    "constants": {
+      "const": 1
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "const#0",
+        "result": false,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "raw",
+          "const#0"
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "const#1",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [],
+        "expr_tree": [
+          "raw",
+          "const#1"
+        ],
+        "constants": {
+          "const": 1
+        }
+      }
+    ],
+    "variables": [],
+    "constants": {
+      "const": 1
+    },
+    "raw_predicates": [
+      "const#0",
+      "const#1"
+    ],
+    "normalized_predicates": [
+      "ARG0#0",
+      "ARG0#1"
+    ],
+    "normalized_id": "bf4bdfcc"
+  }
+}

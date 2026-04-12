@@ -1,0 +1,155 @@
+{
+  "export_time": "2026-04-12T20:23:54.600719",
+  "iteration_id": 4,
+  "path_info": {
+    "total_branches": 3,
+    "path_id": "path_4",
+    "is_complete": true
+  },
+  "inputs": {},
+  "execution_result": {
+    "return_value": null,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(< a#-16, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\abs_test.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a#-16",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< a#-16, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a#-16",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== b#0, 16)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\abs_test.py",
+        "source_line": 3,
+        "branch_id": "branch_1",
+        "vars": [
+          "b"
+        ],
+        "expr_tree": [
+          "==",
+          "b",
+          16
+        ]
+      }
+    ],
+    "variables": [
+      "a",
+      "b"
+    ],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(< a#-16, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\abs_test.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a#-16",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(< a#-16, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "a"
+        ],
+        "expr_tree": [
+          "<",
+          "a#-16",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(== b#0, 16)",
+        "result": false,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\abs_test.py",
+        "source_line": 3,
+        "branch_id": "branch_1",
+        "vars": [
+          "b"
+        ],
+        "expr_tree": [
+          "==",
+          "b",
+          16
+        ]
+      }
+    ],
+    "variables": [
+      "a",
+      "b"
+    ],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "(< a#-16, const#0)",
+      "(< a#-16, const#0)",
+      "(== b#0, 16)"
+    ],
+    "normalized_predicates": [
+      "(< ARG0#-16, ARG1#0)",
+      "(< ARG0#-16, ARG1#0)",
+      "(== ARG0#0, 16)"
+    ],
+    "normalized_id": "7e333830"
+  }
+}

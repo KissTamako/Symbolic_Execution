@@ -1,0 +1,17 @@
+{
+  "mode": "function",
+  "function": "powtest.powtest",
+  "iterations": 2,
+  "run_id": "run_1775996650609",
+  "timestamp": 1775996650.663422,
+  "ast_transform_enabled": true,
+  "export_performed": true,
+  "export_options": {
+    "json": true,
+    "smt": true,
+    "path": true,
+    "frontier": true,
+    "trace": true,
+    "corpus": true
+  }
+}

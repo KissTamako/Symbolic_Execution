@@ -89,7 +89,7 @@ for f in files:
         if not os.path.exists(pyexz3_path):
             print(f"错误: 找不到pyexz3.py在 {pyexz3_path}")
             sys.exit(1)
-        ret = subprocess.call([sys.executable, pyexz3_path, "-m", "25", solver, "--export-path", "--export-frontier", "--export-trace", full], 
+        ret = subprocess.call([sys.executable, pyexz3_path, "-m", "25", solver, "--export-path", "--export-frontier", "--export-trace", "--export-corpus", full], 
                               stdout=devnull, stderr=subprocess.PIPE, cwd=current_dir)
     if (ret == 0):
         myprint(bcolors.SUCCESS, "✓", "Test " + f + " passed.")

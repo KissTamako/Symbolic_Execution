@@ -5,6 +5,7 @@ import logging
 import os
 
 from .z3_wrap import Z3Wrapper
+from .solver import SolverWrapper
 from .path_to_constraint import PathToConstraint
 from .invocation import FunctionInvocation
 from .symbolic_types import symbolic_type, SymbolicType
@@ -32,8 +33,7 @@ class ExplorationEngine:
 		if solver == "z3":
 			self.solver = Z3Wrapper()
 		elif solver == "cvc":
-			from .cvc_wrap import CVCWrapper
-			self.solver = CVCWrapper()
+			self.solver = SolverWrapper(solver_type="cvc4")
 		else:
 			raise Exception("Unknown solver %s" % solver)
 
@@ -44,7 +44,8 @@ class ExplorationEngine:
 	def addConstraint(self, constraint):
 		self.constraints_to_solve.append(constraint)
 		# make sure to remember the input that led to this constraint
-		constraint.inputs = self._getInputs()
+		# Save concrete values, not symbolic objects
+		constraint.inputs = self._getConcreteInputs()
 
 	def explore(self, max_iterations=0):
 		self._oneExecution()
@@ -89,8 +90,17 @@ class ExplorationEngine:
 	def _getInputs(self):
 		return self.symbolic_inputs.copy()
 
+	def _getConcreteInputs(self):
+		"""Get concrete values for all symbolic inputs."""
+		return {k: self._getConcrValue(v) for k, v in self.symbolic_inputs.items()}
+
 	def _setInputs(self,d):
-		self.symbolic_inputs = d
+		"""Set inputs from concrete values dictionary."""
+		# d should be concrete values, need to recreate symbolic objects
+		self.symbolic_inputs = {}
+		for name, value in d.items():
+			# Recreate symbolic parameter using invocation
+			self.symbolic_inputs[name] = self.invocation.createArgumentValue(name, value)
 
 	def _isExplorationComplete(self):
 		num_constr = len(self.constraints_to_solve)
@@ -135,4 +145,3 @@ class ExplorationEngine:
 			)
 		except Exception as e:
 			log.warning(f"Failed to record execution trace: {e}")
-

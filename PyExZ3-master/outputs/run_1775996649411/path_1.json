@@ -1,0 +1,126 @@
+{
+  "export_time": "2026-04-12T20:24:09.465889",
+  "iteration_id": 1,
+  "path_info": {
+    "total_branches": 2,
+    "path_id": "path_1",
+    "is_complete": true
+  },
+  "inputs": [
+    [
+      "in1",
+      2
+    ]
+  ],
+  "execution_result": {
+    "return_value": 1,
+    "exception": null,
+    "success": true
+  },
+  "path_constraint": {
+    "predicates": [
+      {
+        "expr": "(<= in1#0, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\modulo2.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<=",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(<= in1#0, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<=",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "in1"
+    ],
+    "constants": {
+      "const": 0
+    }
+  },
+  "metadata": {
+    "tool": "PyExZ3",
+    "version": "2.0",
+    "export_format": "path_constraint"
+  },
+  "normalized_constraint": {
+    "predicates": [
+      {
+        "expr": "(<= in1#0, const#0)",
+        "result": true,
+        "source_file": "E:\\Graduation Projection\\PyExZ3-master\\test\\modulo2.py",
+        "source_line": 2,
+        "branch_id": "branch_0",
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<=",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      },
+      {
+        "expr": "(<= in1#0, const#0)",
+        "result": true,
+        "source_file": null,
+        "source_line": null,
+        "branch_id": null,
+        "vars": [
+          "in1"
+        ],
+        "expr_tree": [
+          "<=",
+          "in1",
+          0
+        ],
+        "constants": {
+          "const": 0
+        }
+      }
+    ],
+    "variables": [
+      "in1"
+    ],
+    "constants": {
+      "const": 0
+    },
+    "raw_predicates": [
+      "(<= in1#0, const#0)",
+      "(<= in1#0, const#0)"
+    ],
+    "normalized_predicates": [
+      "(<= ARG0#0, ARG1#0)",
+      "(<= ARG0#0, ARG1#0)"
+    ],
+    "normalized_id": "8f71cf30"
+  }
+}

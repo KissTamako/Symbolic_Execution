@@ -1,0 +1,490 @@
+{
+  "execution_id": 24,
+  "timestamp": 1776221614.8322062,
+  "input_model": {
+    "x": "x#23"
+  },
+  "concrete_inputs": {
+    "x": 23
+  },
+  "return_value": 191,
+  "branch_trace": [
+    {
+      "expr": "(>= x#8, 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 2)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 3)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 5)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 6)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 7)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 8)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#10, 9)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#10, 10)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#12, 11)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#12, 12)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#14, 13)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#14, 14)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#15, 15)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#16, 16)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#18, 17)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#18, 18)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#20, 19)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#20, 20)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#22, 21)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#22, 22)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#24, 23)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#23, 24)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(>= x#8, 1) (True)",
+    "(>= x#8, 2) (True)",
+    "(>= x#8, 3) (True)",
+    "(>= x#8, 4) (True)",
+    "(>= x#8, 5) (True)",
+    "(>= x#8, 6) (True)",
+    "(>= x#8, 7) (True)",
+    "(>= x#8, 8) (True)",
+    "(>= x#10, 9) (True)",
+    "(>= x#10, 10) (True)",
+    "(>= x#12, 11) (True)",
+    "(>= x#12, 12) (True)",
+    "(>= x#14, 13) (True)",
+    "(>= x#14, 14) (True)",
+    "(>= x#15, 15) (True)",
+    "(>= x#16, 16) (True)",
+    "(>= x#18, 17) (True)",
+    "(>= x#18, 18) (True)",
+    "(>= x#20, 19) (True)",
+    "(>= x#20, 20) (True)",
+    "(>= x#22, 21) (True)",
+    "(>= x#22, 22) (True)",
+    "(>= x#24, 23) (True)",
+    "(>= x#23, 24) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(>= ARG0#8, 1) (True)",
+    "(>= ARG0#8, 2) (True)",
+    "(>= ARG0#8, 3) (True)",
+    "(>= ARG0#8, 4) (True)",
+    "(>= ARG0#8, 5) (True)",
+    "(>= ARG0#8, 6) (True)",
+    "(>= ARG0#8, 7) (True)",
+    "(>= ARG0#8, 8) (True)",
+    "(>= ARG0#10, 9) (True)",
+    "(>= ARG0#10, 10) (True)",
+    "(>= ARG0#12, 11) (True)",
+    "(>= ARG0#12, 12) (True)",
+    "(>= ARG0#14, 13) (True)",
+    "(>= ARG0#14, 14) (True)",
+    "(>= ARG0#15, 15) (True)",
+    "(>= ARG0#16, 16) (True)",
+    "(>= ARG0#18, 17) (True)",
+    "(>= ARG0#18, 18) (True)",
+    "(>= ARG0#20, 19) (True)",
+    "(>= ARG0#20, 20) (True)",
+    "(>= ARG0#22, 21) (True)",
+    "(>= ARG0#22, 22) (True)",
+    "(>= ARG0#24, 23) (True)",
+    "(>= ARG0#23, 24) (False)"
+  ],
+  "semantic_info": {
+    "path_length": 24,
+    "branch_directions": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(>= x#8, 1) (True)",
+      "(>= x#8, 2) (True)",
+      "(>= x#8, 3) (True)",
+      "(>= x#8, 4) (True)",
+      "(>= x#8, 5) (True)",
+      "(>= x#8, 6) (True)",
+      "(>= x#8, 7) (True)",
+      "(>= x#8, 8) (True)",
+      "(>= x#10, 9) (True)",
+      "(>= x#10, 10) (True)",
+      "(>= x#12, 11) (True)",
+      "(>= x#12, 12) (True)",
+      "(>= x#14, 13) (True)",
+      "(>= x#14, 14) (True)",
+      "(>= x#15, 15) (True)",
+      "(>= x#16, 16) (True)",
+      "(>= x#18, 17) (True)",
+      "(>= x#18, 18) (True)",
+      "(>= x#20, 19) (True)",
+      "(>= x#20, 20) (True)",
+      "(>= x#22, 21) (True)",
+      "(>= x#22, 22) (True)",
+      "(>= x#24, 23) (True)"
+    ],
+    "negations": [
+      "(>= x#23, 24) (False)"
+    ]
+  }
+}

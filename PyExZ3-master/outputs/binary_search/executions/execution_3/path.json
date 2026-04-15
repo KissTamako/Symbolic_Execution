@@ -1,0 +1,110 @@
+{
+  "execution_id": 3,
+  "timestamp": 1776221612.2931678,
+  "input_model": {
+    "k": "k#4"
+  },
+  "concrete_inputs": {
+    "k": 4
+  },
+  "return_value": "4",
+  "branch_trace": [
+    {
+      "expr": "(== k#0, 95)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "k"
+      ]
+    },
+    {
+      "expr": "(> k#0, 95)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "k"
+      ]
+    },
+    {
+      "expr": "(== k#4, 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "k"
+      ]
+    },
+    {
+      "expr": "(== k#4, 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "k"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== k#0, 95) (False)",
+    "(> k#0, 95) (False)",
+    "(== k#4, 4) (True)",
+    "(== k#4, 4) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(== ARG0#0, 95) (False)",
+    "(> ARG0#0, 95) (False)",
+    "(== ARG0#4, 4) (True)",
+    "(== ARG0#4, 4) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 4,
+    "branch_directions": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "k"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== k#4, 4) (True)",
+      "(== k#4, 4) (True)"
+    ],
+    "negations": [
+      "(== k#0, 95) (False)",
+      "(> k#0, 95) (False)"
+    ]
+  }
+}

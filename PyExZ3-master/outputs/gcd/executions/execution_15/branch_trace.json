@@ -1,0 +1,570 @@
+{
+  "timestamp": 1776221620.5682456,
+  "trace_length": 47,
+  "branches": [
+    {
+      "predicate": "(>= x#0, 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(>= y#0, 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== x#14, y#1) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== x#14, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== y#1, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(& x#14, 1) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(& y#1, 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (>> x#14, 1), y#1) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (>> x#14, 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== y#1, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(& (>> x#14, 1), 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(& y#1, 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(> (>> x#14, 1), y#1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (>> (- (>> x#14, 1), y#1), 1), y#1) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (>> (- (>> x#14, 1), y#1), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== y#1, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(& (>> (- (>> x#14, 1), y#1), 1), 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(& y#1, 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(> (>> (- (>> x#14, 1), y#1), 1), y#1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), y#3) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== y#3, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(& (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(& y#3, 1) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(> (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), y#3) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (>> (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 1), (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== x#26, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== y#3, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (& (| x#26, y#3), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (& x#26, 1), 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (& (>> x#26, 1), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (& y#3, 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(> (>> x#26, 1), y#3) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (- (>> x#26, 1), y#3), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (& (- (>> x#26, 1), y#3), 1), 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (& (>> (- (>> x#26, 1), y#3), 1), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(> y#3, (>> (- (>> x#26, 1), y#3), 1)) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (- (>> (- (>> x#26, 1), y#3), 1), y#3), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (& (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (& (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(> y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (& (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 1), 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (& (>> (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 1), 1), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(> (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), (>> (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 1)) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(== (- (>> (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 1), (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(!= (>> (- y#3, (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1)), 1), (<< (>> (- (>> (- (>> x#26, 1), y#3), 1), y#3), 1), 0)) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    }
+  ]
+}

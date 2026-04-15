@@ -1,0 +1,33 @@
+{
+  "timestamp": 1776221613.1033487,
+  "total_tags": 9,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(>= y#4294967296, 4294967296) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(== x#4294967296, 4294967296) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(== y#4294967296, 4294967499) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    }
+  ]
+}

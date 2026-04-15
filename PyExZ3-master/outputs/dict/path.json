@@ -1,0 +1,110 @@
+{
+  "path_id": 2165349286800,
+  "timestamp": 1776221616.223469,
+  "input_model": {
+    "x": "x#1"
+  },
+  "concrete_inputs": {
+    "x": 1
+  },
+  "return_value": 3,
+  "branch_trace": [
+    {
+      "expr": "(== x#0, 4)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#0, 101)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#1, 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#1, 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== x#0, 4) (False)",
+    "(== x#0, 101) (False)",
+    "(== x#1, 1) (True)",
+    "(== x#1, 1) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(== ARG0#0, 4) (False)",
+    "(== ARG0#0, 101) (False)",
+    "(== ARG0#1, 1) (True)",
+    "(== ARG0#1, 1) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 4,
+    "branch_directions": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== x#1, 1) (True)",
+      "(== x#1, 1) (True)"
+    ],
+    "negations": [
+      "(== x#0, 4) (False)",
+      "(== x#0, 101) (False)"
+    ]
+  }
+}

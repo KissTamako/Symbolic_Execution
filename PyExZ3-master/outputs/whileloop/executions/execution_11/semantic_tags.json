@@ -1,0 +1,276 @@
+{
+  "timestamp": 1776221632.5172935,
+  "total_tags": 90,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(>= x#0, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(< x#0, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(>= x#8, 1) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 3,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 4,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 5,
+      "predicate": "(>= x#8, 2) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 6,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 7,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 8,
+      "predicate": "(>= x#8, 3) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 9,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 10,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 11,
+      "predicate": "(>= x#8, 4) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 12,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 13,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 14,
+      "predicate": "(>= x#8, 5) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 15,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 16,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 17,
+      "predicate": "(>= x#8, 6) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 18,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 19,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 20,
+      "predicate": "(>= x#8, 7) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 21,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 22,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 23,
+      "predicate": "(>= x#8, 8) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 24,
+      "predicate": "(>= x#8, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 25,
+      "predicate": "(< x#8, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 26,
+      "predicate": "(>= x#9, 9) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 27,
+      "predicate": "(>= x#9, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 28,
+      "predicate": "(< x#9, 10) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 29,
+      "predicate": "(>= x#9, 10) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False"
+      ]
+    }
+  ]
+}

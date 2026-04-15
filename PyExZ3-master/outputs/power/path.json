@@ -1,0 +1,25 @@
+{
+  "path_id": 1882127411216,
+  "timestamp": 1776221625.9519026,
+  "input_model": {
+    "x": "x#0"
+  },
+  "concrete_inputs": {
+    "x": 0
+  },
+  "return_value": 0,
+  "branch_trace": [],
+  "path_predicates_raw": [],
+  "path_predicates_normalized": [],
+  "semantic_info": {
+    "path_length": 0,
+    "branch_directions": [],
+    "semantic_tags": [],
+    "symbolic_variables": [],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": []
+  }
+}

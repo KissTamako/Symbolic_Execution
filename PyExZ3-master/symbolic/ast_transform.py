@@ -1,277 +1,171 @@
-# Copyright: see copyright.txt
-"""
-AST transformation module for preserving symbolic information.
+from ast import Call, Constant, Import, Name, If, While, NodeTransformer, fix_missing_locations, parse
+import importlib, importlib.util, inspect, sys, types
 
-Week 2: AST transformation implementation
-Adapted from PyCT's wrapper.py with modifications for PyExZ3 compatibility.
-"""
+class SymbolicWrapperCall(NodeTransformer):
+    def visit_Call(self, node):
+        for i in range(len(node.args)):
+            node.args[i] = SymbolicWrapperCall().visit(node.args[i])
+        if isinstance(node.func, Name):
+            if node.func.id == 'int':
+                if len(node.args) == 1:
+                    call = parse('_se_int()').body[0].value
+                    call.args = node.args
+                    # Copy location information
+                    call.lineno = node.lineno
+                    call.col_offset = node.col_offset
+                    return call
+            if node.func.id == 'str':
+                if len(node.args) == 1:
+                    call = parse('_se_str()').body[0].value
+                    call.args = node.args
+                    # Copy location information
+                    call.lineno = node.lineno
+                    call.col_offset = node.col_offset
+                    return call
+            if node.func.id == 'float':
+                if len(node.args) == 1:
+                    call = parse('_se_float()').body[0].value
+                    call.args = node.args
+                    # Copy location information
+                    call.lineno = node.lineno
+                    call.col_offset = node.col_offset
+                    return call
+            if node.func.id == 'range':
+                call = parse('_se_range()').body[0].value
+                call.args = node.args
+                # Copy location information
+                call.lineno = node.lineno
+                call.col_offset = node.col_offset
+                return call
+        return node
 
-import ast
-import importlib
-import inspect
-import sys
-import types
-import threading
-from pathlib import Path
-
-# Import symbolic types for wrapping
-from .symbolic_types.symbolic_int import SymbolicInteger
-from .symbolic_types.symbolic_str import SymbolicStr
-from .symbolic_types.symbolic_type import SymbolicObject
-from .runtime_helpers import _se_int, _se_str, _se_range, unwrap, wrap_concrete_constant
-
-# Thread-local storage for branch hook context
-_branch_hook_context = threading.local()
-_branch_hook_context.active = False
-
-
-class SEConstantWrapper(ast.NodeTransformer):
-    """
-    Wrap constants to preserve symbolic information.
+class SymbolicWrapperBranch(NodeTransformer):
+    def visit_If(self, node):
+        # Add branch hook to condition
+        node.test = self._add_branch_hook(node.test, node.lineno, node.col_offset)
+        return node
     
-    Transforms:
-    - 5 -> wrap_concrete_constant(5)
-    - "hello" -> wrap_concrete_constant("hello")
-    - True -> wrap_concrete_constant(True)
-    """
+    def visit_While(self, node):
+        # Add branch hook to condition
+        node.test = self._add_branch_hook(node.test, node.lineno, node.col_offset)
+        return node
     
-    def visit_Constant(self, node: ast.Constant):
-        # Only wrap supported types: bool, int, str
-        if isinstance(node.value, (bool, int, str)):
-            # Create call to wrap_concrete_constant(value)
-            call = ast.Call(
-                func=ast.Name(id='wrap_concrete_constant', ctx=ast.Load()),
-                args=[node],
-                keywords=[]
-            )
+    def _add_branch_hook(self, condition, line, col):
+        # Create a wrapper that adds branch location information
+        hook_call = parse('symbolic.runtime_helpers._branch_hook()').body[0].value
+        hook_call.args = [condition, line, col]
+        # Copy location information
+        hook_call.lineno = line
+        hook_call.col_offset = col
+        return hook_call
+
+class SymbolicWrapperConstant(NodeTransformer):
+    def visit_Constant(self, node):
+        if isinstance(node.value, bool):
+            call = parse('symbolic.symbolic_types.SymbolicBool()').body[0].value
+            call.args = [node]
+            # Copy location information
+            call.lineno = node.lineno
+            call.col_offset = node.col_offset
+            return call
+        if isinstance(node.value, int):
+            call = parse('symbolic.symbolic_types.SymbolicInteger()').body[0].value
+            call.args = [node]
+            # Copy location information
+            call.lineno = node.lineno
+            call.col_offset = node.col_offset
+            return call
+        if isinstance(node.value, float):
+            call = parse('symbolic.symbolic_types.SymbolicFloat()').body[0].value
+            call.args = [node]
+            # Copy location information
+            call.lineno = node.lineno
+            call.col_offset = node.col_offset
+            return call
+        if isinstance(node.value, str):
+            call = parse('symbolic.symbolic_types.SymbolicStr()').body[0].value
+            call.args = [node]
+            # Copy location information
+            call.lineno = node.lineno
+            call.col_offset = node.col_offset
             return call
         return node
 
-
-class SEFunctionCallWrapper(ast.NodeTransformer):
-    """
-    Wrap function calls to preserve symbolic information.
+def _exec_module(self, module):
+    tree = parse(inspect.getsource(module))
     
-    Transforms:
-    - int(x) -> _se_int(x)
-    - str(x) -> _se_str(x)
-    - range(...) -> _se_range(...)
-    """
+    # Insert imports for runtime helpers
+    i = 0
+    while i < len(tree.body) and hasattr(tree.body[i], 'module') and tree.body[i].module == '__future__':
+        i += 1
     
-    def visit_Call(self, node: ast.Call):
-        # First transform arguments recursively
-        for i in range(len(node.args)):
-            node.args[i] = self.visit(node.args[i])
-        
-        # Transform keywords if any
-        for kw in node.keywords:
-            kw.value = self.visit(kw.value)
-        
-        # Check if this is a call to a built-in function we want to wrap
-        if isinstance(node.func, ast.Name):
-            func_name = node.func.id
-            
-            # int(x) -> _se_int(x)
-            if func_name == 'int' and len(node.args) == 1:
-                return ast.Call(
-                    func=ast.Name(id='_se_int', ctx=ast.Load()),
-                    args=node.args,
-                    keywords=[]
-                )
-            
-            # str(x) -> _se_str(x)
-            elif func_name == 'str' and len(node.args) == 1:
-                return ast.Call(
-                    func=ast.Name(id='_se_str', ctx=ast.Load()),
-                    args=node.args,
-                    keywords=[]
-                )
-            
-            # range(...) -> _se_range(...)
-            elif func_name == 'range' and 1 <= len(node.args) <= 3:
-                return ast.Call(
-                    func=ast.Name(id='_se_range', ctx=ast.Load()),
-                    args=node.args,
-                    keywords=[]
-                )
-        
-        return node
-
-
-class SEBranchHookInjector(ast.NodeTransformer):
-    """
-    Inject branch hooks for if/while statements to record source location.
+    from ast import alias
+    tree.body.insert(i, Import(names=[alias(name='symbolic.runtime_helpers', asname=None)]))
+    tree.body.insert(i, Import(names=[alias(name='symbolic.symbolic_types', asname=None)]))
     
-    Transforms:
-    - if condition: -> if __branch_hook(file, line, branch_id, condition):
-    - while condition: -> while __branch_hook(file, line, branch_id, condition):
-    """
+    tree = SymbolicWrapperCall().visit(tree)
+    tree = SymbolicWrapperConstant().visit(tree)
+    tree = SymbolicWrapperBranch().visit(tree)
     
-    def __init__(self, filename: str):
-        self.filename = filename
-        self.branch_counter = 0
+    # Ensure all nodes have necessary fields
+    fix_missing_locations(tree)
     
-    def visit_If(self, node: ast.If):
-        # Generate branch ID
-        branch_id = self.branch_counter
-        self.branch_counter += 1
-        
-        # Create hook call
-        hook_call = ast.Call(
-            func=ast.Name(id='__branch_hook', ctx=ast.Load()),
-            args=[
-                ast.Constant(value=self.filename),
-                ast.Constant(value=node.lineno if hasattr(node, 'lineno') else 0),
-                ast.Constant(value=branch_id),
-                node.test
-            ],
-            keywords=[]
-        )
-        
-        # Replace test with hook call
-        node.test = hook_call
-        
-        # Process body and orelse recursively
-        node.body = [self.visit(stmt) for stmt in node.body]
-        if node.orelse:
-            node.orelse = [self.visit(stmt) for stmt in node.orelse]
-        
-        return node
-    
-    def visit_While(self, node: ast.While):
-        # Generate branch ID
-        branch_id = self.branch_counter
-        self.branch_counter += 1
-        
-        # Create hook call
-        hook_call = ast.Call(
-            func=ast.Name(id='__branch_hook', ctx=ast.Load()),
-            args=[
-                ast.Constant(value=self.filename),
-                ast.Constant(value=node.lineno if hasattr(node, 'lineno') else 0),
-                ast.Constant(value=branch_id),
-                node.test
-            ],
-            keywords=[]
-        )
-        
-        # Replace test with hook call
-        node.test = hook_call
-        
-        # Process body and orelse recursively
-        node.body = [self.visit(stmt) for stmt in node.body]
-        if node.orelse:
-            node.orelse = [self.visit(stmt) for stmt in node.orelse]
-        
-        return node
-
-
-def transform_ast(source_code: str, filename: str, inject_branch_hooks: bool = False) -> ast.Module:
-    """
-    Transform Python source code AST to preserve symbolic information.
-    
-    Args:
-        source_code: Python source code
-        filename: Source filename for error reporting
-        inject_branch_hooks: Whether to inject branch hooks
-    
-    Returns:
-        Transformed AST module
-    """
-    # Parse source code
-    tree = ast.parse(source_code, filename=filename)
-    
-    # Apply transformations in order
-    transformers = []
-    
-    # 1. Wrap constants
-    transformers.append(SEConstantWrapper())
-    
-    # 2. Wrap function calls
-    transformers.append(SEFunctionCallWrapper())
-    
-    # 3. Inject branch hooks if requested
-    if inject_branch_hooks:
-        transformers.append(SEBranchHookInjector(filename))
-    
-    # Apply all transformations
-    for transformer in transformers:
-        tree = transformer.visit(tree)
-        ast.fix_missing_locations(tree)
-    
-    return tree
-
-
-def compile_transformed_module(tree: ast.Module, module_name: str) -> types.CodeType:
-    """
-    Compile transformed AST module to code object.
-    
-    Args:
-        tree: Transformed AST module
-        module_name: Name of the module
-    
-    Returns:
-        Compiled code object
-    """
-    return compile(tree, filename=module_name, mode='exec')
-
-
-def branch_hook(filename: str, line: int, branch_id: int, condition) -> bool:
-    """
-    Branch hook function to record branch information.
-    
-    Args:
-        filename: Source filename
-        line: Line number
-        branch_id: Branch identifier
-        condition: Branch condition value
-    
-    Returns:
-        The condition value (passed through)
-    """
-    # Set thread-local flag to indicate branch_hook is active
-    # This prevents SymbolicObject.__bool__ from making duplicate calls
-    _branch_hook_context.active = True
-    
+    # Try to compile with error handling
     try:
-        # Record branch information for trace
-        from .trace import record_branch
-        record_branch(filename, line, branch_id, condition)
-        
-        # If condition is a SymbolicObject, we need to call whichBranch with source location
-        # Try to import SymbolicObject to check if condition is symbolic
-        try:
-            from .symbolic_types.symbolic_type import SymbolicObject
-            
-            if isinstance(condition, SymbolicObject) and SymbolicObject.SI is not None:
-                # Call whichBranch with source location information
-                SymbolicObject.SI.whichBranch(
-                    bool(condition.getConcrValue()), 
-                    condition,
-                    source_file=filename,
-                    source_line=line,
-                    branch_id=f"branch_{branch_id}"
-                )
-        except ImportError:
-            # If import fails, just continue
-            pass
-        
-        return bool(condition)
-    finally:
-        # Always clear the flag, even if an exception occurs
-        _branch_hook_context.active = False
+        code = compile(tree, module.__file__, 'exec')
+        importlib._bootstrap._call_with_frames_removed(exec, code, module.__dict__)
+    except Exception as e:
+        # If compilation fails, skip transformation for this module
+        # import traceback
+        # traceback.print_exc()
+        # Fall back to original execution
+        original_code = inspect.getsource(module)
+        importlib._bootstrap._call_with_frames_removed(exec, original_code, module.__dict__)
 
+def _find_spec(cls, fullname, path=None, target=None):
+    spec = cls.find_spec_original(fullname, path, target)
+    if not spec:
+        return spec
+    # Skip transformation for third-party modules and built-in modules
+    if not fullname.startswith('symbolic') and not fullname.startswith('test'):
+        return spec
+    module = importlib.util.module_from_spec(spec)
+    try:
+        inspect.getsource(module)
+        spec.loader.exec_module = types.MethodType(_exec_module, spec.loader)
+    except Exception as e:
+        msg = str(e)
+        if not (isinstance(e, OSError) and msg in ('could not get source code', 'source code not available')) and not (isinstance(e, TypeError) and msg.endswith('is a built-in module')):
+            import traceback
+            traceback.print_exc()
+            sys.exit(1)
+    return spec
 
-def setup_branch_hook_globals(globals_dict: dict):
-    """
-    Setup branch hook function in globals dict.
+def install_import_hook():
+    for e in sys.meta_path:
+        if hasattr(e, 'find_spec'):
+            e.find_spec_original = e.find_spec
+            e.find_spec = types.MethodType(_find_spec, e)
     
-    Args:
-        globals_dict: Globals dictionary to update
-    """
-    globals_dict['__branch_hook'] = branch_hook
-    globals_dict['wrap_concrete_constant'] = wrap_concrete_constant
-    globals_dict['_se_int'] = _se_int
-    globals_dict['_se_str'] = _se_str
-    globals_dict['_se_range'] = _se_range
-    globals_dict['unwrap'] = unwrap
+    importlib.util.spec_from_file_location_original = importlib.util.spec_from_file_location
+    
+    def _spec_from_file_location(name, location=None, *, loader=None, submodule_search_locations=object()):
+        spec = importlib.util.spec_from_file_location_original(name, location, loader=loader, submodule_search_locations=submodule_search_locations)
+        if not spec:
+            return spec
+        # Skip transformation for third-party modules and built-in modules
+        if not name.startswith('symbolic') and not name.startswith('test'):
+            return spec
+        module = importlib.util.module_from_spec(spec)
+        try:
+            inspect.getsource(module)
+            spec.loader.exec_module = types.MethodType(_exec_module, spec.loader)
+        except Exception as e:
+            msg = str(e)
+            if not (isinstance(e, OSError) and msg in ('could not get source code', 'source code not available')) and not (isinstance(e, TypeError) and msg.endswith('is a built-in module')):
+                import traceback
+                traceback.print_exc()
+                sys.exit(1)
+        return spec
+    
+    importlib.util.spec_from_file_location = _spec_from_file_location

@@ -1,0 +1,40 @@
+{
+  "timestamp": 1776221618.5591452,
+  "generated_inputs": [
+    [
+      [
+        "a",
+        0
+      ]
+    ],
+    [
+      [
+        "a",
+        1
+      ]
+    ],
+    [
+      [
+        "a",
+        2
+      ]
+    ]
+  ],
+  "return_values": [
+    0,
+    2,
+    1
+  ],
+  "execution_count": 3,
+  "path_lengths": [
+    2,
+    1,
+    2
+  ],
+  "semantic_summary": {
+    "total_branches": 5,
+    "unique_variables": [
+      "a"
+    ]
+  }
+}

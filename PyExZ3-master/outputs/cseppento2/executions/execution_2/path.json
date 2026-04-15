@@ -1,0 +1,99 @@
+{
+  "execution_id": 2,
+  "timestamp": 1776221614.1098406,
+  "input_model": {
+    "a": "a#1",
+    "b": "b#1"
+  },
+  "concrete_inputs": {
+    "a": 1,
+    "b": 1
+  },
+  "return_value": 2,
+  "branch_trace": [
+    {
+      "expr": "(== (+ (- (* (* 2, a#1), a#1), (* 5, a#1)), 3), 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "a",
+        "a",
+        "a"
+      ]
+    },
+    {
+      "expr": "(== (+ (- (* (* 2, b#1), b#1), (* 5, b#1)), 3), 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "b",
+        "b",
+        "b"
+      ]
+    },
+    {
+      "expr": "(!= a#1, b#1)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "b",
+        "a"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== (+ (- (* (* 2, a#1), a#1), (* 5, a#1)), 3), 0) (True)",
+    "(== (+ (- (* (* 2, b#1), b#1), (* 5, b#1)), 3), 0) (True)",
+    "(!= a#1, b#1) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(== (+ (- (* (* 2, ARG0#1), ARG0#1), (* 5, ARG0#1)), 3), 0) (True)",
+    "(== (+ (- (* (* 2, ARG1#1), ARG1#1), (* 5, ARG1#1)), 3), 0) (True)",
+    "(!= ARG0#1, ARG1#1) (FARG0lse)"
+  ],
+  "semantic_info": {
+    "path_length": 3,
+    "branch_directions": [
+      true,
+      true,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "a",
+      "b"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== (+ (- (* (* 2, a#1), a#1), (* 5, a#1)), 3), 0) (True)",
+      "(== (+ (- (* (* 2, b#1), b#1), (* 5, b#1)), 3), 0) (True)"
+    ],
+    "negations": [
+      "(!= a#1, b#1) (False)"
+    ]
+  }
+}

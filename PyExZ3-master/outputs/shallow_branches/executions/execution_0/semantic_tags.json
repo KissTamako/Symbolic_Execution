@@ -1,0 +1,15 @@
+{
+  "timestamp": 1776221628.0259488,
+  "total_tags": 3,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(== in1#0, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    }
+  ]
+}

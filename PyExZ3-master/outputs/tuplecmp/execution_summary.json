@@ -1,0 +1,79 @@
+{
+  "timestamp": 1776221629.278786,
+  "generated_inputs": [
+    [
+      [
+        "a0",
+        0
+      ],
+      [
+        "a1",
+        0
+      ],
+      [
+        "b0",
+        0
+      ],
+      [
+        "b1",
+        0
+      ]
+    ],
+    [
+      [
+        "a0",
+        0
+      ],
+      [
+        "a1",
+        0
+      ],
+      [
+        "b0",
+        2
+      ],
+      [
+        "b1",
+        0
+      ]
+    ],
+    [
+      [
+        "a0",
+        0
+      ],
+      [
+        "a1",
+        0
+      ],
+      [
+        "b0",
+        0
+      ],
+      [
+        "b1",
+        2
+      ]
+    ]
+  ],
+  "return_values": [
+    false,
+    true,
+    true
+  ],
+  "execution_count": 3,
+  "path_lengths": [
+    2,
+    1,
+    2
+  ],
+  "semantic_summary": {
+    "total_branches": 5,
+    "unique_variables": [
+      "a0",
+      "b1",
+      "b0",
+      "a1"
+    ]
+  }
+}

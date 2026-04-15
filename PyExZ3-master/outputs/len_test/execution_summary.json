@@ -1,0 +1,32 @@
+{
+  "timestamp": 1776221621.823807,
+  "generated_inputs": [
+    [
+      [
+        "a",
+        0
+      ]
+    ],
+    [
+      [
+        "a",
+        2
+      ]
+    ]
+  ],
+  "return_values": [
+    0,
+    1
+  ],
+  "execution_count": 2,
+  "path_lengths": [
+    1,
+    1
+  ],
+  "semantic_summary": {
+    "total_branches": 2,
+    "unique_variables": [
+      "a"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "timestamp": 1776221622.8940604,
+  "generated_inputs": [
+    [
+      [
+        "in1",
+        0
+      ],
+      [
+        "in2",
+        0
+      ]
+    ],
+    [
+      [
+        "in1",
+        2
+      ],
+      [
+        "in2",
+        0
+      ]
+    ],
+    [
+      [
+        "in1",
+        -14
+      ],
+      [
+        "in2",
+        -16
+      ]
+    ]
+  ],
+  "return_values": [
+    0,
+    1,
+    1
+  ],
+  "execution_count": 3,
+  "path_lengths": [
+    1,
+    2,
+    2
+  ],
+  "semantic_summary": {
+    "total_branches": 5,
+    "unique_variables": [
+      "in1",
+      "in2"
+    ]
+  }
+}

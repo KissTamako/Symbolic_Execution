@@ -1,0 +1,90 @@
+{
+  "timestamp": 1776221623.7440548,
+  "trace_length": 7,
+  "branches": [
+    {
+      "predicate": "(< a#0, b#2) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(< c#0, d#2) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(< b#2, d#3) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(< d#3, a#0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(< d#3, b#2) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(< d#3, c#0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(< d#3, d#3) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    }
+  ]
+}

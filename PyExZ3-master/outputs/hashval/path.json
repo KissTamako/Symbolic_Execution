@@ -1,0 +1,56 @@
+{
+  "path_id": 2447352797904,
+  "timestamp": 1776221621.4817805,
+  "input_model": {
+    "key": "key#0"
+  },
+  "concrete_inputs": {
+    "key": 0
+  },
+  "return_value": 1,
+  "branch_trace": [
+    {
+      "expr": "(== (^ (+ key#0, (<< key#0, 10)), (>> (+ key#0, (<< key#0, 10)), 6)), (+ key#0, 1))",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "key",
+        "key",
+        "key",
+        "key",
+        "key"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== (^ (+ key#0, (<< key#0, 10)), (>> (+ key#0, (<< key#0, 10)), 6)), (+ key#0, 1)) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(== (^ (+ ARG0#0, (<< ARG0#0, 10)), (>> (+ ARG0#0, (<< ARG0#0, 10)), 6)), (+ ARG0#0, 1)) (False)"
+  ],
+  "semantic_info": {
+    "path_length": 1,
+    "branch_directions": [
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "key"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": [
+      "(== (^ (+ key#0, (<< key#0, 10)), (>> (+ key#0, (<< key#0, 10)), 6)), (+ key#0, 1)) (False)"
+    ]
+  }
+}

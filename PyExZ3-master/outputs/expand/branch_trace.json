@@ -1,0 +1,18 @@
+{
+  "timestamp": 1776221617.2058036,
+  "trace_length": 1,
+  "branches": [
+    {
+      "predicate": "(>= (+ in1#3222421507, in2#1115785390), 4294967296) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    }
+  ]
+}

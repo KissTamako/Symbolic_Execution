@@ -1,0 +1,112 @@
+{
+  "timestamp": 1776221632.460519,
+  "generated_inputs": [
+    [
+      [
+        "x",
+        0
+      ]
+    ],
+    [
+      [
+        "x",
+        -16
+      ]
+    ],
+    [
+      [
+        "x",
+        10
+      ]
+    ],
+    [
+      [
+        "x",
+        8
+      ]
+    ],
+    [
+      [
+        "x",
+        1
+      ]
+    ],
+    [
+      [
+        "x",
+        2
+      ]
+    ],
+    [
+      [
+        "x",
+        3
+      ]
+    ],
+    [
+      [
+        "x",
+        4
+      ]
+    ],
+    [
+      [
+        "x",
+        5
+      ]
+    ],
+    [
+      [
+        "x",
+        6
+      ]
+    ],
+    [
+      [
+        "x",
+        7
+      ]
+    ],
+    [
+      [
+        "x",
+        9
+      ]
+    ]
+  ],
+  "return_values": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "execution_count": 12,
+  "path_lengths": [
+    3,
+    1,
+    2,
+    27,
+    6,
+    9,
+    12,
+    15,
+    18,
+    21,
+    24,
+    30
+  ],
+  "semantic_summary": {
+    "total_branches": 168,
+    "unique_variables": [
+      "x"
+    ]
+  }
+}

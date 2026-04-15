@@ -1,0 +1,105 @@
+{
+  "timestamp": 1776221620.5830688,
+  "total_tags": 33,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(>= x#0, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(>= y#0, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(== x#0, y#0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 3,
+      "predicate": "(== x#2, 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 4,
+      "predicate": "(== y#2, 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 5,
+      "predicate": "(== (& (| x#1, y#1), 1), 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 6,
+      "predicate": "(== (& x#1, 1), 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 7,
+      "predicate": "(== (& y#1, 1), 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 8,
+      "predicate": "(> x#1, y#1) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 9,
+      "predicate": "(== (- y#1, x#1), 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 10,
+      "predicate": "(!= x#1, (<< x#1, 0)) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    }
+  ]
+}

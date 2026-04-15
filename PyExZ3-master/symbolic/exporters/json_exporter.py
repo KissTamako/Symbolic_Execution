@@ -1,310 +1,266 @@
-# Copyright: see copyright.txt
-"""
-JSON exporter for symbolic execution results.
-
-Week 2: JSON export implementation
-Week 4: Added constraint normalization support
-"""
-
 import json
 import os
-from pathlib import Path
-from typing import Dict, List, Any, Optional
-from datetime import datetime
-
-# Import normalizer for constraint normalization
-try:
-    from ..normalizer import normalize_path_constraint, global_normalizer
-except ImportError:
-    # Fallback for testing or backward compatibility
-    def normalize_path_constraint(constraint):
-        return constraint
-    global_normalizer = None
-
+import time
+from ..normalizer import ConstraintNormalizer
 
 class JSONExporter:
-    """
-    Exports symbolic execution results to JSON format.
-    """
-    
-    def __init__(self, output_dir: Path):
-        """
-        Initialize JSON exporter.
-        
-        Args:
-            output_dir: Directory to save JSON files
-        """
+    def __init__(self, output_dir):
         self.output_dir = output_dir
-        self.output_dir.mkdir(parents=True, exist_ok=True)
+        os.makedirs(self.output_dir, exist_ok=True)
     
-    def export_path_constraint(self, 
-                              constraint, 
-                              inputs: Dict[str, Any],
-                              return_value: Any,
-                              exception: Optional[Exception] = None,
-                              iteration_id: int = 0) -> Path:
-        """
-        Export path constraint to JSON with normalization support.
+    def _get_concrete_value(self, value):
+        """Get concrete value from symbolic type"""
+        if hasattr(value, 'getConcrValue'):
+            return value.getConcrValue()
+        elif isinstance(value, dict):
+            return {k: self._get_concrete_value(v) for k, v in value.items()}
+        elif isinstance(value, (list, tuple)):
+            return [self._get_concrete_value(item) for item in value]
+        return value
+    
+    def _extract_semantic_tags(self, predicate):
+        """Extract semantic tags from predicate"""
+        tags = []
         
-        Args:
-            constraint: Path constraint object
-            inputs: Input values used
-            return_value: Return value from execution
-            exception: Exception if any
-            iteration_id: Iteration identifier
+        # Add type-based tags
+        sym_type = predicate.symtype
+        if hasattr(sym_type, '__class__'):
+            tags.append(f"type:{sym_type.__class__.__name__}")
         
-        Returns:
-            Path to saved JSON file
-        """
-        # Extract path predicates
-        path_predicates = []
-        if hasattr(constraint, 'get_path_predicates'):
-            path_predicates = constraint.get_path_predicates()
-        elif hasattr(constraint, 'to_dict'):
-            constraint_dict = constraint.to_dict()
-            if 'predicates' in constraint_dict:
-                path_predicates = constraint_dict['predicates']
+        # Add operation-based tags
+        if hasattr(sym_type, 'expr') and sym_type.expr:
+            if isinstance(sym_type.expr, list) and len(sym_type.expr) > 0:
+                op = sym_type.expr[0]
+                tags.append(f"op:{op}")
         
-        # Build JSON structure
+        # Add branch direction tag
+        tags.append(f"branch:{predicate.result}")
+        
+        # Add location tag if available
+        if predicate.source_file and predicate.source_line:
+            tags.append(f"loc:{predicate.source_file}:{predicate.source_line}")
+        
+        return tags
+    
+    def export_path(self, path, inputs, return_values):
+        """Export path information to JSON"""
+        current_path = path.get_current_path()
+        
+        # 规范化路径约束
+        normalizer = ConstraintNormalizer()
+        raw_predicates, normalized_predicates = normalizer.normalize_path(current_path)
+        
+        # Extract semantic information
+        semantic_info = {
+            "path_length": len(current_path),
+            "branch_directions": [p.result for p in current_path],
+            "semantic_tags": [self._extract_semantic_tags(p) for p in current_path],
+            "symbolic_variables": list(set(var for p in current_path for var in p.getVars())),
+            "source_locations": [(p.source_file, p.source_line, p.branch_id) for p in current_path if p.source_file and p.source_line]
+        }
+        
         path_data = {
-            "export_time": datetime.now().isoformat(),
-            "iteration_id": iteration_id,
-            "path_info": {
-                "total_branches": len(path_predicates),
-                "path_id": getattr(constraint, 'path_id', f"path_{iteration_id}"),
-                "is_complete": getattr(constraint, 'is_complete', True)
-            },
-            "inputs": self._serialize_value(inputs),
-            "execution_result": {
-                "return_value": self._serialize_value(return_value),
-                "exception": str(exception) if exception else None,
-                "success": exception is None
-            },
-            "path_constraint": {
-                "predicates": path_predicates,
-                "variables": self._extract_variables(path_predicates),
-                "constants": self._extract_constants(path_predicates)
-            },
-            "metadata": {
-                "tool": "PyExZ3",
-                "version": "2.0",
-                "export_format": "path_constraint"
+            "path_id": id(path),
+            "timestamp": time.time(),
+            "input_model": {k: v.toString() if hasattr(v, 'toString') else str(v) for k, v in inputs.items()},
+            "concrete_inputs": {k: self._get_concrete_value(v) for k, v in inputs.items()},
+            "return_value": return_values[-1] if return_values else None,
+            "branch_trace": [p.to_dict() for p in current_path],
+            "path_predicates_raw": raw_predicates,
+            "path_predicates_normalized": normalized_predicates,
+            "semantic_info": semantic_info,
+            "path_constraints": {
+                "assertions": [str(p) for p in current_path if p.result],
+                "negations": [str(p) for p in current_path if not p.result]
             }
         }
         
-        # Add normalized constraint (Week 4 feature)
-        if global_normalizer is not None:
-            try:
-                normalized_constraint = normalize_path_constraint(
-                    path_data["path_constraint"].copy()
-                )
-                path_data["normalized_constraint"] = normalized_constraint
-            except Exception as e:
-                # If normalization fails, log but continue
-                print(f"[WARN] Failed to normalize constraint: {e}")
-                path_data["normalization_error"] = str(e)
-        
-        # Save to file
-        filename = f"path_{iteration_id}.json"
-        filepath = self.output_dir / filename
-        with open(filepath, 'w', encoding='utf-8') as f:
+        with open(os.path.join(self.output_dir, "path.json"), "w") as f:
             json.dump(path_data, f, indent=2, default=str)
         
-        return filepath
+        return path_data
     
-    def export_frontier_constraint(self,
-                                  frontier_constraints: List,
-                                  parent_constraint,
-                                  iteration_id: int = 0) -> List[Path]:
-        """
-        Export frontier constraints to JSON.
+    def export_frontier(self, frontier):
+        """Export frontier constraints to JSON"""
+        frontier_dir = os.path.join(self.output_dir, "frontier")
+        os.makedirs(frontier_dir, exist_ok=True)
+        
+        frontier_summary = []
+        
+        # 创建约束规范化器
+        normalizer = ConstraintNormalizer()
+        
+        for i, constraint in enumerate(frontier):
+            path_predicates = constraint.get_path_predicates()
+            
+            # 规范化路径约束
+            raw_predicates, normalized_predicates = normalizer.normalize_path(path_predicates)
+            
+            # Extract semantic information for each frontier constraint
+            semantic_info = {
+                "path_length": len(path_predicates),
+                "branch_directions": [p.result for p in path_predicates],
+                "semantic_tags": [self._extract_semantic_tags(p) for p in path_predicates],
+                "symbolic_variables": list(set(var for p in path_predicates for var in p.getVars()))
+            }
+            
+            frontier_data = {
+                "constraint_id": constraint.id,
+                "timestamp": time.time(),
+                "path_predicates": [p.to_dict() for p in path_predicates],
+                "path_predicates_raw": raw_predicates,
+                "path_predicates_normalized": normalized_predicates,
+                "inputs": {k: self._get_concrete_value(v) for k, v in constraint.inputs.items()},
+                "semantic_info": semantic_info,
+                "processed": constraint.processed
+            }
+            
+            with open(os.path.join(frontier_dir, f"frontier_{i}.json"), "w") as f:
+                json.dump(frontier_data, f, indent=2, default=str)
+            
+            frontier_summary.append({
+                "constraint_id": constraint.id,
+                "path_length": len(path_predicates),
+                "processed": constraint.processed,
+                "variables": semantic_info["symbolic_variables"]
+            })
+        
+        # Export frontier summary
+        with open(os.path.join(frontier_dir, "frontier_summary.json"), "w") as f:
+            json.dump(frontier_summary, f, indent=2)
+    
+    def export_execution_summary(self, execution_data):
+        """Export execution summary to JSON"""
+        summary_data = {
+            "timestamp": time.time(),
+            "generated_inputs": execution_data.get('generated_inputs', []),
+            "return_values": execution_data.get('return_values', []),
+            "execution_count": len(execution_data.get('generated_inputs', [])),
+            "path_lengths": execution_data.get('path_lengths', []),
+            "semantic_summary": {
+                "total_branches": sum(len(trace) for trace in execution_data.get('branch_traces', [])),
+                "unique_variables": list(set(var for trace in execution_data.get('branch_traces', []) 
+                                          for p in trace for var in p.getVars()))
+            }
+        }
+        
+        with open(os.path.join(self.output_dir, "execution_summary.json"), "w") as f:
+            json.dump(summary_data, f, indent=2, default=str)
+    
+    def export_branch_trace(self, branch_trace):
+        """Export branch trace to JSON"""
+        trace_data = {
+            "timestamp": time.time(),
+            "trace_length": len(branch_trace),
+            "branches": [{
+                "predicate": str(p),
+                "result": p.result,
+                "source_file": p.source_file,
+                "source_line": p.source_line,
+                "branch_id": p.branch_id,
+                "semantic_tags": self._extract_semantic_tags(p)
+            } for p in branch_trace]
+        }
+        
+        with open(os.path.join(self.output_dir, "branch_trace.json"), "w") as f:
+            json.dump(trace_data, f, indent=2, default=str)
+    
+    def export_semantic_tags(self, path):
+        """Export semantic tags to JSON"""
+        current_path = path.get_current_path()
+        
+        tags_data = {
+            "timestamp": time.time(),
+            "total_tags": sum(len(self._extract_semantic_tags(p)) for p in current_path),
+            "per_branch_tags": [{
+                "branch_index": i,
+                "predicate": str(p),
+                "tags": self._extract_semantic_tags(p)
+            } for i, p in enumerate(current_path)]
+        }
+        
+        with open(os.path.join(self.output_dir, "semantic_tags.json"), "w") as f:
+            json.dump(tags_data, f, indent=2, default=str)
+    
+    def export_all_executions(self, symbolic_inputs_list, return_values, branch_traces_list):
+        """Export all executions to separate files
         
         Args:
-            frontier_constraints: List of frontier constraints
-            parent_constraint: Parent constraint that generated frontiers
-            iteration_id: Iteration identifier
-        
-        Returns:
-            List of paths to saved JSON files
+            symbolic_inputs_list: 每次执行的 symbolic_inputs 列表
+            return_values: 每次执行的返回值列表
+            branch_traces_list: 每次执行的分支跟踪列表
         """
-        saved_files = []
+        executions_dir = os.path.join(self.output_dir, "executions")
+        os.makedirs(executions_dir, exist_ok=True)
         
-        for i, constraint in enumerate(frontier_constraints):
-            # Extract frontier predicates
-            frontier_predicates = []
-            if hasattr(constraint, 'get_path_predicates'):
-                frontier_predicates = constraint.get_path_predicates()
+        for i, (symbolic_inputs, return_value, branch_trace) in enumerate(zip(
+                symbolic_inputs_list, return_values, branch_traces_list)):
             
-            # Build frontier data
-            frontier_data = {
-                "export_time": datetime.now().isoformat(),
-                "iteration_id": iteration_id,
-                "frontier_index": i,
-                "parent_path_id": getattr(parent_constraint, 'path_id', f"path_{iteration_id}"),
-                "frontier_constraint": {
-                    "predicates": frontier_predicates,
-                    "variables": self._extract_variables(frontier_predicates),
-                    "flipped_branch_index": i  # Assuming one frontier per branch flip
-                },
-                "metadata": {
-                    "tool": "PyExZ3",
-                    "version": "2.0",
-                    "export_format": "frontier_constraint"
+            execution_dir = os.path.join(executions_dir, f"execution_{i}")
+            os.makedirs(execution_dir, exist_ok=True)
+            
+            # 创建临时的 JSONExporter 实例用于导出当前执行
+            execution_exporter = JSONExporter(execution_dir)
+            
+            # 规范化路径约束
+            normalizer = ConstraintNormalizer()
+            raw_predicates, normalized_predicates = normalizer.normalize_path(branch_trace)
+            
+            # Extract semantic information
+            semantic_info = {
+                "path_length": len(branch_trace),
+                "branch_directions": [p.result for p in branch_trace],
+                "semantic_tags": [self._extract_semantic_tags(p) for p in branch_trace],
+                "symbolic_variables": list(set(var for p in branch_trace for var in p.getVars())),
+                "source_locations": [(p.source_file, p.source_line, p.branch_id) for p in branch_trace if p.source_file and p.source_line]
+            }
+            
+            path_data = {
+                "execution_id": i,
+                "timestamp": time.time(),
+                "input_model": {k: v.toString() if hasattr(v, 'toString') else str(v) for k, v in symbolic_inputs.items()},
+                "concrete_inputs": {k: self._get_concrete_value(v) for k, v in symbolic_inputs.items()},
+                "return_value": return_value,
+                "branch_trace": [p.to_dict() for p in branch_trace],
+                "path_predicates_raw": raw_predicates,
+                "path_predicates_normalized": normalized_predicates,
+                "semantic_info": semantic_info,
+                "path_constraints": {
+                    "assertions": [str(p) for p in branch_trace if p.result],
+                    "negations": [str(p) for p in branch_trace if not p.result]
                 }
             }
             
-            # Add normalized frontier constraint (Week 4 feature)
-            if global_normalizer is not None:
-                try:
-                    normalized_frontier = normalize_path_constraint(
-                        frontier_data["frontier_constraint"].copy()
-                    )
-                    frontier_data["normalized_constraint"] = normalized_frontier
-                except Exception as e:
-                    # If normalization fails, log but continue
-                    frontier_data["normalization_error"] = str(e)
+            with open(os.path.join(execution_dir, "path.json"), "w") as f:
+                json.dump(path_data, f, indent=2, default=str)
             
-            # Save to file
-            filename = f"frontier_{iteration_id}_{i}.json"
-            filepath = self.output_dir / filename
-            with open(filepath, 'w', encoding='utf-8') as f:
-                json.dump(frontier_data, f, indent=2, default=str)
-            
-            saved_files.append(filepath)
-        
-        return saved_files
-    
-    def export_trace_summary(self, 
-                            traces: List[Any],
-                            total_iterations: int,
-                            coverage_info: Optional[Dict[str, Any]] = None) -> Path:
-        """
-        Export trace summary to JSON.
-        
-        Args:
-            traces: List of execution traces
-            total_iterations: Total number of iterations
-            coverage_info: Coverage information if available
-        
-        Returns:
-            Path to saved JSON file
-        """
-        # Convert traces to serializable format
-        serialized_traces = []
-        for trace in traces:
-            if hasattr(trace, 'to_dict'):
-                serialized_traces.append(trace.to_dict())
-            else:
-                serialized_traces.append(self._serialize_value(trace))
-        
-        # Build summary data
-        summary_data = {
-            "export_time": datetime.now().isoformat(),
-            "total_iterations": total_iterations,
-            "completed_iterations": len(traces),
-            "traces": serialized_traces,
-            "coverage": coverage_info or {},
-            "statistics": {
-                "unique_paths": len(set(t.get('path_id', '') for t in serialized_traces if isinstance(t, dict))),
-                "successful_executions": sum(1 for t in serialized_traces 
-                                           if isinstance(t, dict) and t.get('exception') is None),
-                "failed_executions": sum(1 for t in serialized_traces 
-                                        if isinstance(t, dict) and t.get('exception') is not None)
-            },
-            "metadata": {
-                "tool": "PyExZ3",
-                "version": "2.0",
-                "export_format": "trace_summary"
+            # Export branch trace for this execution
+            trace_data = {
+                "timestamp": time.time(),
+                "trace_length": len(branch_trace),
+                "branches": [{
+                    "predicate": str(p),
+                    "result": p.result,
+                    "source_file": p.source_file,
+                    "source_line": p.source_line,
+                    "branch_id": p.branch_id,
+                    "semantic_tags": self._extract_semantic_tags(p)
+                } for p in branch_trace]
             }
-        }
-        
-        # Save to file
-        filename = "trace_summary.json"
-        filepath = self.output_dir / filename
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(summary_data, f, indent=2, default=str)
-        
-        return filepath
-    
-    def _serialize_value(self, value: Any) -> Any:
-        """
-        Serialize value for JSON output.
-        
-        Args:
-            value: Value to serialize
-        
-        Returns:
-            Serialized value
-        """
-        if hasattr(value, 'to_dict'):
-            return value.to_dict()
-        elif hasattr(value, 'getConcrValue'):
-            return value.getConcrValue()
-        elif isinstance(value, (list, tuple)):
-            return [self._serialize_value(v) for v in value]
-        elif isinstance(value, dict):
-            return {k: self._serialize_value(v) for k, v in value.items()}
-        elif isinstance(value, (int, float, str, bool, type(None))):
-            return value
-        else:
-            return str(value)
-    
-    def _extract_variables(self, predicates: List[Dict]) -> List[str]:
-        """
-        Extract unique variables from predicates.
-        
-        Args:
-            predicates: List of predicate dictionaries
-        
-        Returns:
-            List of unique variable names
-        """
-        variables = set()
-        for predicate in predicates:
-            if isinstance(predicate, dict) and 'vars' in predicate:
-                if isinstance(predicate['vars'], list):
-                    variables.update(predicate['vars'])
-                elif isinstance(predicate['vars'], str):
-                    variables.add(predicate['vars'])
-        return sorted(list(variables))
-
-    def _extract_constants(self, predicates: List[Dict]) -> Dict[str, Any]:
-        """
-        Extract constants from predicates.
-        
-        Args:
-            predicates: List of predicate dictionaries
-        
-        Returns:
-            Dictionary of constant names to values
-        """
-        constants = {}
-        for predicate in predicates:
-            if isinstance(predicate, dict) and 'constants' in predicate:
-                if isinstance(predicate['constants'], dict):
-                    for const_name, const_value in predicate['constants'].items():
-                        constants[const_name] = const_value
-        return constants
-
-def export_single_path(output_dir: Path,
-                      constraint,
-                      inputs: Dict[str, Any],
-                      return_value: Any,
-                      exception: Optional[Exception] = None,
-                      iteration_id: int = 0) -> Path:
-    """
-    Convenience function to export a single path constraint.
-    
-    Args:
-        output_dir: Directory to save JSON file
-        constraint: Path constraint object
-        inputs: Input values used
-        return_value: Return value from execution
-        exception: Exception if any
-        iteration_id: Iteration identifier
-    
-    Returns:
-        Path to saved JSON file
-    """
-    exporter = JSONExporter(output_dir)
-    return exporter.export_path_constraint(constraint, inputs, return_value, exception, iteration_id)
+            
+            with open(os.path.join(execution_dir, "branch_trace.json"), "w") as f:
+                json.dump(trace_data, f, indent=2, default=str)
+            
+            # Export semantic tags for this execution
+            tags_data = {
+                "timestamp": time.time(),
+                "total_tags": sum(len(self._extract_semantic_tags(p)) for p in branch_trace),
+                "per_branch_tags": [{
+                    "branch_index": j,
+                    "predicate": str(p),
+                    "tags": self._extract_semantic_tags(p)
+                } for j, p in enumerate(branch_trace)]
+            }
+            
+            with open(os.path.join(execution_dir, "semantic_tags.json"), "w") as f:
+                json.dump(tags_data, f, indent=2, default=str)

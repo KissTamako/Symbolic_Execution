@@ -1,0 +1,42 @@
+{
+  "constraint_id": 45,
+  "timestamp": 1776221618.0729942,
+  "path_predicates": [
+    {
+      "expr": "(== x#56828, 56863)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== x#56828, 56863) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(== ARG0#56828, 56863) (False)"
+  ],
+  "inputs": {
+    "x": 56828
+  },
+  "semantic_info": {
+    "path_length": 1,
+    "branch_directions": [
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ]
+  },
+  "processed": false
+}

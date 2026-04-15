@@ -1,0 +1,377 @@
+{
+  "constraint_id": 179,
+  "timestamp": 1776221619.6180449,
+  "path_predicates": [
+    {
+      "expr": "(>= x#0, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= y#0, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(== x#14, y#1)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y",
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#14, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== y#1, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(& x#14, 1)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(& y#1, 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(== (>> x#14, 1), y#1)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y",
+        "x"
+      ]
+    },
+    {
+      "expr": "(== (>> x#14, 1), 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== y#1, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(& (>> x#14, 1), 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(& y#1, 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(> (>> x#2, 1), y#15)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y",
+        "x"
+      ]
+    },
+    {
+      "expr": "(== (>> (- y#15, (>> x#2, 1)), 1), (>> x#2, 1))",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x",
+        "x",
+        "y"
+      ]
+    },
+    {
+      "expr": "(== (>> (- y#15, (>> x#2, 1)), 1), 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "expr": "(== (>> x#2, 1), 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(& (>> (- y#15, (>> x#2, 1)), 1), 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x",
+        "y"
+      ]
+    },
+    {
+      "expr": "(& (>> x#2, 1), 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> (>> (- y#15, (>> x#2, 1)), 1), (>> x#2, 1))",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x",
+        "x",
+        "y"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(>= x#0, 0) (True)",
+    "(>= y#0, 0) (True)",
+    "(== x#14, y#1) (False)",
+    "(== x#14, 0) (False)",
+    "(== y#1, 0) (False)",
+    "(& x#14, 1) (False)",
+    "(& y#1, 1) (True)",
+    "(== (>> x#14, 1), y#1) (False)",
+    "(== (>> x#14, 1), 0) (False)",
+    "(== y#1, 0) (False)",
+    "(& (>> x#14, 1), 1) (True)",
+    "(& y#1, 1) (True)",
+    "(> (>> x#2, 1), y#15) (False)",
+    "(== (>> (- y#15, (>> x#2, 1)), 1), (>> x#2, 1)) (False)",
+    "(== (>> (- y#15, (>> x#2, 1)), 1), 0) (False)",
+    "(== (>> x#2, 1), 0) (False)",
+    "(& (>> (- y#15, (>> x#2, 1)), 1), 1) (True)",
+    "(& (>> x#2, 1), 1) (True)",
+    "(> (>> (- y#15, (>> x#2, 1)), 1), (>> x#2, 1)) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(>= ARG0#0, 0) (True)",
+    "(>= ARG1#0, 0) (True)",
+    "(== ARG0#14, ARG1#1) (False)",
+    "(== ARG0#14, 0) (False)",
+    "(== ARG1#1, 0) (False)",
+    "(& ARG0#14, 1) (False)",
+    "(& ARG1#1, 1) (True)",
+    "(== (>> ARG0#14, 1), ARG1#1) (False)",
+    "(== (>> ARG0#14, 1), 0) (False)",
+    "(== ARG1#1, 0) (False)",
+    "(& (>> ARG0#14, 1), 1) (True)",
+    "(& ARG1#1, 1) (True)",
+    "(> (>> ARG0#2, 1), ARG1#15) (False)",
+    "(== (>> (- ARG1#15, (>> ARG0#2, 1)), 1), (>> ARG0#2, 1)) (False)",
+    "(== (>> (- ARG1#15, (>> ARG0#2, 1)), 1), 0) (False)",
+    "(== (>> ARG0#2, 1), 0) (False)",
+    "(& (>> (- ARG1#15, (>> ARG0#2, 1)), 1), 1) (True)",
+    "(& (>> ARG0#2, 1), 1) (True)",
+    "(> (>> (- ARG1#15, (>> ARG0#2, 1)), 1), (>> ARG0#2, 1)) (True)"
+  ],
+  "inputs": {
+    "x": 2,
+    "y": 15
+  },
+  "semantic_info": {
+    "path_length": 19,
+    "branch_directions": [
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:&",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x",
+      "y"
+    ]
+  },
+  "processed": false
+}

@@ -1,0 +1,24 @@
+{
+  "timestamp": 1776221613.082703,
+  "total_tags": 6,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(>= y#4294967296, 4294967296) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(== x#0, 4294967296) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    }
+  ]
+}

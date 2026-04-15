@@ -1,0 +1,30 @@
+{
+  "timestamp": 1776221624.070119,
+  "trace_length": 2,
+  "branches": [
+    {
+      "predicate": "(> y#2, 0) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(< y#10, 10) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    }
+  ]
+}

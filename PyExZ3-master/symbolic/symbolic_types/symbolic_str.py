@@ -1,5 +1,4 @@
 from . symbolic_type import SymbolicObject
-from symbolic.symbolic_types.symbolic_int import SymbolicInteger
 from string import whitespace
 
 class SymbolicStr(SymbolicObject, str):
@@ -20,19 +19,24 @@ class SymbolicStr(SymbolicObject, str):
     def __hash__(self):
         return hash(self.val)
 
-    def _op_worker(self, args, fun, op):
-        return self._do_sexpr(args, fun, op, SymbolicStr.wrap)
+    def _op_worker(self, args, fun, op, wrap=None):
+        if wrap is None:
+            wrap = SymbolicStr.wrap
+        return self._do_sexpr(args, fun, op, wrap)
 
+    # 布尔转换 - 使用基类实现
     def __bool__(self):
-        return SymbolicObject.__bool__(self.__len__() != 0)
+        return super(SymbolicStr, self).__bool__()
 
     def __len__(self):
+        from . symbolic_int import SymbolicInteger
         return self._do_sexpr([self], lambda x: len(x),
                                 "str.len", SymbolicInteger.wrap)
 
     def __contains__(self, item):
+        from . symbolic_bool import SymbolicBool
         return self._do_sexpr([self, item], lambda x, y: str.__contains__(x, y),
-                                "in", SymbolicInteger.wrap)
+                                "in", SymbolicBool.wrap)
 
     def __getitem__(self, key):
         """Negative indexes, out of bound slices, and slice skips are not currently supported."""
@@ -45,14 +49,22 @@ class SymbolicStr(SymbolicObject, str):
                               "getitem", SymbolicStr.wrap)
 
     def find(self, findstr, beg=0):
+        from . symbolic_int import SymbolicInteger
         return self._do_sexpr([self, findstr, beg],
                               lambda x, y, z: str.find(x, y, z),
                               "str.find", SymbolicInteger.wrap)
 
     def startswith(self, prefix):
+        from . symbolic_bool import SymbolicBool
         return self._do_sexpr([self, prefix],
                               lambda x, y: str.startswith(x, y),
-                              "str.startswith", SymbolicInteger.wrap)
+                              "str.startswith", SymbolicBool.wrap)
+
+    def endswith(self, suffix):
+        from . symbolic_bool import SymbolicBool
+        return self._do_sexpr([self, suffix],
+                              lambda x, y: str.endswith(x, y),
+                              "str.endswith", SymbolicBool.wrap)
 
     def split(self, sep=None, maxsplit=None):
         if sep is None:
@@ -114,8 +126,90 @@ class SymbolicStr(SymbolicObject, str):
                 return self[:self.__len__() - 1].strip(chars)
         return self
 
+    def upper(self):
+        """Return a copy of the string converted to uppercase."""
+        value = self.val.upper()
+        # 简单实现，实际应该使用str.replaceall
+        return SymbolicStr("se", value)
+
+    def lower(self):
+        """Return a copy of the string converted to lowercase."""
+        value = self.val.lower()
+        # 简单实现，实际应该使用str.replaceall
+        return SymbolicStr("se", value)
+
+    def capitalize(self):
+        """Return a capitalized version of the string."""
+        value = self.val.capitalize()
+        return SymbolicStr("se", value)
+
+    def isalnum(self):
+        """Return True if the string is an alpha-numeric string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isalnum()
+        return SymbolicBool("se", value)
+
+    def isalpha(self):
+        """Return True if the string is an alphabetic string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isalpha()
+        return SymbolicBool("se", value)
+
+    def isdigit(self):
+        """Return True if the string is a digit string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isdigit()
+        return SymbolicBool("se", value)
+
+    def islower(self):
+        """Return True if the string is a lowercase string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.islower()
+        return SymbolicBool("se", value)
+
+    def isupper(self):
+        """Return True if the string is an uppercase string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isupper()
+        return SymbolicBool("se", value)
+
+    def isspace(self):
+        """Return True if the string is a whitespace string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isspace()
+        return SymbolicBool("se", value)
+
+    def istitle(self):
+        """Return True if the string is a title-cased string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.istitle()
+        return SymbolicBool("se", value)
+
+    # 辅助方法
+    def __bool2__(self):
+        """Convert to symbolic bool"""
+        from . symbolic_bool import SymbolicBool
+        value = bool(self.val)
+        expr = ["not", ["=", self, ""]]
+        return SymbolicBool("se", value, expr)
+
+    def __int2__(self):
+        """Convert to symbolic int"""
+        from . symbolic_int import SymbolicInteger
+        value = int(self.val)
+        # 处理负数的情况
+        if self.val.startswith('-'):
+            expr = ["-", ["str.to.int", ["str.substr", self, 1, ["str.len", self]]]]
+        else:
+            expr = ["str.to.int", self]
+        return SymbolicInteger("se", value, expr)
+
+    def __str2__(self):
+        """Convert to symbolic string"""
+        return self
+
 # Currently only a subset of string operations are supported.
-ops = [("add", "+")]
+ops = [("add", "+"), ("mul", "*")]
 
 def make_method(method,op,a):
     code  = "def %s(self,other):\n" % method

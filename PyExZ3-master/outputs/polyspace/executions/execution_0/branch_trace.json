@@ -1,0 +1,30 @@
+{
+  "timestamp": 1776221625.5472336,
+  "trace_length": 2,
+  "branches": [
+    {
+      "predicate": "(> (+ (* 3, (// i#0, 100)), 100), 43) (True)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "predicate": "(== (- 10, (+ (+ (+ (+ (+ (+ (+ (+ (+ (+ (// i#0, 100), 5), 3), 3), 3), 3), 3), 3), 3), 3), 1)), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    }
+  ]
+}

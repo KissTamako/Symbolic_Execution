@@ -1,0 +1,227 @@
+{
+  "execution_id": 1,
+  "timestamp": 1776221613.5476713,
+  "input_model": {
+    "x": "x#2",
+    "y": "y#0"
+  },
+  "concrete_inputs": {
+    "x": 2,
+    "y": 0
+  },
+  "return_value": 0,
+  "branch_trace": [
+    {
+      "expr": "(> x#2, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> y#0, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(< x#2, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(< x#2, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> x#2, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(< y#0, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(> x#2, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(< y#0, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    },
+    {
+      "expr": "(== x#2, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== y#0, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "y"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(> x#2, 0) (True)",
+    "(> y#0, 0) (False)",
+    "(< x#2, 0) (False)",
+    "(< x#2, 0) (False)",
+    "(> x#2, 0) (True)",
+    "(< y#0, 0) (False)",
+    "(> x#2, 0) (True)",
+    "(< y#0, 0) (False)",
+    "(== x#2, 0) (False)",
+    "(== y#0, 0) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(> ARG0#2, 0) (True)",
+    "(> ARG1#0, 0) (False)",
+    "(< ARG0#2, 0) (False)",
+    "(< ARG0#2, 0) (False)",
+    "(> ARG0#2, 0) (True)",
+    "(< ARG1#0, 0) (False)",
+    "(> ARG0#2, 0) (True)",
+    "(< ARG1#0, 0) (False)",
+    "(== ARG0#2, 0) (False)",
+    "(== ARG1#0, 0) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 10,
+    "branch_directions": [
+      true,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x",
+      "y"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(> x#2, 0) (True)",
+      "(> x#2, 0) (True)",
+      "(> x#2, 0) (True)",
+      "(== y#0, 0) (True)"
+    ],
+    "negations": [
+      "(> y#0, 0) (False)",
+      "(< x#2, 0) (False)",
+      "(< x#2, 0) (False)",
+      "(< y#0, 0) (False)",
+      "(< y#0, 0) (False)",
+      "(== x#2, 0) (False)"
+    ]
+  }
+}

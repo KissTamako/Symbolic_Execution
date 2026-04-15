@@ -1,0 +1,129 @@
+{
+  "execution_id": 5,
+  "timestamp": 1776221614.7170463,
+  "input_model": {
+    "x": "x#4"
+  },
+  "concrete_inputs": {
+    "x": 4
+  },
+  "return_value": 11,
+  "branch_trace": [
+    {
+      "expr": "(>= x#8, 1)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 2)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 3)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#8, 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(>= x#4, 5)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(>= x#8, 1) (True)",
+    "(>= x#8, 2) (True)",
+    "(>= x#8, 3) (True)",
+    "(>= x#8, 4) (True)",
+    "(>= x#4, 5) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(>= ARG0#8, 1) (True)",
+    "(>= ARG0#8, 2) (True)",
+    "(>= ARG0#8, 3) (True)",
+    "(>= ARG0#8, 4) (True)",
+    "(>= ARG0#4, 5) (False)"
+  ],
+  "semantic_info": {
+    "path_length": 5,
+    "branch_directions": [
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(>= x#8, 1) (True)",
+      "(>= x#8, 2) (True)",
+      "(>= x#8, 3) (True)",
+      "(>= x#8, 4) (True)"
+    ],
+    "negations": [
+      "(>= x#4, 5) (False)"
+    ]
+  }
+}

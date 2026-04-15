@@ -1,0 +1,71 @@
+{
+  "execution_id": 1,
+  "timestamp": 1776221616.2317896,
+  "input_model": {
+    "x": "x#4"
+  },
+  "concrete_inputs": {
+    "x": 4
+  },
+  "return_value": 9,
+  "branch_trace": [
+    {
+      "expr": "(== x#4, 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#4, 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== x#4, 4) (True)",
+    "(== x#4, 4) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(== ARG0#4, 4) (True)",
+    "(== ARG0#4, 4) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 2,
+    "branch_directions": [
+      true,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== x#4, 4) (True)",
+      "(== x#4, 4) (True)"
+    ],
+    "negations": []
+  }
+}

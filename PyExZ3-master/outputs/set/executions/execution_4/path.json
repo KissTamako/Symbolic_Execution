@@ -1,0 +1,110 @@
+{
+  "execution_id": 4,
+  "timestamp": 1776221627.5891058,
+  "input_model": {
+    "x": "x#9"
+  },
+  "concrete_inputs": {
+    "x": 9
+  },
+  "return_value": 9,
+  "branch_trace": [
+    {
+      "expr": "(== x#0, 1)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#0, 3)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#0, 19)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(== x#9, 9)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== x#0, 1) (False)",
+    "(== x#0, 3) (False)",
+    "(== x#0, 19) (False)",
+    "(== x#9, 9) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(== ARG0#0, 1) (False)",
+    "(== ARG0#0, 3) (False)",
+    "(== ARG0#0, 19) (False)",
+    "(== ARG0#9, 9) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 4,
+    "branch_directions": [
+      false,
+      false,
+      false,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== x#9, 9) (True)"
+    ],
+    "negations": [
+      "(== x#0, 1) (False)",
+      "(== x#0, 3) (False)",
+      "(== x#0, 19) (False)"
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "execution_id": 2,
+  "timestamp": 1776221632.4679797,
+  "input_model": {
+    "x": "x#10"
+  },
+  "concrete_inputs": {
+    "x": 10
+  },
+  "return_value": null,
+  "branch_trace": [
+    {
+      "expr": "(>= x#0, 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(< x#10, 10)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(>= x#0, 0) (True)",
+    "(< x#10, 10) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(>= ARG0#0, 0) (True)",
+    "(< ARG0#10, 10) (False)"
+  ],
+  "semantic_info": {
+    "path_length": 2,
+    "branch_directions": [
+      true,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(>= x#0, 0) (True)"
+    ],
+    "negations": [
+      "(< x#10, 10) (False)"
+    ]
+  }
+}

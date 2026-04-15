@@ -2,6 +2,9 @@ from z3 import *
 from .expression import Z3Expression
 
 class Z3Integer(Z3Expression):
+	def __init__(self, enable_simplify=False):
+		super(Z3Integer, self).__init__(enable_simplify)
+	
 	def _isIntVar(self,v):
 		return isinstance(v,IntRef)
 

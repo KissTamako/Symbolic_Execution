@@ -1,0 +1,24 @@
+{
+  "timestamp": 1776221624.070119,
+  "total_tags": 6,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(> y#2, 0) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(< y#10, 10) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    }
+  ]
+}

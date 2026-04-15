@@ -50,19 +50,9 @@ class SymbolicType(object):
 	# creating the expression tree
 	def _do_sexpr(self,args,fun,op,wrap):
 		unwrapped = [ (a.unwrap() if isinstance(a,SymbolicType) else (a,a)) for a in args ]
-		# Python 3.11 compatibility: replace getargspec with signature
-		import inspect
-		sig = inspect.signature(fun)
-		param_names = list(sig.parameters.keys())
-		# Only take as many concrete values as we have parameters
-		concrete_vals = [c for (c,s) in unwrapped]
-		# Ensure we have matching lengths (for binary ops this should be 2 params)
-		if len(param_names) != len(concrete_vals):
-			# For simple operations, we might have mismatch, use positional args
-			args_dict = {param_names[i]: concrete_vals[i] for i in range(min(len(param_names), len(concrete_vals)))}
-		else:
-			args_dict = dict(zip(param_names, concrete_vals))
-		concrete = fun(**args_dict)
+		argspec = inspect.getfullargspec(fun)
+		args = zip(argspec.args, [ c for (c,s) in unwrapped ])
+		concrete = fun(**dict([a for a in args]))
 		symbolic = [ op ] + [ s for c,s in unwrapped ]
 		return wrap(concrete,symbolic)
 
@@ -121,33 +111,19 @@ class SymbolicObject(SymbolicType,object):
 	def __bool__(self):
 		ret = bool(self.getConcrValue())
 		if SymbolicObject.SI != None:
-			# Check if branch_hook is currently active
-			# If it is, skip the whichBranch call to avoid duplicate recording
+			# Get branch location information if available
+			source_file = None
+			source_line = None
+			branch_id = None
+			
 			try:
-				# Try to import the branch hook context from ast_transform
-				# Use absolute import path to avoid relative import issues
-				import sys
-				import os
-				# Get the directory containing this file
-				current_dir = os.path.dirname(os.path.abspath(__file__))
-				# Get the symbolic directory (parent of current_dir)
-				symbolic_dir = os.path.dirname(current_dir)
-				# Add to sys.path if not already there
-				if symbolic_dir not in sys.path:
-					sys.path.insert(0, symbolic_dir)
-				
-				# Now try to import
-				from ast_transform import _branch_hook_context
-				if hasattr(_branch_hook_context, 'active') and _branch_hook_context.active:
-					# branch_hook is already handling this branch, skip duplicate call
-					return ret
-			except Exception:
-				# If import fails for any reason, proceed with normal behavior
-				# This is expected when ast_transform is not available or not imported
+				from ..runtime_helpers import _local
+				if hasattr(_local, 'branch_location'):
+					source_file, source_line, branch_id = _local.branch_location
+			except:
 				pass
 			
-			# Call whichBranch only if branch_hook is not active
-			SymbolicObject.SI.whichBranch(ret,self)
+			SymbolicObject.SI.whichBranch(ret, self, source_file, source_line, branch_id)
 		return ret
 
 	# compute both the symbolic and concrete image of operator

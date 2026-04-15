@@ -1,0 +1,74 @@
+{
+  "execution_id": 0,
+  "timestamp": 1776221626.3651822,
+  "input_model": {
+    "x": "x#0"
+  },
+  "concrete_inputs": {
+    "x": 0
+  },
+  "return_value": 1,
+  "branch_trace": [
+    {
+      "expr": "(> (* x#0, x#0), 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x",
+        "x"
+      ]
+    },
+    {
+      "expr": "(== (* x#0, x#0), 0)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x",
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(> (* x#0, x#0), 0) (False)",
+    "(== (* x#0, x#0), 0) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(> (* ARG0#0, ARG0#0), 0) (False)",
+    "(== (* ARG0#0, ARG0#0), 0) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 2,
+    "branch_directions": [
+      false,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== (* x#0, x#0), 0) (True)"
+    ],
+    "negations": [
+      "(> (* x#0, x#0), 0) (False)"
+    ]
+  }
+}

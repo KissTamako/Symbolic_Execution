@@ -1,0 +1,42 @@
+{
+  "timestamp": 1776221624.7901819,
+  "trace_length": 3,
+  "branches": [
+    {
+      "predicate": "(<= in1#2, 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<=",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(!= (% in1#6, 3), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(!= (% in1#15, 5), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    }
+  ]
+}

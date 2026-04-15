@@ -1,0 +1,204 @@
+{
+  "execution_id": 9,
+  "timestamp": 1776221616.9153953,
+  "input_model": {
+    "in1": "in1#12"
+  },
+  "concrete_inputs": {
+    "in1": 12
+  },
+  "return_value": 9,
+  "branch_trace": [
+    {
+      "expr": "(== in1#2, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#2, 1)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#4, 2)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#4, 3)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#6, 4)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#6, 5)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#8, 6)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#8, 7)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(== in1#12, 8)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== in1#2, 0) (False)",
+    "(== in1#2, 1) (False)",
+    "(== in1#4, 2) (False)",
+    "(== in1#4, 3) (False)",
+    "(== in1#6, 4) (False)",
+    "(== in1#6, 5) (False)",
+    "(== in1#8, 6) (False)",
+    "(== in1#8, 7) (False)",
+    "(== in1#12, 8) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(== ARG0#2, 0) (False)",
+    "(== ARG0#2, 1) (False)",
+    "(== ARG0#4, 2) (False)",
+    "(== ARG0#4, 3) (False)",
+    "(== ARG0#6, 4) (False)",
+    "(== ARG0#6, 5) (False)",
+    "(== ARG0#8, 6) (False)",
+    "(== ARG0#8, 7) (False)",
+    "(== ARG0#12, 8) (False)"
+  ],
+  "semantic_info": {
+    "path_length": 9,
+    "branch_directions": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "in1"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": [
+      "(== in1#2, 0) (False)",
+      "(== in1#2, 1) (False)",
+      "(== in1#4, 2) (False)",
+      "(== in1#4, 3) (False)",
+      "(== in1#6, 4) (False)",
+      "(== in1#6, 5) (False)",
+      "(== in1#8, 6) (False)",
+      "(== in1#8, 7) (False)",
+      "(== in1#12, 8) (False)"
+    ]
+  }
+}

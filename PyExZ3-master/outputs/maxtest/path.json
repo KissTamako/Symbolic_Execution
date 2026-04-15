@@ -1,0 +1,183 @@
+{
+  "path_id": 2013640589456,
+  "timestamp": 1776221623.6847396,
+  "input_model": {
+    "a": "a#0",
+    "b": "b#2",
+    "c": "c#0",
+    "d": "d#3"
+  },
+  "concrete_inputs": {
+    "a": 0,
+    "b": 2,
+    "c": 0,
+    "d": 3
+  },
+  "return_value": "OK",
+  "branch_trace": [
+    {
+      "expr": "(< a#0, b#2)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "b",
+        "a"
+      ]
+    },
+    {
+      "expr": "(< c#0, d#2)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "d",
+        "c"
+      ]
+    },
+    {
+      "expr": "(< b#2, d#3)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "d",
+        "b"
+      ]
+    },
+    {
+      "expr": "(< d#3, a#0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "a",
+        "d"
+      ]
+    },
+    {
+      "expr": "(< d#3, b#2)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "b",
+        "d"
+      ]
+    },
+    {
+      "expr": "(< d#3, c#0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "c",
+        "d"
+      ]
+    },
+    {
+      "expr": "(< d#3, d#3)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "d",
+        "d"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(< a#0, b#2) (True)",
+    "(< c#0, d#2) (True)",
+    "(< b#2, d#3) (True)",
+    "(< d#3, a#0) (False)",
+    "(< d#3, b#2) (False)",
+    "(< d#3, c#0) (False)",
+    "(< d#3, d#3) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(< ARG1#0, ARG0#2) (True)",
+    "(< ARG3#0, ARG2#2) (True)",
+    "(< ARG0#2, ARG2#3) (True)",
+    "(< ARG2#3, ARG1#0) (FARG1lse)",
+    "(< ARG2#3, ARG0#2) (FARG1lse)",
+    "(< ARG2#3, ARG3#0) (FARG1lse)",
+    "(< ARG2#3, ARG2#3) (FARG1lse)"
+  ],
+  "semantic_info": {
+    "path_length": 7,
+    "branch_directions": [
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "a",
+      "c",
+      "d",
+      "b"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(< a#0, b#2) (True)",
+      "(< c#0, d#2) (True)",
+      "(< b#2, d#3) (True)"
+    ],
+    "negations": [
+      "(< d#3, a#0) (False)",
+      "(< d#3, b#2) (False)",
+      "(< d#3, c#0) (False)",
+      "(< d#3, d#3) (False)"
+    ]
+  }
+}

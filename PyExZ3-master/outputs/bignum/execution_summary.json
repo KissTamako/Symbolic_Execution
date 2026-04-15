@@ -1,0 +1,40 @@
+{
+  "timestamp": 1776221611.7820644,
+  "generated_inputs": [
+    [
+      [
+        "a",
+        0
+      ]
+    ],
+    [
+      [
+        "a",
+        9223372036854775807
+      ]
+    ],
+    [
+      [
+        "a",
+        9223372036854775808
+      ]
+    ]
+  ],
+  "return_values": [
+    "other",
+    "bv",
+    "bignum"
+  ],
+  "execution_count": 3,
+  "path_lengths": [
+    2,
+    1,
+    2
+  ],
+  "semantic_summary": {
+    "total_branches": 5,
+    "unique_variables": [
+      "a"
+    ]
+  }
+}

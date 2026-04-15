@@ -66,6 +66,21 @@ class PathToConstraint:
 
 		self.current_constraint = c
 
+	def get_current_path(self):
+		"""Get current path as list of predicates"""
+		return self.current_constraint.get_path_predicates()
+
+	def get_frontier_constraints(self):
+		"""Get all unprocessed constraints (frontier)"""
+		frontier = []
+		def collect_frontier(constraint):
+			if not constraint.processed and constraint.predicate is not None:
+				frontier.append(constraint)
+			for child in constraint.children:
+				collect_frontier(child)
+		collect_frontier(self.root_constraint)
+		return frontier
+
 	def toDot(self):
 		# print the thing into DOT format
 		header = "digraph {\n"
@@ -79,27 +94,7 @@ class PathToConstraint:
 			label = c.predicate.symtype.toString()
 			if not c.predicate.result:
 				label = "Not("+label+")"
-		node = "C" + str(c.id) + " [ label=\"" + label + "\" ];\n"
-		edges = [ "C" + str(c.id) + " -> " + "C" + str(child.id) + ";\n" for child in c.children ]
+		node = "C" + str(c.id) + " [ label=\"" + label + "\" ]\n"
+		edges = [ "C" + str(c.id) + " -> " + "C" + str(child.id) + "\n" for child in c.children ]
 		return node + "".join(edges) + "".join([ self._toDot(child) for child in c.children ])
 		
-	def getConstraints(self):
-		"""
-		Get all processed constraints (leaf nodes) from the constraint tree.
-		Returns a list of Constraint objects.
-		"""
-		constraints = []
-		
-		def collect_constraints(node):
-			# If node has no children, it's a leaf (end of a path)
-			if not node.children or node.processed:
-				constraints.append(node)
-			# Recursively traverse children
-			for child in node.children:
-				collect_constraints(child)
-		
-		# Start from root's children (skip the root itself)
-		for child in self.root_constraint.children:
-			collect_constraints(child)
-		
-		return constraints

@@ -2,8 +2,8 @@ from z3 import *
 from .expression import Z3Expression
 
 class Z3BitVector(Z3Expression):
-	def __init__(self,N):
-		Z3Expression.__init__(self)
+	def __init__(self, N, enable_simplify=False):
+		Z3Expression.__init__(self, enable_simplify)
 		self.N = N
 
 	def _isIntVar(self,v):

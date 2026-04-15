@@ -1,0 +1,64 @@
+{
+  "timestamp": 1776221630.680171,
+  "generated_inputs": [
+    [
+      [
+        "in1",
+        0
+      ]
+    ],
+    [
+      [
+        "in1",
+        2
+      ]
+    ],
+    [
+      [
+        "in1",
+        -14
+      ]
+    ],
+    [
+      [
+        "in1",
+        -6
+      ]
+    ],
+    [
+      [
+        "in1",
+        -4
+      ]
+    ],
+    [
+      [
+        "in1",
+        -2
+      ]
+    ]
+  ],
+  "return_values": [
+    20,
+    10,
+    21,
+    22,
+    23,
+    24
+  ],
+  "execution_count": 6,
+  "path_lengths": [
+    5,
+    5,
+    2,
+    3,
+    4,
+    5
+  ],
+  "semantic_summary": {
+    "total_branches": 24,
+    "unique_variables": [
+      "in1"
+    ]
+  }
+}

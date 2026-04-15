@@ -1,0 +1,30 @@
+{
+  "timestamp": 1776221624.426543,
+  "trace_length": 2,
+  "branches": [
+    {
+      "predicate": "(!= (% in1#0, 3), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    },
+    {
+      "predicate": "(!= (% in1#0, 5), 0) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    }
+  ]
+}

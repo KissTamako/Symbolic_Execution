@@ -1,0 +1,110 @@
+{
+  "execution_id": 3,
+  "timestamp": 1776221631.3577557,
+  "input_model": {
+    "in1": "in1#-4"
+  },
+  "concrete_inputs": {
+    "in1": -4
+  },
+  "return_value": 23,
+  "branch_trace": [
+    {
+      "expr": "(< in1#0, -10)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(< in1#0, -5)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(< in1#-4, -3)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    },
+    {
+      "expr": "(> in1#-4, 0)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in1"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(< in1#0, -10) (False)",
+    "(< in1#0, -5) (False)",
+    "(< in1#-4, -3) (True)",
+    "(> in1#-4, 0) (False)"
+  ],
+  "path_predicates_normalized": [
+    "(< ARG0#0, -10) (False)",
+    "(< ARG0#0, -5) (False)",
+    "(< ARG0#-4, -3) (True)",
+    "(> ARG0#-4, 0) (False)"
+  ],
+  "semantic_info": {
+    "path_length": 4,
+    "branch_directions": [
+      false,
+      false,
+      true,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False"
+      ]
+    ],
+    "symbolic_variables": [
+      "in1"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(< in1#-4, -3) (True)"
+    ],
+    "negations": [
+      "(< in1#0, -10) (False)",
+      "(< in1#0, -5) (False)",
+      "(> in1#-4, 0) (False)"
+    ]
+  }
+}

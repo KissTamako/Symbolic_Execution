@@ -1,0 +1,52 @@
+{
+  "path_id": 1812722621136,
+  "timestamp": 1776221628.4554703,
+  "input_model": {
+    "x": "x#14"
+  },
+  "concrete_inputs": {
+    "x": 14
+  },
+  "return_value": 42,
+  "branch_trace": [
+    {
+      "expr": "(> (+ x#14, 1), 10)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(> (+ x#14, 1), 10) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(> (+ ARG0#14, 1), 10) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 1,
+    "branch_directions": [
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(> (+ x#14, 1), 10) (True)"
+    ],
+    "negations": []
+  }
+}

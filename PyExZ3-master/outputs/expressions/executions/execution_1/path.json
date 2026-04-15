@@ -1,0 +1,56 @@
+{
+  "execution_id": 1,
+  "timestamp": 1776221617.5813787,
+  "input_model": {
+    "in1": "in1#1",
+    "in2": "in2#6"
+  },
+  "concrete_inputs": {
+    "in1": 1,
+    "in2": 6
+  },
+  "return_value": -1,
+  "branch_trace": [
+    {
+      "expr": "(== (* in1#1, (+ in2#6, 47)), 53)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "in2",
+        "in1"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== (* in1#1, (+ in2#6, 47)), 53) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(== (* ARG1#1, (+ ARG0#6, 47)), 53) (True)"
+  ],
+  "semantic_info": {
+    "path_length": 1,
+    "branch_directions": [
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "in1",
+      "in2"
+    ],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [
+      "(== (* in1#1, (+ in2#6, 47)), 53) (True)"
+    ],
+    "negations": []
+  }
+}

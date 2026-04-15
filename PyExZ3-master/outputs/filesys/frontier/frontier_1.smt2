@@ -1,0 +1,8 @@
+(set-logic ALL)
+(declare-const se Int)
+; (== x#56813, 56833) (False)
+(assert (not ; Unsupported operator: ==))
+; Query: (== x#56813, 56834) (False)
+(assert (not (not ; Unsupported operator: ==)))
+(check-sat)
+(get-model)

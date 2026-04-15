@@ -1,0 +1,42 @@
+{
+  "timestamp": 1776221616.8997726,
+  "total_tags": 12,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(== in1#2, 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(== in1#2, 1) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(== in1#4, 2) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 3,
+      "predicate": "(== in1#3, 3) (True)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    }
+  ]
+}

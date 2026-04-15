@@ -1,0 +1,27 @@
+{
+  "execution_id": 0,
+  "timestamp": 1776221615.5464149,
+  "input_model": {
+    "d": "d#{42: 6}"
+  },
+  "concrete_inputs": {
+    "d": {
+      "42": 6
+    }
+  },
+  "return_value": 0,
+  "branch_trace": [],
+  "path_predicates_raw": [],
+  "path_predicates_normalized": [],
+  "semantic_info": {
+    "path_length": 0,
+    "branch_directions": [],
+    "semantic_tags": [],
+    "symbolic_variables": [],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": []
+  }
+}

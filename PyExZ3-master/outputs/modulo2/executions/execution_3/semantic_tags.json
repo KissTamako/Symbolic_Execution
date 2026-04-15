@@ -1,0 +1,33 @@
+{
+  "timestamp": 1776221624.8222568,
+  "total_tags": 9,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(<= in1#2, 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<=",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(!= (% in1#6, 3), 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(!= (% in1#15, 5), 0) (False)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False"
+      ]
+    }
+  ]
+}

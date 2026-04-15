@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776221625.957148,
+  "timestamp": 1776232738.7785642,
   "input_model": {
     "x": "x#0"
   },
@@ -8,18 +8,45 @@
     "x": 0
   },
   "return_value": 0,
-  "branch_trace": [],
-  "path_predicates_raw": [],
-  "path_predicates_normalized": [],
+  "branch_trace": [
+    {
+      "expr": "(== (^ (+ x#0, 2), 2), 4)",
+      "result": true,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "vars": [
+        "se"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(== (^ (+ x#0, 2), 2), 4) (True)"
+  ],
+  "path_predicates_normalized": [
+    "(== (^ (+ x#0, 2), 2), 4) (True)"
+  ],
   "semantic_info": {
-    "path_length": 0,
-    "branch_directions": [],
-    "semantic_tags": [],
-    "symbolic_variables": [],
+    "path_length": 1,
+    "branch_directions": [
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True"
+      ]
+    ],
+    "symbolic_variables": [
+      "se"
+    ],
     "source_locations": []
   },
   "path_constraints": {
-    "assertions": [],
+    "assertions": [
+      "(== (^ (+ x#0, 2), 2), 4) (True)"
+    ],
     "negations": []
   }
 }

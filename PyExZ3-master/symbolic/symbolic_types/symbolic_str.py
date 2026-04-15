@@ -185,6 +185,164 @@ class SymbolicStr(SymbolicObject, str):
         value = self.val.istitle()
         return SymbolicBool("se", value)
 
+    def ljust(self, width, fillchar=' '):
+        """Return a left-justified string of length width."""
+        value = self.val.ljust(width, fillchar)
+        return SymbolicStr("se", value)
+
+    def rjust(self, width, fillchar=' '):
+        """Return a right-justified string of length width."""
+        value = self.val.rjust(width, fillchar)
+        return SymbolicStr("se", value)
+
+    def center(self, width, fillchar=' '):
+        """Return a centered string of length width."""
+        value = self.val.center(width, fillchar)
+        return SymbolicStr("se", value)
+
+    def zfill(self, width):
+        """Return a string of length width padded with leading zeros."""
+        value = self.val.zfill(width)
+        return SymbolicStr("se", value)
+
+    def expandtabs(self, tabsize=8):
+        """Return a copy of the string with tabs expanded to spaces."""
+        value = self.val.expandtabs(tabsize)
+        return SymbolicStr("se", value)
+
+    def translate(self, table):
+        """Return a copy of the string with each character mapped by a translation table."""
+        value = self.val.translate(table)
+        return SymbolicStr("se", value)
+
+    @staticmethod
+    def maketrans(x, y=None, z=None):
+        """Return a translation table usable for str.translate()."""
+        return str.maketrans(x, y, z)
+
+    def isdecimal(self):
+        """Return True if the string is a decimal string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isdecimal()
+        return SymbolicBool("se", value)
+
+    def isnumeric(self):
+        """Return True if the string is a numeric string, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isnumeric()
+        return SymbolicBool("se", value)
+
+    def isidentifier(self):
+        """Return True if the string is a valid identifier, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isidentifier()
+        return SymbolicBool("se", value)
+
+    def isprintable(self):
+        """Return True if the string is printable, False otherwise."""
+        from . symbolic_bool import SymbolicBool
+        value = self.val.isprintable()
+        return SymbolicBool("se", value)
+
+    def casefold(self):
+        """Return a casefolded version of the string."""
+        value = self.val.casefold()
+        return SymbolicStr("se", value)
+
+    def encode(self, encoding='utf-8', errors='strict'):
+        """Return an encoded version of the string."""
+        return self.val.encode(encoding, errors)
+
+    def format(self, *args, **kwargs):
+        """Return a formatted version of the string."""
+        value = self.val.format(*args, **kwargs)
+        return SymbolicStr("se", value)
+
+    def format_map(self, mapping):
+        """Return a formatted version of the string using a mapping."""
+        value = self.val.format_map(mapping)
+        return SymbolicStr("se", value)
+
+    def join(self, iterable):
+        """Return a string which is the concatenation of the strings in the iterable."""
+        value = self.val.join(iterable)
+        return SymbolicStr("se", value)
+
+    def partition(self, sep):
+        """Return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator."""
+        part1, part2, part3 = self.val.partition(sep)
+        return (SymbolicStr("se", part1), SymbolicStr("se", part2), SymbolicStr("se", part3))
+
+    def rfind(self, sub, start=0, end=None):
+        """Return the highest index in the string where substring sub is found."""
+        from . symbolic_int import SymbolicInteger
+        value = self.val.rfind(sub, start, end)
+        return SymbolicInteger("se", value)
+
+    def rindex(self, sub, start=0, end=None):
+        """Return the highest index in the string where substring sub is found."""
+        value = self.val.rindex(sub, start, end)
+        from . symbolic_int import SymbolicInteger
+        return SymbolicInteger("se", value)
+
+    def rpartition(self, sep):
+        """Return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator, starting from the right."""
+        part1, part2, part3 = self.val.rpartition(sep)
+        return (SymbolicStr("se", part1), SymbolicStr("se", part2), SymbolicStr("se", part3))
+
+    def rsplit(self, sep=None, maxsplit=-1):
+        """Split the string from the right."""
+        parts = self.val.rsplit(sep, maxsplit)
+        return [SymbolicStr("se", part) for part in parts]
+
+    def rstrip(self, chars=None):
+        """Return a copy of the string with trailing characters removed."""
+        value = self.val.rstrip(chars)
+        return SymbolicStr("se", value)
+
+    def splitlines(self, keepends=False):
+        """Return a list of the lines in the string, breaking at line boundaries."""
+        parts = self.val.splitlines(keepends)
+        return [SymbolicStr("se", part) for part in parts]
+
+    def swapcase(self):
+        """Return a copy of the string with uppercase characters converted to lowercase and vice versa."""
+        value = self.val.swapcase()
+        return SymbolicStr("se", value)
+
+    def title(self):
+        """Return a titlecased version of the string."""
+        value = self.val.title()
+        return SymbolicStr("se", value)
+
+    def __complex__(self):
+        """Convert to complex"""
+        try:
+            return complex(self.val)
+        except ValueError as e:
+            # 处理无法转换为复数的情况
+            raise
+
+    def __float__(self):
+        """Convert to float"""
+        try:
+            return float(self.val)
+        except ValueError as e:
+            # 处理无法转换为浮点数的情况
+            raise
+
+    def __int__(self):
+        """Convert to int"""
+        try:
+            return int(self.val)
+        except ValueError as e:
+            # 处理无法转换为整数的情况
+            raise
+
+    def __repr__(self):
+        """Return a string representation of the object"""
+        return f"SymbolicStr({self.val}, {self.expr})"
+
     # 辅助方法
     def __bool2__(self):
         """Convert to symbolic bool"""
@@ -195,18 +353,33 @@ class SymbolicStr(SymbolicObject, str):
 
     def __int2__(self):
         """Convert to symbolic int"""
-        from . symbolic_int import SymbolicInteger
-        value = int(self.val)
-        # 处理负数的情况
-        if self.val.startswith('-'):
-            expr = ["-", ["str.to.int", ["str.substr", self, 1, ["str.len", self]]]]
-        else:
-            expr = ["str.to.int", self]
-        return SymbolicInteger("se", value, expr)
+        try:
+            from . symbolic_int import SymbolicInteger
+            value = int(self.val)
+            # 处理负数的情况
+            if self.val.startswith('-'):
+                expr = ["-", ["str.to.int", ["str.substr", self, 1, ["str.len", self]]]]
+            else:
+                expr = ["str.to.int", self]
+            return SymbolicInteger("se", value, expr)
+        except ValueError as e:
+            # 处理无法转换为整数的情况
+            raise
 
     def __str2__(self):
         """Convert to symbolic string"""
         return self
+
+    def __float2__(self):
+        """Convert to symbolic float"""
+        try:
+            from . symbolic_float import SymbolicFloat
+            value = float(self.val)
+            expr = ["str.to.real", self]
+            return SymbolicFloat("se", value, expr)
+        except ValueError as e:
+            # 处理无法转换为浮点数的情况
+            raise
 
 # Currently only a subset of string operations are supported.
 ops = [("add", "+"), ("mul", "*")]

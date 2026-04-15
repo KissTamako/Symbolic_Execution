@@ -1,6 +1,6 @@
 {
-  "path_id": 2386013595664,
-  "timestamp": 1776221631.8507593,
+  "path_id": 2222791247504,
+  "timestamp": 1776232742.594406,
   "input_model": {
     "x": "x#1",
     "y": "y#0"
@@ -43,8 +43,8 @@
       ]
     ],
     "symbolic_variables": [
-      "x",
-      "y"
+      "y",
+      "x"
     ],
     "source_locations": []
   },

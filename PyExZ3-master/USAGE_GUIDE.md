@@ -47,13 +47,25 @@
 
 ## 使用方法
 
-### 基本使用（默认行为）
+PyExZ3 支持两种执行模式：**函数执行模式**和**脚本执行模式**。
 
-使用 PyExZ3 的默认行为，所有优化保持关闭（除了 UNSAT 缓存）：
+### 函数执行模式（默认）
+
+**描述**：用于对 Python 文件中的特定函数进行符号执行。
+
+**适用场景**：
+- 测试单个函数
+- 分析函数在不同输入下的行为
+- 探索函数的所有可能执行路径
+
+**基本使用**：
 
 ```bash
-# 对单个文件进行符号执行
+# 对单个函数进行符号执行（默认使用与文件名同名的函数）
 python pyexz3.py test/simple.py
+
+# 指定入口函数
+python pyexz3.py --start=my_function test/complex.py
 
 # 对 test 文件夹中的所有测试用例进行测试
 python run_tests.py test
@@ -62,9 +74,34 @@ python run_tests.py test
 python run_tests.py test --dump-constraints --dump-trace --dump-semantics
 ```
 
+### 脚本执行模式
+
+**描述**：用于对整个 Python 脚本进行符号执行，包括其所有语句和函数。
+
+**适用场景**：
+- 测试整个脚本
+- 分析脚本在不同输入下的行为
+- 探索脚本的所有可能执行路径
+- 测试包含多个函数和复杂控制流的脚本
+
+**基本使用**：
+
+```bash
+# 对单个脚本进行符号执行
+python pyexz3.py --mode=script test_script.py
+
+# 对脚本进行符号执行，设置最大迭代次数
+python pyexz3.py --mode=script --max-iters=10 test_script_complex.py
+
+# 对脚本进行符号执行并导出信息
+python pyexz3.py --mode=script --dump-constraints --dump-trace --dump-semantics test_script.py
+```
+
 ### 使用优化功能
 
 #### 启用多个优化
+
+**函数模式**：
 ```bash
 # 启用 Frontier 约束去重和 Z3 表达式简化
 python pyexz3.py --enable-frontier-dedup --enable-simplify test/simple.py
@@ -73,7 +110,15 @@ python pyexz3.py --enable-frontier-dedup --enable-simplify test/simple.py
 python run_tests.py test --enable-frontier-dedup --enable-simplify
 ```
 
+**脚本模式**：
+```bash
+# 启用 Frontier 约束去重和 Z3 表达式简化
+python pyexz3.py --mode=script --enable-frontier-dedup --enable-simplify test_script.py
+```
+
 #### 切换搜索策略
+
+**函数模式**：
 ```bash
 # 使用 DFS（深度优先）搜索策略
 python pyexz3.py --search-strategy=dfs test/simple.py
@@ -82,7 +127,15 @@ python pyexz3.py --search-strategy=dfs test/simple.py
 python run_tests.py test --search-strategy=dfs
 ```
 
+**脚本模式**：
+```bash
+# 使用 DFS（深度优先）搜索策略
+python pyexz3.py --mode=script --search-strategy=dfs test_script.py
+```
+
 #### 启用前缀去重
+
+**函数模式**：
 ```bash
 # 启用前缀去重，使用默认最大前缀长度 3
 python pyexz3.py --enable-prefix-dedup test/simple.py
@@ -94,7 +147,18 @@ python pyexz3.py --enable-prefix-dedup --max-prefix-length=5 test/simple.py
 python run_tests.py test --enable-prefix-dedup --max-prefix-length=5
 ```
 
+**脚本模式**：
+```bash
+# 启用前缀去重，使用默认最大前缀长度 3
+python pyexz3.py --mode=script --enable-prefix-dedup test_script.py
+
+# 启用前缀去重，自定义最大前缀长度为 5
+python pyexz3.py --mode=script --enable-prefix-dedup --max-prefix-length=5 test_script.py
+```
+
 #### 组合使用多个优化
+
+**函数模式**：
 ```bash
 # 组合使用多个优化进行符号执行
 python pyexz3.py \
@@ -115,6 +179,18 @@ python run_tests.py test \
   --dump-constraints \
   --dump-trace \
   --dump-semantics
+```
+
+**脚本模式**：
+```bash
+# 组合使用多个优化进行脚本符号执行
+python pyexz3.py --mode=script \
+  --enable-frontier-dedup \
+  --search-strategy=dfs \
+  --enable-simplify \
+  --enable-prefix-dedup \
+  --max-prefix-length=4 \
+  test_script.py
 ```
 
 ## 完整参数列表
@@ -253,3 +329,24 @@ python pyexz3.py --enable-simplify --dump-constraints --dump-trace --dump-semant
 ### Z3 表达式简化
 - 在添加约束到求解器前调用 Z3 的 `simplify()`
 - 可以减少约束复杂度，加快求解速度
+
+### Concolic执行模式
+- 结合具体执行和符号执行的优点，提高执行效率
+- 首先生成具体值并执行，然后基于执行结果生成符号约束
+- 支持多种具体值生成策略：random、guided、hybrid
+
+### 智能路径探索策略
+- 基于路径长度和覆盖率的智能路径选择
+- 计算路径优先级，优先选择较短路径和覆盖新代码的路径
+- 支持动态权重调整，根据执行进度调整各维度的权重
+
+### 路径剪枝
+- 通过语义相似性、执行成本和循环检测等方式剪枝无效或冗余路径
+- 避免重复探索语义相似的路径
+- 剪枝执行成本过高的路径
+- 检测并剪枝包含循环的路径
+
+### 混合搜索策略
+- 在执行过程中自动切换搜索策略
+- 结合不同策略的优点，提高路径覆盖能力
+- 默认在第5次迭代后切换搜索策略

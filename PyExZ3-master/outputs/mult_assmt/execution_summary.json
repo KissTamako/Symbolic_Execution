@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776221625.120474,
+  "timestamp": 1776232738.2219613,
   "generated_inputs": [
     [
       [
@@ -59,8 +59,8 @@
     "total_branches": 7,
     "unique_variables": [
       "in3",
-      "in1",
-      "in2"
+      "in2",
+      "in1"
     ]
   }
 }

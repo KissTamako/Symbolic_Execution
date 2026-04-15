@@ -51,27 +51,37 @@ Testing so far has been on Python 3.2.3 and 32-bit.
 
 ### Usage of PyExZ3
 
-- **Basic usage**: give a Python file `FILE.py` as input. By default, `pyexz3` expects `FILE.py` 
+PyExZ3 supports two execution modes: **Function mode** and **Script mode**. Each mode has its own use cases and usage patterns.
+
+#### Function Execution Mode
+
+**Description**: This mode is used to symbolically execute a specific function within a Python file.
+
+**Use Cases**:
+- Testing individual functions
+- Analyzing function behavior with different inputs
+- Exploring all possible execution paths of a function
+
+**Basic Usage**: Give a Python file `FILE.py` as input. By default, `pyexz3` expects `FILE.py` 
 to contain a function named `FILE` where symbolic execution will start:
 
   - `pyexz3 FILE.py`
 
-- **Starting function**: You can override the default starting function with `--start MAIN`,
-where `MAIN` is the name of a  function in `FILE`: 
+**Starting Function**: You can override the default starting function with `--start MAIN`,
+where `MAIN` is the name of a function in `FILE`: 
 
-  - pyexz3 `--start=MAIN` FILE.py
+  - `pyexz3 --start=MAIN FILE.py`
 
-- **Bounding the number of iterations** of the path exploration is essential when
-analyzing functions with loops and/or recursion. Specify a bound using the `max-iters` flag:
+**Bounding the Number of Iterations**: Essential when analyzing functions with loops and/or recursion. Specify a bound using the `max-iters` flag:
 
-  - pyexz3 `--max-iters=42` FILE.py
+  - `pyexz3 --max-iters=42 FILE.py`
 
-- **Arguments to starting function**: by default, pyexz3 associates a symbolic integer
+**Arguments to Starting Function**: By default, pyexz3 associates a symbolic integer
 (with initial value 0) for each parameter of the starting function. Import from
 `symbolic.args` to get the `@concrete` and `@symbolic` decorators that let you override
 the defaults on the starting function:
 
-```
+```python
 from symbolic.args import *
 
 @concrete(a=1,b=2)
@@ -88,23 +98,102 @@ type  (if one exists).   In the above example, parameters `a` and `b` are treate
 and will have initial values `1` and `2` (for all paths explored), and parameter `c` will 
 be treated as a symbolic integer input with the initial value `3` (its value can change after
 first path has been explored). Since parameter `d` is not specified, it will be treated as a symbolic 
-integer input with the initial value 0:
+integer input with the initial value 0.
 
-- **Output**: `pyexz3` prints the list of generated inputs and corresponding observed 
+#### Script Execution Mode
+
+**Description**: This mode is used to symbolically execute an entire Python script, including all its statements and functions.
+
+**Use Cases**:
+- Testing entire scripts
+- Analyzing script behavior with different inputs
+- Exploring all possible execution paths of a script
+- Testing scripts with multiple functions and complex control flow
+
+**Basic Usage**: Use the `--mode=script` flag to enable script execution mode:
+
+  - `pyexz3 --mode=script SCRIPT.py`
+
+**Script Inputs**: By default, script execution mode creates symbolic inputs `x` and `y` with initial value 0. These can be used directly in your script:
+
+```python
+# Example script (test_script.py)
+if x > 0:
+    print("x is positive")
+else:
+    print("x is non-positive")
+
+if y > 0:
+    print("y is positive")
+else:
+    print("y is non-positive")
+```
+
+**Bounding the Number of Iterations**:同样适用于脚本执行模式，特别是当脚本包含循环时：
+
+  - `pyexz3 --mode=script --max-iters=42 SCRIPT.py`
+
+#### Common Features
+
+**Output**: Both modes print the list of generated inputs and corresponding observed 
 return values to standard out; the lists of generated inputs and the corresponding return values are
 returned by the exploration engine to `pyexz3` where they can be used for other 
-purposes, as described below.
+purposes.
 
-- **Expected result functions** are used for testing of `pyexz3`. If the `FILE.py` contains a function named `expected_result` then after path exploration is complete, the list of return values will be compared against the list 
+**Expected Result Functions**: Used for testing of `pyexz3`. If the file contains a function named `expected_result` then after path exploration is complete, the list of return values will be compared against the list 
 returned by `expected_result`. More precisely, the two lists are converted into bags and the bags compared for equality. If a function named `expected_result_set` is present instead, the list are converted into sets and the sets are
 compared for equality.  List equality is too strong a criteria for testing, since small changes to programs can lead to paths being explored in different orders. 
 
-- **Import behavior**: the location of the `FILE.py` is added to the import path so that all imports in `FILE.py` 
+**Import Behavior**: The location of the input file is added to the import path so that all imports in the file 
 relative to that file will work.
 
-- **Other options**
-  - `--graph=DOTFILE`
-  - `--log=LOGFILE`
+**Other Options**
+  - `--graph=DOTFILE` - Generate a DOT graph of the execution tree
+  - `--log=LOGFILE` - Save log output to a file
+  - `--dump-constraints` - Dump constraints to files
+  - `--dump-trace` - Dump execution trace to file
+  - `--dump-semantics` - Dump semantic information to file
+
+#### Usage Examples
+
+**Function Mode Example**:
+
+```bash
+# Test a single function with default settings
+python pyexz3.py test/simple.py
+
+# Test a specific function with custom starting point
+python pyexz3.py --start=my_function test/complex.py
+
+# Test with bounded iterations for functions with loops
+python pyexz3.py --max-iters=10 test/loop.py
+
+# Test with optimizations enabled
+python pyexz3.py --enable-simplify --enable-frontier-dedup test/simple.py
+```
+
+**Script Mode Example**:
+
+```bash
+# Test a simple script
+python pyexz3.py --mode=script test_script.py
+
+# Test a complex script with bounded iterations
+python pyexz3.py --mode=script --max-iters=10 test_script_complex.py
+
+# Test with optimizations enabled
+python pyexz3.py --mode=script --enable-simplify --enable-frontier-dedup test_script.py
+```
+
+**Running All Tests**:
+
+```bash
+# Run all tests in Function mode
+python run_tests.py test
+
+# Run all tests with optimizations
+python run_tests.py test --enable-simplify --enable-frontier-dedup
+```
 
 ### MacOS specific
 

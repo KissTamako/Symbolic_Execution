@@ -1,6 +1,6 @@
 {
   "execution_id": 2,
-  "timestamp": 1776221628.0306015,
+  "timestamp": 1776232740.227203,
   "input_model": {
     "in1": "in1#2",
     "in2": "in2#2",
@@ -84,8 +84,8 @@
     ],
     "symbolic_variables": [
       "in3",
-      "in2",
-      "in1"
+      "in1",
+      "in2"
     ],
     "source_locations": []
   },

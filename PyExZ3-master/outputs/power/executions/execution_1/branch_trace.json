@@ -1,0 +1,18 @@
+{
+  "timestamp": 1776232738.7836525,
+  "trace_length": 1,
+  "branches": [
+    {
+      "predicate": "(== (^ (+ x#14, 2), 2), 4) (False)",
+      "result": false,
+      "source_file": null,
+      "source_line": null,
+      "branch_id": null,
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False"
+      ]
+    }
+  ]
+}

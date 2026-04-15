@@ -42,6 +42,18 @@ parser.add_option("--max-prefix-length", dest="max_prefix_length", type="int", h
 parser.add_option("--enable-incremental", dest="enable_incremental", action="store_true", help="Enable incremental solving", default=False)
 parser.add_option("--dump-all-executions", dest="dump_all_executions", action="store_true", help="Dump detailed information for every execution", default=False)
 
+# Execution mode option
+parser.add_option("--execution-mode", dest="execution_mode", action="store", help="Execution mode: symbolic|concolic|concrete", default="symbolic")
+# Concolic execution parameters
+parser.add_option("--concolic-iterations", dest="concolic_iterations", type="int", help="Number of concolic execution iterations", default=10)
+parser.add_option("--concrete-value-strategy", dest="concrete_value_strategy", action="store", help="Concrete value generation strategy: random|guided|hybrid", default="random")
+
+# Path exploration strategy options
+parser.add_option("--path-selection-strategy", dest="path_selection_strategy", action="store", help="Path selection strategy: bfs|dfs|smart", default="bfs")
+parser.add_option("--enable-path-pruning", dest="enable_path_pruning", action="store_true", help="Enable path pruning", default=False)
+parser.add_option("--enable-hybrid-search", dest="enable_hybrid_search", action="store_true", help="Enable hybrid search strategy", default=False)
+parser.add_option("--path-priority-weight", dest="path_priority_weight", type="float", help="Weight for path priority calculation", default=0.5)
+
 (options, args) = parser.parse_args()
 
 if not (options.logfile == ""):
@@ -56,14 +68,17 @@ solver = "cvc" if options.cvc else "z3"
 filename = os.path.abspath(args[0])	
 
 # Get the object describing the application
-app = loaderFactory(filename,options.entry)
-if app == None:
-	sys.exit(1)
-
-print ("Exploring " + app.getFile() + "." + app.getEntry())
-print ("Mode: " + options.mode)
-
-result = None
+if options.mode == "script":
+	# Use ScriptRunner for script mode
+	from symbolic.script_runner import ScriptRunner
+	script_runner = ScriptRunner(filename)
+	invocation = script_runner.create_invocation()
+	# Add symbolic inputs
+	invocation.add_input("x", 0)
+	invocation.add_input("y", 0)
+	print ("Exploring script: " + os.path.basename(filename))
+	print ("Mode: " + options.mode)
+	result = None
 try:
 	# 为每个测试创建独立的输出目录
 	test_name = os.path.basename(filename)
@@ -71,26 +86,68 @@ try:
 	output_dir = os.path.join(current_dir, "outputs", test_name_no_ext)
 	os.makedirs(output_dir, exist_ok=True)
 	
-	engine = ExplorationEngine(
-		app.createInvocation(), 
-		solver=solver, 
-		output_dir=output_dir,
-		enable_frontier_dedup=options.enable_frontier_dedup,
-		search_strategy=options.search_strategy,
-		enable_simplify=options.enable_simplify,
-		enable_prefix_dedup=options.enable_prefix_dedup,
-		max_prefix_length=options.max_prefix_length,
-		enable_incremental=options.enable_incremental,
-		dump_all_executions=options.dump_all_executions
-	)
-	generatedInputs, returnVals, path = engine.explore(
-		options.max_iters,
-		dump_constraints=options.dump_constraints,
-		dump_trace=options.dump_trace,
-		dump_semantics=options.dump_semantics
-	)
-	# check the result
-	result = app.executionComplete(returnVals)
+	if options.mode == "script":
+		engine = ExplorationEngine(
+			invocation, 
+			solver=solver, 
+			output_dir=output_dir,
+			enable_frontier_dedup=options.enable_frontier_dedup,
+			search_strategy=options.search_strategy,
+			enable_simplify=options.enable_simplify,
+			enable_prefix_dedup=options.enable_prefix_dedup,
+			max_prefix_length=options.max_prefix_length,
+			enable_incremental=options.enable_incremental,
+			dump_all_executions=options.dump_all_executions,
+			execution_mode=options.execution_mode,
+			concolic_iterations=options.concolic_iterations,
+			concrete_value_strategy=options.concrete_value_strategy,
+			path_selection_strategy=options.path_selection_strategy,
+			enable_path_pruning=options.enable_path_pruning,
+			enable_hybrid_search=options.enable_hybrid_search,
+			path_priority_weight=options.path_priority_weight
+		)
+		generatedInputs, returnVals, path = engine.explore(
+			options.max_iters,
+			dump_constraints=options.dump_constraints,
+			dump_trace=options.dump_trace,
+			dump_semantics=options.dump_semantics
+		)
+		# For script mode, we just check if the script executed without errors
+		result = True
+	else:
+		# Use Loader for function mode
+		app = loaderFactory(filename,options.entry)
+		if app == None:
+			sys.exit(1)
+		print ("Exploring " + app.getFile() + "." + app.getEntry())
+		print ("Mode: " + options.mode)
+		engine = ExplorationEngine(
+			app.createInvocation(), 
+			solver=solver, 
+			output_dir=output_dir,
+			enable_frontier_dedup=options.enable_frontier_dedup,
+			search_strategy=options.search_strategy,
+			enable_simplify=options.enable_simplify,
+			enable_prefix_dedup=options.enable_prefix_dedup,
+			max_prefix_length=options.max_prefix_length,
+			enable_incremental=options.enable_incremental,
+			dump_all_executions=options.dump_all_executions,
+			execution_mode=options.execution_mode,
+			concolic_iterations=options.concolic_iterations,
+			concrete_value_strategy=options.concrete_value_strategy,
+			path_selection_strategy=options.path_selection_strategy,
+			enable_path_pruning=options.enable_path_pruning,
+			enable_hybrid_search=options.enable_hybrid_search,
+			path_priority_weight=options.path_priority_weight
+		)
+		generatedInputs, returnVals, path = engine.explore(
+			options.max_iters,
+			dump_constraints=options.dump_constraints,
+			dump_trace=options.dump_trace,
+			dump_semantics=options.dump_semantics
+		)
+		# check the result
+		result = app.executionComplete(returnVals)
 
 	# output DOT graph
 	if (options.dot_graph):

@@ -65,6 +65,13 @@ class SymbolicFloat(SymbolicObject):
         expr = ["+", ["to_int", self], ["ite", ["and", ["<", self, 0], ["not", ["is_int", self]]], 1, 0]]
         return SymbolicInteger("se", value, expr)
 
+    def __str2__(self):
+        """Convert to symbolic string"""
+        from . symbolic_str import SymbolicStr
+        value = str(self.val)
+        expr = ["real.to.str", self]
+        return SymbolicStr("se", value, expr)
+
     # 其他方法
     def as_integer_ratio(self):
         """Return integer ratio"""
@@ -108,6 +115,63 @@ class SymbolicFloat(SymbolicObject):
         value = int(self.val)
         return SymbolicInteger("se", value)
 
+    def __floor__(self):
+        """Return the largest integer not greater than self"""
+        from . symbolic_int import SymbolicInteger
+        value = int(self.val // 1)
+        if self.val < 0 and self.val % 1 != 0:
+            value -= 1
+        expr = ["floor", self]
+        return SymbolicInteger("se", value, expr)
+
+    def __ceil__(self):
+        """Return the smallest integer not less than self"""
+        from . symbolic_int import SymbolicInteger
+        value = int(self.val // 1)
+        if self.val > 0 and self.val % 1 != 0:
+            value += 1
+        expr = ["ceil", self]
+        return SymbolicInteger("se", value, expr)
+
+    def __complex__(self):
+        """Convert to complex"""
+        return complex(self.val)
+
+    def __str__(self):
+        """Convert to string"""
+        return str(self.val)
+
+    def __repr__(self):
+        """Return a string representation of the object"""
+        return f"SymbolicFloat({self.val}, {self.expr})"
+
+    # 添加强制类型转换方法
+    def __index__(self):
+        """Called to implement operator.index() and when converting to an integer"""
+        return int(self.val)
+
+    # 添加数学辅助方法
+    def __sizeof__(self):
+        """Returns the size of the float object in bytes"""
+        return self.val.__sizeof__()
+
+    # 添加反向比较方法
+    def __rlt__(self, other):
+        """Return other < self"""
+        return self._op_worker([other, self], lambda x, y: x < y, '<', SymbolicFloat.wrap)
+
+    def __rle__(self, other):
+        """Return other <= self"""
+        return self._op_worker([other, self], lambda x, y: x <= y, '<=', SymbolicFloat.wrap)
+
+    def __rgt__(self, other):
+        """Return other > self"""
+        return self._op_worker([other, self], lambda x, y: x > y, '>', SymbolicFloat.wrap)
+
+    def __rge__(self, other):
+        """Return other >= self"""
+        return self._op_worker([other, self], lambda x, y: x >= y, '>=', SymbolicFloat.wrap)
+
 # Float operations
 ops = ["add", "sub", "mul", "truediv", "mod", "pow"]
 
@@ -121,8 +185,23 @@ op_map = {
 }
 
 def make_method(method, op):
-    code = f"def __{method}__(self, other):\n"
-    code += f"    return self._op_worker([self, other], lambda x, y: x {op} y, '{op}', SymbolicFloat.wrap)"
+    if op == '/':
+        code = f"def __{method}__(self, other):\n"
+        code += f"    try:\n"
+        code += f"        return self._op_worker([self, other], lambda x, y: x {op} y, '{op}', SymbolicFloat.wrap)\n"
+        code += f"    except ZeroDivisionError as e:\n"
+        code += f"        # 处理除零错误\n"
+        code += f"        raise"
+    elif op == '**':
+        code = f"def __{method}__(self, other):\n"
+        code += f"    try:\n"
+        code += f"        return self._op_worker([self, other], lambda x, y: x {op} y, '{op}', SymbolicFloat.wrap)\n"
+        code += f"    except (ValueError, TypeError) as e:\n"
+        code += f"        # 处理无效输入的情况\n"
+        code += f"        raise"
+    else:
+        code = f"def __{method}__(self, other):\n"
+        code += f"    return self._op_worker([self, other], lambda x, y: x {op} y, '{op}', SymbolicFloat.wrap)"
     locals_dict = {}
     exec(code, globals(), locals_dict)
     setattr(SymbolicFloat, f"__{method}__", locals_dict[f"__{method}__"])

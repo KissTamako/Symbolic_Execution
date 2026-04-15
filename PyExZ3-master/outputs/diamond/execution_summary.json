@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776222017.9632561,
+  "timestamp": 1776232729.7216344,
   "generated_inputs": [
     [
       [
@@ -138,9 +138,9 @@
   "semantic_summary": {
     "total_branches": 24,
     "unique_variables": [
-      "z",
+      "y",
       "x",
-      "y"
+      "z"
     ]
   }
 }

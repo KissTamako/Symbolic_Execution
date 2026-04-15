@@ -1,5 +1,5 @@
 (set-logic ALL)
 ; Execution Summary
 ; Generated Inputs: 7
-; Return Values: ['NONE', 1, 3, 19, 9, 12, 15]
+; Return Values: ['NONE', SymbolicInteger(1, None), SymbolicInteger(3, None), SymbolicInteger(19, None), SymbolicInteger(9, None), SymbolicInteger(12, None), SymbolicInteger(15, None)]
 ; Path Length: 0

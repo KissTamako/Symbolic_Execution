@@ -1,6 +1,6 @@
 {
-  "path_id": 2992795156944,
-  "timestamp": 1776326581.1014347,
+  "path_id": 2422800499152,
+  "timestamp": 1776366773.897409,
   "input_model": {
     "x": "x#0",
     "y": "y#10"
@@ -84,8 +84,8 @@
       ]
     ],
     "symbolic_variables": [
-      "y",
-      "x"
+      "x",
+      "y"
     ],
     "source_locations": [
       [
@@ -259,8 +259,8 @@
     ],
     "variable_participation_graph": {
       "nodes": [
-        "y",
-        "x"
+        "x",
+        "y"
       ],
       "edges": [
         {

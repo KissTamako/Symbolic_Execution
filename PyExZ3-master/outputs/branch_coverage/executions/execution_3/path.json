@@ -1,6 +1,6 @@
 {
   "execution_id": 1,
-  "timestamp": 1776326569.7424035,
+  "timestamp": 1776366764.0782876,
   "input_model": {
     "x": "x#2",
     "y": "y#2"
@@ -63,8 +63,8 @@
       ]
     ],
     "symbolic_variables": [
-      "x",
-      "y"
+      "y",
+      "x"
     ],
     "source_locations": [
       [
@@ -191,8 +191,8 @@
     ],
     "variable_participation_graph": {
       "nodes": [
-        "x",
-        "y"
+        "y",
+        "x"
       ],
       "edges": []
     },

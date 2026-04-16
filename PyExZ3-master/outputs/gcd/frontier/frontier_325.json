@@ -1,6 +1,6 @@
 {
   "constraint_id": 283,
-  "timestamp": 1776326576.228586,
+  "timestamp": 1776366770.096107,
   "path_predicates": [
     {
       "expr": "(>= x 0)",
@@ -351,8 +351,8 @@
       ]
     ],
     "symbolic_variables": [
-      "x",
-      "y"
+      "y",
+      "x"
     ]
   },
   "processed": false

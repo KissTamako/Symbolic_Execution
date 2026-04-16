@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312087.5187538,
+  "timestamp": 1776326576.8481584,
   "trace_length": 2,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": true,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
       "source_line": 65,
-      "branch_id": "65:gcd",
+      "branch_id": "65:6",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
@@ -18,14 +18,14 @@
     {
       "predicate": "(>= y 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 65,
       "branch_id": "65:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:65"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:65"
       ]
     }
   ]

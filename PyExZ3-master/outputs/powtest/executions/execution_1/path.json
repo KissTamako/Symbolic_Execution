@@ -1,6 +1,6 @@
 {
   "execution_id": 1,
-  "timestamp": 1776312091.5928483,
+  "timestamp": 1776326582.823317,
   "input_model": {
     "in1": "in1#12"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(== (* in1 in1) 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
       "source_line": 2,
       "source_col": 4,
       "branch_id": "2:4",
@@ -24,10 +24,10 @@
     {
       "expr": "(> (* in1 in1) 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
-      "source_line": 2,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
+      "source_line": 4,
       "source_col": 4,
-      "branch_id": "2:4",
+      "branch_id": "4:4",
       "vars": [
         "in1",
         "in1"
@@ -39,7 +39,7 @@
     "(> (* in1 in1) 0)"
   ],
   "path_predicates_normalized": [
-    "(== (* ARG0 ARG0) 0)",
+    "(not (== (* ARG0 ARG0) 0))",
     "(< 0 (* ARG0 ARG0))"
   ],
   "semantic_info": {
@@ -53,13 +53,13 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/powtest.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/powtest.py:4"
       ]
     ],
     "symbolic_variables": [
@@ -67,14 +67,14 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
         2,
         "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
-        2,
-        "2:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
+        4,
+        "4:4"
       ]
     ]
   },
@@ -88,14 +88,14 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== (* ARG0 ARG0) 0)",
+      "(not (== (* ARG0 ARG0) 0))",
       "(< 0 (* ARG0 ARG0))"
     ],
     "branch_trace": [
       {
         "expr": "(== (* in1 in1) 0)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
         "source_line": 2,
         "source_col": 4,
         "branch_id": "2:4",
@@ -107,10 +107,10 @@
       {
         "expr": "(> (* in1 in1) 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
-        "source_line": 2,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
+        "source_line": 4,
         "source_col": 4,
-        "branch_id": "2:4",
+        "branch_id": "4:4",
         "vars": [
           "in1",
           "in1"
@@ -122,27 +122,27 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/powtest.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/powtest.py:4"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
         2,
-        0,
+        4,
         "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py",
-        2,
-        0,
-        "2:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
+        4,
+        4,
+        "4:4"
       ]
     ],
     "path_summary": {
@@ -154,6 +154,73 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (* in1 in1) 0)",
+      "(> (* in1 in1) 0)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (* in1 in1) 0)",
+        "normalized": "(not (== (* ARG0 ARG0) 0))",
+        "operation": "==",
+        "variables": [
+          "in1",
+          "in1"
+        ]
+      },
+      {
+        "raw": "(> (* in1 in1) 0)",
+        "normalized": "(< 0 (* ARG0 ARG0))",
+        "operation": ">",
+        "variables": [
+          "in1",
+          "in1"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/powtest.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in1"
+      ],
+      "edges": [
+        {
+          "source": "in1",
+          "target": "in1",
+          "predicate_index": 0,
+          "predicate": "(== (* in1 in1) 0)"
+        },
+        {
+          "source": "in1",
+          "target": "in1",
+          "predicate_index": 1,
+          "predicate": "(> (* in1 in1) 0)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 1,
+      "branch_diversity": 2,
+      "variable_density": 0.3333333333333333,
+      "predicate_complexity": 11.666666666666666,
+      "branch_balance": 0.3333333333333333
     }
   }
 }

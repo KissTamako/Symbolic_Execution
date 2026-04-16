@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776312089.0189307,
+  "timestamp": 1776326579.894388,
   "input_model": {
     "in1": "in1#0",
     "in2": "in2#0"
@@ -14,7 +14,7 @@
     {
       "expr": "(== (& in1 in2) 1)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/logical_op.py",
       "source_line": 4,
       "source_col": 4,
       "branch_id": "4:4",
@@ -28,7 +28,7 @@
     "(== (& in1 in2) 1)"
   ],
   "path_predicates_normalized": [
-    "(== (& ARG0 ARG1) 1)"
+    "(not (== (& ARG0 ARG1) 1))"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -40,7 +40,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/logical_op.py:4"
       ]
     ],
     "symbolic_variables": [
@@ -49,7 +49,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/logical_op.py",
         4,
         "4:4"
       ]
@@ -63,13 +63,13 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== (& ARG0 ARG1) 1)"
+      "(not (== (& ARG0 ARG1) 1))"
     ],
     "branch_trace": [
       {
         "expr": "(== (& in1 in2) 1)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/logical_op.py",
         "source_line": 4,
         "source_col": 4,
         "branch_id": "4:4",
@@ -84,14 +84,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/logical_op.py:4"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/logical_op.py",
         4,
-        0,
+        4,
         "4:4"
       ]
     ],
@@ -104,6 +104,52 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (& in1 in2) 1)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (& in1 in2) 1)",
+        "normalized": "(not (== (& ARG0 ARG1) 1))",
+        "operation": "==",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/logical_op.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in2",
+        "in1"
+      ],
+      "edges": [
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 0,
+          "predicate": "(== (& in1 in2) 1)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 2,
+      "num_branches": 0,
+      "num_negations": 1,
+      "branch_diversity": 1,
+      "variable_density": 1.0,
+      "predicate_complexity": 9.0,
+      "branch_balance": 0.0
     }
   }
 }

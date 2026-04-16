@@ -1,6 +1,6 @@
 {
   "execution_id": 2,
-  "timestamp": 1776312081.7142565,
+  "timestamp": 1776326570.7047384,
   "input_model": {
     "a": "a#1",
     "b": "b#1"
@@ -14,7 +14,7 @@
     {
       "expr": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
       "source_line": 4,
       "source_col": 4,
       "branch_id": "4:4",
@@ -27,7 +27,7 @@
     {
       "expr": "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
       "source_line": 4,
       "source_col": 4,
       "branch_id": "4:4",
@@ -40,7 +40,7 @@
     {
       "expr": "(!= a b)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
       "source_line": 4,
       "source_col": 4,
       "branch_id": "4:4",
@@ -58,7 +58,7 @@
   "path_predicates_normalized": [
     "(== (+ 3 (- (* ARG0 (* 2 ARG0)) (* 5 ARG0))) 0)",
     "(== (+ 3 (- (* ARG1 (* 2 ARG1)) (* 5 ARG1))) 0)",
-    "(!= ARG0 ARG1)"
+    "(not (!= ARG0 ARG1))"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -72,38 +72,38 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:!=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ]
     ],
     "symbolic_variables": [
-      "a",
-      "b"
+      "b",
+      "a"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         4,
         "4:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         4,
         "4:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         4,
         "4:4"
       ]
@@ -122,13 +122,13 @@
     "normalized_pc": [
       "(== (+ 3 (- (* ARG0 (* 2 ARG0)) (* 5 ARG0))) 0)",
       "(== (+ 3 (- (* ARG1 (* 2 ARG1)) (* 5 ARG1))) 0)",
-      "(!= ARG0 ARG1)"
+      "(not (!= ARG0 ARG1))"
     ],
     "branch_trace": [
       {
         "expr": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         "source_line": 4,
         "source_col": 4,
         "branch_id": "4:4",
@@ -141,7 +141,7 @@
       {
         "expr": "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         "source_line": 4,
         "source_col": 4,
         "branch_id": "4:4",
@@ -154,7 +154,7 @@
       {
         "expr": "(!= a b)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         "source_line": 4,
         "source_col": 4,
         "branch_id": "4:4",
@@ -169,38 +169,38 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:!=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         4,
-        0,
+        4,
         "4:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         4,
-        0,
+        4,
         "4:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
         4,
-        0,
+        4,
         "4:4"
       ]
     ],
@@ -213,6 +213,122 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)",
+      "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)",
+      "(!= a b)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)",
+        "normalized": "(== (+ 3 (- (* ARG0 (* 2 ARG0)) (* 5 ARG0))) 0)",
+        "operation": "==",
+        "variables": [
+          "a",
+          "a",
+          "a"
+        ]
+      },
+      {
+        "raw": "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)",
+        "normalized": "(== (+ 3 (- (* ARG1 (* 2 ARG1)) (* 5 ARG1))) 0)",
+        "operation": "==",
+        "variables": [
+          "b",
+          "b",
+          "b"
+        ]
+      },
+      {
+        "raw": "(!= a b)",
+        "normalized": "(not (!= ARG0 ARG1))",
+        "operation": "!=",
+        "variables": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "b",
+        "a"
+      ],
+      "edges": [
+        {
+          "source": "a",
+          "target": "a",
+          "predicate_index": 0,
+          "predicate": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)"
+        },
+        {
+          "source": "a",
+          "target": "a",
+          "predicate_index": 0,
+          "predicate": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)"
+        },
+        {
+          "source": "a",
+          "target": "a",
+          "predicate_index": 0,
+          "predicate": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)"
+        },
+        {
+          "source": "b",
+          "target": "b",
+          "predicate_index": 1,
+          "predicate": "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)"
+        },
+        {
+          "source": "b",
+          "target": "b",
+          "predicate_index": 1,
+          "predicate": "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)"
+        },
+        {
+          "source": "b",
+          "target": "b",
+          "predicate_index": 1,
+          "predicate": "(== (+ (- (* (* 2 b) b) (* 5 b)) 3) 0)"
+        },
+        {
+          "source": "b",
+          "target": "a",
+          "predicate_index": 2,
+          "predicate": "(!= a b)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 3,
+      "num_variables": 2,
+      "num_branches": 2,
+      "num_negations": 1,
+      "branch_diversity": 3,
+      "variable_density": 0.5,
+      "predicate_complexity": 21.0,
+      "branch_balance": 0.5
     }
   }
 }

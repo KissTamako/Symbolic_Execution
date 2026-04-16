@@ -139,7 +139,8 @@ class SymbolicObject(SymbolicType,object):
 								if not source_file:
 									source_file = filename
 								source_line = frame_info[2]
-								col = frame_info[3]
+								positions = getattr(frame_info, 'positions', None)
+								col = positions.col_offset if positions is not None else 0
 								branch_id = f"{source_line}:{col}"
 								break
 				except Exception as e:
@@ -172,5 +173,4 @@ class SymbolicObject(SymbolicType,object):
 
 	def __ge__(self, other):
 		return self._do_bin_op(other, lambda x, y: x >= y, ">=", SymbolicObject.wrap)
-
 

@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776312088.527062,
+  "timestamp": 1776326579.3572598,
   "input_model": {
     "a": "a#0"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(== a 2)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/len_test.py",
       "source_line": 13,
       "source_col": 4,
       "branch_id": "13:4",
@@ -25,7 +25,7 @@
     "(== a 2)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0 2)"
+    "(not (== ARG0 2))"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -37,7 +37,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py:13"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/len_test.py:13"
       ]
     ],
     "symbolic_variables": [
@@ -45,7 +45,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/len_test.py",
         13,
         "13:4"
       ]
@@ -59,13 +59,13 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== ARG0 2)"
+      "(not (== ARG0 2))"
     ],
     "branch_trace": [
       {
         "expr": "(== a 2)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/len_test.py",
         "source_line": 13,
         "source_col": 4,
         "branch_id": "13:4",
@@ -79,14 +79,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py:13"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/len_test.py:13"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/len_test.py",
         13,
-        0,
+        4,
         "13:4"
       ]
     ],
@@ -99,6 +99,43 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== a 2)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== a 2)",
+        "normalized": "(not (== ARG0 2))",
+        "operation": "==",
+        "variables": [
+          "a"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/len_test.py",
+        "source_line": 13,
+        "source_col": 4,
+        "branch_id": "13:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "a"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 1,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 4.0,
+      "branch_balance": 0.0
     }
   }
 }

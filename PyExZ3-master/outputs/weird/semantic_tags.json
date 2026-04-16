@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312094.5667608,
+  "timestamp": 1776326585.8571677,
   "total_tags": 4,
   "per_branch_tags": [
     {
@@ -9,7 +9,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/weird.py:2"
       ]
     }
   ]

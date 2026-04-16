@@ -79,6 +79,11 @@ class ConstraintNormalizer:
         # 规范化表达式树
         normalized_tree = self.normalize_expression(expr_tree)
         
+        # 考虑谓词的结果（分支方向）
+        if not predicate.result:
+            # 如果分支结果为 False，添加 not 操作符
+            normalized_tree = ['not', normalized_tree]
+        
         # 将规范化后的表达式树转换为字符串
         normalized_str = self._expr_tree_to_str(normalized_tree)
         

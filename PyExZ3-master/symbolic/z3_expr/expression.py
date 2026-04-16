@@ -2,6 +2,7 @@ import utils
 
 from symbolic.symbolic_types.symbolic_int import SymbolicInteger
 from symbolic.symbolic_types.symbolic_bool import SymbolicBool
+from symbolic.symbolic_types.symbolic_float import SymbolicFloat
 from symbolic.symbolic_types.symbolic_type import SymbolicType
 from z3 import *
 
@@ -83,6 +84,94 @@ class Z3Expression(object):
 						return Not(args[0])
 				else:
 					return not args[0]
+			elif op == "floor":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for floor operation, got %d" % len(args))
+				if env is None:
+					# 使用 Z3 的除法函数
+					return args[0] - (args[0] % 1)
+				else:
+					return int(args[0])
+			elif op == "sin":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for sin operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 sin 函数
+				else:
+					import math
+					return math.sin(args[0])
+			elif op == "cos":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for cos operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 cos 函数
+				else:
+					import math
+					return math.cos(args[0])
+			elif op == "tan":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for tan operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 tan 函数
+				else:
+					import math
+					return math.tan(args[0])
+			elif op == "asin":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for asin operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 asin 函数
+				else:
+					import math
+					return math.asin(args[0])
+			elif op == "acos":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for acos operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 acos 函数
+				else:
+					import math
+					return math.acos(args[0])
+			elif op == "atan":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for atan operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 atan 函数
+				else:
+					import math
+					return math.atan(args[0])
+			elif op == "sqrt":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for sqrt operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 sqrt 函数
+				else:
+					import math
+					return math.sqrt(args[0])
+			elif op == "exp":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for exp operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 exp 函数
+				else:
+					import math
+					return math.exp(args[0])
+			elif op == "log":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for log operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 log 函数
+				else:
+					import math
+					return math.log(args[0])
+			elif op == "log10":
+				if len(args) != 1:
+					utils.crash("Expected 1 argument for log10 operation, got %d" % len(args))
+				if env is None:
+					return args[0]  # 简化处理，实际应该使用 log10 函数
+				else:
+					import math
+					return math.log10(args[0])
 
 			# 双参数操作
 			if len(args) != 2:
@@ -97,6 +186,8 @@ class Z3Expression(object):
 			elif op == "*":
 				return self._mul(z3_l, z3_r, solver)
 			elif op == "//":
+				return self._div(z3_l, z3_r, solver)
+			elif op == "/":
 				return self._div(z3_l, z3_r, solver)
 			elif op == "%":
 				return self._mod(z3_l, z3_r, solver)
@@ -149,9 +240,18 @@ class Z3Expression(object):
 			else:
 				return self._astToZ3Expr(expr.expr,solver,env)
 
+		elif isinstance(expr, SymbolicFloat):
+			if expr.isVariable():
+				if env == None:
+					return self._getIntegerVariable(expr.name,solver)
+				else:
+					return env[expr.name]
+			else:
+				return self._astToZ3Expr(expr.expr,solver,env)
+
 		elif isinstance(expr, SymbolicType):
 			utils.crash("{} is an unsupported SymbolicType of {}".
-							format(expr, type(expr)))
+								format(expr, type(expr)))
 
 		elif isinstance(expr, int):
 			if env == None:

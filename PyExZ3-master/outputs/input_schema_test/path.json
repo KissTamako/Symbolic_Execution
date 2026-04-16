@@ -1,0 +1,60 @@
+{
+  "path_id": 2206258892688,
+  "timestamp": 1776326578.8189423,
+  "input_model": {
+    "input_0": "input_0#0",
+    "input_1": "input_1#0"
+  },
+  "concrete_inputs": {
+    "input_0": 0,
+    "input_1": 0
+  },
+  "return_value": null,
+  "branch_trace": [],
+  "path_predicates_raw": [],
+  "path_predicates_normalized": [],
+  "semantic_info": {
+    "path_length": 0,
+    "branch_directions": [],
+    "semantic_tags": [],
+    "symbolic_variables": [],
+    "source_locations": []
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [],
+    "branch_trace": [],
+    "semantic_tags": [],
+    "source_spans": [],
+    "path_summary": {
+      "path_length": 0,
+      "num_variables": 0,
+      "num_branches": 0,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    },
+    "path_predicate_sequence": [],
+    "normalized_constraint_templates": [],
+    "branch_location_sequence": [],
+    "variable_participation_graph": {
+      "nodes": [],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 0,
+      "num_variables": 0,
+      "num_branches": 0,
+      "num_negations": 0,
+      "branch_diversity": 0,
+      "variable_density": 0.0,
+      "predicate_complexity": 0.0,
+      "branch_balance": 0.0
+    }
+  }
+}

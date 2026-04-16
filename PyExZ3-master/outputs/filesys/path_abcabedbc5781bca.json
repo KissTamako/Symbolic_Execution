@@ -1,0 +1,12 @@
+{
+  "path_id": "abcabedbc5781bca",
+  "timestamp": 1776323816.4169772,
+  "solver": "Z3Wrapper",
+  "predicates_count": 2,
+  "has_query": false,
+  "variables": [
+    "x"
+  ],
+  "smt_file": "path_abcabedbc5781bca.smt2",
+  "mode": "executed_path"
+}

@@ -1,6 +1,6 @@
 {
-  "path_id": 2800857762320,
-  "timestamp": 1776312084.1932194,
+  "path_id": 2311272844304,
+  "timestamp": 1776326573.1116512,
   "input_model": {
     "in1": "in1#3222421507",
     "in2": "in2#1115785390"
@@ -14,7 +14,7 @@
     {
       "expr": "(>= (+ in1 in2) 4294967296)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/expand.py",
       "source_line": 2,
       "source_col": 4,
       "branch_id": "2:4",
@@ -40,16 +40,16 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/expand.py:2"
       ]
     ],
     "symbolic_variables": [
-      "in2",
-      "in1"
+      "in1",
+      "in2"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/expand.py",
         2,
         "2:4"
       ]
@@ -69,7 +69,7 @@
       {
         "expr": "(>= (+ in1 in2) 4294967296)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/expand.py",
         "source_line": 2,
         "source_col": 4,
         "branch_id": "2:4",
@@ -84,14 +84,14 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/expand.py:2"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/expand.py",
         2,
-        0,
+        4,
         "2:4"
       ]
     ],
@@ -104,6 +104,52 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(>= (+ in1 in2) 4294967296)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(>= (+ in1 in2) 4294967296)",
+        "normalized": "(<= 4294967296 (+ ARG0 ARG1))",
+        "operation": ">=",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/expand.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in1",
+        "in2"
+      ],
+      "edges": [
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 0,
+          "predicate": "(>= (+ in1 in2) 4294967296)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 0,
+      "branch_diversity": 1,
+      "variable_density": 1.0,
+      "predicate_complexity": 13.5,
+      "branch_balance": 0.5
     }
   }
 }

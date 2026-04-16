@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312080.395033,
+  "timestamp": 1776326569.2197468,
   "trace_length": 6,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
       "source_line": 6,
-      "branch_id": "6:bsearch",
+      "branch_id": "6:6",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -18,66 +18,66 @@
     {
       "predicate": "(> k 95)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
-      "source_line": 7,
-      "branch_id": "7:1",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/binary_search.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/binary_search.py:8"
       ]
     },
     {
       "predicate": "(== k 4944)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
-      "source_line": 7,
-      "branch_id": "7:1",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/binary_search.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/binary_search.py:8"
       ]
     },
     {
       "predicate": "(> k 4944)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
-      "source_line": 7,
-      "branch_id": "7:1",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/binary_search.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/binary_search.py:8"
       ]
     },
     {
       "predicate": "(== k 430)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/binary_search.py",
+      "source_line": 13,
+      "branch_id": "13:2",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/binary_search.py:13"
+      ]
+    },
+    {
+      "predicate": "(== k 430)",
+      "result": true,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/binary_search.py",
       "source_line": 7,
       "branch_id": "7:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
-      ]
-    },
-    {
-      "predicate": "(== k 430)",
-      "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
-      "source_line": 7,
-      "branch_id": "7:1",
-      "semantic_tags": [
-        "type:SymbolicInteger",
-        "op:==",
-        "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/binary_search.py:7"
       ]
     }
   ]

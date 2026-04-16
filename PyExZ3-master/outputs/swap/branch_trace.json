@@ -1,31 +1,31 @@
 {
-  "timestamp": 1776312092.980535,
+  "timestamp": 1776326584.3647654,
   "trace_length": 2,
   "branches": [
     {
       "predicate": "(> in1 in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\swap.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/swap.py",
       "source_line": 2,
       "branch_id": "2:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\swap.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/swap.py:2"
       ]
     },
     {
       "predicate": "(> (^ (^ in1 in2) (^ (^ in1 in2) in2)) (^ (^ in1 in2) in2))",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\swap.py",
-      "source_line": 2,
-      "branch_id": "2:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/swap.py",
+      "source_line": 8,
+      "branch_id": "8:8",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\swap.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/swap.py:8"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312079.3173985,
+  "timestamp": 1776326567.8610275,
   "trace_length": 3,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
       "source_line": 5,
-      "branch_id": "5:arrayindex2",
+      "branch_id": "5:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -20,7 +20,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
       "source_line": 5,
-      "branch_id": "5:arrayindex2",
+      "branch_id": "5:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -33,7 +33,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
       "source_line": 5,
-      "branch_id": "5:arrayindex2",
+      "branch_id": "5:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",

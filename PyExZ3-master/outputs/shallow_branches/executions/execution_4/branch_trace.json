@@ -1,70 +1,70 @@
 {
-  "timestamp": 1776312092.3276577,
+  "timestamp": 1776326583.6425066,
   "trace_length": 5,
   "branches": [
     {
       "predicate": "(== in1 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py",
       "source_line": 6,
       "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py:6"
       ]
     },
     {
       "predicate": "(== in2 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py",
       "source_line": 9,
       "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py:9"
       ]
     },
     {
       "predicate": "(== in3 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py",
       "source_line": 12,
       "branch_id": "12:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:12"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py:12"
       ]
     },
     {
       "predicate": "(== in4 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py",
       "source_line": 15,
       "branch_id": "15:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:15"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py:15"
       ]
     },
     {
       "predicate": "(== in5 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py",
       "source_line": 18,
       "branch_id": "18:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:18"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py:18"
       ]
     }
   ]

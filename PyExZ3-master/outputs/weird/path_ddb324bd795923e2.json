@@ -1,0 +1,13 @@
+{
+  "path_id": "ddb324bd795923e2",
+  "timestamp": 1776326585.8606877,
+  "solver": "Z3Wrapper",
+  "predicates_count": 1,
+  "has_query": false,
+  "variables": [
+    "x",
+    "y"
+  ],
+  "smt_file": "path_ddb324bd795923e2.smt2",
+  "mode": "executed_path"
+}

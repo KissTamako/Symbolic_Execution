@@ -1,31 +1,31 @@
 {
-  "timestamp": 1776312088.804407,
+  "timestamp": 1776326579.6554577,
   "trace_length": 2,
   "branches": [
     {
       "predicate": "(== a 1)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
       "source_line": 2,
       "branch_id": "2:3",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\list.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/list.py:2"
       ]
     },
     {
       "predicate": "(== b 2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
       "source_line": 2,
       "branch_id": "2:3",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\list.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/list.py:2"
       ]
     }
   ]

@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776312081.0001807,
+  "timestamp": 1776326570.016713,
   "input_model": {
     "x": "x#0",
     "y": "y#0"
@@ -14,7 +14,7 @@
     {
       "expr": "(>= y 4294967296)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/complex.py",
       "source_line": 2,
       "source_col": 2,
       "branch_id": "2:2",
@@ -27,7 +27,7 @@
     "(>= y 4294967296)"
   ],
   "path_predicates_normalized": [
-    "(<= 4294967296 ARG0)"
+    "(not (<= 4294967296 ARG0))"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -39,7 +39,7 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/complex.py:2"
       ]
     ],
     "symbolic_variables": [
@@ -47,7 +47,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/complex.py",
         2,
         "2:2"
       ]
@@ -61,13 +61,13 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(<= 4294967296 ARG0)"
+      "(not (<= 4294967296 ARG0))"
     ],
     "branch_trace": [
       {
         "expr": "(>= y 4294967296)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/complex.py",
         "source_line": 2,
         "source_col": 2,
         "branch_id": "2:2",
@@ -81,14 +81,14 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/complex.py:2"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/complex.py",
         2,
-        0,
+        2,
         "2:2"
       ]
     ],
@@ -101,6 +101,43 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(>= y 4294967296)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(>= y 4294967296)",
+        "normalized": "(not (<= 4294967296 ARG0))",
+        "operation": ">=",
+        "variables": [
+          "y"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/complex.py",
+        "source_line": 2,
+        "source_col": 2,
+        "branch_id": "2:2"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "y"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 1,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 8.5,
+      "branch_balance": 0.0
     }
   }
 }

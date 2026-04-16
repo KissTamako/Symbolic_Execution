@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312091.1648848,
+  "timestamp": 1776326582.356036,
   "total_tags": 4,
   "per_branch_tags": [
     {
@@ -9,7 +9,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\power.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/power.py:7"
       ]
     }
   ]

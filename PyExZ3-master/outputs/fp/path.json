@@ -1,18 +1,18 @@
 {
-  "path_id": 2868576038864,
-  "timestamp": 1776312085.1788266,
+  "path_id": 1379361109136,
+  "timestamp": 1776326574.5456676,
   "input_model": {
-    "a": "a#2"
+    "a": "a#10"
   },
   "concrete_inputs": {
-    "a": 2
+    "a": 10
   },
   "return_value": 1,
   "branch_trace": [
     {
       "expr": "(== (% a 2) 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -21,24 +21,25 @@
       ]
     },
     {
-      "expr": "(== a 1)",
+      "expr": "(== a (floor se))",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
-      "source_line": 2,
-      "source_col": 1,
-      "branch_id": "2:1",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
+      "source_line": 4,
+      "source_col": 2,
+      "branch_id": "4:2",
       "vars": [
+        "se",
         "a"
       ]
     }
   ],
   "path_predicates_raw": [
     "(== (% a 2) 0)",
-    "(== a 1)"
+    "(== a (floor se))"
   ],
   "path_predicates_normalized": [
     "(== (% ARG0 2) 0)",
-    "(== ARG0 1)"
+    "(not (== ARG0 (floor ARG2)))"
   ],
   "semantic_info": {
     "path_length": 2,
@@ -51,28 +52,29 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\fp.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/fp.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\fp.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/fp.py:4"
       ]
     ],
     "symbolic_variables": [
+      "se",
       "a"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
         2,
         "2:1"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
-        2,
-        "2:1"
+        "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
+        4,
+        "4:2"
       ]
     ]
   },
@@ -81,19 +83,19 @@
       "(== (% a 2) 0)"
     ],
     "negations": [
-      "(== a 1)"
+      "(== a (floor se))"
     ]
   },
   "standardized_features": {
     "normalized_pc": [
       "(== (% ARG0 2) 0)",
-      "(== ARG0 1)"
+      "(not (== ARG0 (floor ARG2)))"
     ],
     "branch_trace": [
       {
         "expr": "(== (% a 2) 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -102,13 +104,14 @@
         ]
       },
       {
-        "expr": "(== a 1)",
+        "expr": "(== a (floor se))",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
-        "source_line": 2,
-        "source_col": 1,
-        "branch_id": "2:1",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
+        "source_line": 4,
+        "source_col": 2,
+        "branch_id": "4:2",
         "vars": [
+          "se",
           "a"
         ]
       }
@@ -118,38 +121,100 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\fp.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/fp.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\fp.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/fp.py:4"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
         2,
-        0,
+        1,
         "2:1"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\fp.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
+        4,
         2,
-        0,
-        "2:1"
+        "4:2"
       ]
     ],
     "path_summary": {
       "path_length": 2,
-      "num_variables": 1,
+      "num_variables": 2,
       "num_branches": 1,
       "num_negations": 1
     },
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (% a 2) 0)",
+      "(== a (floor se))"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (% a 2) 0)",
+        "normalized": "(== (% ARG0 2) 0)",
+        "operation": "==",
+        "variables": [
+          "a"
+        ]
+      },
+      {
+        "raw": "(== a (floor se))",
+        "normalized": "(not (== ARG0 (floor ARG2)))",
+        "operation": "==",
+        "variables": [
+          "a",
+          "floor",
+          "se"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/fp.py",
+        "source_line": 4,
+        "source_col": 2,
+        "branch_id": "4:2"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "se",
+        "a"
+      ],
+      "edges": [
+        {
+          "source": "se",
+          "target": "a",
+          "predicate_index": 1,
+          "predicate": "(== a (floor se))"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 1,
+      "branch_diversity": 2,
+      "variable_density": 0.6666666666666666,
+      "predicate_complexity": 10.333333333333334,
+      "branch_balance": 0.3333333333333333
     }
   }
 }

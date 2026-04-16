@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312080.6681411,
+  "timestamp": 1776326569.4948401,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(< (+ a 1) a)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bitwidth.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bitwidth.py",
       "source_line": 2,
       "branch_id": "2:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bitwidth.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bitwidth.py:2"
       ]
     }
   ]

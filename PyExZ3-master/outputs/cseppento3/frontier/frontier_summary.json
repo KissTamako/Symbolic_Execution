@@ -1,10 +1,10 @@
 [
   {
-    "constraint_id": "59eca1cc4764e1c1",
+    "constraint_id": "ea4d2e4591332cea",
     "index": 0,
     "assertions_count": 24,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_0_59eca1cc4764e1c1.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_0_ea4d2e4591332cea.smt2"
   }
 ]

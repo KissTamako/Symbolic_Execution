@@ -439,14 +439,23 @@ class ExplorationEngine:
 		"""Concolic execution mode"""
 		print("Starting concolic exploration...")
 		
-		# 生成初始具体值
-		self._generate_concrete_values()
+		# 确定执行次数
+		concolic_iterations = min(self.concolic_iterations, max_iterations) if max_iterations > 0 else self.concolic_iterations
+		print(f"Concolic execution iterations: {concolic_iterations}")
 		
-		# 执行具体执行
-		self._oneExecution()
-		print("First concrete execution completed")
+		# 执行多次具体执行，生成不同的输入值，收集更多的约束
+		for i in range(min(5, concolic_iterations)):
+			print(f"Initial concrete execution {i+1}/5")
+			
+			# 生成具体值
+			self._generate_concrete_values()
+			
+			# 执行具体执行
+			self._oneExecution()
 		
-		iterations = 1
+		print("Initial concrete executions completed")
+		
+		iterations = 5
 		if max_iterations != 0 and iterations >= max_iterations:
 			log.debug("Maximum number of iterations reached, terminating")
 			if dump_constraints or dump_trace or dump_semantics:
@@ -455,35 +464,41 @@ class ExplorationEngine:
 			return self.generated_inputs, self.execution_return_values, self.path
 
 		# 进行concolic执行迭代
-		concolic_iterations = min(self.concolic_iterations, max_iterations) if max_iterations > 0 else self.concolic_iterations
-		
-		for i in range(concolic_iterations):
-			print(f"Concolic iteration {i+1}/{concolic_iterations}")
+		remaining_iterations = concolic_iterations - 5
+		for i in range(remaining_iterations):
+			print(f"Concolic iteration {i+1}/{remaining_iterations}")
 			
 			if not self._isExplorationComplete():
-				selected = self.constraints_to_solve.popleft()
-				if selected.processed:
-					continue
-				self._setInputs(selected.inputs)		
+				# 优先选择未处理的约束
+				selected = None
+				for constraint in self.constraints_to_solve:
+					if not constraint.processed:
+						selected = constraint
+						break
+				
+				if selected:
+					self._setInputs(selected.inputs)
+					
+					log.info("Selected constraint %s" % selected)
+					asserts, query = selected.getAssertsAndQuery()
+					model = self.solver.findCounterexample(asserts, query)
 
-				log.info("Selected constraint %s" % selected)
-				asserts, query = selected.getAssertsAndQuery()
-				model = self.solver.findCounterexample(asserts, query)
+					if model == None:
+						selected.processed = True
+						continue
+					else:
+						for name in model.keys():
+							self._updateSymbolicParameter(name,model[name])
 
-				if model == None:
-					continue
-				else:
-					for name in model.keys():
-						self._updateSymbolicParameter(name,model[name])
+					self._oneExecution(selected)
+					selected.processed = True
 
-				self._oneExecution(selected)
+					iterations += 1		
+					self.num_processed_constraints += 1
 
-				iterations += 1		
-				self.num_processed_constraints += 1
-
-				if max_iterations != 0 and iterations >= max_iterations:
-					log.info("Maximum number of iterations reached, terminating")
-					break
+					if max_iterations != 0 and iterations >= max_iterations:
+						log.info("Maximum number of iterations reached, terminating")
+						break
 			else:
 				break
 
@@ -495,12 +510,21 @@ class ExplorationEngine:
 		"""Concrete execution mode"""
 		print("Starting concrete exploration...")
 		
-		# 生成具体值
-		self._generate_concrete_values()
+		# 确定执行次数
+		concrete_iterations = min(max_iterations, 10) if max_iterations > 0 else 10
+		print(f"Concrete execution iterations: {concrete_iterations}")
 		
-		# 执行一次具体执行
-		self._oneExecution()
-		print("Concrete execution completed")
+		# 执行多次具体执行，生成不同的输入值
+		for i in range(concrete_iterations):
+			print(f"Concrete execution {i+1}/{concrete_iterations}")
+			
+			# 生成具体值
+			self._generate_concrete_values()
+			
+			# 执行具体执行
+			self._oneExecution()
+		
+		print("Concrete exploration completed")
 		
 		if dump_constraints or dump_trace or dump_semantics:
 			self._export_results()
@@ -657,22 +681,11 @@ class ExplorationEngine:
 		self.smt_exporter.export_execution_summary(execution_data)
 		
 		# Export SMT files for path constraints
+		current_path = self.path.get_current_path()
+		if current_path:
+			self.smt_exporter.export_executed_path(self.solver, current_path)
 		if frontier:
-			# Get assertions and query from the first frontier constraint as an example
-			asserts, query = frontier[0].getAssertsAndQuery()
-			self.smt_exporter.export_path(self.solver, asserts, query)
 			self.smt_exporter.export_frontier(self.solver, frontier)
-		else:
-			# If frontier is empty, export current path constraints
-			current_path = self.path.get_current_path()
-			if current_path:
-				# Create a simple constraint from current path
-				from .constraint import Constraint
-				constraint = Constraint(None, None)
-				for predicate in current_path:
-					constraint = constraint.addChild(predicate)
-				asserts, query = constraint.getAssertsAndQuery()
-				self.smt_exporter.export_path(self.solver, asserts, query)
 		
 		# 导出所有执行的详细信息（如果启用）
 		if self.dump_all_executions:
@@ -750,4 +763,3 @@ class ExplorationEngine:
 		# 跟踪代码覆盖率（简单实现）
 		# 这里可以添加更复杂的代码覆盖率跟踪逻辑
 		self._track_code_coverage()
-

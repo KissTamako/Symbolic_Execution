@@ -1,6 +1,6 @@
 {
-  "execution_id": 4,
-  "timestamp": 1776312082.2107804,
+  "execution_id": 3,
+  "timestamp": 1776326571.1779792,
   "input_model": {
     "x": "x#3"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(>= x 1)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
       "source_line": 9,
       "source_col": 4,
       "branch_id": "9:4",
@@ -23,7 +23,7 @@
     {
       "expr": "(>= x 2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
       "source_line": 9,
       "source_col": 4,
       "branch_id": "9:4",
@@ -34,7 +34,7 @@
     {
       "expr": "(>= x 3)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
       "source_line": 9,
       "source_col": 4,
       "branch_id": "9:4",
@@ -45,7 +45,7 @@
     {
       "expr": "(>= x 4)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
       "source_line": 9,
       "source_col": 4,
       "branch_id": "9:4",
@@ -64,7 +64,7 @@
     "(<= 1 ARG0)",
     "(<= 2 ARG0)",
     "(<= 3 ARG0)",
-    "(<= 4 ARG0)"
+    "(not (<= 4 ARG0))"
   ],
   "semantic_info": {
     "path_length": 4,
@@ -79,25 +79,25 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ]
     ],
     "symbolic_variables": [
@@ -105,22 +105,22 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
         "9:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
         "9:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
         "9:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
         "9:4"
       ]
@@ -141,13 +141,13 @@
       "(<= 1 ARG0)",
       "(<= 2 ARG0)",
       "(<= 3 ARG0)",
-      "(<= 4 ARG0)"
+      "(not (<= 4 ARG0))"
     ],
     "branch_trace": [
       {
         "expr": "(>= x 1)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         "source_line": 9,
         "source_col": 4,
         "branch_id": "9:4",
@@ -158,7 +158,7 @@
       {
         "expr": "(>= x 2)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         "source_line": 9,
         "source_col": 4,
         "branch_id": "9:4",
@@ -169,7 +169,7 @@
       {
         "expr": "(>= x 3)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         "source_line": 9,
         "source_col": 4,
         "branch_id": "9:4",
@@ -180,7 +180,7 @@
       {
         "expr": "(>= x 4)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         "source_line": 9,
         "source_col": 4,
         "branch_id": "9:4",
@@ -194,50 +194,50 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py:9"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
-        0,
+        4,
         "9:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
-        0,
+        4,
         "9:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
-        0,
+        4,
         "9:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
         9,
-        0,
+        4,
         "9:4"
       ]
     ],
@@ -250,6 +250,88 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(>= x 1)",
+      "(>= x 2)",
+      "(>= x 3)",
+      "(>= x 4)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(>= x 1)",
+        "normalized": "(<= 1 ARG0)",
+        "operation": ">=",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(>= x 2)",
+        "normalized": "(<= 2 ARG0)",
+        "operation": ">=",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(>= x 3)",
+        "normalized": "(<= 3 ARG0)",
+        "operation": ">=",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(>= x 4)",
+        "normalized": "(not (<= 4 ARG0))",
+        "operation": ">=",
+        "variables": [
+          "x"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento3.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "x"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 4,
+      "num_variables": 1,
+      "num_branches": 3,
+      "num_negations": 1,
+      "branch_diversity": 4,
+      "variable_density": 0.2,
+      "predicate_complexity": 6.4,
+      "branch_balance": 0.6
     }
   }
 }

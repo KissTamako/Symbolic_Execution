@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312089.0202467,
+  "timestamp": 1776326579.8960865,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(== (& in1 in2) 1)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/logical_op.py",
       "source_line": 4,
       "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/logical_op.py:4"
       ]
     }
   ]

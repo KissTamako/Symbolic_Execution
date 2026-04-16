@@ -1,0 +1,336 @@
+{
+  "execution_id": 3,
+  "timestamp": 1776326574.291741,
+  "input_model": {
+    "x": "x#-16"
+  },
+  "concrete_inputs": {
+    "x": -16
+  },
+  "return_value": 4,
+  "branch_trace": [
+    {
+      "expr": "(>= x 0)",
+      "result": false,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 9,
+      "source_col": 4,
+      "branch_id": "9:4",
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> x 2)",
+      "result": false,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 17,
+      "source_col": 4,
+      "branch_id": "17:4",
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> x 0)",
+      "result": false,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 19,
+      "source_col": 4,
+      "branch_id": "19:4",
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> x -2)",
+      "result": false,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 21,
+      "source_col": 4,
+      "branch_id": "21:4",
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(>= x 0)",
+    "(> x 2)",
+    "(> x 0)",
+    "(> x -2)"
+  ],
+  "path_predicates_normalized": [
+    "(not (<= 0 ARG0))",
+    "(not (< 2 ARG0))",
+    "(not (< 0 ARG0))",
+    "(not (< -2 ARG0))"
+  ],
+  "semantic_info": {
+    "path_length": 4,
+    "branch_directions": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:9"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:17"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:19"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:21"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": [
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        9,
+        "9:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        17,
+        "17:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        19,
+        "19:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        21,
+        "21:4"
+      ]
+    ]
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": [
+      "(>= x 0)",
+      "(> x 2)",
+      "(> x 0)",
+      "(> x -2)"
+    ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(not (<= 0 ARG0))",
+      "(not (< 2 ARG0))",
+      "(not (< 0 ARG0))",
+      "(not (< -2 ARG0))"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(>= x 0)",
+        "result": false,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(> x 2)",
+        "result": false,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 17,
+        "source_col": 4,
+        "branch_id": "17:4",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(> x 0)",
+        "result": false,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 19,
+        "source_col": 4,
+        "branch_id": "19:4",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(> x -2)",
+        "result": false,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 21,
+        "source_col": 4,
+        "branch_id": "21:4",
+        "vars": [
+          "x"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:9"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:17"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:19"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:21"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        9,
+        4,
+        "9:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        17,
+        4,
+        "17:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        19,
+        4,
+        "19:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        21,
+        4,
+        "21:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 4,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 4
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(>= x 0)",
+      "(> x 2)",
+      "(> x 0)",
+      "(> x -2)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(>= x 0)",
+        "normalized": "(not (<= 0 ARG0))",
+        "operation": ">=",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(> x 2)",
+        "normalized": "(not (< 2 ARG0))",
+        "operation": ">",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(> x 0)",
+        "normalized": "(not (< 0 ARG0))",
+        "operation": ">",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(> x -2)",
+        "normalized": "(not (< -2 ARG0))",
+        "operation": ">",
+        "variables": [
+          "x"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 17,
+        "source_col": 4,
+        "branch_id": "17:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 19,
+        "source_col": 4,
+        "branch_id": "19:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+        "source_line": 21,
+        "source_col": 4,
+        "branch_id": "21:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "x"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 4,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 4,
+      "branch_diversity": 4,
+      "variable_density": 0.2,
+      "predicate_complexity": 6.0,
+      "branch_balance": 0.0
+    }
+  }
+}

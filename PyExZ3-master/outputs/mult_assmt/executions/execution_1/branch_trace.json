@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312090.734218,
+  "timestamp": 1776326581.8810863,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(== in1 in2)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
       "source_line": 4,
       "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:4"
       ]
     }
   ]

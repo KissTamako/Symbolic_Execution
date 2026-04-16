@@ -1,6 +1,6 @@
 {
-  "timestamp": 1776312089.218363,
-  "total_tags": 8,
+  "timestamp": 1776326580.1423914,
+  "total_tags": 12,
   "per_branch_tags": [
     {
       "branch_index": 0,
@@ -9,7 +9,7 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/loop.py:2"
       ]
     },
     {
@@ -19,7 +19,17 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/loop.py:2"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(> in1 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/loop.py:4"
       ]
     }
   ]

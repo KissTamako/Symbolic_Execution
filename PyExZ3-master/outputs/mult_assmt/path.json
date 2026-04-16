@@ -1,6 +1,6 @@
 {
-  "path_id": 2231701070928,
-  "timestamp": 1776312090.721362,
+  "path_id": 1533844599248,
+  "timestamp": 1776326581.8624668,
   "input_model": {
     "in1": "in1#0",
     "in2": "in2#0",
@@ -16,7 +16,7 @@
     {
       "expr": "(== in1 in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
       "source_line": 4,
       "source_col": 4,
       "branch_id": "4:4",
@@ -28,10 +28,10 @@
     {
       "expr": "(> in3 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-      "source_line": 4,
-      "source_col": 4,
-      "branch_id": "4:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+      "source_line": 5,
+      "source_col": 8,
+      "branch_id": "5:8",
       "vars": [
         "in3"
       ]
@@ -39,10 +39,10 @@
     {
       "expr": "(!= (+ in1 1) in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-      "source_line": 4,
-      "source_col": 4,
-      "branch_id": "4:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+      "source_line": 8,
+      "source_col": 8,
+      "branch_id": "8:8",
       "vars": [
         "in2",
         "in1"
@@ -71,41 +71,41 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:!=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:8"
       ]
     ],
     "symbolic_variables": [
       "in3",
-      "in1",
-      "in2"
+      "in2",
+      "in1"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
         4,
         "4:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-        4,
-        "4:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        5,
+        "5:8"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-        4,
-        "4:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        8,
+        "8:8"
       ]
     ]
   },
@@ -127,7 +127,7 @@
       {
         "expr": "(== in1 in2)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
         "source_line": 4,
         "source_col": 4,
         "branch_id": "4:4",
@@ -139,10 +139,10 @@
       {
         "expr": "(> in3 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-        "source_line": 4,
-        "source_col": 4,
-        "branch_id": "4:4",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        "source_line": 5,
+        "source_col": 8,
+        "branch_id": "5:8",
         "vars": [
           "in3"
         ]
@@ -150,10 +150,10 @@
       {
         "expr": "(!= (+ in1 1) in2)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-        "source_line": 4,
-        "source_col": 4,
-        "branch_id": "4:4",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        "source_line": 8,
+        "source_col": 8,
+        "branch_id": "8:8",
         "vars": [
           "in2",
           "in1"
@@ -165,39 +165,39 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:!=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:8"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
         4,
-        0,
+        4,
         "4:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-        4,
-        0,
-        "4:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        5,
+        8,
+        "5:8"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-        4,
-        0,
-        "4:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        8,
+        8,
+        "8:8"
       ]
     ],
     "path_summary": {
@@ -209,6 +209,90 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== in1 in2)",
+      "(> in3 0)",
+      "(!= (+ in1 1) in2)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== in1 in2)",
+        "normalized": "(== ARG0 ARG1)",
+        "operation": "==",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "raw": "(> in3 0)",
+        "normalized": "(< 0 ARG2)",
+        "operation": ">",
+        "variables": [
+          "in3"
+        ]
+      },
+      {
+        "raw": "(!= (+ in1 1) in2)",
+        "normalized": "(!= (+ 1 ARG0) ARG1)",
+        "operation": "!=",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        "source_line": 5,
+        "source_col": 8,
+        "branch_id": "5:8"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+        "source_line": 8,
+        "source_col": 8,
+        "branch_id": "8:8"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in3",
+        "in2",
+        "in1"
+      ],
+      "edges": [
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 0,
+          "predicate": "(== in1 in2)"
+        },
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 2,
+          "predicate": "(!= (+ in1 1) in2)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 3,
+      "num_variables": 3,
+      "num_branches": 3,
+      "num_negations": 0,
+      "branch_diversity": 3,
+      "variable_density": 0.75,
+      "predicate_complexity": 9.75,
+      "branch_balance": 0.75
     }
   }
 }

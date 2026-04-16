@@ -1,6 +1,6 @@
 {
-  "execution_id": 3,
-  "timestamp": 1776312090.0588088,
+  "execution_id": 2,
+  "timestamp": 1776326581.1280448,
   "input_model": {
     "x": "x#10",
     "y": "y#6"
@@ -14,7 +14,7 @@
     {
       "expr": "(> y 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -25,7 +25,7 @@
     {
       "expr": "(< y 10)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -36,7 +36,7 @@
     {
       "expr": "(== (% x (+ y 1)) 3)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -68,38 +68,38 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ]
     ],
     "symbolic_variables": [
-      "x",
-      "y"
+      "y",
+      "x"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         2,
         "2:1"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         2,
         "2:1"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         2,
         "2:1"
       ]
@@ -123,7 +123,7 @@
       {
         "expr": "(> y 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -134,7 +134,7 @@
       {
         "expr": "(< y 10)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -145,7 +145,7 @@
       {
         "expr": "(== (% x (+ y 1)) 3)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -160,38 +160,38 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         2,
-        0,
+        1,
         "2:1"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         2,
-        0,
+        1,
         "2:1"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
         2,
-        0,
+        1,
         "2:1"
       ]
     ],
@@ -204,6 +204,82 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(> y 0)",
+      "(< y 10)",
+      "(== (% x (+ y 1)) 3)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(> y 0)",
+        "normalized": "(< 0 ARG0)",
+        "operation": ">",
+        "variables": [
+          "y"
+        ]
+      },
+      {
+        "raw": "(< y 10)",
+        "normalized": "(< ARG0 10)",
+        "operation": "<",
+        "variables": [
+          "y"
+        ]
+      },
+      {
+        "raw": "(== (% x (+ y 1)) 3)",
+        "normalized": "(== (% ARG1 (+ 1 ARG0)) 3)",
+        "operation": "==",
+        "variables": [
+          "x",
+          "y"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "y",
+        "x"
+      ],
+      "edges": [
+        {
+          "source": "y",
+          "target": "x",
+          "predicate_index": 2,
+          "predicate": "(== (% x (+ y 1)) 3)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 3,
+      "num_variables": 2,
+      "num_branches": 3,
+      "num_negations": 0,
+      "branch_diversity": 3,
+      "variable_density": 0.5,
+      "predicate_complexity": 8.75,
+      "branch_balance": 0.75
     }
   }
 }

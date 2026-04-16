@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312094.9239886,
+  "timestamp": 1776326586.2903807,
   "trace_length": 3,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": true,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\whileloop.py",
       "source_line": 3,
-      "branch_id": "3:whileloop",
+      "branch_id": "3:8",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
@@ -20,7 +20,7 @@
       "result": true,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\whileloop.py",
       "source_line": 3,
-      "branch_id": "3:whileloop",
+      "branch_id": "3:8",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
@@ -31,14 +31,14 @@
     {
       "predicate": "(>= x 1)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/whileloop.py",
       "source_line": 3,
       "branch_id": "3:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/whileloop.py:3"
       ]
     }
   ]

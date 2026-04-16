@@ -7,7 +7,7 @@ import sys
 import importlib
 import importlib.util
 import types
-from ast import parse, fix_missing_locations, Import, Name, If, While, NodeTransformer, alias
+from ast import parse, fix_missing_locations, ImportFrom, alias
 from .invocation import FunctionInvocation
 from .symbolic_types import SymbolicInteger, getSymbolic
 from .ast_transform import SymbolicWrapperCall, SymbolicWrapperBranch, SymbolicWrapperConstant
@@ -127,8 +127,18 @@ class Loader:
 				i += 1
 			
 			# 添加导入语句
-			import_node1 = Import(names=[alias(name='symbolic.runtime_helpers', asname=None)])
-			import_node2 = Import(names=[alias(name='symbolic.symbolic_types', asname=None)])
+			import_node1 = ImportFrom(
+				module='symbolic.runtime_helpers',
+				names=[
+					alias(name='_branch_hook', asname='_se_branch_hook'),
+					alias(name='_se_input', asname=None),
+					alias(name='_se_int', asname=None),
+					alias(name='_se_str', asname=None),
+					alias(name='_se_float', asname=None),
+					alias(name='_se_range', asname=None)
+				],
+				level=0
+			)
 			
 			# 不手动设置位置信息，让 fix_missing_locations 来处理
 			# import_node1.lineno = 1
@@ -137,7 +147,6 @@ class Loader:
 			# import_node2.col_offset = 0
 			
 			tree.body.insert(i, import_node1)
-			tree.body.insert(i, import_node2)
 			
 			# 应用所有转换器
 			tree = SymbolicWrapperCall().visit(tree)
@@ -231,5 +240,4 @@ def loaderFactory(filename,entry):
 	except ImportError:
 		sys.path = sys.path[1:]
 		return None
-
 

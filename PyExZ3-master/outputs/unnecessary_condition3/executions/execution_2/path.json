@@ -1,6 +1,6 @@
 {
-  "execution_id": 2,
-  "timestamp": 1776312094.0275218,
+  "execution_id": 1,
+  "timestamp": 1776326585.3479214,
   "input_model": {
     "in1": "in1#-14"
   },
@@ -12,10 +12,10 @@
     {
       "expr": "(> in1 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
       "source_line": 2,
-      "source_col": "unnecessary_condition3",
-      "branch_id": "2:unnecessary_condition3",
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in1"
       ]
@@ -23,10 +23,10 @@
     {
       "expr": "(< in1 -10)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
       "source_line": 9,
-      "source_col": "op",
-      "branch_id": "9:op",
+      "source_col": 4,
+      "branch_id": "9:4",
       "vars": [
         "in1"
       ]
@@ -37,7 +37,7 @@
     "(< in1 -10)"
   ],
   "path_predicates_normalized": [
-    "(< 0 ARG0)",
+    "(not (< 0 ARG0))",
     "(< ARG0 -10)"
   ],
   "semantic_info": {
@@ -51,13 +51,13 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py:9"
       ]
     ],
     "symbolic_variables": [
@@ -65,14 +65,14 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
         2,
-        "2:unnecessary_condition3"
+        "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
         9,
-        "9:op"
+        "9:4"
       ]
     ]
   },
@@ -86,17 +86,17 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(< 0 ARG0)",
+      "(not (< 0 ARG0))",
       "(< ARG0 -10)"
     ],
     "branch_trace": [
       {
         "expr": "(> in1 0)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
         "source_line": 2,
-        "source_col": "unnecessary_condition3",
-        "branch_id": "2:unnecessary_condition3",
+        "source_col": 4,
+        "branch_id": "2:4",
         "vars": [
           "in1"
         ]
@@ -104,10 +104,10 @@
       {
         "expr": "(< in1 -10)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
         "source_line": 9,
-        "source_col": "op",
-        "branch_id": "9:op",
+        "source_col": 4,
+        "branch_id": "9:4",
         "vars": [
           "in1"
         ]
@@ -118,27 +118,27 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:9"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py:9"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
         2,
-        0,
-        "2:unnecessary_condition3"
+        4,
+        "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
         9,
-        0,
-        "9:op"
+        4,
+        "9:4"
       ]
     ],
     "path_summary": {
@@ -150,6 +150,58 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(> in1 0)",
+      "(< in1 -10)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(> in1 0)",
+        "normalized": "(not (< 0 ARG0))",
+        "operation": ">",
+        "variables": [
+          "in1"
+        ]
+      },
+      {
+        "raw": "(< in1 -10)",
+        "normalized": "(< ARG0 -10)",
+        "operation": "<",
+        "variables": [
+          "in1"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition3.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in1"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 1,
+      "branch_diversity": 2,
+      "variable_density": 0.3333333333333333,
+      "predicate_complexity": 6.666666666666667,
+      "branch_balance": 0.3333333333333333
     }
   }
 }

@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312093.198594,
+  "timestamp": 1776326584.6143615,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(< a0 b0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\tuplecmp.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/tuplecmp.py",
       "source_line": 5,
       "branch_id": "5:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\tuplecmp.py:5"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/tuplecmp.py:5"
       ]
     }
   ]

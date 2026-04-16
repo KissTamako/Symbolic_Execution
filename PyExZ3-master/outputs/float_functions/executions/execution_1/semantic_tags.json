@@ -1,0 +1,46 @@
+{
+  "timestamp": 1776326574.2932572,
+  "total_tags": 16,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(>= x 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:9"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(> x 2)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:17"
+      ]
+    },
+    {
+      "branch_index": 2,
+      "predicate": "(> x 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:19"
+      ]
+    },
+    {
+      "branch_index": 3,
+      "predicate": "(> x -2)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:21"
+      ]
+    }
+  ]
+}

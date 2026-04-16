@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312092.0654566,
+  "timestamp": 1776326583.3480136,
   "trace_length": 6,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
       "source_line": 4,
-      "branch_id": "4:set",
+      "branch_id": "4:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -20,7 +20,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
       "source_line": 4,
-      "branch_id": "4:set",
+      "branch_id": "4:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -33,7 +33,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
       "source_line": 4,
-      "branch_id": "4:set",
+      "branch_id": "4:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -46,7 +46,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
       "source_line": 4,
-      "branch_id": "4:set",
+      "branch_id": "4:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -59,7 +59,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
       "source_line": 4,
-      "branch_id": "4:set",
+      "branch_id": "4:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -72,7 +72,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
       "source_line": 4,
-      "branch_id": "4:set",
+      "branch_id": "4:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",

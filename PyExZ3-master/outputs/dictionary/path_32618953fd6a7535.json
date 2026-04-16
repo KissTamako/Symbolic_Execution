@@ -1,0 +1,12 @@
+{
+  "path_id": "32618953fd6a7535",
+  "timestamp": 1776326572.5817049,
+  "solver": "Z3Wrapper",
+  "predicates_count": 1,
+  "has_query": false,
+  "variables": [
+    "in1"
+  ],
+  "smt_file": "path_32618953fd6a7535.smt2",
+  "mode": "executed_path"
+}

@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312081.700199,
+  "timestamp": 1776326570.7001972,
   "trace_length": 2,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\cseppento2.py",
       "source_line": 4,
-      "branch_id": "4:cseppento2",
+      "branch_id": "4:8",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
@@ -18,14 +18,14 @@
     {
       "predicate": "(== (+ (- (* (* 2 a) a) (* 5 a)) 3) 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py",
       "source_line": 4,
       "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento2.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/cseppento2.py:4"
       ]
     }
   ]

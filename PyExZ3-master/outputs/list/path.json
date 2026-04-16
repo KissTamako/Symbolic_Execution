@@ -1,6 +1,6 @@
 {
-  "path_id": 2962657254544,
-  "timestamp": 1776312088.7823632,
+  "path_id": 1977230627856,
+  "timestamp": 1776326579.6399655,
   "input_model": {
     "a": "a#1",
     "b": "b#2"
@@ -14,7 +14,7 @@
     {
       "expr": "(== a 1)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
       "source_line": 2,
       "source_col": 3,
       "branch_id": "2:3",
@@ -25,7 +25,7 @@
     {
       "expr": "(== b 2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
       "source_line": 2,
       "source_col": 3,
       "branch_id": "2:3",
@@ -53,13 +53,13 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\list.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/list.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\list.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/list.py:2"
       ]
     ],
     "symbolic_variables": [
@@ -68,12 +68,12 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/list.py",
         2,
         "2:3"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/list.py",
         2,
         "2:3"
       ]
@@ -95,7 +95,7 @@
       {
         "expr": "(== a 1)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
         "source_line": 2,
         "source_col": 3,
         "branch_id": "2:3",
@@ -106,7 +106,7 @@
       {
         "expr": "(== b 2)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
         "source_line": 2,
         "source_col": 3,
         "branch_id": "2:3",
@@ -120,26 +120,26 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\list.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/list.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\list.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/list.py:2"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/list.py",
         2,
-        0,
+        3,
         "2:3"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\list.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/list.py",
         2,
-        0,
+        3,
         "2:3"
       ]
     ],
@@ -152,6 +152,59 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== a 1)",
+      "(== b 2)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== a 1)",
+        "normalized": "(== ARG0 1)",
+        "operation": "==",
+        "variables": [
+          "a"
+        ]
+      },
+      {
+        "raw": "(== b 2)",
+        "normalized": "(== ARG1 2)",
+        "operation": "==",
+        "variables": [
+          "b"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
+        "source_line": 2,
+        "source_col": 3,
+        "branch_id": "2:3"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/list.py",
+        "source_line": 2,
+        "source_col": 3,
+        "branch_id": "2:3"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "b",
+        "a"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 2,
+      "num_negations": 0,
+      "branch_diversity": 2,
+      "variable_density": 0.6666666666666666,
+      "predicate_complexity": 5.333333333333333,
+      "branch_balance": 0.6666666666666666
     }
   }
 }

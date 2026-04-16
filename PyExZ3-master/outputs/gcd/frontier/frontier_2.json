@@ -1,14 +1,14 @@
 {
   "constraint_id": 270,
-  "timestamp": 1776312086.0100498,
+  "timestamp": 1776326575.3781798,
   "path_predicates": [
     {
       "expr": "(>= x 0)",
       "result": true,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
       "source_line": 65,
-      "source_col": "gcd",
-      "branch_id": "65:gcd",
+      "source_col": 6,
+      "branch_id": "65:6",
       "vars": [
         "x"
       ]
@@ -16,7 +16,7 @@
     {
       "expr": "(>= y 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 65,
       "source_col": 2,
       "branch_id": "65:2",
@@ -27,7 +27,7 @@
     {
       "expr": "(== x y)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 2,
       "source_col": 2,
       "branch_id": "2:2",
@@ -39,7 +39,7 @@
     {
       "expr": "(== x 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 28,
       "source_col": 2,
       "branch_id": "28:2",
@@ -50,7 +50,7 @@
     {
       "expr": "(== y 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 30,
       "source_col": 2,
       "branch_id": "30:2",
@@ -61,7 +61,7 @@
     {
       "expr": "(== (& (| x y) 1) 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 36,
       "source_col": 2,
       "branch_id": "36:2",
@@ -73,7 +73,7 @@
     {
       "expr": "(== (& (| (>> x 1) (>> y 1)) 1) 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 36,
       "source_col": 2,
       "branch_id": "36:2",
@@ -85,7 +85,7 @@
     {
       "expr": "(== (& (| (>> (>> x 1) 1) (>> (>> y 1) 1)) 1) 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 36,
       "source_col": 2,
       "branch_id": "36:2",
@@ -97,7 +97,7 @@
     {
       "expr": "(== (& (>> (>> x 1) 1) 1) 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
       "source_line": 41,
       "source_col": 2,
       "branch_id": "41:2",
@@ -108,10 +108,10 @@
     {
       "expr": "(== (& (>> (>> y 1) 1) 1) 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
-      "source_line": 45,
-      "source_col": 2,
-      "branch_id": "45:2",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/gcd.py",
+      "source_line": 48,
+      "source_col": 4,
+      "branch_id": "48:4",
       "vars": [
         "y"
       ]
@@ -133,13 +133,13 @@
     "(<= 0 ARG0)",
     "(<= 0 ARG1)",
     "(== ARG0 ARG1)",
-    "(== ARG0 0)",
-    "(== ARG1 0)",
+    "(not (== ARG0 0))",
+    "(not (== ARG1 0))",
     "(== (& (| ARG0 ARG1) 1) 0)",
     "(== (& (| (>> ARG0 1) (>> ARG1 1)) 1) 0)",
-    "(== (& (| (>> (>> ARG0 1) 1) (>> (>> ARG1 1) 1)) 1) 0)",
-    "(== (& (>> (>> ARG0 1) 1) 1) 0)",
-    "(== (& (>> (>> ARG1 1) 1) 1) 0)"
+    "(not (== (& (| (>> (>> ARG0 1) 1) (>> (>> ARG1 1) 1)) 1) 0))",
+    "(not (== (& (>> (>> ARG0 1) 1) 1) 0))",
+    "(not (== (& (>> (>> ARG1 1) 1) 1) 0))"
   ],
   "inputs": {
     "x": 4,
@@ -170,55 +170,55 @@
         "type:SymbolicInteger",
         "op:>=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:65"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:65"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:28"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:28"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:30"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:30"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:36"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:36"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:36"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:36"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:36"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:36"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:41"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:41"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/gcd.py:48"
       ]
     ],
     "symbolic_variables": [

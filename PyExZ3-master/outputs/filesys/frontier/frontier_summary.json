@@ -1,210 +1,210 @@
 [
   {
-    "constraint_id": "64d9cb8241553576",
+    "constraint_id": "ca379a21a4da6ebf",
     "index": 0,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_0_64d9cb8241553576.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_0_ca379a21a4da6ebf.smt2"
   },
   {
-    "constraint_id": "88acfbc348613978",
+    "constraint_id": "0953b3fb4be19eb4",
     "index": 1,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_1_88acfbc348613978.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_1_0953b3fb4be19eb4.smt2"
   },
   {
-    "constraint_id": "687f8ddc6c241d04",
+    "constraint_id": "47827dc709bc2ec9",
     "index": 2,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_2_687f8ddc6c241d04.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_2_47827dc709bc2ec9.smt2"
   },
   {
-    "constraint_id": "55d4e5ae46ed0180",
+    "constraint_id": "a3d813ec44eb91c0",
     "index": 3,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_3_55d4e5ae46ed0180.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_3_a3d813ec44eb91c0.smt2"
   },
   {
-    "constraint_id": "d98801bbc32aa5bb",
+    "constraint_id": "65beca44b52ae7f6",
     "index": 4,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_4_d98801bbc32aa5bb.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_4_65beca44b52ae7f6.smt2"
   },
   {
-    "constraint_id": "650764dcd2a900f3",
+    "constraint_id": "edf4b74f11cd6bc0",
     "index": 5,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_5_650764dcd2a900f3.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_5_edf4b74f11cd6bc0.smt2"
   },
   {
-    "constraint_id": "0d6daac8d85e5cdf",
+    "constraint_id": "d5d13552ba91d717",
     "index": 6,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_6_0d6daac8d85e5cdf.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_6_d5d13552ba91d717.smt2"
   },
   {
-    "constraint_id": "b90faa9df9903f8d",
+    "constraint_id": "19ff32e32669d64f",
     "index": 7,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_7_b90faa9df9903f8d.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_7_19ff32e32669d64f.smt2"
   },
   {
-    "constraint_id": "0e36ed3bf722a5b4",
+    "constraint_id": "de91d77fc8e1c361",
     "index": 8,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_8_0e36ed3bf722a5b4.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_8_de91d77fc8e1c361.smt2"
   },
   {
-    "constraint_id": "606d0a0dd148ba69",
+    "constraint_id": "34a696612e1e2ff2",
     "index": 9,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_9_606d0a0dd148ba69.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_9_34a696612e1e2ff2.smt2"
   },
   {
-    "constraint_id": "9a5f9b5e7f457dc3",
+    "constraint_id": "8c05f69f723c77c2",
     "index": 10,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_10_9a5f9b5e7f457dc3.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_10_8c05f69f723c77c2.smt2"
   },
   {
-    "constraint_id": "bedde37a6923674a",
+    "constraint_id": "fc24ad4baff5dd6c",
     "index": 11,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_11_bedde37a6923674a.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_11_fc24ad4baff5dd6c.smt2"
   },
   {
-    "constraint_id": "d4d67bc8225179c1",
+    "constraint_id": "a1ae66ce5493cee8",
     "index": 12,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_12_d4d67bc8225179c1.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_12_a1ae66ce5493cee8.smt2"
   },
   {
-    "constraint_id": "ce350a2892b78d5b",
+    "constraint_id": "ffdfa63945914f52",
     "index": 13,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_13_ce350a2892b78d5b.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_13_ffdfa63945914f52.smt2"
   },
   {
-    "constraint_id": "2271ef6931b58d31",
+    "constraint_id": "0742250f63d54049",
     "index": 14,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_14_2271ef6931b58d31.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_14_0742250f63d54049.smt2"
   },
   {
-    "constraint_id": "2958fab30a953a06",
+    "constraint_id": "c377297ca9bb21b8",
     "index": 15,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_15_2958fab30a953a06.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_15_c377297ca9bb21b8.smt2"
   },
   {
-    "constraint_id": "aefbd77881694b39",
+    "constraint_id": "0448e9f0ac435469",
     "index": 16,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_16_aefbd77881694b39.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_16_0448e9f0ac435469.smt2"
   },
   {
-    "constraint_id": "eb8196449a4d4c97",
+    "constraint_id": "5eb3d8fc3eccf234",
     "index": 17,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_17_eb8196449a4d4c97.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_17_5eb3d8fc3eccf234.smt2"
   },
   {
-    "constraint_id": "6fd6ca20f229eda3",
+    "constraint_id": "98a458d442b1effc",
     "index": 18,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_18_6fd6ca20f229eda3.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_18_98a458d442b1effc.smt2"
   },
   {
-    "constraint_id": "1964c470971ea527",
+    "constraint_id": "f40af15dbca99821",
     "index": 19,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_19_1964c470971ea527.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_19_f40af15dbca99821.smt2"
   },
   {
-    "constraint_id": "0df96cdd2061a499",
+    "constraint_id": "faa0620fd1a7de0a",
     "index": 20,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_20_0df96cdd2061a499.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_20_faa0620fd1a7de0a.smt2"
   },
   {
-    "constraint_id": "77da26454820ef13",
+    "constraint_id": "fe068c4e47ed2164",
     "index": 21,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_21_77da26454820ef13.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_21_fe068c4e47ed2164.smt2"
   },
   {
-    "constraint_id": "333ab38fdf6188a6",
+    "constraint_id": "e4984202fa7ee128",
     "index": 22,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_22_333ab38fdf6188a6.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_22_e4984202fa7ee128.smt2"
   },
   {
-    "constraint_id": "7dc28fc61ab9a635",
+    "constraint_id": "c63ffa8f693e0b21",
     "index": 23,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_23_7dc28fc61ab9a635.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_23_c63ffa8f693e0b21.smt2"
   },
   {
-    "constraint_id": "13349ada5e24d566",
+    "constraint_id": "ee98000af9180300",
     "index": 24,
     "assertions_count": 0,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_24_13349ada5e24d566.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_24_ee98000af9180300.smt2"
   },
   {
-    "constraint_id": "5329af322e14eca6",
+    "constraint_id": "29ba64aaff4ce7dc",
     "index": 25,
     "assertions_count": 1,
     "has_query": true,
-    "variables_count": 2,
-    "smt_file": "frontier_25_5329af322e14eca6.smt2"
+    "variables_count": 1,
+    "smt_file": "frontier_25_29ba64aaff4ce7dc.smt2"
   }
 ]

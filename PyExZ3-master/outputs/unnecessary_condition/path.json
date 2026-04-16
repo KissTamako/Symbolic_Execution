@@ -1,6 +1,6 @@
 {
-  "path_id": 1187355802128,
-  "timestamp": 1776312093.4291325,
+  "path_id": 1522839403792,
+  "timestamp": 1776326584.842588,
   "input_model": {
     "in1": "in1#2",
     "in2": "in2#0"
@@ -14,10 +14,10 @@
     {
       "expr": "(> in1 in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
       "source_line": 2,
-      "source_col": "unnecessary_condition",
-      "branch_id": "2:unnecessary_condition",
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in2",
         "in1"
@@ -26,10 +26,10 @@
     {
       "expr": "(< in1 in2)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
-      "source_line": 3,
-      "source_col": "unnecessary_condition",
-      "branch_id": "3:unnecessary_condition",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+      "source_line": 2,
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in2",
         "in1"
@@ -38,10 +38,10 @@
     {
       "expr": "(< in1 in2)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
       "source_line": 4,
-      "source_col": "unnecessary_condition",
-      "branch_id": "4:unnecessary_condition",
+      "source_col": 8,
+      "branch_id": "4:8",
       "vars": [
         "in2",
         "in1"
@@ -55,8 +55,8 @@
   ],
   "path_predicates_normalized": [
     "(< ARG1 ARG0)",
-    "(< ARG0 ARG1)",
-    "(< ARG0 ARG1)"
+    "(not (< ARG0 ARG1))",
+    "(not (< ARG0 ARG1))"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -70,40 +70,40 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:3"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py:4"
       ]
     ],
     "symbolic_variables": [
-      "in1",
-      "in2"
+      "in2",
+      "in1"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
         2,
-        "2:unnecessary_condition"
+        "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
-        3,
-        "3:unnecessary_condition"
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        2,
+        "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
         4,
-        "4:unnecessary_condition"
+        "4:8"
       ]
     ]
   },
@@ -119,17 +119,17 @@
   "standardized_features": {
     "normalized_pc": [
       "(< ARG1 ARG0)",
-      "(< ARG0 ARG1)",
-      "(< ARG0 ARG1)"
+      "(not (< ARG0 ARG1))",
+      "(not (< ARG0 ARG1))"
     ],
     "branch_trace": [
       {
         "expr": "(> in1 in2)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
         "source_line": 2,
-        "source_col": "unnecessary_condition",
-        "branch_id": "2:unnecessary_condition",
+        "source_col": 4,
+        "branch_id": "2:4",
         "vars": [
           "in2",
           "in1"
@@ -138,10 +138,10 @@
       {
         "expr": "(< in1 in2)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
-        "source_line": 3,
-        "source_col": "unnecessary_condition",
-        "branch_id": "3:unnecessary_condition",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4",
         "vars": [
           "in2",
           "in1"
@@ -150,10 +150,10 @@
       {
         "expr": "(< in1 in2)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
         "source_line": 4,
-        "source_col": "unnecessary_condition",
-        "branch_id": "4:unnecessary_condition",
+        "source_col": 8,
+        "branch_id": "4:8",
         "vars": [
           "in2",
           "in1"
@@ -165,39 +165,39 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:3"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py:4"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
         2,
-        0,
-        "2:unnecessary_condition"
-      ],
-      [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
-        3,
-        0,
-        "3:unnecessary_condition"
-      ],
-      [
-        "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
         4,
-        0,
-        "4:unnecessary_condition"
+        "2:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        2,
+        4,
+        "2:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        4,
+        8,
+        "4:8"
       ]
     ],
     "path_summary": {
@@ -209,6 +209,96 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(> in1 in2)",
+      "(< in1 in2)",
+      "(< in1 in2)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(> in1 in2)",
+        "normalized": "(< ARG1 ARG0)",
+        "operation": ">",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "raw": "(< in1 in2)",
+        "normalized": "(not (< ARG0 ARG1))",
+        "operation": "<",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      },
+      {
+        "raw": "(< in1 in2)",
+        "normalized": "(not (< ARG0 ARG1))",
+        "operation": "<",
+        "variables": [
+          "in1",
+          "in2"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/unnecessary_condition.py",
+        "source_line": 4,
+        "source_col": 8,
+        "branch_id": "4:8"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in2",
+        "in1"
+      ],
+      "edges": [
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 0,
+          "predicate": "(> in1 in2)"
+        },
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 1,
+          "predicate": "(< in1 in2)"
+        },
+        {
+          "source": "in2",
+          "target": "in1",
+          "predicate_index": 2,
+          "predicate": "(< in1 in2)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 3,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 2,
+      "branch_diversity": 2,
+      "variable_density": 0.5,
+      "predicate_complexity": 8.25,
+      "branch_balance": 0.25
     }
   }
 }

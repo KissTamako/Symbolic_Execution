@@ -1,31 +1,44 @@
 {
-  "timestamp": 1776312089.2324624,
-  "trace_length": 2,
+  "timestamp": 1776326580.1669621,
+  "trace_length": 3,
   "branches": [
     {
       "predicate": "(> in1 in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/loop.py",
       "source_line": 2,
       "branch_id": "2:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/loop.py:2"
       ]
     },
     {
       "predicate": "(> in1 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/loop.py",
       "source_line": 2,
       "branch_id": "2:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/loop.py:2"
+      ]
+    },
+    {
+      "predicate": "(> in1 0)",
+      "result": false,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/loop.py",
+      "source_line": 4,
+      "branch_id": "4:8",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/loop.py:4"
       ]
     }
   ]

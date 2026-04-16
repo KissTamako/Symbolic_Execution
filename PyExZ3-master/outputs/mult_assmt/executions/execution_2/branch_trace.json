@@ -1,44 +1,44 @@
 {
-  "timestamp": 1776312090.7366064,
+  "timestamp": 1776326581.88721,
   "trace_length": 3,
   "branches": [
     {
       "predicate": "(== in1 in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
       "source_line": 4,
       "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:4"
       ]
     },
     {
       "predicate": "(> in3 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-      "source_line": 4,
-      "branch_id": "4:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+      "source_line": 5,
+      "branch_id": "5:8",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:5"
       ]
     },
     {
       "predicate": "(!= (+ in1 1) in2)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py",
-      "source_line": 4,
-      "branch_id": "4:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py",
+      "source_line": 8,
+      "branch_id": "8:8",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:!=",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mult_assmt.py:8"
       ]
     }
   ]

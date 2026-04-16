@@ -1,6 +1,6 @@
 {
-  "execution_id": 1,
-  "timestamp": 1776312092.7574167,
+  "execution_id": 0,
+  "timestamp": 1776326584.1299098,
   "input_model": {
     "x": "x#2"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(> x 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py",
       "source_line": 5,
       "source_col": 4,
       "branch_id": "5:4",
@@ -37,7 +37,7 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py:5"
       ]
     ],
     "symbolic_variables": [
@@ -45,7 +45,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py",
         5,
         "5:4"
       ]
@@ -65,7 +65,7 @@
       {
         "expr": "(> x 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py",
         "source_line": 5,
         "source_col": 4,
         "branch_id": "5:4",
@@ -79,14 +79,14 @@
         "type:SymbolicInteger",
         "op:>",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py:5"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py",
         5,
-        0,
+        4,
         "5:4"
       ]
     ],
@@ -99,6 +99,43 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(> x 0)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(> x 0)",
+        "normalized": "(< 0 ARG0)",
+        "operation": ">",
+        "variables": [
+          "x"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/source_location_test.py",
+        "source_line": 5,
+        "source_col": 4,
+        "branch_id": "5:4"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "x"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 0,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 3.5,
+      "branch_balance": 0.5
     }
   }
 }

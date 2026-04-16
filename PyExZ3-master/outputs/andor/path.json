@@ -1,6 +1,6 @@
 {
-  "path_id": 1989250260112,
-  "timestamp": 1776312079.0144734,
+  "path_id": 2374259951568,
+  "timestamp": 1776326567.5477118,
   "input_model": {
     "x": "x#2",
     "y": "y#0"
@@ -16,8 +16,8 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\andor.py",
       "source_line": 2,
-      "source_col": "andor",
-      "branch_id": "2:andor",
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "x"
       ]
@@ -25,7 +25,7 @@
     {
       "expr": "y",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/andor.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -39,7 +39,7 @@
     "y"
   ],
   "path_predicates_normalized": [
-    "ARG0",
+    "(not ARG0)",
     "ARG1"
   ],
   "semantic_info": {
@@ -57,7 +57,7 @@
       [
         "type:SymbolicInteger",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/andor.py:2"
       ]
     ],
     "symbolic_variables": [
@@ -68,10 +68,10 @@
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\andor.py",
         2,
-        "2:andor"
+        "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/andor.py",
         2,
         "2:1"
       ]
@@ -87,7 +87,7 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "ARG0",
+      "(not ARG0)",
       "ARG1"
     ],
     "branch_trace": [
@@ -96,8 +96,8 @@
         "result": false,
         "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\andor.py",
         "source_line": 2,
-        "source_col": "andor",
-        "branch_id": "2:andor",
+        "source_col": 4,
+        "branch_id": "2:4",
         "vars": [
           "x"
         ]
@@ -105,7 +105,7 @@
       {
         "expr": "y",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/andor.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -123,20 +123,20 @@
       [
         "type:SymbolicInteger",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/andor.py:2"
       ]
     ],
     "source_spans": [
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\andor.py",
         2,
-        0,
-        "2:andor"
+        4,
+        "2:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/andor.py",
         2,
-        0,
+        1,
         "2:1"
       ]
     ],
@@ -149,6 +149,59 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "x",
+      "y"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "x",
+        "normalized": "(not ARG0)",
+        "operation": null,
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "y",
+        "normalized": "ARG1",
+        "operation": null,
+        "variables": [
+          "y"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\andor.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/andor.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "x",
+        "y"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 1,
+      "branch_diversity": 2,
+      "variable_density": 0.6666666666666666,
+      "predicate_complexity": 0.6666666666666666,
+      "branch_balance": 0.3333333333333333
     }
   }
 }

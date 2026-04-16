@@ -1,3 +1,5 @@
+import os
+
 from .symbolic_types import SymbolicType, SymbolicInteger, SymbolicStr, SymbolicBool, SymbolicFloat
 
 def unwrap(obj):
@@ -6,23 +8,32 @@ def unwrap(obj):
         return obj.getConcrValue()
     return obj
 
-def _se_int(x):
-    """Handle int() conversion for symbolic objects"""
-    if isinstance(x, SymbolicType):
-        return SymbolicInteger("se", int(x.getConcrValue()), x.expr)
-    return int(x)
+def _se_int(*args, **kwargs):
+    """Handle int() conversion while preserving symbolic expressions when possible."""
+    if len(args) == 1 and not kwargs and isinstance(args[0], SymbolicType):
+        symbolic_value = args[0]
+        if hasattr(symbolic_value, "__int2__"):
+            return symbolic_value.__int2__()
+        return SymbolicInteger("se", int(symbolic_value.getConcrValue()), symbolic_value.expr)
+    return int(*args, **kwargs)
 
-def _se_str(x):
-    """Handle str() conversion for symbolic objects"""
-    if isinstance(x, SymbolicType):
-        return SymbolicStr("se", str(x.getConcrValue()), x.expr)
-    return str(x)
+def _se_str(*args, **kwargs):
+    """Handle str() conversion while preserving symbolic expressions when possible."""
+    if len(args) == 1 and not kwargs and isinstance(args[0], SymbolicType):
+        symbolic_value = args[0]
+        if hasattr(symbolic_value, "__str2__"):
+            return symbolic_value.__str2__()
+        return SymbolicStr("se", str(symbolic_value.getConcrValue()), symbolic_value.expr)
+    return str(*args, **kwargs)
 
-def _se_float(x):
-    """Handle float() conversion for symbolic objects"""
-    if isinstance(x, SymbolicType):
-        return SymbolicFloat("se", float(x.getConcrValue()), x.expr)
-    return float(x)
+def _se_float(*args, **kwargs):
+    """Handle float() conversion while preserving symbolic expressions when possible."""
+    if len(args) == 1 and not kwargs and isinstance(args[0], SymbolicType):
+        symbolic_value = args[0]
+        if hasattr(symbolic_value, "__float2__"):
+            return symbolic_value.__float2__()
+        return SymbolicFloat("se", float(symbolic_value.getConcrValue()), symbolic_value.expr)
+    return float(*args, **kwargs)
 
 def _se_range(*args):
     """Handle range() for symbolic objects"""
@@ -64,9 +75,18 @@ def get_next_symbolic_input():
         # 输入序列用完了，回退到真实 input()
         return input()
     
-    input_name, input_value = _input_local.inputs[_input_local.input_index]
+    # 支持包含类型信息的输入序列
+    input_item = _input_local.inputs[_input_local.input_index]
     _input_local.input_index += 1
-    return input_value
+    
+    if len(input_item) == 3:
+        # 包含类型信息的格式: (name, value, type)
+        input_name, input_value, input_type = input_item
+        return input_value
+    else:
+        # 旧格式: (name, value)
+        input_name, input_value = input_item
+        return input_value
 
 def _se_input(prompt=""):
     """Handle input() calls with symbolic inputs"""
@@ -108,6 +128,8 @@ def _branch_hook(condition, line, col, filename=None):
             frame = frame.f_back
     
     # Store the location information in thread-local storage
+    if filename:
+        filename = os.path.normpath(filename).replace("\\", "/")
     _local.branch_location = (filename, line, col)
     
     return condition

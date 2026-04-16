@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776312079.5564685,
+  "timestamp": 1776326568.2329667,
   "input_model": {
     "i": "i#0"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(== i 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -37,7 +37,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py:2"
       ]
     ],
     "symbolic_variables": [
@@ -45,7 +45,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py",
         2,
         "2:1"
       ]
@@ -65,7 +65,7 @@
       {
         "expr": "(== i 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -79,14 +79,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py:2"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py",
         2,
-        0,
+        1,
         "2:1"
       ]
     ],
@@ -99,6 +99,43 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== i 0)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== i 0)",
+        "normalized": "(== ARG0 0)",
+        "operation": "==",
+        "variables": [
+          "i"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "i"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 0,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 4.0,
+      "branch_balance": 0.5
     }
   }
 }

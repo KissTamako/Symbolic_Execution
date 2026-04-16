@@ -1,6 +1,6 @@
 {
   "execution_id": 2,
-  "timestamp": 1776312089.4578068,
+  "timestamp": 1776326580.454277,
   "input_model": {
     "in1": "in1#0",
     "in2": "in2#5",
@@ -16,7 +16,7 @@
     {
       "expr": "(== in1 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
       "source_line": 6,
       "source_col": 4,
       "branch_id": "6:4",
@@ -27,10 +27,10 @@
     {
       "expr": "(== in2 5)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-      "source_line": 6,
-      "source_col": 4,
-      "branch_id": "6:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+      "source_line": 7,
+      "source_col": 8,
+      "branch_id": "7:8",
       "vars": [
         "in2"
       ]
@@ -38,10 +38,10 @@
     {
       "expr": "(== in3 10)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-      "source_line": 6,
-      "source_col": 4,
-      "branch_id": "6:4",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+      "source_line": 8,
+      "source_col": 12,
+      "branch_id": "8:12",
       "vars": [
         "in3"
       ]
@@ -55,7 +55,7 @@
   "path_predicates_normalized": [
     "(== ARG0 0)",
     "(== ARG1 5)",
-    "(== ARG2 10)"
+    "(not (== ARG2 10))"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -69,41 +69,41 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/many_branches.py:6"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/many_branches.py:7"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/many_branches.py:8"
       ]
     ],
     "symbolic_variables": [
-      "in1",
+      "in2",
       "in3",
-      "in2"
+      "in1"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
         6,
         "6:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-        6,
-        "6:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        7,
+        "7:8"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-        6,
-        "6:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        8,
+        "8:12"
       ]
     ]
   },
@@ -120,13 +120,13 @@
     "normalized_pc": [
       "(== ARG0 0)",
       "(== ARG1 5)",
-      "(== ARG2 10)"
+      "(not (== ARG2 10))"
     ],
     "branch_trace": [
       {
         "expr": "(== in1 0)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
         "source_line": 6,
         "source_col": 4,
         "branch_id": "6:4",
@@ -137,10 +137,10 @@
       {
         "expr": "(== in2 5)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-        "source_line": 6,
-        "source_col": 4,
-        "branch_id": "6:4",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        "source_line": 7,
+        "source_col": 8,
+        "branch_id": "7:8",
         "vars": [
           "in2"
         ]
@@ -148,10 +148,10 @@
       {
         "expr": "(== in3 10)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-        "source_line": 6,
-        "source_col": 4,
-        "branch_id": "6:4",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        "source_line": 8,
+        "source_col": 12,
+        "branch_id": "8:12",
         "vars": [
           "in3"
         ]
@@ -162,39 +162,39 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/many_branches.py:6"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/many_branches.py:7"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/many_branches.py:8"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
         6,
-        0,
+        4,
         "6:4"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-        6,
-        0,
-        "6:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        7,
+        8,
+        "7:8"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
-        6,
-        0,
-        "6:4"
+        "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        8,
+        12,
+        "8:12"
       ]
     ],
     "path_summary": {
@@ -206,6 +206,75 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== in1 0)",
+      "(== in2 5)",
+      "(== in3 10)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== in1 0)",
+        "normalized": "(== ARG0 0)",
+        "operation": "==",
+        "variables": [
+          "in1"
+        ]
+      },
+      {
+        "raw": "(== in2 5)",
+        "normalized": "(== ARG1 5)",
+        "operation": "==",
+        "variables": [
+          "in2"
+        ]
+      },
+      {
+        "raw": "(== in3 10)",
+        "normalized": "(not (== ARG2 10))",
+        "operation": "==",
+        "variables": [
+          "in3"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        "source_line": 6,
+        "source_col": 4,
+        "branch_id": "6:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        "source_line": 7,
+        "source_col": 8,
+        "branch_id": "7:8"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/many_branches.py",
+        "source_line": 8,
+        "source_col": 12,
+        "branch_id": "8:12"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "in2",
+        "in3",
+        "in1"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 3,
+      "num_variables": 3,
+      "num_branches": 2,
+      "num_negations": 1,
+      "branch_diversity": 3,
+      "variable_density": 0.75,
+      "predicate_complexity": 7.75,
+      "branch_balance": 0.5
     }
   }
 }

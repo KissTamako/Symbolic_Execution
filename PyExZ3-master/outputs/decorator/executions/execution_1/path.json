@@ -1,6 +1,6 @@
 {
-  "execution_id": 1,
-  "timestamp": 1776312082.5584927,
+  "execution_id": 0,
+  "timestamp": 1776326571.534002,
   "input_model": {
     "a": "1",
     "b": "2",
@@ -16,7 +16,7 @@
     {
       "expr": "(== (+ 3 c) 6)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/decorator.py",
       "source_line": 6,
       "source_col": 1,
       "branch_id": "6:1",
@@ -29,7 +29,7 @@
     "(== (+ 3 c) 6)"
   ],
   "path_predicates_normalized": [
-    "(== (+ 3 ARG0) 6)"
+    "(not (== (+ 3 ARG0) 6))"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -41,7 +41,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/decorator.py:6"
       ]
     ],
     "symbolic_variables": [
@@ -49,7 +49,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/decorator.py",
         6,
         "6:1"
       ]
@@ -63,13 +63,13 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== (+ 3 ARG0) 6)"
+      "(not (== (+ 3 ARG0) 6))"
     ],
     "branch_trace": [
       {
         "expr": "(== (+ 3 c) 6)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/decorator.py",
         "source_line": 6,
         "source_col": 1,
         "branch_id": "6:1",
@@ -83,14 +83,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/decorator.py:6"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/decorator.py",
         6,
-        0,
+        1,
         "6:1"
       ]
     ],
@@ -103,6 +103,43 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (+ 3 c) 6)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (+ 3 c) 6)",
+        "normalized": "(not (== (+ 3 ARG0) 6))",
+        "operation": "==",
+        "variables": [
+          "c"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/decorator.py",
+        "source_line": 6,
+        "source_col": 1,
+        "branch_id": "6:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "c"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 1,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 7.0,
+      "branch_balance": 0.0
     }
   }
 }

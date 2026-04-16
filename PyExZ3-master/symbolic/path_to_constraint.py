@@ -52,11 +52,13 @@ class PathToConstraint:
 			# while not at the end of the path, we expect the same predicate result
 			# at the end of the path, we expect a different predicate result
 			done = self.expected_path == []
-			if ( not done and expected.result != c.predicate.result or \
-				done and expected.result == c.predicate.result ):
-				print("Replay mismatch (done=",done,")")
-				print(expected)
-				print(c.predicate)
+			expr_matches = expected.get_symbolic_expr() == c.predicate.get_symbolic_expr()
+			result_mismatch = (
+				(not done and expected.result != c.predicate.result) or
+				(done and expected.result == c.predicate.result)
+			)
+			if expr_matches and result_mismatch:
+				log.debug("Replay mismatch (done=%s): expected=%s current=%s", done, expected, c.predicate)
 
 		if cneg is not None:
 			# We've already processed both

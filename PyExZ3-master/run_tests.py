@@ -56,6 +56,19 @@ for f in files:
         # 构建命令参数
         cmd_args = [sys.executable, "pyexz3.py", "--max-iters=25", solver]
         
+        # 检查是否是脚本模式的测试文件
+        # 脚本模式的测试文件通常包含 input() 调用，或者文件名以 input_ 开头
+        filename = os.path.basename(full)
+        with open(full, 'r', encoding='utf-8') as file_obj:
+            content = file_obj.read()
+            has_input_call = 'input(' in content
+            starts_with_input = filename.startswith('input_')
+            is_script_mode = has_input_call or starts_with_input
+        
+        if is_script_mode:
+            cmd_args.append("--mode")
+            cmd_args.append("script")
+        
         # 添加导出选项
         if options.dump_constraints:
             cmd_args.append("--dump-constraints")

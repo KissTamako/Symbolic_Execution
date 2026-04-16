@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776312088.2959335,
+  "timestamp": 1776326577.8708684,
   "input_model": {
     "key": "key#0"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/hashval.py",
       "source_line": 11,
       "source_col": 1,
       "branch_id": "11:1",
@@ -29,7 +29,7 @@
     "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
   ],
   "path_predicates_normalized": [
-    "(== (^ (+ ARG0 (<< ARG0 10)) (>> (+ ARG0 (<< ARG0 10)) 6)) (+ 1 ARG0))"
+    "(not (== (^ (+ ARG0 (<< ARG0 10)) (>> (+ ARG0 (<< ARG0 10)) 6)) (+ 1 ARG0)))"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -41,7 +41,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py:11"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/hashval.py:11"
       ]
     ],
     "symbolic_variables": [
@@ -49,7 +49,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/hashval.py",
         11,
         "11:1"
       ]
@@ -63,13 +63,13 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== (^ (+ ARG0 (<< ARG0 10)) (>> (+ ARG0 (<< ARG0 10)) 6)) (+ 1 ARG0))"
+      "(not (== (^ (+ ARG0 (<< ARG0 10)) (>> (+ ARG0 (<< ARG0 10)) 6)) (+ 1 ARG0)))"
     ],
     "branch_trace": [
       {
         "expr": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/hashval.py",
         "source_line": 11,
         "source_col": 1,
         "branch_id": "11:1",
@@ -87,14 +87,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py:11"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/hashval.py:11"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/hashval.py",
         11,
-        0,
+        1,
         "11:1"
       ]
     ],
@@ -107,6 +107,108 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))",
+        "normalized": "(not (== (^ (+ ARG0 (<< ARG0 10)) (>> (+ ARG0 (<< ARG0 10)) 6)) (+ 1 ARG0)))",
+        "operation": "==",
+        "variables": [
+          "key",
+          "key",
+          "key",
+          "key",
+          "key"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/hashval.py",
+        "source_line": 11,
+        "source_col": 1,
+        "branch_id": "11:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "key"
+      ],
+      "edges": [
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        },
+        {
+          "source": "key",
+          "target": "key",
+          "predicate_index": 0,
+          "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 1,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 32.5,
+      "branch_balance": 0.0
     }
   }
 }

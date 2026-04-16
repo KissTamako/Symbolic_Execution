@@ -10,6 +10,7 @@ class Predicate:
 		self.source_line = source_line
 		self.branch_id = branch_id
 		self.col = col
+		self.source_col = col
 
 	def getVars(self):
 		return self.symtype.getVars()
@@ -77,4 +78,3 @@ class Predicate:
 	def get_symbolic_expr(self):
 		"""Get stable symbolic expression representation"""
 		return self._get_symbolic_expr(self.symtype)
-

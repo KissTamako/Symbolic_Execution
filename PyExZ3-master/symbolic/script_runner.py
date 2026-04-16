@@ -1,7 +1,7 @@
-import os
-import sys
-from ast import parse, fix_missing_locations, Import, alias
-from .ast_transform import SymbolicWrapperCall, SymbolicWrapperBranch, SymbolicWrapperConstant
+from ast import ImportFrom, alias, fix_missing_locations, parse
+
+from .ast_transform import SymbolicWrapperBranch, SymbolicWrapperCall, SymbolicWrapperConstant
+
 
 class ScriptInvocation:
     def __init__(self, script_path, reset):
@@ -9,91 +9,107 @@ class ScriptInvocation:
         self.reset = reset
         self.inputs = {}
         self.initial_value = {}
-        self.input_sequence = []  # 存储输入序列，用于 input() 调用的顺序分配
-    
-    def add_input(self, name, value):
-        """Add an input for the script"""
+        self.input_types = {}  # 存储输入类型信息
+        self.input_sequence = []
+
+    def add_input(self, name, value, input_type="int"):
         self.inputs[name] = value
         self.initial_value[name] = value
-        self.input_sequence.append((name, value))  # 同时添加到输入序列
-    
+        self.input_types[name] = input_type
+        self.input_sequence.append((name, value, input_type))
+
     def execute(self, symbolic_inputs):
-        """Execute the script with AST transformation"""
         self.reset()
-        
-        # 初始化符号输入序列
-        from symbolic.runtime_helpers import init_symbolic_inputs
-        # 使用 input_sequence 而不是 symbolic_inputs，以保持顺序
+
+        from symbolic.runtime_helpers import (
+            _branch_hook,
+            _se_float,
+            _se_input,
+            _se_int,
+            _se_range,
+            _se_str,
+            init_symbolic_inputs,
+            set_current_file_path,
+        )
+
         init_symbolic_inputs(self.input_sequence)
-        
-        # Set up environment with symbolic inputs
-        local_vars = {}
-        for name, value in symbolic_inputs.items():
-            local_vars[name] = value
-        
-        # Add necessary imports to local variables
-        import symbolic.runtime_helpers
-        import symbolic.symbolic_types
-        local_vars['symbolic'] = symbolic
-        local_vars['_se_int'] = symbolic.symbolic_types.SymbolicInteger
-        local_vars['_se_str'] = symbolic.symbolic_types.SymbolicStr
-        local_vars['_se_float'] = symbolic.symbolic_types.SymbolicFloat
-        local_vars['_se_range'] = range  # Use regular range for now
-        local_vars['_se_input'] = symbolic.runtime_helpers._se_input
-        
-        # Execute the script
+
+        local_vars = {
+            "__name__": "__main__",
+            "__file__": self.script_path,
+            "_se_branch_hook": _branch_hook,
+            "_se_input": _se_input,
+            "_se_int": _se_int,
+            "_se_str": _se_str,
+            "_se_float": _se_float,
+            "_se_range": _se_range,
+        }
+        local_vars.update(symbolic_inputs)
+
         try:
-            # Read the script content
-            with open(self.script_path, 'r', encoding='utf-8') as f:
-                script_content = f.read()
-            
-            # Parse script into AST
+            set_current_file_path(self.script_path)
+
+            with open(self.script_path, "r", encoding="utf-8") as file_obj:
+                script_content = file_obj.read()
+
             tree = parse(script_content, filename=self.script_path)
-            
-            # Insert necessary imports
-            i = 0
-            while i < len(tree.body) and hasattr(tree.body[i], 'module') and tree.body[i].module == '__future__':
-                i += 1
-            
-            tree.body.insert(i, Import(names=[alias(name='symbolic.runtime_helpers', asname=None)]))
-            tree.body.insert(i, Import(names=[alias(name='symbolic.symbolic_types', asname=None)]))
-            
-            # Apply the same AST transformations as function mode
+
+            insert_at = 0
+            while insert_at < len(tree.body) and hasattr(tree.body[insert_at], "module") and tree.body[insert_at].module == "__future__":
+                insert_at += 1
+
+            tree.body.insert(
+                insert_at,
+                ImportFrom(
+                    module="symbolic.runtime_helpers",
+                    names=[
+                        alias(name="_branch_hook", asname="_se_branch_hook"),
+                        alias(name="_se_input", asname=None),
+                        alias(name="_se_int", asname=None),
+                        alias(name="_se_str", asname=None),
+                        alias(name="_se_float", asname=None),
+                        alias(name="_se_range", asname=None),
+                    ],
+                    level=0,
+                ),
+            )
+
             tree = SymbolicWrapperCall().visit(tree)
             tree = SymbolicWrapperConstant().visit(tree)
             tree = SymbolicWrapperBranch(filename=self.script_path).visit(tree)
-            
-            # Fix missing locations
             fix_missing_locations(tree)
-            
-            # Compile and execute with transformed AST
-            code = compile(tree, self.script_path, 'exec')
+
+            code = compile(tree, self.script_path, "exec")
             exec(code, local_vars)
-            
-            return None  # Scripts typically don't return values
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
-            return e
-    
+            return None
+        finally:
+            set_current_file_path(None)
+
     def getNames(self):
-        """Get the names of the inputs"""
         return self.inputs.keys()
-    
+
     def createArgumentValue(self, name, val=None):
-        """Create a symbolic argument value"""
-        from .symbolic_types import SymbolicInteger
+        from .symbolic_types import SymbolicInteger, SymbolicStr, SymbolicFloat
+
         if val is None:
             val = self.initial_value[name]
-        return SymbolicInteger(name, val)
+        
+        # 根据输入类型创建相应的符号类型
+        input_type = self.input_types.get(name, "int")
+        if input_type == "str":
+            return SymbolicStr(name, val)
+        elif input_type == "float":
+            return SymbolicFloat(name, val)
+        else:  # 默认为 int
+            return SymbolicInteger(name, val)
+
 
 class ScriptRunner:
     def __init__(self, script_path):
         self.script_path = script_path
-    
+
     def create_invocation(self):
-        """Create a script invocation"""
         def reset():
-            # Reset module state
             pass
+
         return ScriptInvocation(self.script_path, reset)

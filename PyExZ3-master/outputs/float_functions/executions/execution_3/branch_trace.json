@@ -1,0 +1,45 @@
+{
+  "timestamp": 1776326574.2967842,
+  "trace_length": 3,
+  "branches": [
+    {
+      "predicate": "(>= x 0)",
+      "result": true,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 9,
+      "branch_id": "9:4",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:9"
+      ]
+    },
+    {
+      "predicate": "(> x 2)",
+      "result": false,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 17,
+      "branch_id": "17:4",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:17"
+      ]
+    },
+    {
+      "predicate": "(> x 0)",
+      "result": true,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/float_functions.py",
+      "source_line": 19,
+      "branch_id": "19:4",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/float_functions.py:19"
+      ]
+    }
+  ]
+}

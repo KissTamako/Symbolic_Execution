@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312094.5760896,
+  "timestamp": 1776326585.864901,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(== (+ (< x y) x) 1)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/weird.py",
       "source_line": 2,
       "branch_id": "2:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/weird.py:2"
       ]
     }
   ]

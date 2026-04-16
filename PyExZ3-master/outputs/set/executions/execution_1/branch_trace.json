@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312092.0682526,
+  "timestamp": 1776326583.3501496,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(== x 1)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\set.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/set.py",
       "source_line": 4,
       "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\set.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/set.py:4"
       ]
     }
   ]

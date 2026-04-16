@@ -1,6 +1,6 @@
 {
-  "execution_id": 2,
-  "timestamp": 1776312079.8075814,
+  "execution_id": 1,
+  "timestamp": 1776326568.5791757,
   "input_model": {
     "a": "a#9223372036854775808"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(== a 9223372036854775807)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
       "source_line": 4,
       "source_col": 2,
       "branch_id": "4:2",
@@ -23,7 +23,7 @@
     {
       "expr": "(== a 9223372036854775808)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
       "source_line": 6,
       "source_col": 2,
       "branch_id": "6:2",
@@ -37,7 +37,7 @@
     "(== a 9223372036854775808)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0 9223372036854775807)",
+    "(not (== ARG0 9223372036854775807))",
     "(== ARG0 9223372036854775808)"
   ],
   "semantic_info": {
@@ -51,13 +51,13 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bignum.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bignum.py:6"
       ]
     ],
     "symbolic_variables": [
@@ -65,12 +65,12 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
         4,
         "4:2"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
         6,
         "6:2"
       ]
@@ -86,14 +86,14 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== ARG0 9223372036854775807)",
+      "(not (== ARG0 9223372036854775807))",
       "(== ARG0 9223372036854775808)"
     ],
     "branch_trace": [
       {
         "expr": "(== a 9223372036854775807)",
         "result": false,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
         "source_line": 4,
         "source_col": 2,
         "branch_id": "4:2",
@@ -104,7 +104,7 @@
       {
         "expr": "(== a 9223372036854775808)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
         "source_line": 6,
         "source_col": 2,
         "branch_id": "6:2",
@@ -118,26 +118,26 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:4"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bignum.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bignum.py:6"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
         4,
-        0,
+        2,
         "4:2"
       ],
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
         6,
-        0,
+        2,
         "6:2"
       ]
     ],
@@ -150,6 +150,58 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== a 9223372036854775807)",
+      "(== a 9223372036854775808)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== a 9223372036854775807)",
+        "normalized": "(not (== ARG0 9223372036854775807))",
+        "operation": "==",
+        "variables": [
+          "a"
+        ]
+      },
+      {
+        "raw": "(== a 9223372036854775808)",
+        "normalized": "(== ARG0 9223372036854775808)",
+        "operation": "==",
+        "variables": [
+          "a"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
+        "source_line": 4,
+        "source_col": 2,
+        "branch_id": "4:2"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bignum.py",
+        "source_line": 6,
+        "source_col": 2,
+        "branch_id": "6:2"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "a"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 1,
+      "branch_diversity": 2,
+      "variable_density": 0.3333333333333333,
+      "predicate_complexity": 17.333333333333332,
+      "branch_balance": 0.3333333333333333
     }
   }
 }

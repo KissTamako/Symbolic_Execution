@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312085.1798694,
+  "timestamp": 1776326574.5472736,
   "total_tags": 8,
   "per_branch_tags": [
     {
@@ -9,17 +9,17 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\fp.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/fp.py:2"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(== a 1)",
+      "predicate": "(== a (floor se))",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\fp.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/fp.py:4"
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312088.796232,
+  "timestamp": 1776326579.64979,
   "trace_length": 1,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\list.py",
       "source_line": 2,
-      "branch_id": "2:list",
+      "branch_id": "2:7",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",

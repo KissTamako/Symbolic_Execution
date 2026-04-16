@@ -5,6 +5,22 @@ class SymbolicFloat(SymbolicObject):
     def __init__(self, name, v, expr=None):
         SymbolicObject.__init__(self, name, expr)
         self.val = float(v)
+    
+    # 特殊值处理
+    def is_nan(self):
+        """Return True if the float is NaN"""
+        import math
+        return math.isnan(self.val)
+    
+    def is_infinite(self):
+        """Return True if the float is infinite"""
+        import math
+        return math.isinf(self.val)
+    
+    def is_finite(self):
+        """Return True if the float is finite"""
+        import math
+        return math.isfinite(self.val)
 
     def getConcrValue(self):
         return self.val
@@ -62,8 +78,20 @@ class SymbolicFloat(SymbolicObject):
         from . symbolic_int import SymbolicInteger
         value = int(self.val)
         # 处理负数的情况，因为SMT中的to_int和Python的int行为不同
-        expr = ["+", ["to_int", self], ["ite", ["and", ["<", self, 0], ["not", ["is_int", self]]], 1, 0]]
+        expr = ["floor", self]
         return SymbolicInteger("se", value, expr)
+    
+    def __mod__(self, other):
+        """self % other"""
+        if isinstance(other, int):
+            other = float(other)
+        return self._op_worker([self, other], lambda x, y: x % y, "%", SymbolicFloat.wrap)
+    
+    def __rmod__(self, other):
+        """other % self"""
+        if isinstance(other, int):
+            other = float(other)
+        return self._op_worker([other, self], lambda x, y: x % y, "%", SymbolicFloat.wrap)
 
     def __str2__(self):
         """Convert to symbolic string"""
@@ -154,6 +182,105 @@ class SymbolicFloat(SymbolicObject):
     def __sizeof__(self):
         """Returns the size of the float object in bytes"""
         return self.val.__sizeof__()
+    
+    # 数学函数
+    def sin(self):
+        """sin(self)"""
+        import math
+        value = math.sin(self.val)
+        expr = ["sin", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def cos(self):
+        """cos(self)"""
+        import math
+        value = math.cos(self.val)
+        expr = ["cos", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def tan(self):
+        """tan(self)"""
+        import math
+        value = math.tan(self.val)
+        expr = ["tan", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def asin(self):
+        """asin(self)"""
+        import math
+        value = math.asin(self.val)
+        expr = ["asin", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def acos(self):
+        """acos(self)"""
+        import math
+        value = math.acos(self.val)
+        expr = ["acos", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def atan(self):
+        """atan(self)"""
+        import math
+        value = math.atan(self.val)
+        expr = ["atan", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def sqrt(self):
+        """sqrt(self)"""
+        import math
+        value = math.sqrt(self.val)
+        expr = ["sqrt", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def exp(self):
+        """exp(self)"""
+        import math
+        value = math.exp(self.val)
+        expr = ["exp", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def log(self):
+        """log(self)"""
+        import math
+        value = math.log(self.val)
+        expr = ["log", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def log10(self):
+        """log10(self)"""
+        import math
+        value = math.log10(self.val)
+        expr = ["log10", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def pow(self, power):
+        """pow(self, power)"""
+        import math
+        value = math.pow(self.val, power)
+        expr = ["pow", self, power]
+        return SymbolicFloat("se", value, expr)
+    
+    def ceil(self):
+        """ceil(self)"""
+        import math
+        value = math.ceil(self.val)
+        expr = ["ceil", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def floor(self):
+        """floor(self)"""
+        import math
+        value = math.floor(self.val)
+        expr = ["floor", self]
+        return SymbolicFloat("se", value, expr)
+    
+    def fabs(self):
+        """fabs(self)"""
+        import math
+        value = math.fabs(self.val)
+        expr = ["abs", self]
+        return SymbolicFloat("se", value, expr)
 
     # 添加反向比较方法
     def __rlt__(self, other):

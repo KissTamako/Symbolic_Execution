@@ -150,12 +150,25 @@ class Z3Wrapper(object):
 			self.z3_expr.toZ3(self.solver, self.asserts, self.query)
 			res = self.solver.check()
 			if res == sat:
-				# For simplicity, we'll just return a dummy model
-				# In a real implementation, we would extract float values from the model
-				return {}
+				# Extract float values from the model
+				model = self.solver.model()
+				res = {}
+				for name in self.z3_expr.z3_vars.keys():
+					try:
+						ce = model.eval(self.z3_expr.z3_vars[name])
+						# Try to convert to float
+						if is_real(ce):
+							# For simplicity, we'll convert to float
+							res[name] = float(str(ce))
+					except:
+						pass
+				self.solver.pop()
+				return res
 			elif res == unsat:
+				self.solver.pop()
 				return None
 			else:
+				self.solver.pop()
 				return None
 		
 		# Try QF_LIA first (as it may fairly easily recognize unsat instances)

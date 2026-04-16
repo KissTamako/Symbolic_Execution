@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312092.31292,
+  "timestamp": 1776326583.6236157,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(== in1 0)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py",
       "source_line": 6,
       "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:6"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/shallow_branches.py:6"
       ]
     }
   ]

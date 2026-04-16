@@ -1,0 +1,210 @@
+{
+  "execution_id": 1,
+  "timestamp": 1776326569.7424035,
+  "input_model": {
+    "x": "x#2",
+    "y": "y#2"
+  },
+  "concrete_inputs": {
+    "x": 2,
+    "y": 2
+  },
+  "return_value": 1,
+  "branch_trace": [
+    {
+      "expr": "(> x 0)",
+      "result": true,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+      "source_line": 3,
+      "source_col": 4,
+      "branch_id": "3:4",
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(> y 0)",
+      "result": true,
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+      "source_line": 4,
+      "source_col": 8,
+      "branch_id": "4:8",
+      "vars": [
+        "y"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(> x 0)",
+    "(> y 0)"
+  ],
+  "path_predicates_normalized": [
+    "(< 0 ARG0)",
+    "(< 0 ARG1)"
+  ],
+  "semantic_info": {
+    "path_length": 2,
+    "branch_directions": [
+      true,
+      true
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py:3"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py:4"
+      ]
+    ],
+    "symbolic_variables": [
+      "x",
+      "y"
+    ],
+    "source_locations": [
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        3,
+        "3:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        4,
+        "4:8"
+      ]
+    ]
+  },
+  "path_constraints": {
+    "assertions": [
+      "(> x 0)",
+      "(> y 0)"
+    ],
+    "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(< 0 ARG0)",
+      "(< 0 ARG1)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(> x 0)",
+        "result": true,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        "source_line": 3,
+        "source_col": 4,
+        "branch_id": "3:4",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(> y 0)",
+        "result": true,
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        "source_line": 4,
+        "source_col": 8,
+        "branch_id": "4:8",
+        "vars": [
+          "y"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py:3"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True",
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py:4"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        3,
+        4,
+        "3:4"
+      ],
+      [
+        "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        4,
+        8,
+        "4:8"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 2,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(> x 0)",
+      "(> y 0)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(> x 0)",
+        "normalized": "(< 0 ARG0)",
+        "operation": ">",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(> y 0)",
+        "normalized": "(< 0 ARG1)",
+        "operation": ">",
+        "variables": [
+          "y"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        "source_line": 3,
+        "source_col": 4,
+        "branch_id": "3:4"
+      },
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/branch_coverage.py",
+        "source_line": 4,
+        "source_col": 8,
+        "branch_id": "4:8"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "x",
+        "y"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 2,
+      "num_negations": 0,
+      "branch_diversity": 2,
+      "variable_density": 0.6666666666666666,
+      "predicate_complexity": 4.666666666666667,
+      "branch_balance": 0.6666666666666666
+    }
+  }
+}

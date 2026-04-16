@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776312091.158746,
+  "timestamp": 1776326582.3456812,
   "input_model": {
     "x": "x#0"
   },
@@ -12,7 +12,7 @@
     {
       "expr": "(== (^ se 2) 4)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/power.py",
       "source_line": 7,
       "source_col": 1,
       "branch_id": "7:1",
@@ -37,7 +37,7 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\power.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/power.py:7"
       ]
     ],
     "symbolic_variables": [
@@ -45,7 +45,7 @@
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/power.py",
         7,
         "7:1"
       ]
@@ -65,7 +65,7 @@
       {
         "expr": "(== (^ se 2) 4)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/power.py",
         "source_line": 7,
         "source_col": 1,
         "branch_id": "7:1",
@@ -79,14 +79,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\power.py:7"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/power.py:7"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/power.py",
         7,
-        0,
+        1,
         "7:1"
       ]
     ],
@@ -99,6 +99,43 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (^ se 2) 4)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (^ se 2) 4)",
+        "normalized": "(== (^ ARG0 2) 4)",
+        "operation": "==",
+        "variables": [
+          "se"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/power.py",
+        "source_line": 7,
+        "source_col": 1,
+        "branch_id": "7:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "se"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 0,
+      "branch_diversity": 1,
+      "variable_density": 0.5,
+      "predicate_complexity": 7.5,
+      "branch_balance": 0.5
     }
   }
 }

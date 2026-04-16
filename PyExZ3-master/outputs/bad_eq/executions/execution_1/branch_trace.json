@@ -1,18 +1,18 @@
 {
-  "timestamp": 1776312079.562205,
+  "timestamp": 1776326568.24747,
   "trace_length": 1,
   "branches": [
     {
       "predicate": "(== i 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py",
       "source_line": 2,
       "branch_id": "2:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bad_eq.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/bad_eq.py:2"
       ]
     }
   ]

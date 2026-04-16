@@ -1,6 +1,6 @@
 {
-  "path_id": 2762431711696,
-  "timestamp": 1776312094.5650403,
+  "path_id": 2232453498768,
+  "timestamp": 1776326585.853888,
   "input_model": {
     "x": "x#1",
     "y": "y#0"
@@ -14,7 +14,7 @@
     {
       "expr": "(== (+ (< x y) x) 1)",
       "result": true,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/weird.py",
       "source_line": 2,
       "source_col": 1,
       "branch_id": "2:1",
@@ -41,16 +41,16 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/weird.py:2"
       ]
     ],
     "symbolic_variables": [
-      "x",
-      "y"
+      "y",
+      "x"
     ],
     "source_locations": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/weird.py",
         2,
         "2:1"
       ]
@@ -70,7 +70,7 @@
       {
         "expr": "(== (+ (< x y) x) 1)",
         "result": true,
-        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py",
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/weird.py",
         "source_line": 2,
         "source_col": 1,
         "branch_id": "2:1",
@@ -86,14 +86,14 @@
         "type:SymbolicInteger",
         "op:==",
         "branch:True",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/weird.py:2"
       ]
     ],
     "source_spans": [
       [
-        "E:\\Graduation_Projection\\PyExZ3-master\test\\weird.py",
+        "E:/Graduation_Projection/PyExZ3-master/test/weird.py",
         2,
-        0,
+        1,
         "2:1"
       ]
     ],
@@ -106,6 +106,65 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== (+ (< x y) x) 1)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== (+ (< x y) x) 1)",
+        "normalized": "(== (+ ARG0 (< ARG0 ARG1)) 1)",
+        "operation": "==",
+        "variables": [
+          "x",
+          "y",
+          "x"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:/Graduation_Projection/PyExZ3-master/test/weird.py",
+        "source_line": 2,
+        "source_col": 1,
+        "branch_id": "2:1"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "y",
+        "x"
+      ],
+      "edges": [
+        {
+          "source": "x",
+          "target": "y",
+          "predicate_index": 0,
+          "predicate": "(== (+ (< x y) x) 1)"
+        },
+        {
+          "source": "x",
+          "target": "x",
+          "predicate_index": 0,
+          "predicate": "(== (+ (< x y) x) 1)"
+        },
+        {
+          "source": "y",
+          "target": "x",
+          "predicate_index": 0,
+          "predicate": "(== (+ (< x y) x) 1)"
+        }
+      ]
+    },
+    "path_summary_vector": {
+      "path_length": 1,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 0,
+      "branch_diversity": 1,
+      "variable_density": 1.0,
+      "predicate_complexity": 10.0,
+      "branch_balance": 0.5
     }
   }
 }

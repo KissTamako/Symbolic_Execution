@@ -1,5 +1,5 @@
 {
-  "timestamp": 1776312090.0514605,
+  "timestamp": 1776326581.1152217,
   "trace_length": 3,
   "branches": [
     {
@@ -7,7 +7,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\mod.py",
       "source_line": 2,
-      "branch_id": "2:mod",
+      "branch_id": "2:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
@@ -20,7 +20,7 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\mod.py",
       "source_line": 2,
-      "branch_id": "2:mod",
+      "branch_id": "2:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
@@ -31,14 +31,14 @@
     {
       "predicate": "(> y 0)",
       "result": false,
-      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py",
+      "source_file": "E:/Graduation_Projection/PyExZ3-master/test/mod.py",
       "source_line": 2,
       "branch_id": "2:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
         "branch:False",
-        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
+        "loc:E:/Graduation_Projection/PyExZ3-master/test/mod.py:2"
       ]
     }
   ]

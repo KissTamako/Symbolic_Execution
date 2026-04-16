@@ -1,6 +1,6 @@
 {
-  "execution_id": 0,
-  "timestamp": 1776312083.3751693,
+  "execution_id": 2,
+  "timestamp": 1776326572.3024368,
   "input_model": {
     "x": "x#0"
   },
@@ -14,8 +14,8 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
       "source_line": 5,
-      "source_col": "dict",
-      "branch_id": "5:dict",
+      "source_col": 7,
+      "branch_id": "5:7",
       "vars": [
         "x"
       ]
@@ -25,8 +25,8 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
       "source_line": 5,
-      "source_col": "dict",
-      "branch_id": "5:dict",
+      "source_col": 7,
+      "branch_id": "5:7",
       "vars": [
         "x"
       ]
@@ -36,8 +36,8 @@
       "result": false,
       "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
       "source_line": 5,
-      "source_col": "dict",
-      "branch_id": "5:dict",
+      "source_col": 7,
+      "branch_id": "5:7",
       "vars": [
         "x"
       ]
@@ -49,9 +49,9 @@
     "(== x 1)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0 4)",
-    "(== ARG0 101)",
-    "(== ARG0 1)"
+    "(not (== ARG0 4))",
+    "(not (== ARG0 101))",
+    "(not (== ARG0 1))"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -87,17 +87,17 @@
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         5,
-        "5:dict"
+        "5:7"
       ],
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         5,
-        "5:dict"
+        "5:7"
       ],
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         5,
-        "5:dict"
+        "5:7"
       ]
     ]
   },
@@ -111,9 +111,9 @@
   },
   "standardized_features": {
     "normalized_pc": [
-      "(== ARG0 4)",
-      "(== ARG0 101)",
-      "(== ARG0 1)"
+      "(not (== ARG0 4))",
+      "(not (== ARG0 101))",
+      "(not (== ARG0 1))"
     ],
     "branch_trace": [
       {
@@ -121,8 +121,8 @@
         "result": false,
         "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         "source_line": 5,
-        "source_col": "dict",
-        "branch_id": "5:dict",
+        "source_col": 7,
+        "branch_id": "5:7",
         "vars": [
           "x"
         ]
@@ -132,8 +132,8 @@
         "result": false,
         "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         "source_line": 5,
-        "source_col": "dict",
-        "branch_id": "5:dict",
+        "source_col": 7,
+        "branch_id": "5:7",
         "vars": [
           "x"
         ]
@@ -143,8 +143,8 @@
         "result": false,
         "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         "source_line": 5,
-        "source_col": "dict",
-        "branch_id": "5:dict",
+        "source_col": 7,
+        "branch_id": "5:7",
         "vars": [
           "x"
         ]
@@ -174,20 +174,20 @@
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         5,
-        0,
-        "5:dict"
+        7,
+        "5:7"
       ],
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         5,
-        0,
-        "5:dict"
+        7,
+        "5:7"
       ],
       [
         "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
         5,
-        0,
-        "5:dict"
+        7,
+        "5:7"
       ]
     ],
     "path_summary": {
@@ -199,6 +199,73 @@
     "exception_profile": {
       "has_exceptions": false,
       "exception_types": []
+    },
+    "path_predicate_sequence": [
+      "(== x 4)",
+      "(== x 101)",
+      "(== x 1)"
+    ],
+    "normalized_constraint_templates": [
+      {
+        "raw": "(== x 4)",
+        "normalized": "(not (== ARG0 4))",
+        "operation": "==",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(== x 101)",
+        "normalized": "(not (== ARG0 101))",
+        "operation": "==",
+        "variables": [
+          "x"
+        ]
+      },
+      {
+        "raw": "(== x 1)",
+        "normalized": "(not (== ARG0 1))",
+        "operation": "==",
+        "variables": [
+          "x"
+        ]
+      }
+    ],
+    "branch_location_sequence": [
+      {
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
+        "source_line": 5,
+        "source_col": 7,
+        "branch_id": "5:7"
+      },
+      {
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
+        "source_line": 5,
+        "source_col": 7,
+        "branch_id": "5:7"
+      },
+      {
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\dict.py",
+        "source_line": 5,
+        "source_col": 7,
+        "branch_id": "5:7"
+      }
+    ],
+    "variable_participation_graph": {
+      "nodes": [
+        "x"
+      ],
+      "edges": []
+    },
+    "path_summary_vector": {
+      "path_length": 3,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 3,
+      "branch_diversity": 3,
+      "variable_density": 0.25,
+      "predicate_complexity": 6.5,
+      "branch_balance": 0.0
     }
   }
 }

@@ -43,12 +43,69 @@ def wrap_concrete_constant(value):
 import threading
 _local = threading.local()
 
-def _branch_hook(condition, line, col):
+# Also create a thread-local storage for file path
+_file_path_local = threading.local()
+
+# Thread-local storage for symbolic inputs
+_input_local = threading.local()
+
+def init_symbolic_inputs(inputs):
+    """Initialize symbolic inputs for script mode"""
+    _input_local.inputs = inputs
+    _input_local.input_index = 0
+
+def get_next_symbolic_input():
+    """Get the next symbolic input in sequence"""
+    if not hasattr(_input_local, 'inputs') or not hasattr(_input_local, 'input_index'):
+        # 没有初始化符号输入，回退到真实 input()
+        return input()
+    
+    if _input_local.input_index >= len(_input_local.inputs):
+        # 输入序列用完了，回退到真实 input()
+        return input()
+    
+    input_name, input_value = _input_local.inputs[_input_local.input_index]
+    _input_local.input_index += 1
+    return input_value
+
+def _se_input(prompt=""):
+    """Handle input() calls with symbolic inputs"""
+    # If prompt is provided, print it (like real input())
+    if prompt:
+        print(prompt, end='')
+    
+    # Get the next symbolic input
+    try:
+        return get_next_symbolic_input()
+    except RuntimeError:
+        # Fall back to real input if no symbolic inputs available
+        return input(prompt)
+
+# Set the current file path
+def set_current_file_path(file_path):
+    _file_path_local.file_path = file_path
+
+# Get the current file path
+def get_current_file_path():
+    return getattr(_file_path_local, 'file_path', None)
+
+def _branch_hook(condition, line, col, filename=None):
     """Hook for branch conditions to capture location information"""
     import inspect
-    # Get the current frame to get the filename
-    frame = inspect.currentframe().f_back
-    filename = frame.f_code.co_filename
+    
+    # 如果没有提供文件名，尝试从 thread-local storage 获取
+    if not filename:
+        filename = get_current_file_path()
+    
+    # 如果仍然没有文件名，尝试从调用栈中获取
+    if not filename:
+        # 遍历调用栈，找到第一个不是 runtime_helpers.py 和 symbolic_types 目录下的文件的帧
+        frame = inspect.currentframe()
+        while frame:
+            filename = frame.f_code.co_filename
+            if 'runtime_helpers.py' not in filename and 'symbolic_types' not in filename:
+                break
+            frame = frame.f_back
     
     # Store the location information in thread-local storage
     _local.branch_location = (filename, line, col)

@@ -1,6 +1,7 @@
 import os
 import sys
 from ast import parse, fix_missing_locations, Import, alias
+from .ast_transform import SymbolicWrapperCall, SymbolicWrapperBranch, SymbolicWrapperConstant
 
 class ScriptInvocation:
     def __init__(self, script_path, reset):
@@ -8,15 +9,22 @@ class ScriptInvocation:
         self.reset = reset
         self.inputs = {}
         self.initial_value = {}
+        self.input_sequence = []  # 存储输入序列，用于 input() 调用的顺序分配
     
     def add_input(self, name, value):
         """Add an input for the script"""
         self.inputs[name] = value
         self.initial_value[name] = value
+        self.input_sequence.append((name, value))  # 同时添加到输入序列
     
     def execute(self, symbolic_inputs):
         """Execute the script with AST transformation"""
         self.reset()
+        
+        # 初始化符号输入序列
+        from symbolic.runtime_helpers import init_symbolic_inputs
+        # 使用 input_sequence 而不是 symbolic_inputs，以保持顺序
+        init_symbolic_inputs(self.input_sequence)
         
         # Set up environment with symbolic inputs
         local_vars = {}
@@ -31,6 +39,7 @@ class ScriptInvocation:
         local_vars['_se_str'] = symbolic.symbolic_types.SymbolicStr
         local_vars['_se_float'] = symbolic.symbolic_types.SymbolicFloat
         local_vars['_se_range'] = range  # Use regular range for now
+        local_vars['_se_input'] = symbolic.runtime_helpers._se_input
         
         # Execute the script
         try:
@@ -48,6 +57,11 @@ class ScriptInvocation:
             
             tree.body.insert(i, Import(names=[alias(name='symbolic.runtime_helpers', asname=None)]))
             tree.body.insert(i, Import(names=[alias(name='symbolic.symbolic_types', asname=None)]))
+            
+            # Apply the same AST transformations as function mode
+            tree = SymbolicWrapperCall().visit(tree)
+            tree = SymbolicWrapperConstant().visit(tree)
+            tree = SymbolicWrapperBranch(filename=self.script_path).visit(tree)
             
             # Fix missing locations
             fix_missing_locations(tree)

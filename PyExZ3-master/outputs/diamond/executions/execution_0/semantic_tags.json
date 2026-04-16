@@ -1,29 +1,32 @@
 {
-  "timestamp": 1776232729.7268143,
-  "total_tags": 6,
+  "timestamp": 1776312083.0513964,
+  "total_tags": 9,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "x#0 (False)",
+      "predicate": "x",
       "tags": [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:3"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "y#0 (False)",
+      "predicate": "y",
       "tags": [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:5"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "z#0 (False)",
+      "predicate": "z",
       "tags": [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:7"
       ]
     }
   ]

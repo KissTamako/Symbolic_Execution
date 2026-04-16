@@ -1,6 +1,6 @@
 {
   "execution_id": 3,
-  "timestamp": 1776232725.3449223,
+  "timestamp": 1776312079.3265476,
   "input_model": {
     "i": "i#6"
   },
@@ -10,45 +10,48 @@
   "return_value": 6,
   "branch_trace": [
     {
-      "expr": "(== i#0, 1)",
+      "expr": "(== i 1)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+      "source_line": 5,
+      "source_col": "arrayindex2",
+      "branch_id": "5:arrayindex2",
       "vars": [
         "i"
       ]
     },
     {
-      "expr": "(== i#0, 4)",
+      "expr": "(== i 4)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+      "source_line": 5,
+      "source_col": "arrayindex2",
+      "branch_id": "5:arrayindex2",
       "vars": [
         "i"
       ]
     },
     {
-      "expr": "(== i#6, 6)",
+      "expr": "(== i 6)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "i"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== i#0, 1) (False)",
-    "(== i#0, 4) (False)",
-    "(== i#6, 6) (True)"
+    "(== i 1)",
+    "(== i 4)",
+    "(== i 6)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#0, 1) (False)",
-    "(== ARG0#0, 4) (False)",
-    "(== ARG0#6, 6) (True)"
+    "(== ARG0 1)",
+    "(== ARG0 4)",
+    "(== ARG0 6)"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -61,31 +64,142 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py:5"
       ]
     ],
     "symbolic_variables": [
       "i"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+        5,
+        "5:arrayindex2"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+        5,
+        "5:arrayindex2"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+        5,
+        "5:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== i#6, 6) (True)"
+      "(== i 6)"
     ],
     "negations": [
-      "(== i#0, 1) (False)",
-      "(== i#0, 4) (False)"
+      "(== i 1)",
+      "(== i 4)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 1)",
+      "(== ARG0 4)",
+      "(== ARG0 6)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== i 1)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+        "source_line": 5,
+        "source_col": "arrayindex2",
+        "branch_id": "5:arrayindex2",
+        "vars": [
+          "i"
+        ]
+      },
+      {
+        "expr": "(== i 4)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+        "source_line": 5,
+        "source_col": "arrayindex2",
+        "branch_id": "5:arrayindex2",
+        "vars": [
+          "i"
+        ]
+      },
+      {
+        "expr": "(== i 6)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "i"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py:5"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+        5,
+        0,
+        "5:arrayindex2"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py",
+        5,
+        0,
+        "5:arrayindex2"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+        5,
+        0,
+        "5:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 3,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

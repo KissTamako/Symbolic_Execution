@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776232738.7785642,
+  "timestamp": 1776312091.158746,
   "input_model": {
     "x": "x#0"
   },
@@ -10,21 +10,22 @@
   "return_value": 0,
   "branch_trace": [
     {
-      "expr": "(== (^ (+ x#0, 2), 2), 4)",
+      "expr": "(== (^ se 2) 4)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+      "source_line": 7,
+      "source_col": 1,
+      "branch_id": "7:1",
       "vars": [
         "se"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== (^ (+ x#0, 2), 2), 4) (True)"
+    "(== (^ se 2) 4)"
   ],
   "path_predicates_normalized": [
-    "(== (^ (+ x#0, 2), 2), 4) (True)"
+    "(== (^ ARG0 2) 4)"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -35,18 +36,69 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\power.py:7"
       ]
     ],
     "symbolic_variables": [
       "se"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+        7,
+        "7:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== (^ (+ x#0, 2), 2), 4) (True)"
+      "(== (^ se 2) 4)"
     ],
     "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== (^ ARG0 2) 4)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== (^ se 2) 4)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+        "source_line": 7,
+        "source_col": 1,
+        "branch_id": "7:1",
+        "vars": [
+          "se"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\power.py:7"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+        7,
+        0,
+        "7:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

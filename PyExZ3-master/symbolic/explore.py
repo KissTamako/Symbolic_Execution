@@ -334,7 +334,7 @@ class ExplorationEngine:
 	def _getSimpleConstraintHash(self, constraint):
 		"""生成约束的简单哈希值
 		
-		使用Python内置的hash函数，基于约束的对象标识
+		基于约束的内容生成哈希值，支持跨会话的约束去重
 		
 		Args:
 			constraint: Constraint对象
@@ -342,8 +342,20 @@ class ExplorationEngine:
 		Returns:
 			constraint_hash: 约束的哈希值
 		"""
-		# 使用约束对象的id作为简单的哈希值
-		return id(constraint)
+		# 收集路径上的谓词字符串表示
+		predicate_strs = []
+		tmp = constraint
+		while tmp.predicate is not None:
+			pred_str = str(tmp.predicate.symtype.expr)
+			predicate_strs.append(pred_str)
+			tmp = tmp.parent
+		
+		# 反转并连接
+		predicate_strs.reverse()
+		constraint_key = "|".join(predicate_strs)
+		
+		# 基于约束内容生成哈希值
+		return hash(constraint_key)
 	
 	def _getPathPrefixKey(self, constraint):
 		"""生成路径前缀的唯一键
@@ -591,10 +603,26 @@ class ExplorationEngine:
 			return self._generate_random_value(name)
 		
 	def _track_code_coverage(self):
-		"""跟踪代码覆盖率"""
-		# 简单实现：记录执行的路径
-		# 这里可以添加更复杂的代码覆盖率跟踪逻辑，如行覆盖率、分支覆盖率等
-		pass
+		"""跟踪代码覆盖率
+		
+		记录执行的代码行和分支，计算覆盖率统计指标
+		"""
+		# 获取当前路径的谓词
+		current_path = self.path.get_current_path()
+		
+		# 跟踪执行的代码行
+		for predicate in current_path:
+			if predicate.source_file and predicate.source_line:
+				# 记录执行的代码行
+				line_key = f"{predicate.source_file}:{predicate.source_line}"
+				self.code_coverage.add(line_key)
+		
+		# 可以添加更多覆盖率统计逻辑
+		# 例如：分支覆盖率、函数覆盖率等
+		
+		# 计算覆盖率指标
+		# 这里可以添加更复杂的覆盖率计算逻辑
+		# 例如：与源代码行数比较，计算覆盖率百分比
 
 	def _export_results(self):
 		"""Export results to files"""
@@ -617,7 +645,11 @@ class ExplorationEngine:
 			'generated_inputs': self.generated_inputs,
 			'return_values': self.execution_return_values,
 			'branch_traces': self.branch_traces_list,
-			'path_lengths': self.path_lengths_list
+			'path_lengths': self.path_lengths_list,
+			'code_coverage': {
+				'covered_lines': len(self.code_coverage),
+				'covered_lines_list': list(self.code_coverage)
+			}
 		}
 		
 		# Export execution summary
@@ -630,6 +662,17 @@ class ExplorationEngine:
 			asserts, query = frontier[0].getAssertsAndQuery()
 			self.smt_exporter.export_path(self.solver, asserts, query)
 			self.smt_exporter.export_frontier(self.solver, frontier)
+		else:
+			# If frontier is empty, export current path constraints
+			current_path = self.path.get_current_path()
+			if current_path:
+				# Create a simple constraint from current path
+				from .constraint import Constraint
+				constraint = Constraint(None, None)
+				for predicate in current_path:
+					constraint = constraint.addChild(predicate)
+				asserts, query = constraint.getAssertsAndQuery()
+				self.smt_exporter.export_path(self.solver, asserts, query)
 		
 		# 导出所有执行的详细信息（如果启用）
 		if self.dump_all_executions:

@@ -4,17 +4,26 @@ import inspect
 import re
 import os
 import sys
+import importlib
+import importlib.util
+import types
+from ast import parse, fix_missing_locations, Import, Name, If, While, NodeTransformer, alias
 from .invocation import FunctionInvocation
 from .symbolic_types import SymbolicInteger, getSymbolic
-from .ast_transform import install_import_hook
+from .ast_transform import SymbolicWrapperCall, SymbolicWrapperBranch, SymbolicWrapperConstant
 
 # The built-in definition of len wraps the return value in an int() constructor, destroying any symbolic types.
 # By redefining len here we can preserve symbolic integer types.
 import builtins
 builtins.len = (lambda x : x.__len__())
 
-# Install AST transformation import hook
-install_import_hook()  # Enable AST transformation to capture branch locations
+# Install AST transformation import hook (commented out - loader does its own AST transformation)
+# install_import_hook()  # Enable AST transformation to capture branch locations
+
+# Import the set_current_file_path function from runtime_helpers
+from .runtime_helpers import set_current_file_path
+
+
 
 class Loader:
 	def __init__(self, filename, entry):
@@ -82,30 +91,100 @@ class Loader:
 		if "expected_result_set" in self.app.__dict__:
 			return self._check(return_vals, self.app.__dict__["expected_result_set"](),False)
 		else:
-			print(self._fileName + ".py contains no expected_result function")
+			print(self._fileName + ".py contains no expected_result function - skipping result check")
 			return None
 
 	# -- private
 
 	def _resetCallback(self,firstpass=False):
 		self.app = None
-		if firstpass and self._fileName in sys.modules:
-			print("There already is a module loaded named " + self._fileName)
-			raise ImportError()
 		try:
-			if (not firstpass and self._fileName in sys.modules):
+			# 无论是否是第一次，都先删除模块（如果存在）
+			if self._fileName in sys.modules:
 				del(sys.modules[self._fileName])
-			self.app =__import__(self._fileName)
+			
+			# 构建模块文件路径
+			file_path = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), self._fileName + '.py')
+			if not os.path.exists(file_path):
+				# 如果在当前目录找不到，尝试在 test 目录中找
+				test_file_path = os.path.join(os.path.dirname(sys.modules['__main__'].__file__), 'test', self._fileName + '.py')
+				if os.path.exists(test_file_path):
+					file_path = test_file_path
+				else:
+					# 最后尝试使用绝对路径
+					file_path = os.path.abspath(self._fileName + '.py')
+			
+			# 读取模块源代码
+			with open(file_path, 'r', encoding='utf-8') as f:
+				source_code = f.read()
+			
+			# 解析源代码为 AST
+			tree = parse(source_code, filename=file_path)
+			
+			# 插入必要的导入语句
+			i = 0
+			while i < len(tree.body) and hasattr(tree.body[i], 'module') and tree.body[i].module == '__future__':
+				i += 1
+			
+			# 添加导入语句
+			import_node1 = Import(names=[alias(name='symbolic.runtime_helpers', asname=None)])
+			import_node2 = Import(names=[alias(name='symbolic.symbolic_types', asname=None)])
+			
+			# 不手动设置位置信息，让 fix_missing_locations 来处理
+			# import_node1.lineno = 1
+			# import_node1.col_offset = 0
+			# import_node2.lineno = 2
+			# import_node2.col_offset = 0
+			
+			tree.body.insert(i, import_node1)
+			tree.body.insert(i, import_node2)
+			
+			# 应用所有转换器
+			tree = SymbolicWrapperCall().visit(tree)
+			tree = SymbolicWrapperConstant().visit(tree)
+			tree = SymbolicWrapperBranch(filename=file_path).visit(tree)
+			
+			# 确保所有节点都有位置信息
+			fix_missing_locations(tree)
+			
+			# 编译转换后的 AST
+			code = compile(tree, file_path, 'exec')
+			
+			# 创建模块对象并执行编译后的代码
+			self.app = types.ModuleType(self._fileName)
+			self.app.__file__ = file_path
+			sys.modules[self._fileName] = self.app
+			
+			# 执行代码
+			# 使用 exec 执行代码，并设置 __file__ 变量
+			try:
+				self.app.__file__ = file_path
+				# 执行代码时，使用 file_path 作为文件名
+				exec(code, self.app.__dict__)
+			except Exception as e:
+				print(f"Error executing code: {e}")
+				raise
+			
 			if not self._entryPoint in self.app.__dict__ or not callable(self.app.__dict__[self._entryPoint]):
 				print("File " +  self._fileName + ".py doesn't contain a function named " + self._entryPoint)
 				raise ImportError()
 		except Exception as arg:
 			print("Couldn't import " + self._fileName)
 			print(arg)
-			raise ImportError()
+			# 失败时回退到原始导入方式
+			self.app = __import__(self._fileName)
+			if not self._entryPoint in self.app.__dict__ or not callable(self.app.__dict__[self._entryPoint]):
+				print("File " +  self._fileName + ".py doesn't contain a function named " + self._entryPoint)
+				raise ImportError()
 
 	def _execute(self, **args):
-		return self.app.__dict__[self._entryPoint](**args)
+		# 设置当前文件路径到 thread-local storage
+		set_current_file_path(self.app.__file__)
+		try:
+			return self.app.__dict__[self._entryPoint](**args)
+		finally:
+			# 执行完成后，清除 thread-local storage
+			set_current_file_path(None)
 
 	def _toBag(self,l):
 		bag = {}

@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232725.336629,
+  "timestamp": 1776312079.3219538,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== i#1, 1) (True)",
+      "predicate": "(== i 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py:5"
       ]
     }
   ]

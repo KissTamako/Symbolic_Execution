@@ -1,6 +1,6 @@
 {
   "execution_id": 0,
-  "timestamp": 1776232737.6504629,
+  "timestamp": 1776312090.2881274,
   "input_model": {
     "in1": "in1#0"
   },
@@ -10,33 +10,35 @@
   "return_value": 0,
   "branch_trace": [
     {
-      "expr": "(!= (% in1#0, 3), 0)",
+      "expr": "(!= (% in1 3) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+      "source_line": 2,
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in1"
       ]
     },
     {
-      "expr": "(!= (% in1#0, 5), 0)",
+      "expr": "(!= (% in1 5) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+      "source_line": 2,
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in1"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(!= (% in1#0, 3), 0) (False)",
-    "(!= (% in1#0, 5), 0) (False)"
+    "(!= (% in1 3) 0)",
+    "(!= (% in1 5) 0)"
   ],
   "path_predicates_normalized": [
-    "(!= (% ARG0#0, 3), 0) (False)",
-    "(!= (% ARG0#0, 5), 0) (False)"
+    "(!= (% ARG0 3) 0)",
+    "(!= (% ARG0 5) 0)"
   ],
   "semantic_info": {
     "path_length": 2,
@@ -48,24 +50,105 @@
       [
         "type:SymbolicInteger",
         "op:!=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:!=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py:2"
       ]
     ],
     "symbolic_variables": [
       "in1"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+        2,
+        "2:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+        2,
+        "2:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [],
     "negations": [
-      "(!= (% in1#0, 3), 0) (False)",
-      "(!= (% in1#0, 5), 0) (False)"
+      "(!= (% in1 3) 0)",
+      "(!= (% in1 5) 0)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(!= (% ARG0 3) 0)",
+      "(!= (% ARG0 5) 0)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(!= (% in1 3) 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4",
+        "vars": [
+          "in1"
+        ]
+      },
+      {
+        "expr": "(!= (% in1 5) 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4",
+        "vars": [
+          "in1"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py:2"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:!=",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py:2"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+        2,
+        0,
+        "2:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\modulo.py",
+        2,
+        0,
+        "2:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

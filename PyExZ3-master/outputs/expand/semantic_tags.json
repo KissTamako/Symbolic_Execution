@@ -1,14 +1,15 @@
 {
-  "timestamp": 1776232731.0037522,
-  "total_tags": 3,
+  "timestamp": 1776312084.1953766,
+  "total_tags": 4,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(>= (+ in1#3222421507, in2#1115785390), 4294967296) (True)",
+      "predicate": "(>= (+ in1 in2) 4294967296)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py:2"
       ]
     }
   ]

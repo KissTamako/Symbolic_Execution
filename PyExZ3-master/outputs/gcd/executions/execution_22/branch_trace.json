@@ -1,329 +1,356 @@
 {
-  "timestamp": 1776232734.2324736,
+  "timestamp": 1776312087.6759484,
   "trace_length": 27,
   "branches": [
     {
-      "predicate": "(>= x#0, 0) (True)",
+      "predicate": "(>= x 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
+      "source_line": 65,
+      "branch_id": "65:gcd",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py:65"
       ]
     },
     {
-      "predicate": "(>= y#0, 0) (True)",
+      "predicate": "(>= y 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 65,
+      "branch_id": "65:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:65"
       ]
     },
     {
-      "predicate": "(== x#14, y#1) (False)",
+      "predicate": "(== x y)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 2,
+      "branch_id": "2:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
-      "predicate": "(== x#14, 0) (False)",
+      "predicate": "(== x 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 5,
+      "branch_id": "5:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:5"
       ]
     },
     {
-      "predicate": "(== y#1, 0) (False)",
+      "predicate": "(== y 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
-      "predicate": "(& x#13, 1) (True)",
+      "predicate": "(& x 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
-      "predicate": "(& y#2, 1) (False)",
+      "predicate": "(& y 1)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 11,
+      "branch_id": "11:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
-      "predicate": "(== x#13, (>> y#2, 1)) (False)",
+      "predicate": "(== x (>> y 1))",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 2,
+      "branch_id": "2:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
-      "predicate": "(== x#13, 0) (False)",
+      "predicate": "(== x 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 5,
+      "branch_id": "5:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:5"
       ]
     },
     {
-      "predicate": "(== (>> y#2, 1), 0) (False)",
+      "predicate": "(== (>> y 1) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
-      "predicate": "(& x#13, 1) (True)",
+      "predicate": "(& x 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 8,
+      "branch_id": "8:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
-      "predicate": "(& (>> y#2, 1), 1) (True)",
+      "predicate": "(& (>> y 1) 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 11,
+      "branch_id": "11:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
-      "predicate": "(> x#13, (>> y#2, 1)) (True)",
+      "predicate": "(> x (>> y 1))",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 11,
+      "branch_id": "11:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
-      "predicate": "(== (>> (- x#9, (>> y#6, 1)), 1), (>> y#6, 1)) (True)",
+      "predicate": "(== (>> (- x (>> y 1)) 1) (>> y 1))",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 2,
+      "branch_id": "2:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
-      "predicate": "(== x#9, 0) (False)",
+      "predicate": "(== x 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 28,
+      "branch_id": "28:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:28"
       ]
     },
     {
-      "predicate": "(== y#6, 0) (False)",
+      "predicate": "(== y 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 30,
+      "branch_id": "30:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:30"
       ]
     },
     {
-      "predicate": "(== (& (| x#9, y#6), 1), 0) (False)",
+      "predicate": "(== (& (| x y) 1) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 36,
+      "branch_id": "36:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:36"
       ]
     },
     {
-      "predicate": "(== (& x#9, 1), 0) (False)",
+      "predicate": "(== (& x 1) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 41,
+      "branch_id": "41:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:41"
       ]
     },
     {
-      "predicate": "(== (& y#6, 1), 0) (True)",
+      "predicate": "(== (& y 1) 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(== (& (>> y#6, 1), 1), 0) (False)",
+      "predicate": "(== (& (>> y 1) 1) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(> x#9, (>> y#6, 1)) (True)",
+      "predicate": "(> x (>> y 1))",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(== (- x#9, (>> y#6, 1)), 0) (False)",
+      "predicate": "(== (- x (>> y 1)) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(== (& (- x#9, (>> y#6, 1)), 1), 0) (True)",
+      "predicate": "(== (& (- x (>> y 1)) 1) 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(== (& (>> (- x#9, (>> y#6, 1)), 1), 1), 0) (False)",
+      "predicate": "(== (& (>> (- x (>> y 1)) 1) 1) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(> (>> y#6, 1), (>> (- x#9, (>> y#6, 1)), 1)) (False)",
+      "predicate": "(> (>> y 1) (>> (- x (>> y 1)) 1))",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(== (- (>> (- x#9, (>> y#6, 1)), 1), (>> y#6, 1)), 0) (True)",
+      "predicate": "(== (- (>> (- x (>> y 1)) 1) (>> y 1)) 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
-      "predicate": "(!= (>> (- x#9, (>> y#6, 1)), 1), (<< (>> y#6, 1), 0)) (False)",
+      "predicate": "(!= (>> (- x (>> y 1)) 1) (<< (>> y 1) 0))",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 45,
+      "branch_id": "45:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:!=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     }
   ]

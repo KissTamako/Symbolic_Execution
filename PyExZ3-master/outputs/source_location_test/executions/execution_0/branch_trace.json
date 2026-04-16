@@ -1,0 +1,32 @@
+{
+  "timestamp": 1776312092.7562618,
+  "trace_length": 2,
+  "branches": [
+    {
+      "predicate": "(> x 0)",
+      "result": false,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+      "source_line": 5,
+      "branch_id": "5:4",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ]
+    },
+    {
+      "predicate": "(< x 0)",
+      "result": false,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+      "source_line": 5,
+      "branch_id": "5:4",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ]
+    }
+  ]
+}

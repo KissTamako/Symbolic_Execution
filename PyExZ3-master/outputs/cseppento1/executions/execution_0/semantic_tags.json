@@ -1,59 +1,75 @@
 {
-  "timestamp": 1776232727.7263398,
-  "total_tags": 18,
+  "timestamp": 1776312081.362365,
+  "total_tags": 28,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(> x#0, 0) (False)",
+      "predicate": "(> x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(< x#0, 0) (False)",
+      "predicate": "(> x 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:<",
-        "branch:False"
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(< x#0, 0) (False)",
+      "predicate": "(< x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(> x#0, 0) (False)",
+      "predicate": "(< x 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:>",
-        "branch:False"
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 4,
-      "predicate": "(> x#0, 0) (False)",
+      "predicate": "(> x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 5,
-      "predicate": "(== x#0, 0) (True)",
+      "predicate": "(> x 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
+      ]
+    },
+    {
+      "branch_index": 6,
+      "predicate": "(== x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     }
   ]

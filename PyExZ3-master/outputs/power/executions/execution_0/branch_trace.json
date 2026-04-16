@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232738.78007,
+  "timestamp": 1776312091.1597514,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== (^ (+ x#0, 2), 2), 4) (True)",
+      "predicate": "(== (^ se 2) 4)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\power.py",
+      "source_line": 7,
+      "branch_id": "7:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\power.py:7"
       ]
     }
   ]

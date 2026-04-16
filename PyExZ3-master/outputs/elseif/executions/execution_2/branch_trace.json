@@ -1,29 +1,31 @@
 {
-  "timestamp": 1776232730.683461,
+  "timestamp": 1776312083.9507568,
   "trace_length": 2,
   "branches": [
     {
-      "predicate": "(== in1#2, 0) (False)",
+      "predicate": "(== in1 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+      "source_line": 6,
+      "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
-      "predicate": "(== in1#1, 1) (True)",
+      "predicate": "(== in1 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+      "source_line": 6,
+      "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     }
   ]

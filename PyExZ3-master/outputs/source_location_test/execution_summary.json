@@ -1,0 +1,11 @@
+{
+  "timestamp": 1776312092.751489,
+  "generated_inputs_count": 3,
+  "return_values": [
+    "Zero",
+    "Positive",
+    "Negative"
+  ],
+  "path_length": 0,
+  "branch_trace": []
+}

@@ -1,6 +1,6 @@
 {
   "execution_id": 3,
-  "timestamp": 1776232726.6130471,
+  "timestamp": 1776312080.3695953,
   "input_model": {
     "k": "k#4"
   },
@@ -10,57 +10,61 @@
   "return_value": "4",
   "branch_trace": [
     {
-      "expr": "(== k#0, 95)",
+      "expr": "(== k 95)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+      "source_line": 6,
+      "source_col": "bsearch",
+      "branch_id": "6:bsearch",
       "vars": [
         "k"
       ]
     },
     {
-      "expr": "(> k#0, 95)",
+      "expr": "(> k 95)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+      "source_line": 8,
+      "source_col": "bsearch",
+      "branch_id": "8:bsearch",
       "vars": [
         "k"
       ]
     },
     {
-      "expr": "(== k#4, 4)",
+      "expr": "(== k 4)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+      "source_line": 7,
+      "source_col": 1,
+      "branch_id": "7:1",
       "vars": [
         "k"
       ]
     },
     {
-      "expr": "(== k#4, 4)",
+      "expr": "(== k 4)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+      "source_line": 7,
+      "source_col": 1,
+      "branch_id": "7:1",
       "vars": [
         "k"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== k#0, 95) (False)",
-    "(> k#0, 95) (False)",
-    "(== k#4, 4) (True)",
-    "(== k#4, 4) (True)"
+    "(== k 95)",
+    "(> k 95)",
+    "(== k 4)",
+    "(== k 4)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#0, 95) (False)",
-    "(> ARG0#0, 95) (False)",
-    "(== ARG0#4, 4) (True)",
-    "(== ARG0#4, 4) (True)"
+    "(== ARG0 95)",
+    "(< 95 ARG0)",
+    "(== ARG0 4)",
+    "(== ARG0 4)"
   ],
   "semantic_info": {
     "path_length": 4,
@@ -74,37 +78,178 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py:6"
       ],
       [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py:8"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ]
     ],
     "symbolic_variables": [
       "k"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+        6,
+        "6:bsearch"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+        8,
+        "8:bsearch"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+        7,
+        "7:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+        7,
+        "7:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== k#4, 4) (True)",
-      "(== k#4, 4) (True)"
+      "(== k 4)",
+      "(== k 4)"
     ],
     "negations": [
-      "(== k#0, 95) (False)",
-      "(> k#0, 95) (False)"
+      "(== k 95)",
+      "(> k 95)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 95)",
+      "(< 95 ARG0)",
+      "(== ARG0 4)",
+      "(== ARG0 4)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== k 95)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+        "source_line": 6,
+        "source_col": "bsearch",
+        "branch_id": "6:bsearch",
+        "vars": [
+          "k"
+        ]
+      },
+      {
+        "expr": "(> k 95)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+        "source_line": 8,
+        "source_col": "bsearch",
+        "branch_id": "8:bsearch",
+        "vars": [
+          "k"
+        ]
+      },
+      {
+        "expr": "(== k 4)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+        "source_line": 7,
+        "source_col": 1,
+        "branch_id": "7:1",
+        "vars": [
+          "k"
+        ]
+      },
+      {
+        "expr": "(== k 4)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+        "source_line": 7,
+        "source_col": 1,
+        "branch_id": "7:1",
+        "vars": [
+          "k"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py:6"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py:8"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+        6,
+        0,
+        "6:bsearch"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py",
+        8,
+        0,
+        "8:bsearch"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+        7,
+        0,
+        "7:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py",
+        7,
+        0,
+        "7:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 4,
+      "num_variables": 1,
+      "num_branches": 2,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

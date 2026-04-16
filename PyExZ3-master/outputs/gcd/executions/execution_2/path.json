@@ -1,6 +1,6 @@
 {
   "execution_id": 2,
-  "timestamp": 1776232734.0753586,
+  "timestamp": 1776312087.5181348,
   "input_model": {
     "x": "x#0",
     "y": "y#-16"
@@ -12,33 +12,35 @@
   "return_value": "PRE",
   "branch_trace": [
     {
-      "expr": "(>= x#0, 0)",
+      "expr": "(>= x 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
+      "source_line": 65,
+      "source_col": "gcd",
+      "branch_id": "65:gcd",
       "vars": [
         "x"
       ]
     },
     {
-      "expr": "(>= y#-16, 0)",
+      "expr": "(>= y 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+      "source_line": 65,
+      "source_col": 2,
+      "branch_id": "65:2",
       "vars": [
         "y"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(>= x#0, 0) (True)",
-    "(>= y#-16, 0) (False)"
+    "(>= x 0)",
+    "(>= y 0)"
   ],
   "path_predicates_normalized": [
-    "(>= ARG0#0, 0) (True)",
-    "(>= ARG1#-16, 0) (False)"
+    "(<= 0 ARG0)",
+    "(<= 0 ARG1)"
   ],
   "semantic_info": {
     "path_length": 2,
@@ -50,26 +52,107 @@
       [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py:65"
       ],
       [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:65"
       ]
     ],
     "symbolic_variables": [
       "x",
       "y"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
+        65,
+        "65:gcd"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+        65,
+        "65:2"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(>= x#0, 0) (True)"
+      "(>= x 0)"
     ],
     "negations": [
-      "(>= y#-16, 0) (False)"
+      "(>= y 0)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(<= 0 ARG0)",
+      "(<= 0 ARG1)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(>= x 0)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
+        "source_line": 65,
+        "source_col": "gcd",
+        "branch_id": "65:gcd",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(>= y 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+        "source_line": 65,
+        "source_col": 2,
+        "branch_id": "65:2",
+        "vars": [
+          "y"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py:65"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:65"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py",
+        65,
+        0,
+        "65:gcd"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py",
+        65,
+        0,
+        "65:2"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 1
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

@@ -1,0 +1,16 @@
+(set-logic ALL)
+; Constraint ID: d3ecbf243b379282
+; Generated at: 2026-04-16 11:54:14
+; Solver: Z3Wrapper
+; Number of assertions: 0
+; Has query: True
+
+(declare-const se Int)
+(declare-const x Int)
+
+
+; Query: ((== x 60598)) (False)
+(assert (not (not (= x 60598))))
+
+(check-sat)
+(get-model)

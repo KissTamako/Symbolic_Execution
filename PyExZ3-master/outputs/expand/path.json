@@ -1,6 +1,6 @@
 {
-  "path_id": 3149274231248,
-  "timestamp": 1776232731.0017273,
+  "path_id": 2800857762320,
+  "timestamp": 1776312084.1932194,
   "input_model": {
     "in1": "in1#3222421507",
     "in2": "in2#1115785390"
@@ -12,11 +12,12 @@
   "return_value": 0,
   "branch_trace": [
     {
-      "expr": "(>= (+ in1#3222421507, in2#1115785390), 4294967296)",
+      "expr": "(>= (+ in1 in2) 4294967296)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+      "source_line": 2,
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in2",
         "in1"
@@ -24,10 +25,10 @@
     }
   ],
   "path_predicates_raw": [
-    "(>= (+ in1#3222421507, in2#1115785390), 4294967296) (True)"
+    "(>= (+ in1 in2) 4294967296)"
   ],
   "path_predicates_normalized": [
-    "(>= (+ ARG1#3222421507, ARG0#1115785390), 4294967296) (True)"
+    "(<= 4294967296 (+ ARG0 ARG1))"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -38,19 +39,71 @@
       [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py:2"
       ]
     ],
     "symbolic_variables": [
       "in2",
       "in1"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+        2,
+        "2:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(>= (+ in1#3222421507, in2#1115785390), 4294967296) (True)"
+      "(>= (+ in1 in2) 4294967296)"
     ],
     "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(<= 4294967296 (+ ARG0 ARG1))"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(>= (+ in1 in2) 4294967296)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4",
+        "vars": [
+          "in2",
+          "in1"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py:2"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\expand.py",
+        2,
+        0,
+        "2:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 1,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

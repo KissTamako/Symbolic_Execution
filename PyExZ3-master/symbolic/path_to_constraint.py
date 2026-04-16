@@ -26,12 +26,12 @@ class PathToConstraint:
 				self.expected_path.append(tmp.predicate)
 				tmp = tmp.parent
 
-	def whichBranch(self, branch, symbolic_type, source_file=None, source_line=None, branch_id=None):
+	def whichBranch(self, branch, symbolic_type, source_file=None, source_line=None, branch_id=None, col=None):
 		""" This function acts as instrumentation.
 		Branch can be either True or False."""
 
 		# add both possible predicate outcomes to constraint (tree)
-		p = Predicate(symbolic_type, branch, source_file, source_line, branch_id)
+		p = Predicate(symbolic_type, branch, source_file, source_line, branch_id, col)
 		p.negate()
 		cneg = self.current_constraint.findChild(p)
 		p.negate()

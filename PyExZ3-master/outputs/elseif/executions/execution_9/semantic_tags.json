@@ -1,86 +1,95 @@
 {
-  "timestamp": 1776232730.7124224,
-  "total_tags": 27,
+  "timestamp": 1776312083.9749243,
+  "total_tags": 36,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== in1#2, 0) (False)",
+      "predicate": "(== in1 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(== in1#2, 1) (False)",
+      "predicate": "(== in1 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(== in1#4, 2) (False)",
+      "predicate": "(== in1 2)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(== in1#4, 3) (False)",
+      "predicate": "(== in1 3)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 4,
-      "predicate": "(== in1#6, 4) (False)",
+      "predicate": "(== in1 4)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 5,
-      "predicate": "(== in1#6, 5) (False)",
+      "predicate": "(== in1 5)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 6,
-      "predicate": "(== in1#8, 6) (False)",
+      "predicate": "(== in1 6)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 7,
-      "predicate": "(== in1#8, 7) (False)",
+      "predicate": "(== in1 7)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     },
     {
       "branch_index": 8,
-      "predicate": "(== in1#12, 8) (False)",
+      "predicate": "(== in1 8)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     }
   ]

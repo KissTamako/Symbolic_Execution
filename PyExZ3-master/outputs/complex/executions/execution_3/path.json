@@ -1,6 +1,6 @@
 {
   "execution_id": 3,
-  "timestamp": 1776232727.391932,
+  "timestamp": 1776312081.0079508,
   "input_model": {
     "x": "x#4294967296",
     "y": "y#4294967499"
@@ -12,33 +12,35 @@
   "return_value": 2,
   "branch_trace": [
     {
-      "expr": "(>= y#4294967296, 4294967296)",
+      "expr": "(>= y 4294967296)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+      "source_line": 2,
+      "source_col": 2,
+      "branch_id": "2:2",
       "vars": [
         "y"
       ]
     },
     {
-      "expr": "(== x#4294967296, 4294967499)",
+      "expr": "(== x 4294967499)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+      "source_line": 2,
+      "source_col": 2,
+      "branch_id": "2:2",
       "vars": [
         "x"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(>= y#4294967296, 4294967296) (True)",
-    "(== x#4294967296, 4294967499) (False)"
+    "(>= y 4294967296)",
+    "(== x 4294967499)"
   ],
   "path_predicates_normalized": [
-    "(>= ARG0#4294967296, 4294967296) (True)",
-    "(== ARG1#4294967296, 4294967499) (False)"
+    "(<= 4294967296 ARG0)",
+    "(== ARG1 4294967499)"
   ],
   "semantic_info": {
     "path_length": 2,
@@ -50,26 +52,107 @@
       [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
       ]
     ],
     "symbolic_variables": [
       "y",
       "x"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        2,
+        "2:2"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        2,
+        "2:2"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(>= y#4294967296, 4294967296) (True)"
+      "(>= y 4294967296)"
     ],
     "negations": [
-      "(== x#4294967296, 4294967499) (False)"
+      "(== x 4294967499)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(<= 4294967296 ARG0)",
+      "(== ARG1 4294967499)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(>= y 4294967296)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        "source_line": 2,
+        "source_col": 2,
+        "branch_id": "2:2",
+        "vars": [
+          "y"
+        ]
+      },
+      {
+        "expr": "(== x 4294967499)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        "source_line": 2,
+        "source_col": 2,
+        "branch_id": "2:2",
+        "vars": [
+          "x"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>=",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        2,
+        0,
+        "2:2"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+        2,
+        0,
+        "2:2"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 1
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

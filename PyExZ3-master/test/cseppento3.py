@@ -15,6 +15,6 @@ def cseppento3(x):
         sum = sum + i
     return sum
 
-#def expected_result():
-#    return []
+def expected_result():
+    return []
     

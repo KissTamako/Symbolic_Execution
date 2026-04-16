@@ -1,42 +1,44 @@
 {
   "execution_id": 12,
-  "timestamp": 1776232731.8291667,
+  "timestamp": 1776312084.9228387,
   "input_model": {
-    "x": "x#57563"
+    "x": "x#60641"
   },
   "concrete_inputs": {
-    "x": 57563
+    "x": 60641
   },
   "return_value": 2,
   "branch_trace": [
     {
-      "expr": "(== x#57563, 57583)",
+      "expr": "(== x 60661)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+      "source_line": 17,
+      "source_col": 1,
+      "branch_id": "17:1",
       "vars": [
         "x"
       ]
     },
     {
-      "expr": "(== x#57563, 57584)",
+      "expr": "(== x 60662)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+      "source_line": 17,
+      "source_col": 1,
+      "branch_id": "17:1",
       "vars": [
         "x"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== x#57563, 57583) (False)",
-    "(== x#57563, 57584) (False)"
+    "(== x 60661)",
+    "(== x 60662)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#57563, 57583) (False)",
-    "(== ARG0#57563, 57584) (False)"
+    "(== ARG0 60661)",
+    "(== ARG0 60662)"
   ],
   "semantic_info": {
     "path_length": 2,
@@ -48,24 +50,105 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py:17"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py:17"
       ]
     ],
     "symbolic_variables": [
       "x"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+        17,
+        "17:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+        17,
+        "17:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [],
     "negations": [
-      "(== x#57563, 57583) (False)",
-      "(== x#57563, 57584) (False)"
+      "(== x 60661)",
+      "(== x 60662)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 60661)",
+      "(== ARG0 60662)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== x 60661)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+        "source_line": 17,
+        "source_col": 1,
+        "branch_id": "17:1",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(== x 60662)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+        "source_line": 17,
+        "source_col": 1,
+        "branch_id": "17:1",
+        "vars": [
+          "x"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py:17"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py:17"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+        17,
+        0,
+        "17:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py",
+        17,
+        0,
+        "17:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

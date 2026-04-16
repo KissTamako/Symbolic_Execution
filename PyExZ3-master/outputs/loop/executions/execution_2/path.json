@@ -1,6 +1,6 @@
 {
   "execution_id": 2,
-  "timestamp": 1776232736.3298483,
+  "timestamp": 1776312089.2317905,
   "input_model": {
     "in1": "in1#-14",
     "in2": "in2#-16"
@@ -12,34 +12,36 @@
   "return_value": 1,
   "branch_trace": [
     {
-      "expr": "(> in1#2, in2#0)",
+      "expr": "(> in1 in2)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+      "source_line": 2,
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in2",
         "in1"
       ]
     },
     {
-      "expr": "(> in1#-14, 0)",
+      "expr": "(> in1 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+      "source_line": 2,
+      "source_col": 4,
+      "branch_id": "2:4",
       "vars": [
         "in1"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(> in1#2, in2#0) (True)",
-    "(> in1#-14, 0) (False)"
+    "(> in1 in2)",
+    "(> in1 0)"
   ],
   "path_predicates_normalized": [
-    "(> ARG1#2, ARG0#0) (True)",
-    "(> ARG1#-14, 0) (False)"
+    "(< ARG1 ARG0)",
+    "(< 0 ARG0)"
   ],
   "semantic_info": {
     "path_length": 2,
@@ -51,26 +53,108 @@
       [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
       ],
       [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
       ]
     ],
     "symbolic_variables": [
       "in2",
       "in1"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+        2,
+        "2:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+        2,
+        "2:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(> in1#2, in2#0) (True)"
+      "(> in1 in2)"
     ],
     "negations": [
-      "(> in1#-14, 0) (False)"
+      "(> in1 0)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(< ARG1 ARG0)",
+      "(< 0 ARG0)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(> in1 in2)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4",
+        "vars": [
+          "in2",
+          "in1"
+        ]
+      },
+      {
+        "expr": "(> in1 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+        "source_line": 2,
+        "source_col": 4,
+        "branch_id": "2:4",
+        "vars": [
+          "in1"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+        2,
+        0,
+        "2:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+        2,
+        0,
+        "2:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 1
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

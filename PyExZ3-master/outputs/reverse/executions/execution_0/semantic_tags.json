@@ -1,14 +1,15 @@
 {
-  "timestamp": 1776232739.6014714,
-  "total_tags": 3,
+  "timestamp": 1776312091.801242,
+  "total_tags": 4,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== (- x#0, 5), 0) (False)",
+      "predicate": "(== (- x 5) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\reverse.py:4"
       ]
     }
   ]

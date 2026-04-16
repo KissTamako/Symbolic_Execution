@@ -1,32 +1,35 @@
 {
-  "timestamp": 1776232737.3579905,
-  "total_tags": 9,
+  "timestamp": 1776312090.0554528,
+  "total_tags": 12,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(> y#2, 0) (True)",
+      "predicate": "(> y 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(< y#2, 10) (True)",
+      "predicate": "(< y 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(== (% x#0, (+ y#2, 1)), 3) (False)",
+      "predicate": "(== (% x (+ y 1)) 3)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mod.py:2"
       ]
     }
   ]

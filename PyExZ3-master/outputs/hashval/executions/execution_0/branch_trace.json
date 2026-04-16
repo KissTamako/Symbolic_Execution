@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232735.0298162,
+  "timestamp": 1776312088.2964451,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== (^ (+ key#0, (<< key#0, 10)), (>> (+ key#0, (<< key#0, 10)), 6)), (+ key#0, 1)) (False)",
+      "predicate": "(== (^ (+ key (<< key 10)) (>> (+ key (<< key 10)) 6)) (+ key 1))",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py",
+      "source_line": 11,
+      "branch_id": "11:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\hashval.py:11"
       ]
     }
   ]

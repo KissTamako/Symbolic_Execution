@@ -1,41 +1,44 @@
 {
-  "timestamp": 1776232736.654874,
+  "timestamp": 1776312089.445443,
   "trace_length": 3,
   "branches": [
     {
-      "predicate": "(== in1#2, 0) (False)",
+      "predicate": "(== in1 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+      "source_line": 6,
+      "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
       ]
     },
     {
-      "predicate": "(== in1#1, 1) (True)",
+      "predicate": "(== in1 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+      "source_line": 6,
+      "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
       ]
     },
     {
-      "predicate": "(== in2#7, 7) (True)",
+      "predicate": "(== in2 7)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py",
+      "source_line": 6,
+      "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\many_branches.py:6"
       ]
     }
   ]

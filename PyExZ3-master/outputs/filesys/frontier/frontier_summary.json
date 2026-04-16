@@ -1,210 +1,210 @@
 [
   {
-    "constraint_id": 25,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "64d9cb8241553576",
+    "index": 0,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_0_64d9cb8241553576.smt2"
   },
   {
-    "constraint_id": 26,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "88acfbc348613978",
+    "index": 1,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_1_88acfbc348613978.smt2"
   },
   {
-    "constraint_id": 27,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "687f8ddc6c241d04",
+    "index": 2,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_2_687f8ddc6c241d04.smt2"
   },
   {
-    "constraint_id": 28,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "55d4e5ae46ed0180",
+    "index": 3,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_3_55d4e5ae46ed0180.smt2"
   },
   {
-    "constraint_id": 29,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "d98801bbc32aa5bb",
+    "index": 4,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_4_d98801bbc32aa5bb.smt2"
   },
   {
-    "constraint_id": 30,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "650764dcd2a900f3",
+    "index": 5,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_5_650764dcd2a900f3.smt2"
   },
   {
-    "constraint_id": 31,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "0d6daac8d85e5cdf",
+    "index": 6,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_6_0d6daac8d85e5cdf.smt2"
   },
   {
-    "constraint_id": 32,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "b90faa9df9903f8d",
+    "index": 7,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_7_b90faa9df9903f8d.smt2"
   },
   {
-    "constraint_id": 33,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "0e36ed3bf722a5b4",
+    "index": 8,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_8_0e36ed3bf722a5b4.smt2"
   },
   {
-    "constraint_id": 34,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "606d0a0dd148ba69",
+    "index": 9,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_9_606d0a0dd148ba69.smt2"
   },
   {
-    "constraint_id": 35,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "9a5f9b5e7f457dc3",
+    "index": 10,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_10_9a5f9b5e7f457dc3.smt2"
   },
   {
-    "constraint_id": 36,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "bedde37a6923674a",
+    "index": 11,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_11_bedde37a6923674a.smt2"
   },
   {
-    "constraint_id": 37,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "d4d67bc8225179c1",
+    "index": 12,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_12_d4d67bc8225179c1.smt2"
   },
   {
-    "constraint_id": 38,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "ce350a2892b78d5b",
+    "index": 13,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_13_ce350a2892b78d5b.smt2"
   },
   {
-    "constraint_id": 39,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "2271ef6931b58d31",
+    "index": 14,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_14_2271ef6931b58d31.smt2"
   },
   {
-    "constraint_id": 40,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "2958fab30a953a06",
+    "index": 15,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_15_2958fab30a953a06.smt2"
   },
   {
-    "constraint_id": 41,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "aefbd77881694b39",
+    "index": 16,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_16_aefbd77881694b39.smt2"
   },
   {
-    "constraint_id": 42,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "eb8196449a4d4c97",
+    "index": 17,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_17_eb8196449a4d4c97.smt2"
   },
   {
-    "constraint_id": 43,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "6fd6ca20f229eda3",
+    "index": 18,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_18_6fd6ca20f229eda3.smt2"
   },
   {
-    "constraint_id": 44,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "1964c470971ea527",
+    "index": 19,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_19_1964c470971ea527.smt2"
   },
   {
-    "constraint_id": 45,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "0df96cdd2061a499",
+    "index": 20,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_20_0df96cdd2061a499.smt2"
   },
   {
-    "constraint_id": 46,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "77da26454820ef13",
+    "index": 21,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_21_77da26454820ef13.smt2"
   },
   {
-    "constraint_id": 47,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "333ab38fdf6188a6",
+    "index": 22,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_22_333ab38fdf6188a6.smt2"
   },
   {
-    "constraint_id": 48,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "7dc28fc61ab9a635",
+    "index": 23,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_23_7dc28fc61ab9a635.smt2"
   },
   {
-    "constraint_id": 49,
-    "path_length": 1,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "13349ada5e24d566",
+    "index": 24,
+    "assertions_count": 0,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_24_13349ada5e24d566.smt2"
   },
   {
-    "constraint_id": 50,
-    "path_length": 2,
-    "processed": false,
-    "variables": [
-      "x"
-    ]
+    "constraint_id": "5329af322e14eca6",
+    "index": 25,
+    "assertions_count": 1,
+    "has_query": true,
+    "variables_count": 2,
+    "smt_file": "frontier_25_5329af322e14eca6.smt2"
   }
 ]

@@ -1,482 +1,475 @@
 {
-  "timestamp": 1776232734.2398481,
-  "total_tags": 159,
+  "timestamp": 1776312087.6867993,
+  "total_tags": 188,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(>= x#0, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\gcd.py:65"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(>= y#0, 0) (True)",
+      "predicate": "(>= y 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:65"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(== x#14, y#1) (False)",
+      "predicate": "(== x y)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(== x#14, 0) (False)",
+      "predicate": "(== x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:5"
       ]
     },
     {
       "branch_index": 4,
-      "predicate": "(== y#1, 0) (False)",
+      "predicate": "(== y 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 5,
-      "predicate": "(& x#13, 1) (True)",
+      "predicate": "(& x 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 6,
-      "predicate": "(& y#2, 1) (False)",
+      "predicate": "(& y 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 7,
-      "predicate": "(== x#13, (>> y#2, 1)) (False)",
+      "predicate": "(== x (>> y 1))",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
       "branch_index": 8,
-      "predicate": "(== x#13, 0) (False)",
+      "predicate": "(== x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:5"
       ]
     },
     {
       "branch_index": 9,
-      "predicate": "(== (>> y#2, 1), 0) (False)",
+      "predicate": "(== (>> y 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 10,
-      "predicate": "(& x#13, 1) (True)",
+      "predicate": "(& x 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 11,
-      "predicate": "(& (>> y#2, 1), 1) (True)",
+      "predicate": "(& (>> y 1) 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 12,
-      "predicate": "(> x#13, (>> y#2, 1)) (True)",
+      "predicate": "(> x (>> y 1))",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 13,
-      "predicate": "(== (>> (- x#13, (>> y#2, 1)), 1), (>> y#2, 1)) (False)",
+      "predicate": "(== (>> (- x (>> y 1)) 1) (>> y 1))",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
       "branch_index": 14,
-      "predicate": "(== (>> (- x#13, (>> y#2, 1)), 1), 0) (False)",
+      "predicate": "(== (>> (- x (>> y 1)) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:5"
       ]
     },
     {
       "branch_index": 15,
-      "predicate": "(== (>> y#2, 1), 0) (False)",
+      "predicate": "(== (>> y 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 16,
-      "predicate": "(& (>> (- x#13, (>> y#14, 1)), 1), 1) (True)",
+      "predicate": "(& (>> (- x (>> y 1)) 1) 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 17,
-      "predicate": "(& (>> y#14, 1), 1) (True)",
+      "predicate": "(& (>> y 1) 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 18,
-      "predicate": "(> (>> (- x#13, (>> y#14, 1)), 1), (>> y#14, 1)) (False)",
+      "predicate": "(> (>> (- x (>> y 1)) 1) (>> y 1))",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 19,
-      "predicate": "(== (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), (>> (- x#13, (>> y#14, 1)), 1)) (False)",
+      "predicate": "(== (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1))",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
       "branch_index": 20,
-      "predicate": "(== (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 0) (False)",
+      "predicate": "(== (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:5"
       ]
     },
     {
       "branch_index": 21,
-      "predicate": "(== (>> (- x#13, (>> y#14, 1)), 1), 0) (False)",
+      "predicate": "(== (>> (- x (>> y 1)) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 22,
-      "predicate": "(& (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1) (False)",
+      "predicate": "(& (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:False"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:8"
       ]
     },
     {
       "branch_index": 23,
-      "predicate": "(& (>> (- x#13, (>> y#14, 1)), 1), 1) (True)",
+      "predicate": "(& (>> (- x (>> y 1)) 1) 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:&",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 24,
-      "predicate": "(== (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), (>> (- x#13, (>> y#14, 1)), 1)) (False)",
+      "predicate": "(> (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1))",
       "tags": [
         "type:SymbolicInteger",
-        "op:==",
-        "branch:False"
+        "op:>",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:11"
       ]
     },
     {
       "branch_index": 25,
-      "predicate": "(== (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), 0) (False)",
+      "predicate": "(== (>> (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1))",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:2"
       ]
     },
     {
       "branch_index": 26,
-      "predicate": "(== (>> (- x#13, (>> y#14, 1)), 1), 0) (False)",
+      "predicate": "(== x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:28"
       ]
     },
     {
       "branch_index": 27,
-      "predicate": "(& (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), 1) (True)",
+      "predicate": "(== y 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:&",
-        "branch:True"
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:30"
       ]
     },
     {
       "branch_index": 28,
-      "predicate": "(& (>> (- x#13, (>> y#14, 1)), 1), 1) (True)",
+      "predicate": "(== (& (| x y) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:&",
-        "branch:True"
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:36"
       ]
     },
     {
       "branch_index": 29,
-      "predicate": "(> (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), (>> (- x#13, (>> y#14, 1)), 1)) (False)",
+      "predicate": "(== (& x 1) 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:>",
-        "branch:False"
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:41"
       ]
     },
     {
       "branch_index": 30,
-      "predicate": "(== (>> (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)) (True)",
+      "predicate": "(== (& y 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 31,
-      "predicate": "(== x#13, 0) (False)",
+      "predicate": "(== (& (>> y 1) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 32,
-      "predicate": "(== y#14, 0) (False)",
+      "predicate": "(> x (>> y 1))",
       "tags": [
         "type:SymbolicInteger",
-        "op:==",
-        "branch:False"
+        "op:>",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 33,
-      "predicate": "(== (& (| x#13, y#14), 1), 0) (False)",
+      "predicate": "(== (- x (>> y 1)) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 34,
-      "predicate": "(== (& x#13, 1), 0) (False)",
+      "predicate": "(== (& (- x (>> y 1)) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 35,
-      "predicate": "(== (& y#14, 1), 0) (True)",
+      "predicate": "(== (& (>> (- x (>> y 1)) 1) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 36,
-      "predicate": "(== (& (>> y#14, 1), 1), 0) (False)",
+      "predicate": "(> (>> y 1) (>> (- x (>> y 1)) 1))",
       "tags": [
         "type:SymbolicInteger",
-        "op:==",
-        "branch:False"
+        "op:>",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 37,
-      "predicate": "(> x#13, (>> y#14, 1)) (True)",
+      "predicate": "(== (- (>> y 1) (>> (- x (>> y 1)) 1)) 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:>",
-        "branch:True"
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 38,
-      "predicate": "(== (- x#13, (>> y#14, 1)), 0) (False)",
+      "predicate": "(== (& (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 39,
-      "predicate": "(== (& (- x#13, (>> y#14, 1)), 1), 0) (True)",
+      "predicate": "(== (& (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 40,
-      "predicate": "(== (& (>> (- x#13, (>> y#14, 1)), 1), 1), 0) (False)",
+      "predicate": "(> (>> (- x (>> y 1)) 1) (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1))",
       "tags": [
         "type:SymbolicInteger",
-        "op:==",
-        "branch:False"
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 41,
-      "predicate": "(> (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)) (True)",
+      "predicate": "(== (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:>",
-        "branch:True"
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 42,
-      "predicate": "(== (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 0) (False)",
+      "predicate": "(== (& (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 43,
-      "predicate": "(== (& (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 0) (True)",
+      "predicate": "(== (& (>> (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 1) 1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 44,
-      "predicate": "(== (& (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), 0) (True)",
+      "predicate": "(> (>> (- x (>> y 1)) 1) (>> (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 1))",
       "tags": [
         "type:SymbolicInteger",
-        "op:==",
-        "branch:True"
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 45,
-      "predicate": "(== (& (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), 1), 0) (False)",
+      "predicate": "(== (- (>> (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     },
     {
       "branch_index": 46,
-      "predicate": "(> (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)) (True)",
-      "tags": [
-        "type:SymbolicInteger",
-        "op:>",
-        "branch:True"
-      ]
-    },
-    {
-      "branch_index": 47,
-      "predicate": "(== (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 0) (False)",
-      "tags": [
-        "type:SymbolicInteger",
-        "op:==",
-        "branch:False"
-      ]
-    },
-    {
-      "branch_index": 48,
-      "predicate": "(== (& (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 1), 0) (True)",
-      "tags": [
-        "type:SymbolicInteger",
-        "op:==",
-        "branch:True"
-      ]
-    },
-    {
-      "branch_index": 49,
-      "predicate": "(== (& (>> (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 1), 1), 0) (False)",
-      "tags": [
-        "type:SymbolicInteger",
-        "op:==",
-        "branch:False"
-      ]
-    },
-    {
-      "branch_index": 50,
-      "predicate": "(> (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), (>> (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 1)) (False)",
-      "tags": [
-        "type:SymbolicInteger",
-        "op:>",
-        "branch:False"
-      ]
-    },
-    {
-      "branch_index": 51,
-      "predicate": "(== (- (>> (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 0) (True)",
-      "tags": [
-        "type:SymbolicInteger",
-        "op:==",
-        "branch:True"
-      ]
-    },
-    {
-      "branch_index": 52,
-      "predicate": "(!= (>> (- (>> (- x#13, (>> y#14, 1)), 1), (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1)), 1), (<< (>> (>> (- (>> y#14, 1), (>> (- x#13, (>> y#14, 1)), 1)), 1), 1), 0)) (False)",
+      "predicate": "(!= (>> (- (>> (- (>> y 1) (>> (- x (>> y 1)) 1)) 1) (>> (- x (>> y 1)) 1)) 1) (<< (>> (- x (>> y 1)) 1) 0))",
       "tags": [
         "type:SymbolicInteger",
         "op:!=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\gcd.py:45"
       ]
     }
   ]

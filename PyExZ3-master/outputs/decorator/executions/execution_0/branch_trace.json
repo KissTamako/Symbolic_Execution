@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232729.0442557,
+  "timestamp": 1776312082.5566616,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== (+ 3, c#3), 6) (True)",
+      "predicate": "(== (+ 3 c) 6)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py",
+      "source_line": 6,
+      "branch_id": "6:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\decorator.py:6"
       ]
     }
   ]

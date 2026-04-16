@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232736.3274457,
+  "timestamp": 1776312089.2247868,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(> in1#0, in2#0) (False)",
+      "predicate": "(> in1 in2)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py",
+      "source_line": 2,
+      "branch_id": "2:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\loop.py:2"
       ]
     }
   ]

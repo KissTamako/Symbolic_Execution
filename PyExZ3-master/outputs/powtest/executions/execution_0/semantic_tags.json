@@ -1,14 +1,15 @@
 {
-  "timestamp": 1776232739.3246691,
-  "total_tags": 3,
+  "timestamp": 1776312091.591813,
+  "total_tags": 4,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== (* in1#0, in1#0), 0) (True)",
+      "predicate": "(== (* in1 in1) 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\powtest.py:2"
       ]
     }
   ]

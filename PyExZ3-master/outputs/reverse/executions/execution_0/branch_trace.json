@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232739.599968,
+  "timestamp": 1776312091.8002357,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== (- x#0, 5), 0) (False)",
+      "predicate": "(== (- x 5) 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\reverse.py",
+      "source_line": 4,
+      "branch_id": "4:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\reverse.py:4"
       ]
     }
   ]

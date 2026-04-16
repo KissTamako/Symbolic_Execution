@@ -1,6 +1,6 @@
 {
-  "path_id": 2808261412304,
-  "timestamp": 1776232729.4041746,
+  "path_id": 1758173907472,
+  "timestamp": 1776312082.77392,
   "input_model": {
     "d": "d#{42: 6}"
   },
@@ -23,5 +23,21 @@
   "path_constraints": {
     "assertions": [],
     "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [],
+    "branch_trace": [],
+    "semantic_tags": [],
+    "source_spans": [],
+    "path_summary": {
+      "path_length": 0,
+      "num_variables": 0,
+      "num_branches": 0,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

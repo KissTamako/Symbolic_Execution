@@ -1,68 +1,75 @@
 {
-  "timestamp": 1776232737.040887,
-  "total_tags": 21,
+  "timestamp": 1776312089.7560203,
+  "total_tags": 28,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(< a#0, b#2) (True)",
+      "predicate": "(< a b)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(< c#0, d#0) (False)",
+      "predicate": "(< c d)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(< b#2, c#0) (False)",
+      "predicate": "(< b c)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(< b#2, a#0) (False)",
+      "predicate": "(< b a)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
       "branch_index": 4,
-      "predicate": "(< b#2, b#2) (False)",
+      "predicate": "(< b b)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
       "branch_index": 5,
-      "predicate": "(< b#2, c#0) (False)",
+      "predicate": "(< b c)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
       "branch_index": 6,
-      "predicate": "(< b#2, d#0) (False)",
+      "predicate": "(< b d)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:15"
       ]
     }
   ]

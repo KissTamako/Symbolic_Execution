@@ -1,29 +1,44 @@
 {
-  "timestamp": 1776232743.0325327,
-  "trace_length": 2,
+  "timestamp": 1776312094.9300961,
+  "trace_length": 3,
   "branches": [
     {
-      "predicate": "(>= x#0, 0) (True)",
+      "predicate": "(>= x 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\whileloop.py",
+      "source_line": 3,
+      "branch_id": "3:whileloop",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\whileloop.py:3"
       ]
     },
     {
-      "predicate": "(< x#10, 10) (False)",
+      "predicate": "(< x 10)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py",
+      "source_line": 3,
+      "branch_id": "3:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
+      ]
+    },
+    {
+      "predicate": "(< x 10)",
+      "result": false,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py",
+      "source_line": 3,
+      "branch_id": "3:1",
+      "semantic_tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     }
   ]

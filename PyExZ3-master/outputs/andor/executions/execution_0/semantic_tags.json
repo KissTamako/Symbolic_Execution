@@ -1,21 +1,23 @@
 {
-  "timestamp": 1776232725.0017114,
-  "total_tags": 4,
+  "timestamp": 1776312079.0371878,
+  "total_tags": 6,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "x#0 (False)",
+      "predicate": "x",
       "tags": [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\andor.py:2"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "y#0 (False)",
+      "predicate": "y",
       "tags": [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py:2"
       ]
     }
   ]

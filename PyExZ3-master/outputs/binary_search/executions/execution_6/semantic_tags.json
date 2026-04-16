@@ -1,41 +1,45 @@
 {
-  "timestamp": 1776232726.635799,
-  "total_tags": 12,
+  "timestamp": 1776312080.3813317,
+  "total_tags": 16,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== k#0, 95) (False)",
+      "predicate": "(== k 95)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\binary_search.py:6"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(> k#96, 95) (True)",
+      "predicate": "(> k 95)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(== k#4944, 4944) (True)",
+      "predicate": "(== k 4944)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(== k#4944, 4944) (True)",
+      "predicate": "(== k 4944)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ]
     }
   ]

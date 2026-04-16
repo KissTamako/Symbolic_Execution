@@ -16,15 +16,18 @@ class TestConstraintNormalizer(unittest.TestCase):
     
     def test_variable_renaming(self):
         """测试变量重命名功能"""
+        # 测试动态变量映射
         test_cases = [
             ('a', 'ARG0'),
             ('b', 'ARG1'),
             ('c', 'ARG2'),
-            ('x', 'ARG0'),
-            ('y', 'ARG1'),
-            ('z', 'ARG2'),
-            ('arg0', 'arg0'),  # 不在映射表中的变量
+            ('x', 'ARG3'),
+            ('y', 'ARG4'),
+            ('z', 'ARG5'),
         ]
+        
+        # 重置 normalizer 以确保计数器从 0 开始
+        self.normalizer = ConstraintNormalizer()
         
         for input_var, expected in test_cases:
             result = self.normalizer._rename_variable(input_var)
@@ -32,20 +35,29 @@ class TestConstraintNormalizer(unittest.TestCase):
     
     def test_expression_normalization(self):
         """测试表达式标准化功能"""
-        # 测试交换律操作的排序
+        # 重置 normalizer
+        self.normalizer = ConstraintNormalizer()
+        
+        # 测试交换律操作的排序和变量重命名
         expr1 = ['+', 'b', 'a']
         normalized1 = self.normalizer.normalize_expression(expr1)
-        self.assertEqual(normalized1, ['+', 'a', 'b'])
+        self.assertEqual(normalized1, ['+', 'ARG0', 'ARG1'])
+        
+        # 重置 normalizer 重新开始
+        self.normalizer = ConstraintNormalizer()
         
         # 测试比较操作的方向规范化
         expr2 = ['>', 'x', 5]
         normalized2 = self.normalizer.normalize_expression(expr2)
-        self.assertEqual(normalized2, ['<', 5, 'x'])
+        self.assertEqual(normalized2, ['<', 5, 'ARG0'])
+        
+        # 重置 normalizer 重新开始
+        self.normalizer = ConstraintNormalizer()
         
         # 测试常量合并
         expr3 = ['+', 1, 2, 'x']
         normalized3 = self.normalizer.normalize_expression(expr3)
-        self.assertEqual(normalized3, ['+', 3, 'x'])
+        self.assertEqual(normalized3, ['+', 3, 'ARG0'])
     
     def test_constant_merging(self):
         """测试常量合并功能"""

@@ -1,0 +1,154 @@
+{
+  "execution_id": 0,
+  "timestamp": 1776312092.7552514,
+  "input_model": {
+    "x": "x#0"
+  },
+  "concrete_inputs": {
+    "x": 0
+  },
+  "return_value": "Zero",
+  "branch_trace": [
+    {
+      "expr": "(> x 0)",
+      "result": false,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+      "source_line": 5,
+      "source_col": 4,
+      "branch_id": "5:4",
+      "vars": [
+        "x"
+      ]
+    },
+    {
+      "expr": "(< x 0)",
+      "result": false,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+      "source_line": 5,
+      "source_col": 4,
+      "branch_id": "5:4",
+      "vars": [
+        "x"
+      ]
+    }
+  ],
+  "path_predicates_raw": [
+    "(> x 0)",
+    "(< x 0)"
+  ],
+  "path_predicates_normalized": [
+    "(< 0 ARG0)",
+    "(< ARG0 0)"
+  ],
+  "semantic_info": {
+    "path_length": 2,
+    "branch_directions": [
+      false,
+      false
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ]
+    ],
+    "symbolic_variables": [
+      "x"
+    ],
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        5,
+        "5:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        5,
+        "5:4"
+      ]
+    ]
+  },
+  "path_constraints": {
+    "assertions": [],
+    "negations": [
+      "(> x 0)",
+      "(< x 0)"
+    ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(< 0 ARG0)",
+      "(< ARG0 0)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(> x 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        "source_line": 5,
+        "source_col": 4,
+        "branch_id": "5:4",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(< x 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        "source_line": 5,
+        "source_col": 4,
+        "branch_id": "5:4",
+        "vars": [
+          "x"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        5,
+        0,
+        "5:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py",
+        5,
+        0,
+        "5:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 2,
+      "num_variables": 1,
+      "num_branches": 0,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
+  }
+}

@@ -1,41 +1,44 @@
 {
-  "timestamp": 1776232741.358932,
+  "timestamp": 1776312093.4443798,
   "trace_length": 3,
   "branches": [
     {
-      "predicate": "(> in1#2, in2#0) (True)",
+      "predicate": "(> in1 in2)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+      "source_line": 2,
+      "branch_id": "2:unnecessary_condition",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:2"
       ]
     },
     {
-      "predicate": "(< in1#2, in2#0) (False)",
+      "predicate": "(< in1 in2)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+      "source_line": 3,
+      "branch_id": "3:unnecessary_condition",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:3"
       ]
     },
     {
-      "predicate": "(< in1#2, in2#0) (False)",
+      "predicate": "(< in1 in2)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py",
+      "source_line": 4,
+      "branch_id": "4:unnecessary_condition",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition.py:4"
       ]
     }
   ]

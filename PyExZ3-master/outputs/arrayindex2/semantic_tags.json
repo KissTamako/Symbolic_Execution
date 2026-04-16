@@ -1,32 +1,35 @@
 {
-  "timestamp": 1776232725.3278866,
-  "total_tags": 9,
+  "timestamp": 1776312079.3013332,
+  "total_tags": 12,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== i#0, 1) (False)",
+      "predicate": "(== i 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py:5"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(== i#0, 4) (False)",
+      "predicate": "(== i 4)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\arrayindex2.py:5"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(== i#6, 6) (True)",
+      "predicate": "(== i 6)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py:5"
       ]
     }
   ]

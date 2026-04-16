@@ -1,6 +1,6 @@
 {
   "execution_id": 1,
-  "timestamp": 1776232730.6801412,
+  "timestamp": 1776312083.94618,
   "input_model": {
     "in1": "in1#2"
   },
@@ -10,45 +10,48 @@
   "return_value": 2,
   "branch_trace": [
     {
-      "expr": "(== in1#2, 0)",
+      "expr": "(== in1 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+      "source_line": 6,
+      "source_col": 4,
+      "branch_id": "6:4",
       "vars": [
         "in1"
       ]
     },
     {
-      "expr": "(== in1#2, 1)",
+      "expr": "(== in1 1)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+      "source_line": 6,
+      "source_col": 4,
+      "branch_id": "6:4",
       "vars": [
         "in1"
       ]
     },
     {
-      "expr": "(== in1#2, 2)",
+      "expr": "(== in1 2)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+      "source_line": 6,
+      "source_col": 4,
+      "branch_id": "6:4",
       "vars": [
         "in1"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== in1#2, 0) (False)",
-    "(== in1#2, 1) (False)",
-    "(== in1#2, 2) (True)"
+    "(== in1 0)",
+    "(== in1 1)",
+    "(== in1 2)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#2, 0) (False)",
-    "(== ARG0#2, 1) (False)",
-    "(== ARG0#2, 2) (True)"
+    "(== ARG0 0)",
+    "(== ARG0 1)",
+    "(== ARG0 2)"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -61,31 +64,142 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
       ]
     ],
     "symbolic_variables": [
       "in1"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        6,
+        "6:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        6,
+        "6:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        6,
+        "6:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== in1#2, 2) (True)"
+      "(== in1 2)"
     ],
     "negations": [
-      "(== in1#2, 0) (False)",
-      "(== in1#2, 1) (False)"
+      "(== in1 0)",
+      "(== in1 1)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 0)",
+      "(== ARG0 1)",
+      "(== ARG0 2)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== in1 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        "source_line": 6,
+        "source_col": 4,
+        "branch_id": "6:4",
+        "vars": [
+          "in1"
+        ]
+      },
+      {
+        "expr": "(== in1 1)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        "source_line": 6,
+        "source_col": 4,
+        "branch_id": "6:4",
+        "vars": [
+          "in1"
+        ]
+      },
+      {
+        "expr": "(== in1 2)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        "source_line": 6,
+        "source_col": 4,
+        "branch_id": "6:4",
+        "vars": [
+          "in1"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py:6"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        6,
+        0,
+        "6:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        6,
+        0,
+        "6:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\elseif.py",
+        6,
+        0,
+        "6:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 3,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

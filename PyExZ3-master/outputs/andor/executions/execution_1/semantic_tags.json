@@ -1,13 +1,23 @@
 {
-  "timestamp": 1776232725.0043771,
-  "total_tags": 2,
+  "timestamp": 1776312079.039867,
+  "total_tags": 6,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "x#2 (True)",
+      "predicate": "x",
       "tags": [
         "type:SymbolicInteger",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py:2"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "x",
+      "tags": [
+        "type:SymbolicInteger",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007ndor.py:2"
       ]
     }
   ]

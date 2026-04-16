@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232730.3402112,
+  "timestamp": 1776312083.6554399,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== in1#3, 3) (True)",
+      "predicate": "(== in1 3)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\dictionary.py",
+      "source_line": 11,
+      "branch_id": "11:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\dictionary.py:11"
       ]
     }
   ]

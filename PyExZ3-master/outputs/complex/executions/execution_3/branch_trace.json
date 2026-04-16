@@ -1,29 +1,31 @@
 {
-  "timestamp": 1776232727.3930435,
+  "timestamp": 1776312081.0094569,
   "trace_length": 2,
   "branches": [
     {
-      "predicate": "(>= y#4294967296, 4294967296) (True)",
+      "predicate": "(>= y 4294967296)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+      "source_line": 2,
+      "branch_id": "2:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
       ]
     },
     {
-      "predicate": "(== x#4294967296, 4294967499) (False)",
+      "predicate": "(== x 4294967499)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py",
+      "source_line": 2,
+      "branch_id": "2:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\complex.py:2"
       ]
     }
   ]

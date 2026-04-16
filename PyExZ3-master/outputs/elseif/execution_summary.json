@@ -1,67 +1,6 @@
 {
-  "timestamp": 1776232730.6778708,
-  "generated_inputs": [
-    [
-      [
-        "in1",
-        0
-      ]
-    ],
-    [
-      [
-        "in1",
-        2
-      ]
-    ],
-    [
-      [
-        "in1",
-        1
-      ]
-    ],
-    [
-      [
-        "in1",
-        4
-      ]
-    ],
-    [
-      [
-        "in1",
-        3
-      ]
-    ],
-    [
-      [
-        "in1",
-        6
-      ]
-    ],
-    [
-      [
-        "in1",
-        5
-      ]
-    ],
-    [
-      [
-        "in1",
-        8
-      ]
-    ],
-    [
-      [
-        "in1",
-        7
-      ]
-    ],
-    [
-      [
-        "in1",
-        12
-      ]
-    ]
-  ],
+  "timestamp": 1776312083.9362166,
+  "generated_inputs_count": 10,
   "return_values": [
     0,
     2,
@@ -74,23 +13,6 @@
     7,
     9
   ],
-  "execution_count": 10,
-  "path_lengths": [
-    1,
-    3,
-    2,
-    5,
-    4,
-    7,
-    6,
-    9,
-    8,
-    9
-  ],
-  "semantic_summary": {
-    "total_branches": 54,
-    "unique_variables": [
-      "in1"
-    ]
-  }
+  "path_length": 0,
+  "branch_trace": []
 }

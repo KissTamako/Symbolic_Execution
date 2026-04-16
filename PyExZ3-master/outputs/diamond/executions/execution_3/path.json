@@ -1,6 +1,6 @@
 {
   "execution_id": 3,
-  "timestamp": 1776232729.7416883,
+  "timestamp": 1776312083.0583534,
   "input_model": {
     "x": "x#0",
     "y": "y#0",
@@ -14,45 +14,48 @@
   "return_value": 1,
   "branch_trace": [
     {
-      "expr": "x#0",
+      "expr": "x",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+      "source_line": 3,
+      "source_col": 1,
+      "branch_id": "3:1",
       "vars": [
         "x"
       ]
     },
     {
-      "expr": "y#0",
+      "expr": "y",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "y"
       ]
     },
     {
-      "expr": "z#2",
+      "expr": "z",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+      "source_line": 7,
+      "source_col": 1,
+      "branch_id": "7:1",
       "vars": [
         "z"
       ]
     }
   ],
   "path_predicates_raw": [
-    "x#0 (False)",
-    "y#0 (False)",
-    "z#2 (True)"
+    "x",
+    "y",
+    "z"
   ],
   "path_predicates_normalized": [
-    "ARG0#0 (False)",
-    "ARG1#0 (False)",
-    "ARG2#2 (True)"
+    "ARG0",
+    "ARG1",
+    "ARG2"
   ],
   "semantic_info": {
     "path_length": 3,
@@ -64,15 +67,18 @@
     "semantic_tags": [
       [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:3"
       ],
       [
         "type:SymbolicInteger",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:5"
       ],
       [
         "type:SymbolicInteger",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:7"
       ]
     ],
     "symbolic_variables": [
@@ -80,15 +86,120 @@
       "x",
       "z"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        3,
+        "3:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        7,
+        "7:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "z#2 (True)"
+      "z"
     ],
     "negations": [
-      "x#0 (False)",
-      "y#0 (False)"
+      "x",
+      "y"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "ARG0",
+      "ARG1",
+      "ARG2"
+    ],
+    "branch_trace": [
+      {
+        "expr": "x",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        "source_line": 3,
+        "source_col": 1,
+        "branch_id": "3:1",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "y",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "y"
+        ]
+      },
+      {
+        "expr": "z",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        "source_line": 7,
+        "source_col": 1,
+        "branch_id": "7:1",
+        "vars": [
+          "z"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:3"
+      ],
+      [
+        "type:SymbolicInteger",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py:7"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        3,
+        0,
+        "3:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\diamond.py",
+        7,
+        0,
+        "7:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 3,
+      "num_variables": 3,
+      "num_branches": 1,
+      "num_negations": 2
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

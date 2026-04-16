@@ -1,113 +1,122 @@
 {
-  "timestamp": 1776232728.6030324,
+  "timestamp": 1776312082.2042923,
   "trace_length": 9,
   "branches": [
     {
-      "predicate": "(>= x#8, 1) (True)",
+      "predicate": "(>= x 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 2) (True)",
+      "predicate": "(>= x 2)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 3) (True)",
+      "predicate": "(>= x 3)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 4) (True)",
+      "predicate": "(>= x 4)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 5) (True)",
+      "predicate": "(>= x 5)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 6) (True)",
+      "predicate": "(>= x 6)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 7) (True)",
+      "predicate": "(>= x 7)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 8) (True)",
+      "predicate": "(>= x 8)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     },
     {
-      "predicate": "(>= x#8, 9) (False)",
+      "predicate": "(>= x 9)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento3.py:9"
       ]
     }
   ]

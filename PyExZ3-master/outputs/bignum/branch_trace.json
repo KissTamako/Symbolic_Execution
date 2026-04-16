@@ -1,29 +1,31 @@
 {
-  "timestamp": 1776232726.0355926,
+  "timestamp": 1776312079.793185,
   "trace_length": 2,
   "branches": [
     {
-      "predicate": "(== a#0, 9223372036854775807) (False)",
+      "predicate": "(== a 9223372036854775807)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+      "source_line": 4,
+      "branch_id": "4:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:4"
       ]
     },
     {
-      "predicate": "(== a#9223372036854775808, 9223372036854775808) (True)",
+      "predicate": "(== a 9223372036854775808)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+      "source_line": 6,
+      "branch_id": "6:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:6"
       ]
     }
   ]

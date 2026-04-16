@@ -1,41 +1,45 @@
 {
-  "timestamp": 1776232741.9478388,
-  "total_tags": 12,
+  "timestamp": 1776312094.0358276,
+  "total_tags": 16,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(> in1#0, 0) (False)",
+      "predicate": "(> in1 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:2"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(< in1#0, -10) (False)",
+      "predicate": "(< in1 -10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:9"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(< in1#0, -5) (False)",
+      "predicate": "(< in1 -5)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:11"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(< in1#-4, -3) (True)",
+      "predicate": "(< in1 -3)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\unnecessary_condition3.py:13"
       ]
     }
   ]

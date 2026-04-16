@@ -1,6 +1,6 @@
 {
-  "path_id": 2657701119120,
-  "timestamp": 1776232740.2165382,
+  "path_id": 2459925159056,
+  "timestamp": 1776312092.3000367,
   "input_model": {
     "in1": "in1#2",
     "in2": "in2#2",
@@ -18,69 +18,74 @@
   "return_value": 0,
   "branch_trace": [
     {
-      "expr": "(== in1#2, 0)",
+      "expr": "(== in1 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 6,
+      "source_col": 4,
+      "branch_id": "6:4",
       "vars": [
         "in1"
       ]
     },
     {
-      "expr": "(== in2#2, 0)",
+      "expr": "(== in2 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 9,
+      "source_col": 4,
+      "branch_id": "9:4",
       "vars": [
         "in2"
       ]
     },
     {
-      "expr": "(== in3#2, 0)",
+      "expr": "(== in3 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 12,
+      "source_col": 4,
+      "branch_id": "12:4",
       "vars": [
         "in3"
       ]
     },
     {
-      "expr": "(== in4#2, 0)",
+      "expr": "(== in4 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 15,
+      "source_col": 4,
+      "branch_id": "15:4",
       "vars": [
         "in4"
       ]
     },
     {
-      "expr": "(== in5#2, 0)",
+      "expr": "(== in5 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 18,
+      "source_col": 4,
+      "branch_id": "18:4",
       "vars": [
         "in5"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== in1#2, 0) (False)",
-    "(== in2#2, 0) (False)",
-    "(== in3#2, 0) (False)",
-    "(== in4#2, 0) (False)",
-    "(== in5#2, 0) (False)"
+    "(== in1 0)",
+    "(== in2 0)",
+    "(== in3 0)",
+    "(== in4 0)",
+    "(== in5 0)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#2, 0) (False)",
-    "(== ARG1#2, 0) (False)",
-    "(== ARG2#2, 0) (False)",
-    "(== ARG3#2, 0) (False)",
-    "(== ARG4#2, 0) (False)"
+    "(== ARG0 0)",
+    "(== ARG1 0)",
+    "(== ARG2 0)",
+    "(== ARG3 0)",
+    "(== ARG4 0)"
   ],
   "semantic_info": {
     "path_length": 5,
@@ -95,46 +100,217 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:6"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:9"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:12"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:15"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:18"
       ]
     ],
     "symbolic_variables": [
-      "in3",
       "in4",
+      "in3",
       "in1",
       "in2",
       "in5"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        6,
+        "6:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        9,
+        "9:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        12,
+        "12:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        15,
+        "15:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        18,
+        "18:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [],
     "negations": [
-      "(== in1#2, 0) (False)",
-      "(== in2#2, 0) (False)",
-      "(== in3#2, 0) (False)",
-      "(== in4#2, 0) (False)",
-      "(== in5#2, 0) (False)"
+      "(== in1 0)",
+      "(== in2 0)",
+      "(== in3 0)",
+      "(== in4 0)",
+      "(== in5 0)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 0)",
+      "(== ARG1 0)",
+      "(== ARG2 0)",
+      "(== ARG3 0)",
+      "(== ARG4 0)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== in1 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        "source_line": 6,
+        "source_col": 4,
+        "branch_id": "6:4",
+        "vars": [
+          "in1"
+        ]
+      },
+      {
+        "expr": "(== in2 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        "source_line": 9,
+        "source_col": 4,
+        "branch_id": "9:4",
+        "vars": [
+          "in2"
+        ]
+      },
+      {
+        "expr": "(== in3 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        "source_line": 12,
+        "source_col": 4,
+        "branch_id": "12:4",
+        "vars": [
+          "in3"
+        ]
+      },
+      {
+        "expr": "(== in4 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        "source_line": 15,
+        "source_col": 4,
+        "branch_id": "15:4",
+        "vars": [
+          "in4"
+        ]
+      },
+      {
+        "expr": "(== in5 0)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        "source_line": 18,
+        "source_col": 4,
+        "branch_id": "18:4",
+        "vars": [
+          "in5"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:6"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:9"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:12"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:15"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:18"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        6,
+        0,
+        "6:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        9,
+        0,
+        "9:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        12,
+        0,
+        "12:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        15,
+        0,
+        "15:4"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+        18,
+        0,
+        "18:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 5,
+      "num_variables": 5,
+      "num_branches": 0,
+      "num_negations": 5
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

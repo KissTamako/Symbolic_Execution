@@ -1,23 +1,25 @@
 {
-  "timestamp": 1776232726.6089857,
-  "total_tags": 6,
+  "timestamp": 1776312080.3637998,
+  "total_tags": 8,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== k#95, 95) (True)",
+      "predicate": "(== k 95)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(== k#95, 95) (True)",
+      "predicate": "(== k 95)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\binary_search.py:7"
       ]
     }
   ]

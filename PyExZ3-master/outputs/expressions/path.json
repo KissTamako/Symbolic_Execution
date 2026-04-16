@@ -1,6 +1,6 @@
 {
-  "path_id": 2587075162576,
-  "timestamp": 1776232731.3176427,
+  "path_id": 1438002912528,
+  "timestamp": 1776312084.4138575,
   "input_model": {
     "in1": "in1#1",
     "in2": "in2#6"
@@ -12,11 +12,12 @@
   "return_value": -1,
   "branch_trace": [
     {
-      "expr": "(== (* in1#1, (+ in2#6, 47)), 53)",
+      "expr": "(== (* in1 (+ in2 47)) 53)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\expressions.py",
+      "source_line": 8,
+      "source_col": 4,
+      "branch_id": "8:4",
       "vars": [
         "in2",
         "in1"
@@ -24,10 +25,10 @@
     }
   ],
   "path_predicates_raw": [
-    "(== (* in1#1, (+ in2#6, 47)), 53) (True)"
+    "(== (* in1 (+ in2 47)) 53)"
   ],
   "path_predicates_normalized": [
-    "(== (* ARG1#1, (+ ARG0#6, 47)), 53) (True)"
+    "(== (* ARG0 (+ 47 ARG1)) 53)"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -38,19 +39,71 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expressions.py:8"
       ]
     ],
     "symbolic_variables": [
-      "in1",
-      "in2"
+      "in2",
+      "in1"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\expressions.py",
+        8,
+        "8:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== (* in1#1, (+ in2#6, 47)), 53) (True)"
+      "(== (* in1 (+ in2 47)) 53)"
     ],
     "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== (* ARG0 (+ 47 ARG1)) 53)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== (* in1 (+ in2 47)) 53)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\expressions.py",
+        "source_line": 8,
+        "source_col": 4,
+        "branch_id": "8:4",
+        "vars": [
+          "in2",
+          "in1"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\expressions.py:8"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\expressions.py",
+        8,
+        0,
+        "8:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 1,
+      "num_variables": 2,
+      "num_branches": 1,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

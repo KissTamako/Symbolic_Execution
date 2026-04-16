@@ -1,29 +1,31 @@
 {
-  "timestamp": 1776232736.0317826,
+  "timestamp": 1776312089.014132,
   "trace_length": 2,
   "branches": [
     {
-      "predicate": "(== (& in1#1, in2#1), 1) (True)",
+      "predicate": "(== (& in1 in2) 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+      "source_line": 4,
+      "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py:4"
       ]
     },
     {
-      "predicate": "(== (& in1#1, in2#1), 7) (False)",
+      "predicate": "(== (& in1 in2) 7)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py",
+      "source_line": 4,
+      "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\logical_op.py:4"
       ]
     }
   ]

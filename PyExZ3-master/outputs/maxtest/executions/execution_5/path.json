@@ -1,6 +1,6 @@
 {
   "execution_id": 5,
-  "timestamp": 1776232737.0487924,
+  "timestamp": 1776312089.769004,
   "input_model": {
     "a": "a#0",
     "b": "b#4",
@@ -16,77 +16,84 @@
   "return_value": "OK",
   "branch_trace": [
     {
-      "expr": "(< a#0, b#2)",
+      "expr": "(< a b)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "b",
         "a"
       ]
     },
     {
-      "expr": "(< c#0, d#0)",
+      "expr": "(< c d)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "d",
         "c"
       ]
     },
     {
-      "expr": "(< b#4, c#5)",
+      "expr": "(< b c)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "c",
         "b"
       ]
     },
     {
-      "expr": "(< c#5, a#0)",
+      "expr": "(< c a)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "a",
         "c"
       ]
     },
     {
-      "expr": "(< c#5, b#4)",
+      "expr": "(< c b)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "b",
         "c"
       ]
     },
     {
-      "expr": "(< c#5, c#5)",
+      "expr": "(< c c)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "c",
         "c"
       ]
     },
     {
-      "expr": "(< c#5, d#4)",
+      "expr": "(< c d)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 15,
+      "source_col": 1,
+      "branch_id": "15:1",
       "vars": [
         "d",
         "c"
@@ -94,22 +101,22 @@
     }
   ],
   "path_predicates_raw": [
-    "(< a#0, b#2) (True)",
-    "(< c#0, d#0) (False)",
-    "(< b#4, c#5) (True)",
-    "(< c#5, a#0) (False)",
-    "(< c#5, b#4) (False)",
-    "(< c#5, c#5) (False)",
-    "(< c#5, d#4) (False)"
+    "(< a b)",
+    "(< c d)",
+    "(< b c)",
+    "(< c a)",
+    "(< c b)",
+    "(< c c)",
+    "(< c d)"
   ],
   "path_predicates_normalized": [
-    "(< ARG1#0, ARG0#2) (True)",
-    "(< ARG3#0, ARG2#0) (FARG1lse)",
-    "(< ARG0#4, ARG3#5) (True)",
-    "(< ARG3#5, ARG1#0) (FARG1lse)",
-    "(< ARG3#5, ARG0#4) (FARG1lse)",
-    "(< ARG3#5, ARG3#5) (FARG1lse)",
-    "(< ARG3#5, ARG2#4) (FARG1lse)"
+    "(< ARG0 ARG1)",
+    "(< ARG2 ARG3)",
+    "(< ARG1 ARG2)",
+    "(< ARG2 ARG0)",
+    "(< ARG2 ARG1)",
+    "(< ARG2 ARG2)",
+    "(< ARG2 ARG3)"
   ],
   "semantic_info": {
     "path_length": 7,
@@ -126,58 +133,296 @@
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ],
       [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:15"
       ]
     ],
     "symbolic_variables": [
-      "c",
-      "d",
       "b",
-      "a"
+      "c",
+      "a",
+      "d"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        15,
+        "15:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(< a#0, b#2) (True)",
-      "(< b#4, c#5) (True)"
+      "(< a b)",
+      "(< b c)"
     ],
     "negations": [
-      "(< c#0, d#0) (False)",
-      "(< c#5, a#0) (False)",
-      "(< c#5, b#4) (False)",
-      "(< c#5, c#5) (False)",
-      "(< c#5, d#4) (False)"
+      "(< c d)",
+      "(< c a)",
+      "(< c b)",
+      "(< c c)",
+      "(< c d)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(< ARG0 ARG1)",
+      "(< ARG2 ARG3)",
+      "(< ARG1 ARG2)",
+      "(< ARG2 ARG0)",
+      "(< ARG2 ARG1)",
+      "(< ARG2 ARG2)",
+      "(< ARG2 ARG3)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(< a b)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "expr": "(< c d)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "d",
+          "c"
+        ]
+      },
+      {
+        "expr": "(< b c)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "c",
+          "b"
+        ]
+      },
+      {
+        "expr": "(< c a)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "a",
+          "c"
+        ]
+      },
+      {
+        "expr": "(< c b)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "b",
+          "c"
+        ]
+      },
+      {
+        "expr": "(< c c)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "c",
+          "c"
+        ]
+      },
+      {
+        "expr": "(< c d)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        "source_line": 15,
+        "source_col": 1,
+        "branch_id": "15:1",
+        "vars": [
+          "d",
+          "c"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:15"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        5,
+        0,
+        "5:1"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+        15,
+        0,
+        "15:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 7,
+      "num_variables": 4,
+      "num_branches": 2,
+      "num_negations": 5
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

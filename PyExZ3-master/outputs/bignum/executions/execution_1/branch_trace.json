@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232726.0433416,
+  "timestamp": 1776312079.8040502,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== a#9223372036854775807, 9223372036854775807) (True)",
+      "predicate": "(== a 9223372036854775807)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py",
+      "source_line": 4,
+      "branch_id": "4:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\bignum.py:4"
       ]
     }
   ]

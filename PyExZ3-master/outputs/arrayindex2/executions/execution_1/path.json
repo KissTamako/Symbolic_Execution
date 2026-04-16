@@ -1,6 +1,6 @@
 {
   "execution_id": 1,
-  "timestamp": 1776232725.3351214,
+  "timestamp": 1776312079.3209581,
   "input_model": {
     "i": "i#1"
   },
@@ -10,21 +10,22 @@
   "return_value": 1,
   "branch_trace": [
     {
-      "expr": "(== i#1, 1)",
+      "expr": "(== i 1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+      "source_line": 5,
+      "source_col": 1,
+      "branch_id": "5:1",
       "vars": [
         "i"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== i#1, 1) (True)"
+    "(== i 1)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#1, 1) (True)"
+    "(== ARG0 1)"
   ],
   "semantic_info": {
     "path_length": 1,
@@ -35,18 +36,69 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py:5"
       ]
     ],
     "symbolic_variables": [
       "i"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+        5,
+        "5:1"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== i#1, 1) (True)"
+      "(== i 1)"
     ],
     "negations": []
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 1)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== i 1)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+        "source_line": 5,
+        "source_col": 1,
+        "branch_id": "5:1",
+        "vars": [
+          "i"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py:5"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\u0007rrayindex2.py",
+        5,
+        0,
+        "5:1"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 1,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 0
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
   "execution_id": 4,
-  "timestamp": 1776232739.9185236,
+  "timestamp": 1776312092.0771914,
   "input_model": {
     "x": "x#9"
   },
@@ -10,57 +10,61 @@
   "return_value": 9,
   "branch_trace": [
     {
-      "expr": "(== x#0, 1)",
+      "expr": "(== x 1)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "source_col": "set",
+      "branch_id": "4:set",
       "vars": [
         "x"
       ]
     },
     {
-      "expr": "(== x#0, 3)",
+      "expr": "(== x 3)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "source_col": "set",
+      "branch_id": "4:set",
       "vars": [
         "x"
       ]
     },
     {
-      "expr": "(== x#0, 19)",
+      "expr": "(== x 19)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "source_col": "set",
+      "branch_id": "4:set",
       "vars": [
         "x"
       ]
     },
     {
-      "expr": "(== x#9, 9)",
+      "expr": "(== x 9)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\set.py",
+      "source_line": 4,
+      "source_col": 4,
+      "branch_id": "4:4",
       "vars": [
         "x"
       ]
     }
   ],
   "path_predicates_raw": [
-    "(== x#0, 1) (False)",
-    "(== x#0, 3) (False)",
-    "(== x#0, 19) (False)",
-    "(== x#9, 9) (True)"
+    "(== x 1)",
+    "(== x 3)",
+    "(== x 19)",
+    "(== x 9)"
   ],
   "path_predicates_normalized": [
-    "(== ARG0#0, 1) (False)",
-    "(== ARG0#0, 3) (False)",
-    "(== ARG0#0, 19) (False)",
-    "(== ARG0#9, 9) (True)"
+    "(== ARG0 1)",
+    "(== ARG0 3)",
+    "(== ARG0 19)",
+    "(== ARG0 9)"
   ],
   "semantic_info": {
     "path_length": 4,
@@ -74,37 +78,178 @@
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ],
       [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\set.py:4"
       ]
     ],
     "symbolic_variables": [
       "x"
     ],
-    "source_locations": []
+    "source_locations": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        4,
+        "4:set"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        4,
+        "4:set"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        4,
+        "4:set"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\set.py",
+        4,
+        "4:4"
+      ]
+    ]
   },
   "path_constraints": {
     "assertions": [
-      "(== x#9, 9) (True)"
+      "(== x 9)"
     ],
     "negations": [
-      "(== x#0, 1) (False)",
-      "(== x#0, 3) (False)",
-      "(== x#0, 19) (False)"
+      "(== x 1)",
+      "(== x 3)",
+      "(== x 19)"
     ]
+  },
+  "standardized_features": {
+    "normalized_pc": [
+      "(== ARG0 1)",
+      "(== ARG0 3)",
+      "(== ARG0 19)",
+      "(== ARG0 9)"
+    ],
+    "branch_trace": [
+      {
+        "expr": "(== x 1)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        "source_line": 4,
+        "source_col": "set",
+        "branch_id": "4:set",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(== x 3)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        "source_line": 4,
+        "source_col": "set",
+        "branch_id": "4:set",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(== x 19)",
+        "result": false,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        "source_line": 4,
+        "source_col": "set",
+        "branch_id": "4:set",
+        "vars": [
+          "x"
+        ]
+      },
+      {
+        "expr": "(== x 9)",
+        "result": true,
+        "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\set.py",
+        "source_line": 4,
+        "source_col": 4,
+        "branch_id": "4:4",
+        "vars": [
+          "x"
+        ]
+      }
+    ],
+    "semantic_tags": [
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
+      ],
+      [
+        "type:SymbolicInteger",
+        "op:==",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\set.py:4"
+      ]
+    ],
+    "source_spans": [
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        4,
+        0,
+        "4:set"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        4,
+        0,
+        "4:set"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+        4,
+        0,
+        "4:set"
+      ],
+      [
+        "E:\\Graduation_Projection\\PyExZ3-master\test\\set.py",
+        4,
+        0,
+        "4:4"
+      ]
+    ],
+    "path_summary": {
+      "path_length": 4,
+      "num_variables": 1,
+      "num_branches": 1,
+      "num_negations": 3
+    },
+    "exception_profile": {
+      "has_exceptions": false,
+      "exception_types": []
+    }
   }
 }

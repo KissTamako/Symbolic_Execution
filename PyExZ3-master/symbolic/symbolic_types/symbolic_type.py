@@ -112,18 +112,42 @@ class SymbolicObject(SymbolicType,object):
 		ret = bool(self.getConcrValue())
 		if SymbolicObject.SI != None:
 			# Get branch location information if available
-			source_file = None
-			source_line = None
-			branch_id = None
-			
-			try:
-				from ..runtime_helpers import _local
-				if hasattr(_local, 'branch_location'):
-					source_file, source_line, branch_id = _local.branch_location
-			except:
-				pass
-			
-			SymbolicObject.SI.whichBranch(ret, self, source_file, source_line, branch_id)
+				source_file = None
+				source_line = None
+				branch_id = None
+				col = None
+				
+				try:
+					# Try to get location from _local first
+					from ..runtime_helpers import _local, get_current_file_path
+					if hasattr(_local, 'branch_location'):
+						source_file, source_line, col = _local.branch_location
+						# Use line and col as branch_id for now
+						branch_id = f"{source_line}:{col}"
+					else:
+						# Fall back to current_file_path from runtime_helpers
+						source_file = get_current_file_path()
+						# Fall back to inspect module to get call stack
+						import inspect
+						# Get the call stack
+						stack = inspect.stack()
+						# Look for the first frame that is not in this file, runtime_helpers.py, or symbolic_types directory
+						for frame_info in stack:
+							frame = frame_info[0]
+							filename = frame.f_code.co_filename
+							if 'symbolic_type.py' not in filename and 'runtime_helpers.py' not in filename and 'symbolic_types' not in filename:
+								if not source_file:
+									source_file = filename
+								source_line = frame_info[2]
+								col = frame_info[3]
+								branch_id = f"{source_line}:{col}"
+								break
+				except Exception as e:
+					# If anything goes wrong, just continue without location info
+					pass
+				
+				# Pass all location information to whichBranch
+				SymbolicObject.SI.whichBranch(ret, self, source_file, source_line, branch_id, col)
 		return ret
 
 	# compute both the symbolic and concrete image of operator

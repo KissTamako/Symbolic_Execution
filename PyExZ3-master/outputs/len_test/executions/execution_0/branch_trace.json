@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232735.3832896,
+  "timestamp": 1776312088.5283532,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(== a#0, 2) (False)",
+      "predicate": "(== a 2)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py",
+      "source_line": 13,
+      "branch_id": "13:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\len_test.py:13"
       ]
     }
   ]

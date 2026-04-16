@@ -1,32 +1,45 @@
 {
-  "timestamp": 1776232727.7498178,
-  "total_tags": 9,
+  "timestamp": 1776312081.376127,
+  "total_tags": 16,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(> x#0, 0) (False)",
+      "predicate": "(> x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(< x#-14, 0) (True)",
+      "predicate": "(> x 0)",
       "tags": [
         "type:SymbolicInteger",
-        "op:<",
-        "branch:True"
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(> y#2, 0) (True)",
+      "predicate": "(< x 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
+      ]
+    },
+    {
+      "branch_index": 3,
+      "predicate": "(> y 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\cseppento1.py:4"
       ]
     }
   ]

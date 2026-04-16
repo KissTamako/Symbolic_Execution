@@ -1,77 +1,83 @@
 {
-  "timestamp": 1776232739.8996556,
+  "timestamp": 1776312092.0583072,
   "trace_length": 6,
   "branches": [
     {
-      "predicate": "(== x#0, 1) (False)",
+      "predicate": "(== x 1)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "branch_id": "4:set",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ]
     },
     {
-      "predicate": "(== x#0, 3) (False)",
+      "predicate": "(== x 3)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "branch_id": "4:set",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ]
     },
     {
-      "predicate": "(== x#0, 19) (False)",
+      "predicate": "(== x 19)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "branch_id": "4:set",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ]
     },
     {
-      "predicate": "(== x#0, 9) (False)",
+      "predicate": "(== x 9)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "branch_id": "4:set",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ]
     },
     {
-      "predicate": "(== x#0, 12) (False)",
+      "predicate": "(== x 12)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py",
+      "source_line": 4,
+      "branch_id": "4:set",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\set.py:4"
       ]
     },
     {
-      "predicate": "(== x#15, 15) (True)",
+      "predicate": "(== x 15)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\set.py",
+      "source_line": 4,
+      "branch_id": "4:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\set.py:4"
       ]
     }
   ]

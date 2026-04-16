@@ -1,29 +1,31 @@
 {
-  "timestamp": 1776232741.080165,
+  "timestamp": 1776312093.201768,
   "trace_length": 2,
   "branches": [
     {
-      "predicate": "(< a0#0, b0#0) (False)",
+      "predicate": "(< a0 b0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\tuplecmp.py",
+      "source_line": 5,
+      "branch_id": "5:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\tuplecmp.py:5"
       ]
     },
     {
-      "predicate": "(< a1#0, b1#2) (True)",
+      "predicate": "(< a1 b1)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\tuplecmp.py",
+      "source_line": 5,
+      "branch_id": "5:2",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\tuplecmp.py:5"
       ]
     }
   ]

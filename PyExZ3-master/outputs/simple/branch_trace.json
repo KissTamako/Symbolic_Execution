@@ -1,17 +1,18 @@
 {
-  "timestamp": 1776232740.4949064,
+  "timestamp": 1776312092.5316005,
   "trace_length": 1,
   "branches": [
     {
-      "predicate": "(> (+ x#14, 1), 10) (True)",
+      "predicate": "(> (+ x 1) 10)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\simple.py",
+      "source_line": 2,
+      "branch_id": "2:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\simple.py:2"
       ]
     }
   ]

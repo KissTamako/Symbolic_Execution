@@ -278,7 +278,7 @@ python run_tests.py test --dump-constraints --dump-trace --dump-semantics
 
 ### 示例 3：使用优化（推荐配置）
 ```bash
-python run_tests.py test --enable-simplify --dump-constraints --dump-trace --dump-semantics
+python run_tests.py test --enable-simplify --dump-constraints --dump-trace --dump-semantics --dump-all-executions
 ```
 
 ### 示例 4：尝试更多优化（谨慎使用）

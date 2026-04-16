@@ -1,0 +1,26 @@
+{
+  "timestamp": 1776312092.7562618,
+  "total_tags": 8,
+  "per_branch_tags": [
+    {
+      "branch_index": 0,
+      "predicate": "(> x 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:>",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ]
+    },
+    {
+      "branch_index": 1,
+      "predicate": "(< x 0)",
+      "tags": [
+        "type:SymbolicInteger",
+        "op:<",
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\source_location_test.py:5"
+      ]
+    }
+  ]
+}

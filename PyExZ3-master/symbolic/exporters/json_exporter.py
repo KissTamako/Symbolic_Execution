@@ -59,20 +59,39 @@ class JSONExporter:
             "source_locations": [(p.source_file, p.source_line, p.branch_id) for p in current_path if p.source_file and p.source_line]
         }
         
+        # 构建标准化的特征输出
+        standardized_features = {
+            "normalized_pc": normalized_predicates,  # 归一化的路径条件
+            "branch_trace": [p.to_dict() for p in current_path],  # 分支跟踪
+            "semantic_tags": [self._extract_semantic_tags(p) for p in current_path],  # 语义标签
+            "source_spans": [(p.source_file, p.source_line, getattr(p, 'source_col', 0), p.branch_id) for p in current_path if p.source_file and p.source_line],  # 源码位置
+            "path_summary": {
+                "path_length": len(current_path),
+                "num_variables": len(set(var for p in current_path for var in p.getVars())),
+                "num_branches": len([p for p in current_path if p.result]),
+                "num_negations": len([p for p in current_path if not p.result])
+            },  # 路径摘要
+            "exception_profile": {
+                "has_exceptions": False,  # 暂时设为 False，后续可以根据实际情况修改
+                "exception_types": []
+            }  # 异常概况
+        }
+        
         path_data = {
             "path_id": id(path),
             "timestamp": time.time(),
             "input_model": {k: v.toString() if hasattr(v, 'toString') else str(v) for k, v in inputs.items()},
             "concrete_inputs": {k: self._get_concrete_value(v) for k, v in inputs.items()},
             "return_value": return_values[-1] if return_values else None,
-            "branch_trace": [p.to_dict() for p in current_path],
-            "path_predicates_raw": raw_predicates,
+            "branch_trace": standardized_features["branch_trace"],
+            "path_predicates_raw": [p.get_symbolic_expr() for p in current_path],
             "path_predicates_normalized": normalized_predicates,
             "semantic_info": semantic_info,
             "path_constraints": {
-                "assertions": [str(p) for p in current_path if p.result],
-                "negations": [str(p) for p in current_path if not p.result]
-            }
+                "assertions": [p.get_symbolic_expr() for p in current_path if p.result],
+                "negations": [p.get_symbolic_expr() for p in current_path if not p.result]
+            },
+            "standardized_features": standardized_features  # 添加标准化特征输出
         }
         
         with open(os.path.join(self.output_dir, "path.json"), "w") as f:
@@ -108,7 +127,7 @@ class JSONExporter:
                 "constraint_id": constraint.id,
                 "timestamp": time.time(),
                 "path_predicates": [p.to_dict() for p in path_predicates],
-                "path_predicates_raw": raw_predicates,
+                "path_predicates_raw": [p.get_symbolic_expr() for p in path_predicates],
                 "path_predicates_normalized": normalized_predicates,
                 "inputs": {k: self._get_concrete_value(v) for k, v in constraint.inputs.items()},
                 "semantic_info": semantic_info,
@@ -153,7 +172,7 @@ class JSONExporter:
             "timestamp": time.time(),
             "trace_length": len(branch_trace),
             "branches": [{
-                "predicate": str(p),
+                "predicate": p.get_symbolic_expr(),
                 "result": p.result,
                 "source_file": p.source_file,
                 "source_line": p.source_line,
@@ -174,7 +193,7 @@ class JSONExporter:
             "total_tags": sum(len(self._extract_semantic_tags(p)) for p in current_path),
             "per_branch_tags": [{
                 "branch_index": i,
-                "predicate": str(p),
+                "predicate": p.get_symbolic_expr(),
                 "tags": self._extract_semantic_tags(p)
             } for i, p in enumerate(current_path)]
         }
@@ -215,20 +234,39 @@ class JSONExporter:
                 "source_locations": [(p.source_file, p.source_line, p.branch_id) for p in branch_trace if p.source_file and p.source_line]
             }
             
+            # 构建标准化的特征输出
+            standardized_features = {
+                "normalized_pc": normalized_predicates,  # 归一化的路径条件
+                "branch_trace": [p.to_dict() for p in branch_trace],  # 分支跟踪
+                "semantic_tags": [self._extract_semantic_tags(p) for p in branch_trace],  # 语义标签
+                "source_spans": [(p.source_file, p.source_line, getattr(p, 'source_col', 0), p.branch_id) for p in branch_trace if p.source_file and p.source_line],  # 源码位置
+                "path_summary": {
+                    "path_length": len(branch_trace),
+                    "num_variables": len(set(var for p in branch_trace for var in p.getVars())),
+                    "num_branches": len([p for p in branch_trace if p.result]),
+                    "num_negations": len([p for p in branch_trace if not p.result])
+                },  # 路径摘要
+                "exception_profile": {
+                    "has_exceptions": False,  # 暂时设为 False，后续可以根据实际情况修改
+                    "exception_types": []
+                }  # 异常概况
+            }
+            
             path_data = {
                 "execution_id": i,
                 "timestamp": time.time(),
                 "input_model": {k: v.toString() if hasattr(v, 'toString') else str(v) for k, v in symbolic_inputs.items()},
                 "concrete_inputs": {k: self._get_concrete_value(v) for k, v in symbolic_inputs.items()},
                 "return_value": return_value,
-                "branch_trace": [p.to_dict() for p in branch_trace],
-                "path_predicates_raw": raw_predicates,
+                "branch_trace": standardized_features["branch_trace"],
+                "path_predicates_raw": [p.get_symbolic_expr() for p in branch_trace],
                 "path_predicates_normalized": normalized_predicates,
                 "semantic_info": semantic_info,
                 "path_constraints": {
-                    "assertions": [str(p) for p in branch_trace if p.result],
-                    "negations": [str(p) for p in branch_trace if not p.result]
-                }
+                    "assertions": [p.get_symbolic_expr() for p in branch_trace if p.result],
+                    "negations": [p.get_symbolic_expr() for p in branch_trace if not p.result]
+                },
+                "standardized_features": standardized_features  # 添加标准化特征输出
             }
             
             with open(os.path.join(execution_dir, "path.json"), "w") as f:
@@ -239,7 +277,7 @@ class JSONExporter:
                 "timestamp": time.time(),
                 "trace_length": len(branch_trace),
                 "branches": [{
-                    "predicate": str(p),
+                    "predicate": p.get_symbolic_expr(),
                     "result": p.result,
                     "source_file": p.source_file,
                     "source_line": p.source_line,
@@ -257,7 +295,7 @@ class JSONExporter:
                 "total_tags": sum(len(self._extract_semantic_tags(p)) for p in branch_trace),
                 "per_branch_tags": [{
                     "branch_index": j,
-                    "predicate": str(p),
+                    "predicate": p.get_symbolic_expr(),
                     "tags": self._extract_semantic_tags(p)
                 } for j, p in enumerate(branch_trace)]
             }

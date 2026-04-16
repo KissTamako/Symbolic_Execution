@@ -1,89 +1,96 @@
 {
-  "timestamp": 1776232737.0497952,
+  "timestamp": 1776312089.770047,
   "trace_length": 7,
   "branches": [
     {
-      "predicate": "(< a#0, b#2) (True)",
+      "predicate": "(< a b)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
-      "predicate": "(< c#0, d#0) (False)",
+      "predicate": "(< c d)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
-      "predicate": "(< b#4, c#5) (True)",
+      "predicate": "(< b c)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
-      "predicate": "(< c#5, a#0) (False)",
+      "predicate": "(< c a)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
-      "predicate": "(< c#5, b#4) (False)",
+      "predicate": "(< c b)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
-      "predicate": "(< c#5, c#5) (False)",
+      "predicate": "(< c c)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 5,
+      "branch_id": "5:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:5"
       ]
     },
     {
-      "predicate": "(< c#5, d#4) (False)",
+      "predicate": "(< c d)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py",
+      "source_line": 15,
+      "branch_id": "15:1",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\maxtest.py:15"
       ]
     }
   ]

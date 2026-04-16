@@ -1,53 +1,11 @@
 {
-  "timestamp": 1776232724.6802692,
-  "generated_inputs": [
-    [
-      [
-        "a",
-        0
-      ],
-      [
-        "b",
-        0
-      ]
-    ],
-    [
-      [
-        "a",
-        -16
-      ],
-      [
-        "b",
-        0
-      ]
-    ],
-    [
-      [
-        "a",
-        -2
-      ],
-      [
-        "b",
-        2
-      ]
-    ]
-  ],
+  "timestamp": 1776312078.745995,
+  "generated_inputs_count": 3,
   "return_values": [
     2,
     1,
     0
   ],
-  "execution_count": 3,
-  "path_lengths": [
-    1,
-    2,
-    2
-  ],
-  "semantic_summary": {
-    "total_branches": 5,
-    "unique_variables": [
-      "a",
-      "b"
-    ]
-  }
+  "path_length": 0,
+  "branch_trace": []
 }

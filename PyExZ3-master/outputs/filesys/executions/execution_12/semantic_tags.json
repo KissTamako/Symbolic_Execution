@@ -1,23 +1,25 @@
 {
-  "timestamp": 1776232731.8301632,
-  "total_tags": 6,
+  "timestamp": 1776312084.9243429,
+  "total_tags": 8,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== x#57563, 57583) (False)",
+      "predicate": "(== x 60661)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py:17"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(== x#57563, 57584) (False)",
+      "predicate": "(== x 60662)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\filesys.py:17"
       ]
     }
   ]

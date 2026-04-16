@@ -1,32 +1,35 @@
 {
-  "timestamp": 1776232738.2266579,
-  "total_tags": 9,
+  "timestamp": 1776312090.7332182,
+  "total_tags": 12,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(== in1#0, in2#0) (True)",
+      "predicate": "(== in1 in2)",
       "tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(> in3#0, 0) (False)",
+      "predicate": "(> in3 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(!= in1#0, in2#0) (False)",
+      "predicate": "(!= in1 in2)",
       "tags": [
         "type:SymbolicInteger",
         "op:!=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\mult_assmt.py:4"
       ]
     }
   ]

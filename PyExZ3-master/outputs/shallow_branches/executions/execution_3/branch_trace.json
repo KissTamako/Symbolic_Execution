@@ -1,53 +1,57 @@
 {
-  "timestamp": 1776232740.2301917,
+  "timestamp": 1776312092.324235,
   "trace_length": 4,
   "branches": [
     {
-      "predicate": "(== in1#2, 0) (False)",
+      "predicate": "(== in1 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 6,
+      "branch_id": "6:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:6"
       ]
     },
     {
-      "predicate": "(== in2#2, 0) (False)",
+      "predicate": "(== in2 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 9,
+      "branch_id": "9:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:9"
       ]
     },
     {
-      "predicate": "(== in3#2, 0) (False)",
+      "predicate": "(== in3 0)",
       "result": false,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 12,
+      "branch_id": "12:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:12"
       ]
     },
     {
-      "predicate": "(== in4#0, 0) (True)",
+      "predicate": "(== in4 0)",
       "result": true,
-      "source_file": null,
-      "source_line": null,
-      "branch_id": null,
+      "source_file": "E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py",
+      "source_line": 15,
+      "branch_id": "15:4",
       "semantic_tags": [
         "type:SymbolicInteger",
         "op:==",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\shallow_branches.py:15"
       ]
     }
   ]

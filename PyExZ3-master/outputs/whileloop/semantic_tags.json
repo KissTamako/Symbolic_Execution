@@ -1,275 +1,305 @@
 {
-  "timestamp": 1776232743.01893,
-  "total_tags": 90,
+  "timestamp": 1776312094.9140096,
+  "total_tags": 120,
   "per_branch_tags": [
     {
       "branch_index": 0,
-      "predicate": "(>= x#0, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 1,
-      "predicate": "(< x#0, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 2,
-      "predicate": "(>= x#8, 1) (True)",
+      "predicate": "(>= x 1)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 3,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 4,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 5,
-      "predicate": "(>= x#8, 2) (True)",
+      "predicate": "(>= x 2)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 6,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 7,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 8,
-      "predicate": "(>= x#8, 3) (True)",
+      "predicate": "(>= x 3)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 9,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 10,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 11,
-      "predicate": "(>= x#8, 4) (True)",
+      "predicate": "(>= x 4)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 12,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 13,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 14,
-      "predicate": "(>= x#8, 5) (True)",
+      "predicate": "(>= x 5)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 15,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 16,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 17,
-      "predicate": "(>= x#8, 6) (True)",
+      "predicate": "(>= x 6)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 18,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 19,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 20,
-      "predicate": "(>= x#8, 7) (True)",
+      "predicate": "(>= x 7)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 21,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 22,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 23,
-      "predicate": "(>= x#8, 8) (True)",
+      "predicate": "(>= x 8)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 24,
-      "predicate": "(>= x#8, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 25,
-      "predicate": "(< x#8, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 26,
-      "predicate": "(>= x#9, 9) (True)",
+      "predicate": "(>= x 9)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 27,
-      "predicate": "(>= x#9, 0) (True)",
+      "predicate": "(>= x 0)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 28,
-      "predicate": "(< x#9, 10) (True)",
+      "predicate": "(< x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:<",
-        "branch:True"
+        "branch:True",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     },
     {
       "branch_index": 29,
-      "predicate": "(>= x#9, 10) (False)",
+      "predicate": "(>= x 10)",
       "tags": [
         "type:SymbolicInteger",
         "op:>=",
-        "branch:False"
+        "branch:False",
+        "loc:E:\\Graduation_Projection\\PyExZ3-master\test\\whileloop.py:3"
       ]
     }
   ]

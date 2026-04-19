@@ -132,6 +132,8 @@ class Loader:
 				names=[
 					alias(name='_branch_hook', asname='_se_branch_hook'),
 					alias(name='_se_input', asname=None),
+					alias(name='_se_safe_eval', asname=None),
+					alias(name='_se_literal_eval', asname=None),
 					alias(name='_se_int', asname=None),
 					alias(name='_se_str', asname=None),
 					alias(name='_se_float', asname=None),

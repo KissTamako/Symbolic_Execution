@@ -9,7 +9,7 @@ from z3 import *
 from .z3_expr.integer import Z3Integer
 from .z3_expr.bitvector import Z3BitVector
 from .z3_expr.float import Z3Float
-from .symbolic_types import SymbolicFloat
+from .symbolic_types import SymbolicFloat, SymbolicStr, SymbolicType
 
 log = logging.getLogger("se.z3")
 
@@ -134,34 +134,19 @@ class Z3Wrapper(object):
 		return cone
 
 	def _findModel(self):
-		# Check if we're dealing with float expressions
-		has_float = False
-		for a in self.asserts:
-			if isinstance(a.symtype, SymbolicFloat):
-				has_float = True
-				break
+		has_float = any(isinstance(predicate.symtype, SymbolicFloat) for predicate in self.asserts)
 		if isinstance(self.query.symtype, SymbolicFloat):
 			has_float = True
+		has_string = self._contains_symbolic_type(self.asserts, self.query, SymbolicStr)
 		
-		# If we have float expressions, use Z3Float
-		if has_float:
+		# Float and string constraints should use the direct solver path.
+		if has_float or has_string:
 			self.solver.push()
-			self.z3_expr = Z3Float(self.enable_simplify)
+			self.z3_expr = Z3Float(self.enable_simplify) if has_float else Z3Integer(self.enable_simplify)
 			self.z3_expr.toZ3(self.solver, self.asserts, self.query)
 			res = self.solver.check()
 			if res == sat:
-				# Extract float values from the model
-				model = self.solver.model()
-				res = {}
-				for name in self.z3_expr.z3_vars.keys():
-					try:
-						ce = model.eval(self.z3_expr.z3_vars[name])
-						# Try to convert to float
-						if is_real(ce):
-							# For simplicity, we'll convert to float
-							res[name] = float(str(ce))
-					except:
-						pass
+				res = self._getModel()
 				self.solver.pop()
 				return res
 			elif res == unsat:
@@ -225,6 +210,21 @@ class Z3Wrapper(object):
 		
 		return res
 
+	def _contains_symbolic_type(self, asserts, query, symbolic_cls):
+		for predicate in list(asserts) + [query]:
+			if self._expr_contains_symbolic_type(predicate.symtype, symbolic_cls):
+				return True
+		return False
+
+	def _expr_contains_symbolic_type(self, expr, symbolic_cls):
+		if isinstance(expr, symbolic_cls):
+			return True
+		if isinstance(expr, list):
+			return any(self._expr_contains_symbolic_type(item, symbolic_cls) for item in expr[1:])
+		if isinstance(expr, SymbolicType):
+			return self._expr_contains_symbolic_type(getattr(expr, "expr", None), symbolic_cls)
+		return False
+
 	def _setAssertsQuery(self):
 		# Check if we're dealing with float expressions
 		has_float = False
@@ -281,7 +281,16 @@ class Z3Wrapper(object):
 		for name in self.z3_expr.z3_vars.keys():
 			try:
 				ce = model.eval(self.z3_expr.z3_vars[name])
-				res[name] = ce.as_signed_long()
+				if hasattr(ce, "as_signed_long"):
+					res[name] = ce.as_signed_long()
+				elif hasattr(ce, "numerator_as_long") and hasattr(ce, "denominator_as_long"):
+					res[name] = ce.numerator_as_long() / ce.denominator_as_long()
+				elif hasattr(ce, "as_long"):
+					res[name] = ce.as_long()
+				elif hasattr(ce, "as_string"):
+					res[name] = ce.as_string()
+				else:
+					res[name] = str(ce)
 			except:
 				pass
 		return res
@@ -290,4 +299,3 @@ class Z3Wrapper(object):
 		bval = BitVecVal(val,self.N,self.solver.ctx)
 		bval_neg = BitVecVal(-val-1,self.N,self.solver.ctx)
 		return And([ v <= bval for v in vars]+[ bval_neg <= v for v in vars])
-

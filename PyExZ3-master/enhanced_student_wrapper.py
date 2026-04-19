@@ -63,6 +63,7 @@ class EnhancedAnalyzer(ast.NodeVisitor):
 
         # 输入分析
         self.input_calls = []
+        self.input_chained_calls = []  # 链式调用，如 input().split()
         self.file_input_sites = []
         self.stdin_sites = []
         self.random_calls = []
@@ -140,6 +141,7 @@ class EnhancedAnalyzer(ast.NodeVisitor):
         """汇总输入信息"""
         return {
             "interactive_count": len(self.input_calls),
+            "chained_input_count": len(self.input_chained_calls),
             "file_input_count": len(self.file_input_sites),
             "stdin_count": len(self.stdin_sites),
             "random_count": len(self.random_calls),
@@ -267,13 +269,49 @@ class EnhancedAnalyzer(ast.NodeVisitor):
                 elif func_name == "print":
                     self.print_calls.append({"line": line_no, "context": context})
 
-            # 检查是否是 open() 调用
+            # 检查是否是链式调用，如 input().split()
             elif isinstance(call_node.func, ast.Attribute):
+                # 检查 Attribute.value
                 if isinstance(call_node.func.value, ast.Name):
-                    if call_node.func.value.id == "open" or (hasattr(call_node.func.value, 'id') and call_node.func.value.id == "open"):
+                    if call_node.func.value.id == "open":
                         pass
                     elif call_node.func.value.id == "random":
                         self.random_calls.append({"line": line_no, "method": call_node.func.attr})
+                    # 检查是否是 input().split() 等链式调用
+                    elif call_node.func.value.id == "input":
+                        input_info = {
+                            "line": line_no,
+                            "type": "interactive",
+                            "context": context or "unknown",
+                            "is_chained": True,  # 标记为链式调用
+                            "split_separator": None,  # 默认使用空格分隔
+                        }
+                        self.input_calls.append(input_info)
+                        self.input_chained_calls.append(input_info)
+                # 如果 Attribute.value 本身是一个 Call（如 input().split()），检查是否是 input().method() 模式
+                elif isinstance(call_node.func.value, ast.Call):
+                    # 检查这个 Call 是否是 input()
+                    if isinstance(call_node.func.value.func, ast.Name) and call_node.func.value.func.id == "input":
+                        # 提取 split() 的分隔符参数
+                        split_separator = None
+                        if call_node.func.attr == "split" and call_node.args:
+                            if isinstance(call_node.args[0], ast.Constant):
+                                split_separator = call_node.args[0].value
+                        input_info = {
+                            "line": line_no,
+                            "type": "interactive",
+                            "context": context or "unknown",
+                            "is_chained": True,  # 标记为链式调用
+                            "split_separator": split_separator,  # 存储分隔符
+                        }
+                        self.input_calls.append(input_info)
+                        self.input_chained_calls.append(input_info)
+                    # 递归检查这个 Call
+                    self._check_call_function(call_node.func.value, line_no, context)
+
+            # 递归检查 func 属性本身（处理 input().split() 等链式调用）
+            if isinstance(call_node.func, ast.Call):
+                self._check_call_function(call_node.func, line_no, context)
 
             # 递归检查参数中的函数调用
             for arg in call_node.args:
@@ -529,10 +567,16 @@ class EnhancedWrapper:
         if not self.analysis_result["success"]:
             return code, self.analysis_result
 
-        if self.analysis_result["functions"]:
-            self.wrapped_code = self._wrap_existing_functions(code, wrap_mode)
-        else:
+        # 检查是否有顶层 input() 调用
+        # 如果有，需要使用 _wrap_script_code 来正确处理
+        inputs_info = self.analysis_result["inputs"]
+        has_top_level_inputs = inputs_info["total_input_sites"] > 0
+
+        # 如果有顶层 input() 调用，或者没有找到合适的入口函数，则使用脚本包装
+        if has_top_level_inputs or not self.analysis_result["functions"]:
             self.wrapped_code = self._wrap_script_code(code, wrap_mode)
+        else:
+            self.wrapped_code = self._wrap_existing_functions(code, wrap_mode)
 
         return self.wrapped_code, self.analysis_result
 
@@ -542,7 +586,7 @@ class EnhancedWrapper:
         wrapped_lines = []
 
         # 添加必要的导入语句
-        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_int, _se_str, _se_float, _se_range")
+        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_safe_eval, _se_literal_eval, _se_int, _se_str, _se_float, _se_range")
         wrapped_lines.append("")
 
         wrapped_lines.append("")
@@ -556,13 +600,6 @@ class EnhancedWrapper:
             args = entry_func["args"]
 
             wrapped_lines.append(f"def _se_wrapper({', '.join(args)}):")
-
-            # 在函数内部初始化符号输入（在调用 _se_input() 之前）
-            total_inputs = inputs_info["total_input_sites"]
-            if total_inputs > 0:
-                init_args = [f"('arg{i}', None, 'int')" for i in range(total_inputs)]
-                wrapped_lines.append(f"    init_symbolic_inputs([{', '.join(init_args)}])")
-                wrapped_lines.append("")
 
             if inputs_info["needs_input_model"]:
                 wrapped_lines.extend(self._generate_input_handling(inputs_info))
@@ -590,48 +627,29 @@ class EnhancedWrapper:
         return '\n'.join(wrapped_lines)
 
     def _wrap_script_code(self, code: str, wrap_mode: str) -> str:
-        """包装没有函数的脚本代码"""
+        """包装脚本代码 - 方案A：保持学生代码为模块级，让 PyExZ3 的 AST 转换器处理"""
         lines = code.split('\n')
+
         wrapped_lines = []
 
-        # 添加必要的导入语句
-        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_int, _se_str, _se_float, _se_range")
+        # 添加必要的导入语句（让 PyExZ3 的 AST 转换器能 hook input 等调用）
+        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_safe_eval, _se_int, _se_str, _se_float, _se_range")
         wrapped_lines.append("")
 
-        # 添加原代码中的 import 语句
+        # 保留原代码中的 import 语句
         for line in lines:
             stripped = line.lstrip()
             if stripped.startswith("import ") or stripped.startswith("from "):
                 wrapped_lines.append(line)
 
         wrapped_lines.append("")
-        wrapped_lines.append("# === 增强型自动生成的包装函数 ===")
+        wrapped_lines.append("# === 学生代码（模块级）- input() 等调用由 PyExZ3 运行时处理 ===")
+        wrapped_lines.append("")
 
-        # 生成符号输入初始化代码
-        inputs_info = self.analysis_result["inputs"]
-        outputs_info = self.analysis_result["outputs"]
-        total_inputs = inputs_info["total_input_sites"]
-
-        wrapped_lines.append("def _se_wrapper():")
-
-        # 在函数内部初始化符号输入（在调用 _se_input() 之前）
-        if total_inputs > 0:
-            init_args = [f"('arg{i}', None, 'int')" for i in range(total_inputs)]
-            wrapped_lines.append(f"    init_symbolic_inputs([{', '.join(init_args)}])")
-            wrapped_lines.append("")
-
-        if inputs_info["needs_input_model"]:
-            wrapped_lines.extend(self._generate_input_handling(inputs_info))
-        else:
-            wrapped_lines.append("    pass")
-
-        wrapped_lines.extend(self._generate_special_function_handlers(wrap_mode))
-
-        wrapped_lines.append("    # --- 学生代码开始 ---")
-
+        # 保留学生代码为模块级（不包装在函数内）
+        # 让 PyExZ3 的 AST 转换器在运行时 hook input() 等调用
         in_main_block = False
         main_block_indent = 0
-        indent_size = 4
 
         for line in lines:
             stripped = line.lstrip()
@@ -643,9 +661,11 @@ class EnhancedWrapper:
             if stripped.startswith("import ") or stripped.startswith("from "):
                 continue
 
+            # 处理 if __name__ == '__main__' 块
             if "if __name__" in stripped and "__main__" in stripped:
                 in_main_block = True
                 main_block_indent = len(line) - len(stripped)
+                wrapped_lines.append(line)
                 continue
 
             if in_main_block:
@@ -653,27 +673,11 @@ class EnhancedWrapper:
                     current_indent = len(line) - len(stripped)
                     if current_indent <= main_block_indent:
                         in_main_block = False
-                    else:
-                        continue
+                wrapped_lines.append(line)
+                continue
 
-            original_indent = len(line) - len(stripped)
-            processed_line, needs_indent = self._process_output_statement(stripped, outputs_info)
-
-            if needs_indent:
-                wrapped_lines.append(' ' * (original_indent + indent_size) + processed_line)
-            else:
-                # 使用处理后的行（可能是转换后的 print 语句）
-                wrapped_lines.append(' ' * (original_indent + indent_size) + processed_line)
-
-        wrapped_lines.append("    # --- 学生代码结束 ---")
-        wrapped_lines.append("")
-
-        if outputs_info["return_count"] > 0:
-            wrapped_lines.append("    return result if 'result' in dir() else None")
-        elif outputs_info["print_count"] > 0:
-            wrapped_lines.append("    return result if 'result' in dir() else None")
-        else:
-            wrapped_lines.append("    return None")
+            # 其他代码直接保留（作为模块级代码）
+            wrapped_lines.append(line)
 
         return '\n'.join(wrapped_lines)
 
@@ -728,14 +732,25 @@ class EnhancedWrapper:
 
             for i, input_info in enumerate(inputs_info["input_details"]):
                 input_type = input_info.get("type", "interactive")
+                is_chained = input_info.get("is_chained", False)
+
                 if input_type == "interactive":
-                    lines.append(f"    arg{i} = _se_input('请输入第{i+1}个值: ')")
+                    if is_chained:
+                        lines.append(f"    arg{i} = _se_input('1 2 3')  # 链式调用需要非空输入")
+                    else:
+                        lines.append(f"    arg{i} = _se_input('请输入第{i+1}个值: ')")
                 elif input_type == "file":
                     lines.append(f"    arg{i} = _se_read_file('input_{i}.txt')")
                 elif input_type == "stdin":
-                    lines.append(f"    arg{i} = _se_input('')")
+                    if is_chained:
+                        lines.append(f"    arg{i} = _se_input('1 2 3')  # 链式调用需要非空输入")
+                    else:
+                        lines.append(f"    arg{i} = _se_input('')")
                 else:
-                    lines.append(f"    arg{i} = None")
+                    if is_chained:
+                        lines.append(f"    arg{i} = '1 2 3'  # 链式调用需要非空输入")
+                    else:
+                        lines.append(f"    arg{i} = None")
 
             lines.append("")
         else:
@@ -751,36 +766,35 @@ class EnhancedWrapper:
         if wrap_mode == "minimal":
             return lines
 
-        lines.append("# === 特殊函数安全包装 ===")
+        lines.append("    # === 特殊函数安全包装 ===")
 
         if special_info["eval_count"] > 0:
-            lines.append("def _se_safe_eval(expr):")
-            lines.append("    return eval(expr)")
+            lines.append("    def _se_safe_eval(expr):")
+            lines.append("        return eval(expr)")
             lines.append("")
 
         if special_info["exec_count"] > 0:
-            lines.append("def _se_safe_exec(code):")
-            lines.append("    return None")
+            lines.append("    def _se_safe_exec(code):")
+            lines.append("        return None")
             lines.append("")
 
         if special_info["open_count"] > 0:
-            lines.append("def _se_safe_open(filename, mode='r'):")
-            lines.append("    # 文件操作在符号执行中无法处理，返回 None")
-            lines.append("    # 如需测试文件相关代码，请提供模拟数据")
-            lines.append("    return None")
+            lines.append("    def _se_safe_open(filename, mode='r'):")
+            lines.append("        # 文件操作在符号执行中无法处理，返回 None")
+            lines.append("        # 如需测试文件相关代码，请提供模拟数据")
+            lines.append("        return None")
             lines.append("")
 
         if special_info["random_count"] > 0:
-            lines.append("def _se_safe_random():")
-            lines.append("    return 0")
+            lines.append("    def _se_safe_random():")
+            lines.append("        return 0")
             lines.append("")
 
         if special_info["time_count"] > 0:
-            lines.append("def _se_safe_time():")
-            lines.append("    return 0")
+            lines.append("    def _se_safe_time():")
+            lines.append("        return 0")
             lines.append("")
 
-        lines.append("")
         return lines
 
     def _process_output_statement(self, line: str, outputs_info: Dict[str, Any]) -> Tuple[str, bool]:

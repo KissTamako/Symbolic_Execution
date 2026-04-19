@@ -202,6 +202,136 @@ def analyze_input_calls(filename):
         return []
 
 
+def analyze_input_calls(filename):
+    """Analyze input() calls in a Python script to infer input types."""
+    try:
+        with open(filename, "r", encoding="utf-8") as file_obj:
+            content = file_obj.read()
+
+        tree = ast.parse(content, filename=filename)
+
+        for parent in ast.walk(tree):
+            for child in ast.iter_child_nodes(parent):
+                child.parent = parent
+
+        def infer_usage_type(var_name):
+            class VarUsageFinder(ast.NodeVisitor):
+                def __init__(self):
+                    self.usage_type = None
+
+                def _mark(self, usage_type):
+                    if self.usage_type is None:
+                        self.usage_type = usage_type
+
+                def visit_Call(self, node):
+                    if isinstance(node.func, ast.Name):
+                        for arg in node.args:
+                            if isinstance(arg, ast.Name) and arg.id == var_name:
+                                if node.func.id == "int":
+                                    self.usage_type = "int"
+                                    return
+                                if node.func.id == "float":
+                                    self.usage_type = "float"
+                                    return
+                                if node.func.id in {"str", "len"}:
+                                    self.usage_type = "str"
+                                    return
+                    self.generic_visit(node)
+
+                def visit_BinOp(self, node):
+                    operands = [node.left, node.right]
+                    if any(isinstance(item, ast.Name) and item.id == var_name for item in operands):
+                        if isinstance(node.op, (ast.Add, ast.Sub, ast.Mult, ast.Mod, ast.FloorDiv)):
+                            self._mark("int")
+                        elif isinstance(node.op, ast.Div):
+                            self._mark("float")
+                    self.generic_visit(node)
+
+                def visit_Attribute(self, node):
+                    if isinstance(node.value, ast.Name) and node.value.id == var_name:
+                        if node.attr in {
+                            "strip",
+                            "split",
+                            "lower",
+                            "upper",
+                            "replace",
+                            "find",
+                            "index",
+                            "startswith",
+                            "endswith",
+                        }:
+                            self._mark("str")
+                    self.generic_visit(node)
+
+                def visit_Compare(self, node):
+                    participants = [node.left] + list(node.comparators)
+                    if any(isinstance(item, ast.Name) and item.id == var_name for item in participants):
+                        if any(isinstance(item, ast.Constant) and isinstance(item.value, str) for item in participants):
+                            self._mark("str")
+                    self.generic_visit(node)
+
+            finder = VarUsageFinder()
+            finder.visit(tree)
+            return finder.usage_type or "str"
+
+        class InputCallAnalyzer(ast.NodeVisitor):
+            def __init__(self):
+                self.calls = []
+
+            def visit_Call(self, node):
+                is_se_literal_eval_pattern = (
+                    isinstance(node.func, ast.Name) and
+                    node.func.id == "_se_literal_eval" and
+                    len(node.args) == 1 and
+                    isinstance(node.args[0], ast.Call) and
+                    isinstance(node.args[0].func, ast.Name) and
+                    node.args[0].func.id == "_se_input"
+                )
+
+                if isinstance(node.func, ast.Name) and node.func.id == "input":
+                    input_type = "str"
+                    is_eval_input = False  # 标记是否是 eval(input()) 模式
+                    parent = node
+
+                    while parent:
+                        if isinstance(parent, ast.Call) and isinstance(parent.func, ast.Name):
+                            if parent.func.id == "int":
+                                input_type = "int"
+                                break
+                            if parent.func.id == "float":
+                                input_type = "float"
+                                break
+                            if parent.func.id == "str":
+                                input_type = "str"
+                                break
+                            # 检测 eval(input()) 模式
+                            if parent.func.id == "eval":
+                                is_eval_input = True
+                                input_type = "eval_input"
+                                break
+                        elif isinstance(parent, ast.Assign):
+                            for target in parent.targets:
+                                if isinstance(target, ast.Name):
+                                    input_type = infer_usage_type(target.id)
+                                    break
+                            break
+                        parent = getattr(parent, "parent", None)
+
+                    self.calls.append({"node": node, "type": input_type, "is_eval_input": is_eval_input})
+
+                elif is_se_literal_eval_pattern:
+                    # 识别 _se_literal_eval(_se_input()) 模式
+                    self.calls.append({"node": node, "type": "eval_input", "is_eval_input": True})
+
+                self.generic_visit(node)
+
+        analyzer = InputCallAnalyzer()
+        analyzer.visit(tree)
+        return analyzer.calls
+    except Exception:
+        return []
+
+
 def count_input_calls(filename):
     """Count the number of real input() call sites in a Python script."""
     try:
@@ -281,8 +411,12 @@ def run_script_mode(
             # 根据分析结果添加输入，使用推断的类型
             for index, call_info in enumerate(input_calls):
                 input_type = call_info.get("type", "int")
+                is_eval_input = call_info.get("is_eval_input", False)
                 # 根据类型设置默认值
-                if input_type == "str":
+                if input_type == "eval_input":
+                    # eval(input()) 需要一个非空字符串，这样 eval() 才能正确处理
+                    default_value = "0"
+                elif input_type == "str":
                     default_value = ""
                 elif input_type == "float":
                     default_value = 0.0

@@ -1,0 +1,429 @@
+PyExZ3 Batch Student Code Test Report v2
+======================================================================
+
+Test time: 2026-04-19 17:46:28
+Test directory: e:\Graduation_Projection\PyExZ3-master\student_code
+Wrapper: Enhanced
+Max iterations: 20
+Symbolic execution timeout: 20s
+
+Export config:
+  Enable simplify: Yes
+  Dump constraints: Yes
+  Dump trace: Yes
+  Dump semantics: Yes
+  Dump all executions: Yes
+
+======================================================================
+Statistics
+======================================================================
+Total: 132 files
+Wrap success: 132
+Wrap failed: 0
+Symbolic execution success: 69
+Symbolic execution failed: 63
+  - Timeout: 38
+Success rate: 52.3%
+Total time: 820.36s
+
+======================================================================
+Detailed results
+======================================================================
+
+[OK] 2714_success_1.py
+    Paths: 0
+
+[OK] 2714_success_2.py
+    Paths: 0
+
+[OK] 2714_success_3.py
+    Paths: 0
+
+[FAIL] 2716_success_1.py
+    Error: Unknown error
+
+[FAIL] 2716_success_2.py
+    Error: Unknown error
+
+[FAIL] 2733_success_1.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2733_success_31.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2733_success_40.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2745_success_1.py
+    Error: Symbolic execution timeout
+
+[OK] 2746_success_2.py
+    Paths: 0
+
+[OK] 2746_success_21.py
+    Paths: 0
+
+[OK] 2746_success_42.py
+    Paths: 0
+
+[OK] 2749_success_118.py
+    Paths: 0
+
+[OK] 2749_success_22.py
+    Paths: 0
+
+[OK] 2749_success_4.py
+    Paths: 0
+
+[OK] 2749_success_49.py
+    Paths: 0
+
+[OK] 2749_success_87.py
+    Paths: 0
+
+[FAIL] 2751_success_100.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2751_success_38.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2751_success_5.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2751_success_71.py
+    Error: Symbolic execution timeout
+
+[OK] 2765_success_28.py
+    Paths: 0
+
+[OK] 2765_success_3.py
+    Paths: 0
+
+[OK] 2765_success_55.py
+    Paths: 0
+
+[FAIL] 2768_success_124.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2768_success_188.py
+    Error: Symbolic execution timeout
+
+[OK] 2768_success_31.py
+    Paths: 0
+
+[OK] 2768_success_5.py
+    Paths: 0
+
+[OK] 2769_success_138.py
+    Paths: 0
+
+[OK] 2769_success_205.py
+    Paths: 0
+
+[OK] 2769_success_3.py
+    Paths: 0
+
+[OK] 2769_success_71.py
+    Paths: 0
+
+[OK] 2770_success_179.py
+    Paths: 0
+
+[OK] 2770_success_4.py
+    Paths: 0
+
+[OK] 2770_success_40.py
+    Paths: 0
+
+[OK] 2770_success_81.py
+    Paths: 0
+
+[FAIL] 2775_success_1.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2776_success_134.py
+    Error: Unknown error
+
+[FAIL] 2776_success_4.py
+    Error: Unknown error
+
+[FAIL] 2776_success_41.py
+    Error: Unknown error
+
+[OK] 2781_success_171.py
+    Paths: 0
+
+[OK] 2781_success_8.py
+    Paths: 0
+
+[OK] 2781_success_80.py
+    Paths: 0
+
+[OK] 2784_success_76.py
+    Paths: 0
+
+[FAIL] 2784_success_9.py
+    Error: Unknown error
+
+[OK] 2801_success_156.py
+    Paths: 0
+
+[OK] 2801_success_38.py
+    Paths: 0
+
+[OK] 2801_success_4.py
+    Paths: 0
+
+[OK] 2802_success_38.py
+    Paths: 0
+
+[OK] 2802_success_4.py
+    Paths: 0
+
+[OK] 2803_success_106.py
+    Paths: 0
+
+[OK] 2803_success_7.py
+    Paths: 0
+
+[OK] 2805_success_7.py
+    Paths: 0
+
+[OK] 2805_success_87.py
+    Paths: 0
+
+[OK] 2806_success_11.py
+    Paths: 0
+
+[FAIL] 2806_success_6.py
+    Error: Unknown error
+
+[OK] 2823_success_3.py
+    Paths: 0
+
+[FAIL] 2829_success_6.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2829_success_99.py
+    Error: Symbolic execution timeout
+
+[OK] 2836_success_167.py
+    Paths: 0
+
+[OK] 2836_success_6.py
+    Paths: 0
+
+[OK] 2836_success_69.py
+    Paths: 0
+
+[FAIL] 2846_success_5.py
+    Error: Unknown error
+
+[FAIL] 2846_success_60.py
+    Error: Unknown error
+
+[FAIL] 2854_success_29.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2854_success_83.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2866_success_36.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2866_success_79.py
+    Error: Symbolic execution timeout
+
+[OK] 2880_success_1.py
+    Paths: 0
+
+[OK] 2894_success_2.py
+    Paths: 0
+
+[OK] 2896_success_2.py
+    Paths: 0
+
+[OK] 2897_success_2.py
+    Paths: 0
+
+[OK] 2898_success_2.py
+    Paths: 0
+
+[FAIL] 2899_success_4.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2899_success_7.py
+    Error: Symbolic execution timeout
+
+[OK] 2900_success_2.py
+    Paths: 0
+
+[FAIL] 2901_success_2.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2902_success_2.py
+    Error: Symbolic execution timeout
+
+[OK] 2903_success_2.py
+    Paths: 0
+
+[FAIL] 2904_success_3.py
+    Error: Symbolic execution timeout
+
+[OK] 2906_success_1.py
+    Paths: 0
+
+[FAIL] 2907_success_2.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2908_success_1.py
+    Error: Symbolic execution timeout
+
+[OK] 2908_success_10.py
+    Paths: 0
+
+[FAIL] 2909_success_2.py
+    Error: Unknown error
+
+[OK] 2910_success_140.py
+    Paths: 0
+
+[OK] 2910_success_3.py
+    Paths: 0
+
+[OK] 2911_success_3.py
+    Paths: 0
+
+[OK] 2912_success_1.py
+    Paths: 0
+
+[FAIL] 2913_success_2.py
+    Error: Traceback (most recent call last):
+  File "e:\Graduation_Projection\PyExZ3-master\pyexz3.py", line 6
+
+[OK] 2915_success_14.py
+    Paths: 0
+
+[OK] 2915_success_7.py
+    Paths: 0
+
+[FAIL] 2918_success_129.py
+    Error: Unknown error
+
+[FAIL] 2918_success_3.py
+    Error: Unknown error
+
+[FAIL] 2918_success_70.py
+    Error: Unknown error
+
+[FAIL] 2931_success_4.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2939_success_73.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2939_success_9.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2940_success_33.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2940_success_4.py
+    Error: Symbolic execution timeout
+
+[OK] 2941_success_127.py
+    Paths: 0
+
+[FAIL] 2941_success_5.py
+    Error: Unknown error
+
+[FAIL] 2941_success_53.py
+    Error: Unknown error
+
+[OK] 2942_success_69.py
+    Paths: 0
+
+[OK] 2942_success_7.py
+    Paths: 0
+
+[FAIL] 2944_success_111.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2944_success_4.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2944_success_43.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2945_success_4.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2945_success_46.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2949_success_140.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2949_success_7.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2949_success_76.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2951_success_24.py
+    Error: Traceback (most recent call last):
+  File "e:\Graduation_Projection\PyExZ3-master\pyexz3.py", line 6
+
+[OK] 2951_success_3.py
+    Paths: 0
+
+[OK] 2952_success_10.py
+    Paths: 0
+
+[OK] 2952_success_75.py
+    Paths: 0
+
+[OK] 2961_success_1.py
+    Paths: 0
+
+[OK] 2968_success_7.py
+    Paths: 0
+
+[OK] 2974_success_39.py
+    Paths: 0
+
+[OK] 2974_success_8.py
+    Paths: 0
+
+[FAIL] 2980_success_1.py
+    Error: Symbolic execution timeout
+
+[FAIL] 2985_success_2.py
+    Error: Unknown error
+
+[FAIL] 2985_success_44.py
+    Error: Unknown error
+
+[OK] 2993_success_10.py
+    Paths: 0
+
+[OK] 2993_success_48.py
+    Paths: 0
+
+[FAIL] 2994_success_42.py
+    Error: Unknown error
+
+[FAIL] 2994_success_6.py
+    Error: Unknown error
+
+[FAIL] 2999_success_11.py
+    Error: Unknown error
+
+[FAIL] 2999_success_110.py
+    Error: Unknown error
+
+[FAIL] 3000_success_4.py
+    Error: Unknown error
+
+[FAIL] 3000_success_72.py
+    Error: Unknown error

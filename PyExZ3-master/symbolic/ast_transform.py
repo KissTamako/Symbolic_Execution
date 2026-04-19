@@ -4,6 +4,7 @@ import os
 
 CALL_WRAPPERS = {
     "input": "_se_input",
+    "eval": "_se_safe_eval",
     "int": "_se_int",
     "str": "_se_str",
     "float": "_se_float",

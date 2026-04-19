@@ -24,6 +24,7 @@ class StudentCodeAnalyzer(ast.NodeVisitor):
         self.global_vars = []  # 全局变量列表
         self.print_calls = []  # print() 调用列表
         self.input_calls = []  # input() 调用列表
+        self.input_chained_calls = []  # 链式调用，如 input().split()
         self.eval_calls = []  # eval() 调用列表
         self.exec_calls = []  # exec() 调用列表
         self.has_main = False  # 是否有 if __name__ == '__main__' 块
@@ -49,6 +50,7 @@ class StudentCodeAnalyzer(ast.NodeVisitor):
             "has_main": self.has_main,
             "print_calls": len(self.print_calls),
             "input_calls": len(self.input_calls),
+            "input_chained_calls": len(self.input_chained_calls),
             "eval_calls": len(self.eval_calls),
             "exec_calls": len(self.exec_calls),
             "has_return": len(self.return_statements) > 0,
@@ -68,6 +70,21 @@ class StudentCodeAnalyzer(ast.NodeVisitor):
                     self.eval_calls.append({"line": line_no})
                 elif func_name == "exec":
                     self.exec_calls.append({"line": line_no})
+            # 检查是否是链式调用，如 input().split()
+            elif isinstance(call_node.func, ast.Attribute):
+                if isinstance(call_node.func.value, ast.Call):
+                    if isinstance(call_node.func.value.func, ast.Name):
+                        if call_node.func.value.func.id == "input":
+                            # 提取 split() 的分隔符参数
+                            split_separator = None
+                            if call_node.func.attr == "split" and call_node.args:
+                                if isinstance(call_node.args[0], ast.Constant):
+                                    split_separator = call_node.args[0].value
+                            input_info = {"line": line_no, "is_chained": True, "split_separator": split_separator}
+                            self.input_calls.append(input_info)
+                            self.input_chained_calls.append(input_info)
+                # 递归检查 Attribute.value
+                self._check_call_function(call_node.func.value, line_no)
             # 递归检查参数中的函数调用
             for arg in call_node.args:
                 if isinstance(arg, ast.Call):
@@ -169,7 +186,7 @@ class StudentCodeWrapper:
         wrapped_lines = []
 
         # 添加必要的导入语句
-        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_int, _se_str, _se_float, _se_range")
+        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_safe_eval, _se_int, _se_str, _se_float, _se_range")
         wrapped_lines.append("")
 
         # 添加包装函数
@@ -199,12 +216,6 @@ class StudentCodeWrapper:
 
             # 生成包装函数
             wrapped_lines.append(f"def _se_wrapper({', '.join(args)}):")
-
-            # 初始化符号输入（如果有 input() 调用）
-            if input_count > 0:
-                init_args = [f"('arg{i}', None, 'int')" for i in range(input_count)]
-                wrapped_lines.append(f"    init_symbolic_inputs([{', '.join(init_args)}])")
-                wrapped_lines.append("")
 
             # 添加参数类型注解
             arg_decls = []
@@ -273,7 +284,7 @@ class StudentCodeWrapper:
         wrapped_lines = []
 
         # 添加必要的导入语句
-        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_int, _se_str, _se_float, _se_range")
+        wrapped_lines.append("from symbolic.runtime_helpers import init_symbolic_inputs, _se_input, _se_safe_eval, _se_int, _se_str, _se_float, _se_range")
         wrapped_lines.append("")
 
         # 保留 import 语句
@@ -297,9 +308,6 @@ class StudentCodeWrapper:
             args = [f"arg{i}" for i in range(input_count)]
             wrapped_lines.append(f"    # 自动检测到 {input_count} 个 input() 调用")
             wrapped_lines.append(f"    # 参数: {', '.join(args)}")
-            wrapped_lines.append("")
-            init_args = [f"('arg{i}', None, 'int')" for i in range(input_count)]
-            wrapped_lines.append(f"    init_symbolic_inputs([{', '.join(init_args)}])")
             wrapped_lines.append("")
         else:
             wrapped_lines.append("    pass")
